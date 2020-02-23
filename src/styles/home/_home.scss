@@ -1,0 +1,201 @@
+div.home-container {
+  padding-top: 108px;
+
+  div.front-container {
+    background-image: url("../../components/home/img/frontImg.png");
+    // background-color: #cccccc;
+    padding: 0px 40px;
+    margin: 0px 12px 0px 80px;
+    height: 80vh;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    h1.front-container__h1 {
+      font-size: 48px;
+      color: #282c3f;
+    }
+
+    p.front-container__p {
+      font-size: 16px;
+      color: #707070;
+    }
+
+    .front-container__button {
+      border: solid 1px #252eb7;
+      color: #252eb7;
+      font-weight: bolder;
+      margin-top: 40px;
+    }
+  }
+  div.opportunity-container {
+    div.content-container {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      margin-top: 40px;
+      text-align: center;
+      h1.opportunity__h1 {
+        text-align: center;
+        line-height: 56px;
+        font-size: 40px;
+        color: #282c3f;
+      }
+      p.opportunity__p {
+        font-size: 18px;
+        margin-top: 12px;
+        color: #707070;
+      }
+    }
+  }
+  div.opportunity-container-two {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: center;
+    text-align: center;
+    margin-top: 72px;
+    div.opportunity-subContainer-two {
+      width: 30%;
+      img.opportunity-subContainer-two__img {
+      }
+
+      h3.h3.opportunity-subContainer-two__h3 {
+        color: #282c3f;
+        font-size: 24px;
+      }
+
+      p.opportunity-subContainer-two__p {
+        color: #707070;
+        font-size: 14px;
+      }
+    }
+  }
+
+  div.hiw-container {
+    background: #f6f7fa;
+    margin-top: 60px;
+    div.hiw-h1-container {
+      text-align: center;
+      padding: 80px 0px 60px;
+      h1.hiw__h1 {
+        font-size: 40px;
+        color: #282c3f;
+      }
+    }
+    div.hiw-subContainer {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 100px;
+      div.hiw-subContainer-content {
+        display: flex;
+        width: 40%;
+        align-items: center;
+        margin-bottom: 40px;
+        div.hiw-subContainer-icon-container {
+          // display: flex;
+          // align-items: center;
+          margin-bottom: 120px;
+          img.hiw-subContainer__icon {
+          }
+
+          div.hiw-subContainer-text {
+            h2.hiw-subContainer__h2 {
+              font-size: 28px;
+              color: #282c3f;
+            }
+            p.hiw-subContainer__p {
+              color: #273152;
+            }
+          }
+        }
+      }
+
+      div.hiw-subContainer-img-container {
+        text-align: center;
+        width: 40%;
+        img.hiw-subContainer__img {
+          width: 340px;
+        }
+      }
+    }
+  }
+
+  div.hih-container {
+    background-image: linear-gradient(180deg, #fff, #f4f4f4 80%);
+
+    div.hih-h1-container {
+      margin: 0px 0px 40px 160px;
+
+      h1.hih__h1 {
+        font-size: 40px;
+        color: #282c3f;
+      }
+    }
+
+    div.hih-content-container {
+      display: flex;
+      justify-content: space-between;
+      margin: 0px 160px;
+
+      div.hih-content-subContainer {
+        border-left: 1px dashed rgb(211, 211, 211);
+        padding-left: 20px;
+        h2.hih-content-subContainer__h2 {
+          font-size: 32px;
+          color: #282c3f;
+        }
+
+        h3.hih-content-subContainer__h3 {
+          font-size: 24px;
+          color: #282c3f;
+        }
+
+        p.hih-content-subContainer__p {
+          font-size: 15px;
+          color: #707070;
+        }
+
+        img.hih-content-subContainer__img {
+          margin-top: 50px;
+        }
+      }
+    }
+  }
+
+  div.download-app-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 40px;
+    div.download-app-content {
+      // background-image: url("../../components/home/img/downloadWave.svg");
+      // padding: 0px 40px;
+      // margin: 0px 12px 0px 80px;
+      // height: 80vh;
+      // background-position: bottom;
+      // background-repeat: no-repeat;
+      // background-size: cover;
+      // position: relative;
+      div.download-app-text {
+        h1.download-app__h1 {
+        }
+
+        p.download-app__p {
+        }
+      }
+
+      div.download-app-icon {
+        img.download-app__icon {
+          width: 160px;
+          margin-right: 20px;
+        }
+      }
+    }
+
+    div.download-app-img {
+      img.download-app__img {
+      }
+    }
+  }
+}

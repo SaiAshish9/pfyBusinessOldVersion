@@ -1,0 +1,24 @@
+div.headerNav {
+  display: flex;
+  top: 0px;
+  justify-content: space-evenly;
+  height: 66px;
+  align-items: center;
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0px 2px 16px -6px black;
+  div.logo-container {
+    cursor: pointer;
+    .logoIcon {
+    }
+  }
+  div.link-container {
+    .myLink {
+      text-decoration: none;
+      padding: 0px 20px;
+    }
+  }
+  
+}
