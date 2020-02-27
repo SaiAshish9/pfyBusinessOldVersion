@@ -1,0 +1,80 @@
+.internship-container {
+  padding: 100px 0px;
+  background-color: #f9fbfd;
+  .step-container {
+    padding: 20px 80px;
+  }
+  .internship-form-container {
+    background-color: #fff;
+    margin: 20px 320px;
+    padding: 30px 50px;
+    .radio-button-container1 {
+      display: flex;
+      .radio-button-subContainer1 {
+        display: flex;
+        flex-direction: column;
+      }
+      .radio-button-subContainer2 {
+        display: flex;
+        flex-direction: column;
+        margin-left: 80px;
+      }
+    }
+    .profile-input-container {
+      margin: 20px 0px 30px 0px;
+    }
+    .typeOfInternship-container {
+      margin-bottom: 30px;
+    }
+    .internshipLocation-container {
+      align-items: center;
+      h3 {
+        margin: 0px 8px;
+      }
+      input {
+        margin-left: 20px;
+        flex: 1;
+      }
+    }
+
+    div.opening-duration-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+
+      div.number-of-opening-container {
+        h2.opening-container__h2 {
+        }
+
+        .opening-container__input {
+        }
+      }
+
+      div.internship-duration-container {
+        h2.internship-duration__h2 {
+        }
+
+        div.internship-duration-input-container {
+          display: flex;
+          .internship-duration__input1 {
+          }
+
+          .internship-duration__input2 {
+          }
+        }
+      }
+    }
+
+    .submit-button-container {
+      display: flex;
+      justify-content: flex-end;
+      .submit-button {
+        color: white;
+        background-color: #ec3f78;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+        border-color: #ec3f78;
+        margin-top: 30px;
+      }
+    }
+  }
+}

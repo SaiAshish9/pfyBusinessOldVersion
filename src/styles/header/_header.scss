@@ -1,24 +1,68 @@
 div.headerNav {
   display: flex;
   top: 0px;
-  justify-content: space-evenly;
-  height: 66px;
+  justify-content: space-between;
+  height: 80px;
   align-items: center;
   z-index: 100;
   position: fixed;
   width: 100%;
-  background-color: white;
-  box-shadow: 0px 2px 16px -6px black;
+  background-color: #fff;
+  padding: 12px 55px;
+  transition: all 0.6 ease-in;
+  font-family: avenir, sans-serif;
+
   div.logo-container {
     cursor: pointer;
     .logoIcon {
+      width: 178px;
     }
   }
   div.link-container {
-    .myLink {
+    display: flex;
+    align-items: center;
+    .myLink1 {
       text-decoration: none;
-      padding: 0px 20px;
+      padding: 10px 10px;
+      margin-right: 40px;
+      color: #273152;
+      font-size: 20px;
+
+      &:hover {
+        color: #1890ff;
+        cursor: pointer;
+      }
+    }
+    .myLink2 {
+      text-decoration: none;
+      padding: 10px 10px;
+      margin-right: 40px;
+      color: #273152;
+      font-size: 20px;
+      &:hover {
+        color: #1890ff;
+        cursor: pointer;
+      }
+    }
+    .myLink3 {
+      text-decoration: none;
+      padding: 10px 10px;
+      margin-right: 40px;
+      color: #273152;
+      font-size: 20px;
+      &:hover {
+        color: #1890ff;
+        cursor: pointer;
+      }
+    }
+    .header__button1 {
+      font-size: 1.25em;
+      padding: 0px 30px;
+      height: 40px;
+      border: solid 1px #252eb7;
+      background-color: #252eb7;
+      color: #fff;
+      margin-left: 12px;
     }
   }
-  
 }
