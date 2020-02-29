@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Button } from "antd";
 import { Scroll } from "react-fns";
 import { Link } from "react-scroll";
+import { Link as RouteLink } from "react-router-dom";
 
 import { useHistory } from "react-router-dom";
 import pracifyLogo from "./logo.png";
+import Internship from "../internship/internship";
 
 const Header = () => {
   const history = useHistory();
@@ -58,6 +60,9 @@ const Header = () => {
               >
                 Our Services
               </Link>
+              {/*RouteLink to="/internship" className="myLink4">
+                Internship
+          </RouteLink>*/}
               <Button className="header__button1">Login</Button>
             </div>
           </div>

@@ -10,10 +10,11 @@ import DownloadApp from "./downloadApp";
 import Footer from "./footer";
 import { HeaderStyled } from "./homeStyled";
 import logo from "./images/logo.png";
+import "../../../node_modules/aos/dist/aos.css";
 
 const LandingPage = () => {
   return (
-    <>
+    <div style={{ overflowX: "hidden" }}>
       <FrontBlock />
 
       <Element name="howItWork">
@@ -28,7 +29,7 @@ const LandingPage = () => {
         <WorkWeExecute />
       </Element>
       <Footer />
-    </>
+    </div>
   );
 };
 

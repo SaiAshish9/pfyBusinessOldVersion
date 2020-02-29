@@ -24,7 +24,7 @@ div.headerNav {
     .myLink1 {
       text-decoration: none;
       padding: 10px 10px;
-      margin-right: 40px;
+      // margin-right: 40px;
       color: #273152;
       font-size: 20px;
 
@@ -36,7 +36,7 @@ div.headerNav {
     .myLink2 {
       text-decoration: none;
       padding: 10px 10px;
-      margin-right: 40px;
+      // margin-right: 40px;
       color: #273152;
       font-size: 20px;
       &:hover {
@@ -47,7 +47,18 @@ div.headerNav {
     .myLink3 {
       text-decoration: none;
       padding: 10px 10px;
-      margin-right: 40px;
+      // margin-right: 40px;
+      color: #273152;
+      font-size: 20px;
+      &:hover {
+        color: #1890ff;
+        cursor: pointer;
+      }
+    }
+    .myLink4 {
+      text-decoration: none;
+      padding: 10px 10px;
+      // margin-right: 40px;
       color: #273152;
       font-size: 20px;
       &:hover {
