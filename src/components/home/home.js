@@ -1,16 +1,12 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useRef, forwardRef, useState, useEffect } from "react";
+import "aos/dist/aos.css";
+import React from "react";
 import { Element } from "react-scroll";
-
+import Footer from "./footer";
 import FrontBlock from "./frontBlock";
 import StepIncluded from "./stepIncluded";
 import WhyItWork from "./whyItWork";
 import WorkWeExecute from "./workWeExecute";
-import DownloadApp from "./downloadApp";
-import Footer from "./footer";
-import { HeaderStyled } from "./homeStyled";
-import logo from "./images/logo.png";
-import "../../../node_modules/aos/dist/aos.css";
 
 const LandingPage = () => {
   return (

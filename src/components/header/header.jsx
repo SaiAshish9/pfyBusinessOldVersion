@@ -1,74 +1,71 @@
-import React, { useState, useEffect } from "react";
-import { Button } from "antd";
+import React, { useState } from "react";
 import { Scroll } from "react-fns";
-import { Link } from "react-scroll";
-import { Link as RouteLink } from "react-router-dom";
-
 import { useHistory } from "react-router-dom";
+// import DesktopNav from "./desktopNav";
+import HeaderNavLink from "./headerNavLink";
 import pracifyLogo from "./logo.png";
-import Internship from "../internship/internship";
+import MobileNavIcon from "./mobileNavIcon";
 
 const Header = () => {
   const history = useHistory();
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
   const handleLogo = () => {
     history.push("/");
   };
 
+  const handleNavIconClick = () => {
+    setIsNavOpen(!isNavOpen);
+  };
+
+  const handleWrapper = () => {
+    setIsNavOpen(!isNavOpen);
+  };
+
+  console.log(isNavOpen);
+
+  const myMobileNav = {
+    transition: "transform 1s ease-in-out",
+    transform: isNavOpen ? "translate(0%,0px)" : "translate(100%,0px)"
+  };
+
   return (
-    <Scroll
-      render={({ x, y }) => {
-        console.log(y);
-        return (
-          <div
-            className="headerNav"
-            style={{
-              transition: "all 0.6s ease 0s",
-              boxShadow: y > 20 ? "0px 2px 16px -6px black" : "none"
-            }}
-          >
-            <div className="logo-container" onClick={handleLogo}>
-              <img src={pracifyLogo} alt="" className="logoIcon" />
+    <div>
+      <Scroll
+        render={({ x, y }) => {
+          console.log(y);
+          return (
+            <div className="main-nav">
+              <div
+                className="headerNav"
+                style={{
+                  transition: "all 0.6s ease 0s",
+                  boxShadow: y > 20 ? "0px 2px 16px -6px black" : "none"
+                }}
+              >
+                <div className="logo-container" onClick={handleLogo}>
+                  <img src={pracifyLogo} alt="" className="logoIcon" />
+                </div>
+
+                <div className="link-container">
+                  <HeaderNavLink></HeaderNavLink>
+                </div>
+
+                <div onClick={handleNavIconClick} className="mobile-nav-menu">
+                  <MobileNavIcon />
+                </div>
+              </div>
+              <div className="mobile-nav" style={myMobileNav}>
+                <div className="mobile-nav-link">
+                  <HeaderNavLink></HeaderNavLink>
+                </div>
+              </div>
             </div>
-            <div className="link-container">
-              <Link
-                activeClass="active"
-                to="howItWork"
-                smooth={true}
-                duration={500}
-                offset={-60}
-                className="myLink1"
-              >
-                How it Works
-              </Link>
-              <Link
-                activeClass="active"
-                to="whyPracify"
-                smooth={true}
-                duration={500}
-                offset={-60}
-                className="myLink2"
-              >
-                Why Pracify
-              </Link>
-              <Link
-                activeClass="active"
-                to="ourService"
-                smooth={true}
-                duration={500}
-                offset={-100}
-                className="myLink3"
-              >
-                Our Services
-              </Link>
-              {/*RouteLink to="/internship" className="myLink4">
-                Internship
-          </RouteLink>*/}
-              <Button className="header__button1">Login</Button>
-            </div>
-          </div>
-        );
-      }}
-    />
+          );
+        }}
+      />
+      {isNavOpen && <div className="wrapper" onClick={handleWrapper}></div>}
+    </div>
   );
 };
 

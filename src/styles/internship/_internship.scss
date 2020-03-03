@@ -43,14 +43,18 @@
       margin-top: 30px;
 
       div.number-of-opening-container {
+        flex: 1;
         h2.opening-container__h2 {
         }
 
         .opening-container__input {
+          width: 80%;
         }
       }
 
       div.internship-duration-container {
+        flex: 1;
+
         h2.internship-duration__h2 {
         }
 
@@ -65,6 +69,25 @@
       }
     }
 
+    div.start-last-container {
+      margin-top: 30px;
+      display: flex;
+      div.number-of-opening-container {
+        flex: 1;
+        h2.opening-container__h2 {
+        }
+      }
+
+      div.internship-duration-container {
+        flex: 1;
+        h2.internship-duration__h2 {
+        }
+
+        div.internship-duration-input-container {
+        }
+      }
+    }
+
     .submit-button-container {
       display: flex;
       justify-content: flex-end;
@@ -74,6 +97,87 @@
         box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
         border-color: #ec3f78;
         margin-top: 30px;
+      }
+    }
+  }
+
+  div.interview-ques-container {
+    div.interview-ques-header-container {
+      display: flex;
+      align-items: baseline;
+      h2.interview-ques__h2 {
+      }
+
+      span.interview-ques__span {
+        margin-left: 40px;
+        color: #ec3f78;
+        font-weight: 500;
+      }
+    }
+
+    .interview-ques__input {
+      margin-bottom: 20px;
+    }
+
+    div.interview-ques-input-container {
+      .interview-ques__input {
+        margin-bottom: 20px;
+      }
+
+      icon.interview-ques__icon {
+      }
+    }
+
+    span.interview-add-question {
+      color: #ec3f78;
+      font-weight: 500;
+    }
+
+    div.submit-button-container {
+      .submit-button {
+      }
+    }
+  }
+
+  div.responsibility-container {
+    div.intern-res-container {
+      margin-bottom: 24px;
+      h2.intern-res__h2 {
+      }
+      .intern-res-input-container {
+        .intern-res__input {
+        }
+        .interview-ques__icon {
+        }
+      }
+
+      span.add-responsibility {
+        color: #ec3f78;
+        font-weight: 500;
+      }
+    }
+
+    div.intern-skill-container {
+      margin-bottom: 24px;
+      h2.intern-skill__h2 {
+      }
+
+      .intern-skill__select {
+      }
+    }
+
+    div.intern-requirement-container {
+      h2.intern-requirement__h2 {
+      }
+
+      .intern-requirement-input-container {
+        .intern-requirement__input {
+        }
+      }
+
+      span.intern-requirement__span {
+        color: #ec3f78;
+        font-weight: 500;
       }
     }
   }

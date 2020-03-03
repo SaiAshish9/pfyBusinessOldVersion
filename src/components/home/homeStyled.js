@@ -56,7 +56,6 @@ const FrontBlockStyled = styled.div`
 
     .content-background {
       /* --------------------------- position: relative; -------------------------- */
-
       display: flex;
       align-items: center;
       width: 80%;
@@ -135,6 +134,21 @@ const FrontBlockStyled = styled.div`
           line-height: 24px;
         }
       }
+      @media screen and (max-width: 1200px) and (min-width: 800px) {
+        .content-data {
+          width: 60%;
+          margin-left: 60px;
+          .data-heading-one {
+            font-size: 32px;
+          }
+          .data-heading-two {
+            font-size: 28px;
+          }
+          .data-para {
+            font-size: 14px;
+          }
+        }
+      }
     }
 
     .pink-image {
@@ -191,11 +205,14 @@ const FrontBlockStyled = styled.div`
       }
     }
   }
+
   //#endregion
 
   //* -------------------------- at 800px front-block -------------------------- */
   //#region
   @media screen and (max-width: 800px) {
+    margin: 50px 0px 80px 0px;
+
     .content-with-image {
       flex-direction: column-reverse;
 
@@ -205,6 +222,12 @@ const FrontBlockStyled = styled.div`
         border-radius: initial;
         background-image: linear-gradient(#ffeeef, #fff);
 
+        .one {
+          z-index: -1;
+        }
+        .two {
+          z-index: -1;
+        }
         .content-data {
           padding: 36px;
           width: 92%;
@@ -1439,6 +1462,9 @@ const FooterStyled = styled.div`
     // display: flex;
     align-items: center;
     border-bottom: 1px solid #cecdcd;
+    .footer-block__logo {
+      height: 100px;
+    }
     .footer-heading {
       font-size: 28px;
       line-height: 1.17;
@@ -1491,14 +1517,33 @@ const FooterStyled = styled.div`
   @media screen and (max-width: 800px) {
     .footer-block {
       flex-direction: column;
+      margin: 40px 0px 0px 0px;
+      .footer-block__logo {
+        height: 50px;
+      }
       .contactUs-block {
-        text-align: initial;
+        /* text-align: initial; */
         .my-icon-one {
           margin-left: 20px;
         }
         .contactUs-link {
-          text-align: initial;
-          margin-left: 20px;
+          /* text-align: initial;
+          margin-left: 20px; */
+        }
+      }
+    }
+    div.social-link-container {
+      margin: 8px 16px;
+      p.copyright__para {
+        flex: 1;
+      }
+      div.social-link-text-container {
+        display: flex;
+        flex-direction: column;
+        flex: 1.5;
+        text-align: end;
+        .social__link {
+          border: none;
         }
       }
     }

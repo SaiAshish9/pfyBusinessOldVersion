@@ -1,8 +1,9 @@
-import React, { useEffect, useReducer } from "react";
+import React from "react";
 
 import { Router, Route, Switch } from "react-router-dom";
-import { createBrowserHistory } from "history";
 
+
+import { createBrowserHistory } from "history";
 import Header from "../components/header/header";
 import LandingPage from "../components/home/home";
 import Gig from "../components/gig/gig";
@@ -11,9 +12,6 @@ import PageNotFound from "../components/error/pageNotFound";
 
 const history = createBrowserHistory();
 
-const howItWorkScroll = "1";
-const whyPracifyScroll = "2";
-const ourService = "3";
 export default function AppRouter() {
   return (
     <Router history={history}>

@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <FooterStyled>
       <div className="footer-block">
-        <img height={"100rem"} src={logo} />
+        <img className="footer-block__logo" src={logo} />
         <div>
           <p className="footer-para">
             A-117, GD-ITL Northex Tower, <br /> Netaji Subhash Place, Pitampura,{" "}

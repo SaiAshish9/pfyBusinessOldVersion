@@ -1,79 +1,155 @@
-div.headerNav {
+.main-nav {
   display: flex;
-  top: 0px;
-  justify-content: space-between;
-  height: 80px;
-  align-items: center;
-  z-index: 100;
-  position: fixed;
-  width: 100%;
-  background-color: #fff;
-  padding: 12px 55px;
-  transition: all 0.6 ease-in;
-  font-family: avenir, sans-serif;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  div.headerNav {
+    display: flex;
+    top: 0px;
+    justify-content: space-between;
+    height: 80px;
+    align-items: center;
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
+    padding: 12px 55px;
+    transition: all 0.6 ease-in;
+    font-family: avenir, sans-serif;
 
-  div.logo-container {
-    cursor: pointer;
-    .logoIcon {
-      width: 178px;
+    div.logo-container {
+      cursor: pointer;
+      .logoIcon {
+        width: 178px;
+      }
+    }
+    div.link-container {
+      display: flex;
+      align-items: center;
+      .myLink1 {
+        text-decoration: none;
+        padding: 10px 10px;
+        color: #273152;
+        font-size: 20px;
+
+        &:hover {
+          color: #1890ff;
+          cursor: pointer;
+        }
+      }
+      .myLink2 {
+        text-decoration: none;
+        padding: 10px 10px;
+        // margin-right: 40px;
+        color: #273152;
+        font-size: 20px;
+        &:hover {
+          color: #1890ff;
+          cursor: pointer;
+        }
+      }
+      .myLink3 {
+        text-decoration: none;
+        padding: 10px 10px;
+        // margin-right: 40px;
+        color: #273152;
+        font-size: 20px;
+        &:hover {
+          color: #1890ff;
+          cursor: pointer;
+        }
+      }
+      .myLink4 {
+        text-decoration: none;
+        padding: 10px 10px;
+        // margin-right: 40px;
+        color: #273152;
+        font-size: 20px;
+        &:hover {
+          color: #1890ff;
+          cursor: pointer;
+        }
+      }
+      .header__button1 {
+        font-size: 1.25em;
+        padding: 0px 30px;
+        height: 40px;
+        border: solid 1px #252eb7;
+        background-color: #252eb7;
+        color: #fff;
+        margin-left: 12px;
+      }
+    }
+
+    // .desktop-nav-menu {
+    //   display: block;
+    // }
+    .mobile-nav-menu {
+      display: none;
+    }
+    // @media screen and (max-width: 840px) {
+    // }
+  }
+  @media screen and (max-width: 840px) {
+    div.headerNav {
+      padding: 0px 12px;
+      height: 50px;
+
+      div.link-container {
+        display: none;
+      }
+
+      div.logo-container {
+        .logoIcon {
+          width: 120px;
+        }
+      }
+
+      .mobile-nav-menu {
+        display: block;
+      }
+    }
+    .mobile-nav {
+      display: block;
     }
   }
-  div.link-container {
-    display: flex;
-    align-items: center;
-    .myLink1 {
-      text-decoration: none;
-      padding: 10px 10px;
-      // margin-right: 40px;
-      color: #273152;
-      font-size: 20px;
+}
 
-      &:hover {
-        color: #1890ff;
-        cursor: pointer;
-      }
+.mobile-nav {
+  display: none;
+  height: 100vh;
+  width: 320px;
+  border: 1px solid;
+  position: fixed;
+  z-index: 50;
+  align-self: flex-end;
+  background-color: rgba($color: #fff, $alpha: 0.9);
+  .mobile-nav-link {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    .myLink1 {
+      margin-bottom: 12px;
     }
     .myLink2 {
-      text-decoration: none;
-      padding: 10px 10px;
-      // margin-right: 40px;
-      color: #273152;
-      font-size: 20px;
-      &:hover {
-        color: #1890ff;
-        cursor: pointer;
-      }
+      margin-bottom: 12px;
     }
     .myLink3 {
-      text-decoration: none;
-      padding: 10px 10px;
-      // margin-right: 40px;
-      color: #273152;
-      font-size: 20px;
-      &:hover {
-        color: #1890ff;
-        cursor: pointer;
-      }
+      margin-bottom: 12px;
     }
     .myLink4 {
-      text-decoration: none;
-      padding: 10px 10px;
-      // margin-right: 40px;
-      color: #273152;
-      font-size: 20px;
-      &:hover {
-        color: #1890ff;
-        cursor: pointer;
-      }
+      margin-bottom: 12px;
     }
-    .header__button1 {
-      font-size: 1.25em;
-      padding: 0px 30px;
-      height: 40px;
-      border: solid 1px #252eb7;
-      background-color: #252eb7;
-      color: #fff;
-      margin-left: 12px;
-    }
+  }
+}
+
+.wrapper {
+  display: none;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index: 25;
+  background-color: rgba(211, 211, 211, 0.6);
+  @media screen and (max-width: 840px) {
+    display: block;
   }
 }
