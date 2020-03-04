@@ -1,0 +1,128 @@
+/* import  "../../font/AvenirLTStd-Medium.otf"; */
+
+.random {
+  background-color: #f9fbfd;
+}
+
+.cardItems {
+  margin: 10rem 5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.heading1{
+  font-size: 2em;
+  color: #333743;
+}
+
+.subHeading{
+  color: #78869a;
+  font-size: 1.5em;
+}
+
+.box {
+  width: 280px;
+  height: 358px;
+  border-radius: 16px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ffffff;
+  text-align: center;
+  border-bottom: 5px solid #ec3f78;
+  padding: 15px;
+}
+
+.text1 {
+  padding-top: 1rem;
+  color: #282c3f;
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.text2 {
+  color: #9eabc0;
+}
+
+.bottomText{
+  color: #333743;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+/* .checkbox-round {
+  width: 1.3em;
+  height: 1.3em;
+  background-color: white;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid #ddd;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.checkbox-round:checked {
+  background-color: gray;
+} */
+
+.round {
+  position: relative;
+}
+
+.round label {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 28px;
+  right: 0;
+  position: absolute;
+  top: 0;
+  width: 28px;
+}
+
+.round label:after {
+  border: 2px solid #fff;
+  border-top: none;
+  border-right: none;
+  content: "";
+  height: 6px;
+  left: 7px;
+  opacity: 1;
+  position: absolute;
+  top: 8px;
+  transform: rotate(-45deg);
+  width: 12px;
+}
+
+.round input[type="checkbox"] {
+  visibility: hidden;
+}
+
+.round input[type="checkbox"]:checked + label {
+  background-color: #66bb6a;
+  border-color: #66bb6a;
+}
+
+.round input[type="checkbox"]:checked + label:after {
+  opacity: 1;
+}
+
+/* .round input[type="checkbox"] + label {
+  opacity: 1;
+} */
+
+.round input[type="checkbox"] + label {
+  background: #ccc;
+  opacity: 1;
+}
+
+.button {
+  background-color: #ec3f78;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 12px;
+}
+
+.ant-modal-header{
+  border-bottom: unset;
+}
