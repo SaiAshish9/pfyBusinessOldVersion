@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+/* import  "../../font/AvenirLTStd-Medium.otf"; */
+
+>>>>>>> 64e229902adc0792addd8a277640626ee481040f
 .random {
   background-color: #f9fbfd;
 }
@@ -123,6 +128,7 @@
 
 .ant-modal-header{
   border-bottom: unset;
+<<<<<<< HEAD
 }
 
 .ant-modal-footer{
@@ -132,4 +138,6 @@
 
 .ant-modal-footer .ant-btn-primary{
   background-color: #ec3f78;
+=======
+>>>>>>> 64e229902adc0792addd8a277640626ee481040f
 }

@@ -72,7 +72,6 @@ const Marketing = (props) => {
             visible={visible}
             onOk={handleOk}
             onCancel={handleCancel}
-            footer={[]}
             >
                 <SuccessCheck/>
                 <p>Submitted our team will contact you soon.</p>

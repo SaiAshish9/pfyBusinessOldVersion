@@ -1,7 +1,4 @@
-/**
- * Extracted from: SweetAlert
- * Modified by: Istiak Tridip
- */
+/* 
  .success-checkmark {
     width: 80px;
     height: 115px;
@@ -13,11 +10,7 @@
         position: relative;
         border-radius: 50%;
         box-sizing: content-box;
-<<<<<<< HEAD
-        border: 4px solid darkgreen;
-=======
         border: 4px solid darkblue;
->>>>>>> 64e229902adc0792addd8a277640626ee481040f
         
         &::before {
             top: 3px;
@@ -158,4 +151,4 @@
         right: 8px;
         top: 38px;
     }
-}
+} */

@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-// import './marketingStyle.css';
+
 
 export function card(props) {
     let img;

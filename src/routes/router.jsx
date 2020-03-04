@@ -9,6 +9,7 @@ import LandingPage from "../components/home/home";
 import Gig from "../components/gig/gig";
 import Internship from "../components/internship/internship";
 import PageNotFound from "../components/error/pageNotFound";
+import Marketing from '../components/marketing/marketing';
 
 const history = createBrowserHistory();
 
@@ -20,6 +21,7 @@ export default function AppRouter() {
         <Route path="/" component={LandingPage} exact={true}></Route>
         <Route path="/internship" component={Internship} exact={true} />
         <Route path="/gig" component={Gig} exact={true} />
+        <Route path="/marketing" component={Marketing} exact={true} />
         <Route component={PageNotFound} />
       </Switch>
     </Router>
