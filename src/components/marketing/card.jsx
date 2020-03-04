@@ -1,4 +1,5 @@
 import React, {Fragment} from 'react';
+import style from "../marketing/marketingStyle.module.css"
 
 
 export function card(props) {
@@ -12,7 +13,7 @@ export function card(props) {
         img =  <img style={{paddingTop: "50px", height: "150px", width: "100px"}} src={props.image} alt="First Image"/>
     }
     return (
-        <div className="box">
+        <div className={style.box}>
                 <div class="round">
                 <input value={props.value} onChange={props.cardHandler} type="checkbox" id={"checkbox" + props.heading} />
                 <label for={"checkbox" + props.heading}></label>
