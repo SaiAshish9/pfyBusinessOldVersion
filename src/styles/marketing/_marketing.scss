@@ -1,25 +1,22 @@
-.random {
-    background-color: #f9fbfd;
-  }
-  
-  .cardItems {
+ 
+  .marketing-cardItems {
     margin: 10rem 5rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
   }
   
-  .heading1{
+  .marketing-heading1{
     font-size: 2em;
     color: #333743;
   }
   
-  .subHeading{
+  .marketing-subHeading{
     color: #78869a;
     font-size: 1.5em;
   }
   
-  .box {
+  .marketing-card-box {
     width: 280px;
     height: 358px;
     border-radius: 16px;
@@ -31,18 +28,18 @@
     margin-bottom: 2rem;
   }
   
-  .text1 {
+  .marketing-card-text1 {
     padding-top: 1rem;
     color: #282c3f;
     font-size: 1.5rem;
     margin-bottom: 0.75rem;
   }
   
-  .text2 {
+  .marketing-card-text2 {
     color: #9eabc0;
   }
   
-  .bottomText{
+  .marketing-card-bottomText{
     color: #333743;
     font-size: 1.5rem;
     font-weight: 500;
@@ -64,11 +61,11 @@
     background-color: gray;
   } */
   
-  .round {
+  .marketing-card-round {
     position: relative;
   }
   
-  .round label {
+  .marketing-card-round label {
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 50%;
@@ -80,7 +77,7 @@
     width: 28px;
   }
   
-  .round label:after {
+  .marketing-card-round label:after {
     border: 2px solid #fff;
     border-top: none;
     border-right: none;
@@ -94,16 +91,16 @@
     width: 12px;
   }
   
-  .round input[type="checkbox"] {
+  .marketing-card-round input[type="checkbox"] {
     visibility: hidden;
   }
   
-  .round input[type="checkbox"]:checked + label {
+  .marketing-card-round input[type="checkbox"]:checked + label {
     background-color: #66bb6a;
     border-color: #66bb6a;
   }
   
-  .round input[type="checkbox"]:checked + label:after {
+  .marketing-card-round input[type="checkbox"]:checked + label:after {
     opacity: 1;
   }
   
@@ -111,27 +108,43 @@
     opacity: 1;
   } */
   
-  .round input[type="checkbox"] + label {
+  .marketing-card-round input[type="checkbox"] + label {
     background: #ccc;
     opacity: 1;
   }
   
-  .button {
+  .marketing-button {
     background-color: #ec3f78;
     color: white;
     padding: 5px 15px;
     border-radius: 12px;
   }
   
-  .ant-modal-header{
+  .help .ant-modal-header{
     border-bottom: unset;
   }
   
-  .ant-modal-footer{
+  
+  .help .ant-modal-footer .ant-btn-primary{
+    background-color: #ec3f78;
+  }
+
+  .internship-booster, .help .ant-modal-footer {
     border-top: unset;
     text-align: center;
+
   }
-  
-  .ant-modal-footer .ant-btn-primary{
+
+   .ant-modal-footer .ant-btn-primary{
     background-color: #ec3f78;
+  }
+
+  .internship-booster .ant-modal-footer {
+    border-top: unset;
+    text-align: center;
+
+  }
+
+  .internship-booster .ant-modal-header{
+    border-bottom: unset;
   }
