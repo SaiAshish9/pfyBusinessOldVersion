@@ -1,1 +1,21 @@
-.report-applicant .
+.ant-modal.report-applicant {
+
+    .ant-modal-header .ant-modal-title{
+        font-size: 1.2rem;
+    }
+    .ant-modal-body{
+            .ant-checkbox-inner{
+                border-radius: 50%;
+            }
+    }
+    .ant-modal-footer{
+        text-align: center;
+        border-top: unset;
+        .ant-btn-primary{
+            padding: 0 30px;
+            border-radius: 25px;
+        }
+    }
+} 
+
+
