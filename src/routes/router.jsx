@@ -14,7 +14,7 @@ import BoostYourInternship from '../components/newComp/boostYourInternship/boost
 import Help from '../components/newComp/help/help';
 import ReportApplicant from '../components/newComp/reportApplicant/reportApplicant';
 import InternshipStatus from '../components/newComp/internshipStatus/internshipStatus';
-import { Input } from "antd";
+import ShareInternship from '../components/newComp/shareInternship/shareInternship'
 
 const history = createBrowserHistory();
 
@@ -27,7 +27,7 @@ export default function AppRouter() {
         <Route path="/internship" component={Internship} exact={true} />
         <Route path="/gig" component={Gig} exact={true} />
         <Route path="/marketing" component={Marketing} exact={true} />
-        <Route path="/testing" component={InternshipStatus} exact={true} />
+        <Route path="/testing" component={ShareInternship} exact={true} />
         <Route component={PageNotFound} />
       </Switch>
     </Router>
