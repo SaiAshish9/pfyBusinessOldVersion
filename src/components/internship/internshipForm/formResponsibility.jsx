@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Input, Select, Icon } from "antd";
+import { Input, Select, Icon, Button } from "antd";
 
 const { Option } = Select;
-export default function FormResponsibility() {
+export default function FormResponsibility({ handleContinue }) {
   const [addResponsibility, setAddResponsibility] = useState([]);
   const [addRequirement, setAddRequirement] = useState([]);
 
@@ -114,6 +114,16 @@ export default function FormResponsibility() {
         >
           +Add Requirements
         </span>
+      </div>
+
+      <div className="submit-button-container">
+        <Button
+          htmlType="submit"
+          className="submit-button"
+          onClick={() => handleContinue(2)}
+        >
+          CONTINUE
+        </Button>
       </div>
     </div>
   );

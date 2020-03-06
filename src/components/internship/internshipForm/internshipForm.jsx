@@ -11,13 +11,17 @@ import QAIcon from "./img/QAIcon.svg";
 
 const { Step } = Steps;
 
-export default function Internship() {
+export default function InternshipForm() {
   const [currentStep, setCurrentState] = useState(0);
 
   const handleStep = current => {
-    console.log("step ", current);
     setCurrentState(current);
   };
+  
+  const handleContinue = step => {
+    setCurrentState(step);
+  };
+  const handleSubmit = () => {};
 
   return (
     <div className="internship-container">
@@ -46,9 +50,19 @@ export default function Internship() {
         </Steps>
       </div>
       <div className="internship-form-container">
-        {currentStep === 0 && <FormInternshipDetail></FormInternshipDetail>}
-        {currentStep === 1 && <FormResponsibility></FormResponsibility>}
-        {currentStep === 2 && <FormStipend></FormStipend>}
+        {currentStep === 0 && (
+          <FormInternshipDetail
+            handleContinue={handleContinue}
+          ></FormInternshipDetail>
+        )}
+        {currentStep === 1 && (
+          <FormResponsibility
+            handleContinue={handleContinue}
+          ></FormResponsibility>
+        )}
+        {currentStep === 2 && (
+          <FormStipend handleContinue={handleContinue}></FormStipend>
+        )}
         {currentStep === 3 && <FormInterviewQuestion></FormInterviewQuestion>}
       </div>
     </div>

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Input, Button, Icon } from "antd";
-
-
+import { useForm, Controller } from "react-hook-form";
 
 export default function FormInterviewQuestion() {
   const [addInput, setAddInput] = useState([]);
+  const { control, handleSubmit, watch } = useForm();
 
   const handleAddInput = () => {
     setAddInput([...addInput, ""]);
@@ -12,7 +12,7 @@ export default function FormInterviewQuestion() {
 
   const handleDeleteInput = index => {
     const question = [...addInput];
-    question.splice(index,1);
+    question.splice(index, 1);
     setAddInput(question);
   };
 
@@ -22,6 +22,8 @@ export default function FormInterviewQuestion() {
     questions[index] = e.target.value;
     setAddInput(questions);
   };
+
+  // const onSubmit = data => console.log(data);
 
   //!------------------------- testing -------------------------
 
@@ -59,7 +61,9 @@ export default function FormInterviewQuestion() {
         +Add Question
       </span>
       <div className="submit-button-container">
-        <Button className="submit-button">CONTINUE</Button>
+        <Button htmlType="submit" className="submit-button">
+          SUBMIT
+        </Button>
       </div>
     </div>
   );
