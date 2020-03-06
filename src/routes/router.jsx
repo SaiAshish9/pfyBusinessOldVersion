@@ -27,7 +27,7 @@ export default function AppRouter() {
         <Route path="/internship" component={Internship} exact={true} />
         <Route path="/gig" component={Gig} exact={true} />
         <Route path="/marketing" component={Marketing} exact={true} />
-        <Route path="/testing" component={ShareInternship} exact={true} />
+        <Route path="/testing" component={InternshipStatus} exact={true} />
         <Route component={PageNotFound} />
       </Switch>
     </Router>
