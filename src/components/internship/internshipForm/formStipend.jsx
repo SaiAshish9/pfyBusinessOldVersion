@@ -2,9 +2,22 @@ import React, { useState } from "react";
 import { Select, Input, Radio, Button, Icon } from "antd";
 
 const { Option } = Select;
-export default function FormStipend() {
+export default function FormStipend({ handleContinue }) {
   const [stipendType, setStipendTye] = useState();
   const [addBenefit, setAddBenefit] = useState([]);
+
+  const [isPPO, setIsPPO] = useState();
+  const [isCertification, setIsCertification] = useState();
+
+  const handleRadioButton1 = e => {
+    console.log("radio checked", e.target.value);
+    setIsPPO(e.target.value);
+  };
+
+  const handleRadioButton2 = e => {
+    console.log("radio checked", e.target.value);
+    setIsCertification(e.target.value);
+  };
 
   const handleAddBenefit = () => {
     setAddBenefit([...addBenefit, ""]);
@@ -98,20 +111,26 @@ export default function FormStipend() {
             Does this Internship Come with a PPO?
           </p>
           <div className="ppo-option">
-            <Radio>Yes</Radio>
-            <Radio>No</Radio>
+            <Radio.Group onChange={handleRadioButton1} value={isPPO}>
+              <Radio value="ppoYes">Yes</Radio>
+              <Radio value="ppoNo">No</Radio>
+            </Radio.Group>
           </div>
         </div>
         <div className="ppo-block">
           <p className="ppo__paragraph">Will you provide a certificate?</p>
           <div className="ppo-option">
-            <Radio>Yes</Radio>
-            <Radio>No</Radio>
+            <Radio.Group onChange={handleRadioButton2} value={isCertification}>
+              <Radio value="certificateYes">Yes</Radio>
+              <Radio value="certificateNo">No</Radio>
+            </Radio.Group>
           </div>
         </div>
       </div>
       <div className="submit-button-container">
-        <Button className="submit-button">CONTINUE</Button>
+        <Button className="submit-button" onClick={() => handleContinue(3)}>
+          CONTINUE
+        </Button>
       </div>
     </div>
   );

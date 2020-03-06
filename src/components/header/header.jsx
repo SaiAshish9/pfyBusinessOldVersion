@@ -33,7 +33,7 @@ const Header = () => {
     <div>
       <Scroll
         render={({ x, y }) => {
-          console.log(y);
+          // console.log(y);
           return (
             <div className="main-nav">
               <div

@@ -1,0 +1,11 @@
+@import "./quickStat";
+@import "./userInternship";
+@import "./cardStat";
+
+.internship-main-block {
+  padding: 100px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f9fbfd;
+}
