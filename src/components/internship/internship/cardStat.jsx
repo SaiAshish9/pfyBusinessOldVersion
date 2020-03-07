@@ -13,18 +13,18 @@ import axios from "axios";
 export function ApprovedCardStat(props) {
   const history = useHistory();
 
-  const getSingleInternshipDetails = (internship_id) => {
-    const url = `internship/company_fetchone/${internship_id}`
-    axios.get(url)
-      .then(res => {
-        console.log(internship_id)
-        console.log(res.data)
-        history.push(`/internship/${res.data._id}`)
-      })
-  }
+  // const getSingleInternshipDetails = (internship_id) => {
+  //   const url = `internship/company_fetchone/${internship_id}`
+  //   axios.get(url)
+  //     .then(res => {
+  //       console.log(internship_id)
+  //       console.log(res.data)
+  //       history.push(`/internship/${res.data._id}`)
+  //     })
+  // }
 
   return (
-    <div onClick={() => getSingleInternshipDetails(props.internship._id)} className="approved-card-main-block" style={{margin: "20px 0"}}>
+    <div onClick={() => history.push(`/internship/${props.internship._id}`)} className="approved-card-main-block" style={{margin: "20px 0"}}>
       <div className="approved-card-img-block">
         <img
           src={approvedInternshipIcon}
@@ -56,16 +56,17 @@ export function ApprovedCardStat(props) {
 }
 
 export function UnderReviewCardStat(props) {
-  const getSingleInternshipDetails = (internship_id) => {
-    const url = `internship/company_fetchone/${internship_id}`
-    axios.get(url)
-      .then(res => {
-        console.log(internship_id)
-        console.log(res.data)
-      })
-  }
+  const history = useHistory();
+  // const getSingleInternshipDetails = (internship_id) => {
+  //   const url = `internship/company_fetchone/${internship_id}`
+  //   axios.get(url)
+  //     .then(res => {
+  //       console.log(internship_id)
+  //       console.log(res.data)
+  //     })
+  // }
   return (
-    <div onClick={() => getSingleInternshipDetails(props.internship._id)} className="underReview-card-main-block" style={{margin: "20px 0"}}>
+    <div onClick={() => history.push(`/internship/${props.internship._id}`)} className="underReview-card-main-block" style={{margin: "20px 0"}}>
       <div className="underReview-card-img-block">
         <img
           src={underReviewInternIcon}
@@ -94,6 +95,7 @@ export function UnderReviewCardStat(props) {
 }
 
 export function EndedCardStat() {
+  const history = useHistory();
   return (
     <div className="ended-card-main-block" >
       <div className="ended-card-img-block">
@@ -114,16 +116,17 @@ export function EndedCardStat() {
 }
 
 export function RejectedCardStat(props) {
-  const getSingleInternshipDetails = (internship_id) => {
-    const url = `internship/company_fetchone/${internship_id}`
-    axios.get(url)
-      .then(res => {
-        console.log(internship_id)
-        console.log(res.data)
-      })
-  }
+   const history = useHistory();
+  // const getSingleInternshipDetails = (internship_id) => {
+  //   const url = `internship/company_fetchone/${internship_id}`
+  //   axios.get(url)
+  //     .then(res => {
+  //       console.log(internship_id)
+  //       console.log(res.data)
+  //     })
+  // }
   return (
-    <div onClick={() => getSingleInternshipDetails(props.internship._id)} className="rejected-card-main-block" style={{margin: "20px 0"}}>
+    <div onClick={() => history.push(`/internship/${props.internship._id}`)} className="rejected-card-main-block" style={{margin: "20px 0"}}>
       <div className="rejected-card-img-block">
         <img src={endedInternshipIcon} alt="" className="rejected-card__img" />
       </div>

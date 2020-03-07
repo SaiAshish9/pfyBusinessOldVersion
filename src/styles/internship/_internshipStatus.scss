@@ -1,5 +1,6 @@
 div {
-    menu.internship-status {
+    .internship-status {
+          width: 120%;      
       menu.item {
   
       }
@@ -7,6 +8,9 @@ div {
   
     div.second-tab {
         display: flex;
+        .ant-btn-link{
+          color: "#ec3f78"
+        }
       checkbox {
   
       }

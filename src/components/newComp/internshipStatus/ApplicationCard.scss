@@ -1,4 +1,7 @@
 .applicationCard{
+    .select-all {
+        background-color: #ccc;
+    }
     &__customPanel{
         background: #fff;
      //   border-radius: 4rem;
@@ -23,6 +26,8 @@
         background: #ececef;
         width: 15rem;
         font-size: 1.1rem;
+        border-radius: 5px;
+        overflow: hidden;
     }
     &__header{
         display: flex;

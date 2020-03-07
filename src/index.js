@@ -8,7 +8,7 @@ import axios from'axios';
 // TODO API Config
 // is_api_endpoint_valid 
 axios.defaults.baseURL = process.env.NODE_ENV === "development" ?   "http://35.154.129.241:5000/" : "http://10.5.50.80:5000";
-axios.defaults.headers.common['companytoken'] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZGNjMDQ4M2Q4OGZjODNjZDRmMTgzM2MiLCJpYXQiOjE1ODM0OTM4NDMsImV4cCI6MTU5MjEzMzg0M30.fmjWPGjg0AhxZfpLwghLYNEQhXFT7hbRNnSyU1l0ADE";
+axios.defaults.headers.common['companytoken'] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZGNjMDQ4M2Q4OGZjODNjZDRmMTgzM2MiLCJpYXQiOjE1ODM1NjU3OTEsImV4cCI6MTU5MjIwNTc5MX0.P15nYFFHwsQIgL2lRc3HrQ4N_eJcgnNZgQy4OYTXcLU";
 
 
 ReactDOM.render(<App />, document.getElementById('root'));

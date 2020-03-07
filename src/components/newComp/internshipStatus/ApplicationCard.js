@@ -10,6 +10,7 @@ import { Collapse, Icon, Button, Menu, Row, Col } from "antd";
 
 import "./ApplicationCard.scss";
 import CardHeader from "./CardHeader";
+import axios from "axios";
 // import { application } from "express";
 
 const { Panel } = Collapse;
@@ -35,16 +36,40 @@ const renderAnswers = (questions, answers) => {
 };
 
 const ApplicationCard = props => {
-  // console.log(props.application.user);
-  // const { email, phone } = props.application.user;
-  // const userId = props.application.user._id;
-  // const companyId = props.companyId;
-  // const internshipId = props.internshipId;
+  console.log("application card")
+  console.log(props);
+  const { email, phone } = props.application.user;
+  const userId = props.application.user._id;
+  const companyId = props.companyId;
+  const internshipId = props.internshipId;
   // const application = {userId,companyId,internshipId}
   const  [current, setCurrent] = useState("info")
 
   const  menuHandleClick = (e) => {
     setCurrent(e.key)
+  }
+
+  const data = {
+    internshipId: internshipId,
+    userId: userId
+  }
+
+  const shortlistInternApplication = () => {
+    const url = 'internship/shortlist';
+    axios.put(url,data)
+      .then(res=> console.log(res.data))
+  }
+
+  const selectInternApplication = () => {
+    const url= 'internship/accept';
+    axios.put(url, data)
+      .then(res => console.log(res.data))
+  }
+
+  const rejectInternApplication = () => {
+    const url = 'internship/reject';
+    axios.put(url,data)
+      .then(res => console.log(res.data))
   }
 
   return (
@@ -58,41 +83,19 @@ const ApplicationCard = props => {
         showArrow={false}
         header={<CardHeader user={props.application.user} />}
         key="1"
-        className="applicationCard__customPanel"
+        className={"applicationCard__customPanel "}
+        style={{backgroundColor: props.isSelectAll ? "#ccc" : "inherit"}}
       >
-        {/* <Menu className="menu"  onClick={menuHandleClick} selectedKeys={[current]} mode="horizontal">
-                <Menu.Item key="info">
-                    INFORMATION
-                </Menu.Item>
-                <Menu.Item key="gig" >
-                  GIG PROFILE
-                </Menu.Item>
-            </Menu> */}
-            {/* <Row className="row-items" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-            <Col className="gutter-row" span={8}>
-              <div style={{textAlign: "center"}} >
-                <p className="row-items-heading">Application Stauts</p>
-                <p>Verified</p>
-              </div>
-            </Col>
-            <Col className="gutter-row" span={8}>
-            <p className="row-items-heading">Application Stauts</p>
-                <p>Verified</p>
-            </Col>
-            <Col className="gutter-row" span={8}>
-              <div >col-6</div>
-            </Col>
-          </Row> */}
         <div className="applicationCard__content" style={{marginTop: "1rem"}}>
           
           <div>
             <div>
               <div className="sub-head--1">Email</div>
-              <p className="sub-head--2">{"email"}</p>
+              <p className="sub-head--2">{email}</p>
             </div>
             <div>
               <div className="sub-head--1">Mobile Number</div>
-              <p className="sub-head--2">{"phone"}</p>
+              <p className="sub-head--2">{phone}</p>
             </div>
           </div>
           <div>
@@ -115,8 +118,7 @@ const ApplicationCard = props => {
               type="primary"
               className="applicationCard__btn--grey"
               loading={props.shortlist_application_loader}
-              // onClick={()=>props.shortlistInternApplication(application)}
-
+              onClick={shortlistInternApplication}
               shape="round"
             >
               Shortlist
@@ -125,7 +127,7 @@ const ApplicationCard = props => {
               type="primary"
               className="applicationCard__btn--green"
               loading={props.select_application_loader}
-              // onClick={()=>props.selectInternApplication(application)}
+              onClick={selectInternApplication}
               shape="round"
             >
               Select{" "}
@@ -134,8 +136,7 @@ const ApplicationCard = props => {
               type="primary"
               className="applicationCard__btn--red"
               loading={props.reject_application_loader}
-              // onClick={()=>props.rejectInternApplication(application)}
-
+              onClick={rejectInternApplication}
               shape="round"
             >
               Reject

@@ -1,0 +1,44 @@
+.single-internship-1 {
+    
+    margin: 1rem;
+    padding: 1rem;
+    .header{
+        padding-bottom: 1rem ;
+        border-bottom: 1px solid #ccc;
+        .company-logo{
+            width: 4rem;
+            height: 4rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+        }
+        img{
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+    }
+
+    .company-name{
+        font-weight: 700;
+        font-size: 1rem;
+    }
+    .company-tagline{
+        font-size: 0.8rem;
+        color: #4f4e54;
+    }
+
+    .section{
+        .heading{
+            font-size: 1rem;
+            font-weight: 500;
+            margin: 0;
+        }
+        .text{
+            font-size: 0.8rem;
+            color: #b0b0b0;
+        }   
+    }
+
+}

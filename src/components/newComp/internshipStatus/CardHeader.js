@@ -1,19 +1,22 @@
 import React from 'react';
+import downArrow from './down-arrow.svg';
 
 const CardHeader = props => {
-    // const {imgUrl,firstName,college,city} = props.user
+  console.log("%c CardHeader: user", 'font-size: 25px')
+  console.log(props.user)
+    const {imgUrl,firstName,college,city} = props.user
     
     return (
     <div className={"applicationCard__header"}>
       <div className="header__image">
         <img
           className={"applicationCard__image"}
-          src={"imgUrl"}
+          src={imgUrl}
         />
       </div>
-    <div className="header__name sub-head--2">{"firstName"}</div>
-    <div className="header__college sub-head--1">{"college"}</div>
-      <div className="header__city sub-head--1">{"city"}</div>
+    <div className="header__name sub-head--2">{firstName}</div>
+    <div className="header__college sub-head--1">{college}</div>
+      <div className="header__city sub-head--1">{city}</div>
   
       <div className="header__progress">
         <div className={"applicationCard__ProgressBar"}>
@@ -24,6 +27,7 @@ const CardHeader = props => {
               height:"2.2rem",
               padding: ".3rem .4rem",
               color: "#fff",
+              borderRadius: "5px"
             
             }}
           >
@@ -31,6 +35,10 @@ const CardHeader = props => {
           </div>
         </div>
       </div>
+      <div>
+        <img className="header__arrow" src={downArrow} alt="arrow"/>
+      </div>
+      
     </div>
   );
   }
