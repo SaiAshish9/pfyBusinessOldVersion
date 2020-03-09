@@ -81,10 +81,10 @@
     .education-block-one {
       @extend %block-one;
       .education-block-two {
-        display: flex;
+        // display: flex;
         margin: 20px;
         align-items: center;
-        justify-content: space-between;
+        // justify-content: space-between;
         padding-bottom: 12px;
         border-bottom: 1px solid;
         .education-block-two-icon {
@@ -107,12 +107,13 @@
   }
 
   %block-two {
-    display: flex;
+    // display: flex;
     margin: 20px 40px 40px 40px;
     align-items: center;
-    justify-content: space-between;
+    // justify-content: space-between;
     padding-bottom: 12px;
-    border-bottom: 1px solid;
+    // border-bottom: 1px solid;
+
   }
 
   %block-two-heading {
@@ -177,5 +178,47 @@
     margin-left: 20px;
     background-color: #ff0000;
     border: 1px solid #ff0000;
+  }
+}
+
+.education{
+  padding: 1rem 0;
+  .heading{
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  .sub-head{
+    font-size: 1rem;
+    color: #333743;
+    padding-bottom: 0.05rem;
+  }
+}
+
+.work-experience{
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #ccc;
+  .org{
+    font-weight: 500;
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+  }
+  .designation{
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  .description{
+    font-size: 1rem;
+    color: #333743;
+  }
+  .location{
+    font-size: 1rem;
+    // margin-bottom: 0.5rem;
+    color: #333743;
+  }
+  .duration{
+    font-size: 1rem;
+    color: #333743;
   }
 }

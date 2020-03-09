@@ -1,5 +1,8 @@
 import React, {useState} from "react";
-import { Collapse, Icon, Button, Menu, Row, Col } from "antd";
+import { Collapse, Icon, Button, Menu, Row, Col, Checkbox } from "antd";
+// import {CheckboxContext} from '../internshipStatus/internshipStatus';
+
+
 // import { connect } from "react-redux";
 
 // import {
@@ -11,9 +14,13 @@ import { Collapse, Icon, Button, Menu, Row, Col } from "antd";
 import "./ApplicationCard.scss";
 import CardHeader from "./CardHeader";
 import axios from "axios";
+import { Fragment } from "react";
 // import { application } from "express";
 
 const { Panel } = Collapse;
+
+
+
 
 const questions = [
   "How you download the Thunderpod App? ",
@@ -26,7 +33,7 @@ const answers = [
   "How you download the Thunderpod App? "
 ];
 
-const renderAnswers = (questions, answers) => {
+const renderAnswers = (questions, answers, ) => {
   return questions.map((question, index) => (
     <div key={index}>
       <div className="question">{`Q ${index + 1}  ${question}`}</div>
@@ -35,13 +42,23 @@ const renderAnswers = (questions, answers) => {
   ));
 };
 
+// const {Provider, Consumer} = CheckboxContext;
+
+
+
 const ApplicationCard = props => {
+  
   console.log("application card")
   console.log(props);
   const { email, phone } = props.application.user;
   const userId = props.application.user._id;
   const companyId = props.companyId;
   const internshipId = props.internshipId;
+  
+  // const myFun=props.myFun
+
+  // myFun(userId)
+
   // const application = {userId,companyId,internshipId}
   const  [current, setCurrent] = useState("info")
 
@@ -57,22 +74,40 @@ const ApplicationCard = props => {
   const shortlistInternApplication = () => {
     const url = 'internship/shortlist';
     axios.put(url,data)
-      .then(res=> console.log(res.data))
+      .then(res=> {
+        console.log(res.data)
+        props.myFun(userId)
+      })
   }
 
   const selectInternApplication = () => {
     const url= 'internship/accept';
     axios.put(url, data)
-      .then(res => console.log(res.data))
+      .then(res => {
+        console.log(res.data)
+        props.myFun(userId)
+      })
   }
 
   const rejectInternApplication = () => {
     const url = 'internship/reject';
     axios.put(url,data)
-      .then(res => console.log(res.data))
+      .then(res => {
+        console.log(res.data)
+        props.myFun(userId)
+      })
   }
-
+  const checkbbb = (e) =>{
+    console.log(e.target.value)
+  }
   return (
+    <Fragment>
+
+    {/* <Consumer>
+  {
+    value => console.log(value)
+  }
+</Consumer> */}
     <Collapse
       bordered={false}
       expandIcon={({ isActive }) => (
@@ -81,13 +116,12 @@ const ApplicationCard = props => {
     >
       <Panel
         showArrow={false}
-        header={<CardHeader user={props.application.user} />}
+        header={<div style={{display: "", alignItems: "center"}} > <CardHeader isSelectAll={props.isSelectAll} user={props.application.user} /> </div> }
         key="1"
         className={"applicationCard__customPanel "}
-        style={{backgroundColor: props.isSelectAll ? "#ccc" : "inherit"}}
+        // style={{backgroundColor: props.isSelectAll ? "#ccc" : "inherit"}}
       >
         <div className="applicationCard__content" style={{marginTop: "1rem"}}>
-          
           <div>
             <div>
               <div className="sub-head--1">Email</div>
@@ -148,6 +182,7 @@ const ApplicationCard = props => {
         </p>
       </Panel>
     </Collapse>
+    </Fragment>
   );
 };
 // const mapStateToProps = state => ({
