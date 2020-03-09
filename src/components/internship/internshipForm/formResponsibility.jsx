@@ -1,64 +1,105 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Input, Select, Icon, Button } from "antd";
+import { useForm, Controller } from "react-hook-form";
+import { arrayValidation } from "../../validation/validation";
 
 const { Option } = Select;
 export default function FormResponsibility({ handleContinue }) {
-  const [addResponsibility, setAddResponsibility] = useState([]);
-  const [addRequirement, setAddRequirement] = useState([]);
+  const formData = JSON.parse(localStorage.getItem("internshipFormData"));
+  const internRes = arrayValidation(formData.responsibilities)
+    ? formData.responsibilities
+    : [];
+  const internReq = arrayValidation(formData.otherRequirements)
+    ? formData.otherRequirements
+    : [];
+  const [skillRequired, setSkillRequired] = useState([]);
+  const [responsibilities, setResponsibilities] = useState(internRes);
+  const [otherRequirements, setOtherRequirements] = useState(internReq);
+
+  const responsibility = "responsibility";
+  const requirement = "requirement";
+
+  const handleSkillRequired = value => {
+    const skill = { skillName: value };
+    setSkillRequired([...skillRequired, skill]);
+  };
+
+  console.log(skillRequired);
 
   const handleAddResponsibility = category => {
     if (category === "responsibility") {
-      setAddResponsibility([...addResponsibility, ""]);
+      setResponsibilities([...responsibilities, ""]);
     } else {
-      setAddRequirement([...addRequirement, ""]);
+      setOtherRequirements([...otherRequirements, ""]);
     }
   };
 
   const handleDeleteInput = (index, category) => {
     if (category === "responsibility") {
-      let question = [...addResponsibility];
+      let question = [...responsibilities];
       question.splice(index, 1);
-      setAddResponsibility(question);
+      setResponsibilities(question);
     } else {
-      let question = [...addRequirement];
+      let question = [...otherRequirements];
       question.splice(index, 1);
-      setAddRequirement(question);
+      setOtherRequirements(question);
     }
   };
 
   const handleAddQuestion = (e, index, category) => {
     console.log(e.target.value);
     if (category === "responsibility") {
-      let questions = [...addResponsibility];
+      let questions = [...responsibilities];
       questions[index] = e.target.value;
-      setAddResponsibility(questions);
+      setResponsibilities(questions);
     } else {
-      let questions = [...addRequirement];
+      let questions = [...otherRequirements];
       questions[index] = e.target.value;
-      setAddRequirement(questions);
+      setOtherRequirements(questions);
     }
   };
 
-  const responsibility = "responsibility";
-  const requirement = "requirement";
+  useEffect(() => {
+    localStorage.setItem(
+      "internshipFormData",
+      JSON.stringify({
+        ...formData,
+        skillRequired,
+        responsibilities,
+        otherRequirements
+      })
+    );
+  }, [skillRequired, responsibilities, otherRequirements, formData]);
 
   return (
     <div className="responsibility-container">
       <div className="intern-skill-container">
         <h2 className="intern-skill__h2">Skills Required</h2>
+          {/*//TODO  add array of select skill*/}
+
         <Select
-          className="intern-skill__select"
-          defaultValue="react"
+          value={arrayValidation(skillRequired) && skillRequired[0].skillName}
+          // defaultValue={
+          //   arrayValidation(formData.skillRequired) &&
+          //   formData.skillRequired.skillName
+          // }
+          onChange={handleSkillRequired}
+          placeholder="Select Skills"
           style={{ width: "100%" }}
+          className="intern-skill__select"
         >
-          <Option value="react">react</Option>
+          <Option value="React">React</Option>
+          <Option value="Python">Python</Option>
+          <Option value="JavaScript">JavaScript</Option>
+          <Option value="Node JS">Node JS</Option>
+          <Option value="C++">C++</Option>
         </Select>
       </div>
 
       <div className="intern-res-container">
         <h2 className="intern-res__h2">Intern Responsibilities</h2>
-        {addResponsibility.length > 0 &&
-          addResponsibility.map((addQuestion, index) => (
+        {responsibilities.length > 0 &&
+          responsibilities.map((addQuestion, index) => (
             <div
               className="intern-res-input-container"
               key={index}
@@ -88,8 +129,8 @@ export default function FormResponsibility({ handleContinue }) {
       <div className="intern-requirement-container">
         <h2 className="intern-requirement__h2">Requirements From Interns</h2>
 
-        {addRequirement.length > 0 &&
-          addRequirement.map((addQuestion, index) => (
+        {otherRequirements.length > 0 &&
+          otherRequirements.map((addQuestion, index) => (
             <div
               className="intern-requirement-input-container"
               key={index}

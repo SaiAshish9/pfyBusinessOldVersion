@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Steps } from "antd";
 import FormInternshipDetail from "./formInternshipDetail";
 import FormResponsibility from "./formResponsibility";
@@ -11,19 +11,24 @@ import QAIcon from "./img/QAIcon.svg";
 
 const { Step } = Steps;
 
+// const InternshipFormContext = React.createContext();
+const internshipForm = {};
+localStorage.setItem("internshipFormData", JSON.stringify(internshipForm));
+
 export default function InternshipForm() {
   const [currentStep, setCurrentState] = useState(0);
 
   const handleStep = current => {
     setCurrentState(current);
   };
-  
   const handleContinue = step => {
     setCurrentState(step);
   };
-  const handleSubmit = () => {};
+
+  // const handleSubmit = () => {};
 
   return (
+    // <InternshipFormContext.Provider value={""}>
     <div className="internship-container">
       <div className="step-container">
         <Steps current={currentStep} onChange={handleStep}>
@@ -66,5 +71,6 @@ export default function InternshipForm() {
         {currentStep === 3 && <FormInterviewQuestion></FormInterviewQuestion>}
       </div>
     </div>
+    // </InternshipFormContext.Provider>
   );
 }

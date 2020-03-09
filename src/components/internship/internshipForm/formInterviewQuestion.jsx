@@ -1,35 +1,53 @@
 import React, { useState, useEffect } from "react";
 import { Input, Button, Icon } from "antd";
 import { useForm, Controller } from "react-hook-form";
+import { arrayValidation } from "../../validation/validation";
 
 export default function FormInterviewQuestion() {
-  const [addInput, setAddInput] = useState([]);
+  const formData = JSON.parse(localStorage.getItem("internshipFormData"));
+  const internQues = arrayValidation(formData.questions)
+    ? formData.questions
+    : [];
+  const [questions, setQuestions] = useState(internQues);
+
   const { control, handleSubmit, watch } = useForm();
 
+  //! --------------------------- input data testing --------------------------- */
+  console.log("questions", questions);
+  console.log("");
+
+  //! -------------------------------------------------------------------------- */
+
   const handleAddInput = () => {
-    setAddInput([...addInput, ""]);
+    setQuestions([...questions, ""]);
   };
 
   const handleDeleteInput = index => {
-    const question = [...addInput];
+    const question = [...questions];
     question.splice(index, 1);
-    setAddInput(question);
+    setQuestions(question);
   };
 
   const handleAddQuestion = (e, index) => {
     console.log(e.target.value);
-    let questions = [...addInput];
-    questions[index] = e.target.value;
-    setAddInput(questions);
+    let myQuestion = [...questions];
+    myQuestion[index] = e.target.value;
+    setQuestions(myQuestion);
   };
 
-  // const onSubmit = data => console.log(data);
-
-  //!------------------------- testing -------------------------
+  useEffect(() => {
+    localStorage.setItem(
+      "internshipFormData",
+      JSON.stringify({
+        ...formData,
+        questions
+      })
+    );
+  }, [formData, questions]);
 
   useEffect(() => {
-    console.log(addInput);
-  }, [addInput]);
+    console.log(questions);
+  }, [questions]);
   return (
     <div className="interview-ques-container">
       <div className="interview-ques-header-container">
@@ -37,8 +55,8 @@ export default function FormInterviewQuestion() {
         <span className="interview-ques__span">+Add Sample Question</span>
       </div>
       {/* <Input className="interview-ques__input"></Input> */}
-      {addInput.length > 0 &&
-        addInput.map((addQuestion, index) => (
+      {questions.length > 0 &&
+        questions.map((addQuestion, index) => (
           <div
             className="interview-ques-input-container"
             key={index}
