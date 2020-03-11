@@ -6,25 +6,42 @@ import moment from "moment";
 
 const { Option } = Select;
 
+// const internCategory = [
+//   "Business Development(sales)",
+//   "Graphic Design",
+//   "Social Media Marketing",
+//   "Web Development",
+//   "Marketing",
+//   "Human Resources",
+//   "Other",
+//   "Digital Marketing",
+//   "Campus Ambassador",
+//   "Mobile App Development",
+//   "Law/Legal",
+//   "Operations",
+//   "Content Writing"
+// ];
+
 export default function FormInternshipDetail({ handleContinue }) {
   const formData = JSON.parse(localStorage.getItem("internshipFormData"));
   const myDuration = !!formData.duration
     ? formData.duration.split("-")
     : ["", ""];
+  const thisIsAllIndia =
+    formData.location && formData.location.includes("All India");
 
   const [myFormData, setMyFormData] = useState(formData);
 
   const { control, handleSubmit, watch } = useForm({
     defaultValues: {
-      designation: formData.designation,
+      // internshipCategory: formData.internshipCategory,
+      // designation: formData.designation,
       internshipType: formData.internshipType,
-      // isLocationAllIndia: false,
-      location: formData.location,
+      isLocationAllIndia: thisIsAllIndia,
+      location: thisIsAllIndia ? undefined : formData.location,
       noOfPosition: formData.noOfPosition,
-
       internshipDuration: myDuration[0],
       weekOrMonth: myDuration[1],
-
       startingOfInternship: !!formData.startingOfInternship
         ? moment(formData.startingOfInternship, "DD-MMM-YYYY")
         : null,
@@ -35,11 +52,13 @@ export default function FormInternshipDetail({ handleContinue }) {
   });
 
   //! --------------------------- input data testing --------------------------- */
-  const designation = watch("designation");
-  console.log("designation", designation);
+  //#region
+  const internshipCategory = watch("internshipCategory");
+  console.log("internshipCategory", internshipCategory);
   console.log("");
 
-  console.log("otherProfile", watch("otherProfile"));
+  const designation = watch("designation");
+  console.log("designation", designation);
   console.log("");
 
   const internshipType = watch("internshipType");
@@ -77,15 +96,35 @@ export default function FormInternshipDetail({ handleContinue }) {
   const applyBefore = moment(endDate).format("DD MMM YYYY");
   console.log("applyBefore", applyBefore);
   console.log("");
+  //#endregion
   //! -------------------------------------------------------------------------- */
 
   useEffect(() => {
-    const location = isLocationAllIndia ? "All India" : myLocation;
+    const location = isLocationAllIndia ? ["All India"] : myLocation;
+
+    // const isInternCategory = internCategory.forEach((internRole, index) => {
+    //   const myInternRole = internshipCategory === "other" ? false : internRole;
+    //   console.log("myInternRole", myInternRole);
+    //   if (internCategory[index] === myInternRole) {
+    //     console.log("is Running");
+    //     return true;
+    //   } else {
+    //     console.log("is running other");
+    //     return false;
+    //   }
+    // });
+
+    const myDesignation = internshipCategory === "other" ? designation : null;
+    const myInternshipCategory =
+      internshipCategory !== "other" ? internshipCategory : designation;
+
     localStorage.setItem(
       "internshipFormData",
       JSON.stringify({
         ...myFormData,
-        designation,
+        internshipCategory: myInternshipCategory,
+        designation: myDesignation,
+
         internshipType,
         location,
         noOfPosition,
@@ -95,7 +134,6 @@ export default function FormInternshipDetail({ handleContinue }) {
       })
     );
   }, [
-    designation,
     internshipType,
     myLocation,
     noOfPosition,
@@ -103,8 +141,20 @@ export default function FormInternshipDetail({ handleContinue }) {
     startingOfInternship,
     myFormData,
     isLocationAllIndia,
-    applyBefore
+    applyBefore,
+    internshipCategory,
+    designation
   ]);
+
+  const myCity = ["Delhi", "NCR", "Bangalore", "Mumbai"];
+
+  const cityLocation = myCity.map((cities, index) => {
+    return (
+      <Option key={index} value={cities}>
+        {cities}
+      </Option>
+    );
+  });
 
   const internshipStartDisabledDate = current => {
     return current && current < moment().endOf("day");
@@ -147,15 +197,15 @@ export default function FormInternshipDetail({ handleContinue }) {
               </div>
             </Radio.Group>
           }
-          name="designation"
+          name="internshipCategory"
           control={control}
         />
       </div>
-      {designation === "other" && (
+      {(internshipCategory === "other" || null) && (
         <div className="profile-input-container">
           <Controller
             as={<Input placeholder="Enter Primary Profile" />}
-            name="otherProfile"
+            name="designation"
             control={control}
           />
         </div>
@@ -188,18 +238,26 @@ export default function FormInternshipDetail({ handleContinue }) {
             as={<Checkbox>All India</Checkbox>}
             name="isLocationAllIndia"
             control={control}
+            className="internshipLocation__checkbox"
           />
           <h3>OR</h3>
-          <Controller
-            as={
-              <Input
-                placeholder="please enter the Location"
-                disabled={isLocationAllIndia}
-              />
-            }
-            name="location"
-            control={control}
-          />
+          {
+            <Controller
+              as={
+                <Select
+                  mode="tags" 
+                  style={{ width: "100%" }}
+                  placeholder="Please select"
+                  disabled={isLocationAllIndia}
+                >
+                  {cityLocation}
+                </Select>
+              }
+              name="location"
+              control={control}
+              className="internshipLocation__select"
+            />
+          }
         </div>
       </div>
 

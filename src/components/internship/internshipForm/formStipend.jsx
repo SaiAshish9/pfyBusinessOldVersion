@@ -11,34 +11,38 @@ export default function FormStipend({ handleContinue }) {
   const internBenefit = arrayValidation(formData.benefits)
     ? formData.benefits
     : [];
-  const [benefits, setBenefits] = useState(internBenefit);
 
-  // const [isPPO, setIsPPO] = useState();
-  // const [isCertification, setIsCertification] = useState();
+  const [benefits, setBenefits] = useState(internBenefit);
 
   const { control, handleSubmit, watch } = useForm({
     defaultValues: {
       stipendType: formData.stipendType,
-      stipend: ""
+      stipend: formData.stipend,
+      minStipend: formData.minStipend,
+      maxStipend: formData.maxStipend
     }
   });
 
   //! --------------------------- input data testing --------------------------- */
+  //#region
   const stipendType = watch("stipendType");
   console.log("stipendType", watch("stipendType"));
   console.log("");
 
-  console.log("amount", watch("amount"));
+  const stipend = watch("stipend");
+  console.log("stipend", stipend);
   console.log("");
 
-  console.log("amountFrom", watch("amountFrom"));
+  const minStipend = watch("minStipend");
+  console.log("minStipend", watch("minStipend"));
   console.log("");
 
-  console.log("amountTo", watch("amountTo"));
+  const maxStipend = watch("maxStipend");
+  console.log("maxStipend", watch("maxStipend"));
   console.log("");
 
-  console.log("amountFrom", watch("amountFrom"));
-  console.log("");
+  // console.log("minStipend", watch("minStipend"));
+  // console.log("");
 
   console.log("benefits", benefits);
   console.log("");
@@ -48,15 +52,29 @@ export default function FormStipend({ handleContinue }) {
 
   console.log("isCertificate", watch("isCertificate"));
   console.log("");
+  //#endregion
   //! -------------------------------------------------------------------------- */
 
   useEffect(() => {
+    const myStipend = stipendType === "fixed" ? stipend : null;
+    const myMinStipend = stipendType === "negotiable" ? minStipend : null;
+    const myMaxStipend = stipendType === "negotiable" ? maxStipend : null;
+
     localStorage.setItem(
       "internshipFormData",
-      JSON.stringify({ ...formData, stipendType, benefits })
+      JSON.stringify({
+        ...formData,
+        stipendType,
+        stipend: myStipend,
+        minStipend: myMinStipend,
+        maxStipend: myMaxStipend,
+        benefits
+      })
     );
-  }, [formData, stipendType, benefits]);
+  }, [formData, stipendType, benefits, stipend, minStipend, maxStipend]);
 
+  //? ------------------------------- handleData ------------------------------- */
+  //#region
   const handleAddBenefit = () => {
     setBenefits([...benefits, ""]);
   };
@@ -73,15 +91,12 @@ export default function FormStipend({ handleContinue }) {
     questions[index] = e.target.value;
     setBenefits(questions);
   };
-
-  // const handleStipendType = value => {
-  //   setStipendTye(value);
-  //   console.log(value);
-  // };
+  //#endregion
+  //? -------------------------------------------------------------------------- */
 
   return (
     <form>
-      {/*//TODO  add logic in stipend*/}
+      {/*//  add logic in stipend*/}
       <div className="stipend">
         <div className="stipend-amount-container">
           <div className="stipend-container">
@@ -108,8 +123,14 @@ export default function FormStipend({ handleContinue }) {
             <div className="amount-container">
               <h2 className="amount__h2">Amount</h2>
               <Controller
-                as={<Input className="amount__input"></Input>}
-                name="amount"
+                as={
+                  <Input
+                    className="amount__input"
+                    suffix="RS"
+                    placeholder="stipend"
+                  />
+                }
+                name="stipend"
                 control={control}
               />
             </div>
@@ -119,13 +140,26 @@ export default function FormStipend({ handleContinue }) {
               <h2 className="amount-container">Amount</h2>
               <div className="amount-input-container">
                 <Controller
-                  as={<Input className="amount__input"></Input>}
-                  name="amountFrom"
+                  as={
+                    <Input
+                      suffix="RS"
+                      className="amount__input"
+                      placeholder="min"
+                    ></Input>
+                  }
+                  name="minStipend"
                   control={control}
                 />
+                <span className="amount__span"> - </span>
                 <Controller
-                  as={<Input className="amount__input"></Input>}
-                  name="amountTo"
+                  as={
+                    <Input
+                      suffix="RS"
+                      className="amount__input"
+                      placeholder="max"
+                    ></Input>
+                  }
+                  name="maxStipend"
                   control={control}
                 />
               </div>

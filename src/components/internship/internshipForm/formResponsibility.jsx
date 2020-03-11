@@ -6,25 +6,32 @@ import { arrayValidation } from "../../validation/validation";
 const { Option } = Select;
 export default function FormResponsibility({ handleContinue }) {
   const formData = JSON.parse(localStorage.getItem("internshipFormData"));
+
   const internRes = arrayValidation(formData.responsibilities)
     ? formData.responsibilities
     : [];
   const internReq = arrayValidation(formData.otherRequirements)
     ? formData.otherRequirements
     : [];
-  const [skillRequired, setSkillRequired] = useState([]);
+
+  const internSkill =
+    arrayValidation(formData.skillRequired) &&
+    formData.skillRequired.map(userSkill => {
+      return userSkill.skillName;
+    });
+
+  const { control, handleSubmit, watch } = useForm({
+    defaultValues: {
+      skillRequired: internSkill
+    }
+  });
+  const mySkillRequired = watch("skillRequired");
   const [responsibilities, setResponsibilities] = useState(internRes);
   const [otherRequirements, setOtherRequirements] = useState(internReq);
 
   const responsibility = "responsibility";
   const requirement = "requirement";
 
-  const handleSkillRequired = value => {
-    const skill = { skillName: value };
-    setSkillRequired([...skillRequired, skill]);
-  };
-
-  console.log(skillRequired);
 
   const handleAddResponsibility = category => {
     if (category === "responsibility") {
@@ -60,6 +67,12 @@ export default function FormResponsibility({ handleContinue }) {
   };
 
   useEffect(() => {
+    const skillRequired =
+      arrayValidation(mySkillRequired) &&
+      mySkillRequired.map(userSkill => {
+        return { skillName: userSkill };
+      });
+
     localStorage.setItem(
       "internshipFormData",
       JSON.stringify({
@@ -69,31 +82,41 @@ export default function FormResponsibility({ handleContinue }) {
         otherRequirements
       })
     );
-  }, [skillRequired, responsibilities, otherRequirements, formData]);
+  }, [responsibilities, otherRequirements, formData, mySkillRequired]);
+
+  const skills = [
+    "ReactJs",
+    "Javascript",
+    "Java",
+    "Statistics",
+    "Data Science"
+  ];
+  const mySkill = skills.map((skill, index) => (
+    <Option key={index} value={skill}>
+      {skill}
+    </Option>
+  ));
 
   return (
     <div className="responsibility-container">
       <div className="intern-skill-container">
         <h2 className="intern-skill__h2">Skills Required</h2>
-          {/*//TODO  add array of select skill*/}
+        {/*//TODO  add array of select skill*/}
 
-        <Select
-          value={arrayValidation(skillRequired) && skillRequired[0].skillName}
-          // defaultValue={
-          //   arrayValidation(formData.skillRequired) &&
-          //   formData.skillRequired.skillName
-          // }
-          onChange={handleSkillRequired}
-          placeholder="Select Skills"
-          style={{ width: "100%" }}
+        <Controller
+          as={
+            <Select
+              mode="tags"
+              style={{ width: "100%" }}
+              placeholder="Please select"
+            >
+              {mySkill}
+            </Select>
+          }
+          name="skillRequired"
+          control={control}
           className="intern-skill__select"
-        >
-          <Option value="React">React</Option>
-          <Option value="Python">Python</Option>
-          <Option value="JavaScript">JavaScript</Option>
-          <Option value="Node JS">Node JS</Option>
-          <Option value="C++">C++</Option>
-        </Select>
+        />
       </div>
 
       <div className="intern-res-container">

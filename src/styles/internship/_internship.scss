@@ -24,16 +24,22 @@
       margin-top: 20px;
     }
     .typeOfInternship-container {
-      margin:  30px 0px;
+      margin: 30px 0px;
     }
     .internshipLocation-container {
       align-items: center;
+      .internshipLocation__checkbox {
+        width: 120px;
+      }
       h3 {
         margin: 0px 8px;
       }
-      input {
+      .internshipLocation__select {
         margin-left: 20px;
-        flex: 1;
+        .ant-select-search__field {
+          margin-left: 6px;
+          flex: 1;
+        }
       }
     }
 
@@ -120,11 +126,13 @@
     }
 
     div.interview-ques-input-container {
+      display: flex;
+      // flex-direction: column;
       .interview-ques__input {
         margin-bottom: 20px;
       }
 
-      icon.interview-ques__icon {
+      .interview-ques__icon {
       }
     }
 

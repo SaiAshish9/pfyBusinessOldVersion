@@ -1,7 +1,7 @@
 export const token = {
   headers: {
-    token:
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTJkNmZmYmFjYjcwMzc0NWViYzBmMDYiLCJyZXN1bWUiOiI1ZTJkNmZmYmFjYjcwMzc0NWViYzBmMDUiLCJpYXQiOjE1ODAyMDg3OTIsImV4cCI6MTU4ODg0ODc5Mn0.-4Zgy6kjUkXkfw06lO4_v4xFNK1BGyTWOKlIjBnlmxc"
+    companytoken:
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZGNjMDQ4M2Q4OGZjODNjZDRmMTgzM2MiLCJpYXQiOjE1ODAxMTgzNTUsImV4cCI6MTU4ODc1ODM1NX0.FTe7E-WfhHbmFjbzvY0p71OZM4u6Ipj6CxQIEqxv3Rk"
   }
 };
 
