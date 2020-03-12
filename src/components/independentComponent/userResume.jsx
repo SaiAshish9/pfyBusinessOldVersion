@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { Button } from "antd";
 import UserCard from "./userCard";
-import "./_userResume.scss";
+// import "./_userResume.scss";
 import educationIcon from "./img/headingImg/educationIcon.svg";
 import experienceIcon from "./img/headingImg/experienceIcon.svg";
 import positionIcon from "./img/headingImg/positionIcon.svg";

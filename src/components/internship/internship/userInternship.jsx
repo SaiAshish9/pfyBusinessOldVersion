@@ -13,7 +13,7 @@ export default function UserInternship(props) {
     history.push("/internship/form");
   };
 
-  const {approvedApplication, underReviewApplication, rejectedApplication, totalApplication, pendingApplication} = props;
+  const {approvedApplication, underReviewApplication, rejectedApplication,} = props;
 
   // const [approvedApplication, setApprovedApplication] = useState(null);
   // const [underReviewApplication, setUnderReviewApplication] = useState(null);
@@ -32,12 +32,12 @@ export default function UserInternship(props) {
     <div className="user-internship-main-block">
       <div className="user-internship-header-block">
         <h2 className="user-internship__h2">Your Internship</h2>
-        <Button onClick={handleNewInternshipForm}>+New Internship</Button>
+        <Button style={{color: "#fff", backgroundColor: "#ec3f78", padding: "0 1.5rem" }} onClick={handleNewInternshipForm}>+ New Internship</Button>
       </div>
       <div className="internship-stat-block">
         <h2>Approved</h2>
         {approvedApplication ? approvedApplication.map(internship => 
-          <ApprovedCardStat internship={internship} totalApplication={totalApplication} pendingApplication={pendingApplication} />
+          <ApprovedCardStat internship={internship} />
         ) : null }
         
       </div>
@@ -45,7 +45,7 @@ export default function UserInternship(props) {
         <h2>Under Review</h2>
         {
           underReviewApplication ? underReviewApplication.map(internship => 
-            <UnderReviewCardStat internship={internship} totalApplication={totalApplication} pendingApplication={pendingApplication} />
+            <UnderReviewCardStat internship={internship} />
             ):null
         }
         
@@ -57,7 +57,7 @@ export default function UserInternship(props) {
       <div className="internship-stat-block">
         <h2>Rejected</h2>
         {rejectedApplication ? rejectedApplication.map(internship => 
-          <RejectedCardStat internship={internship} totalApplication={totalApplication} pendingApplication={pendingApplication} />
+          <RejectedCardStat internship={internship} />
         ) : null}
         
       </div>

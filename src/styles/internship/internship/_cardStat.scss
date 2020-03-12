@@ -1,4 +1,6 @@
 div.approved-card-main-block {
+  height: 126px;
+  width: 682px;
   background-color: #fff;
   display: flex;
   border-radius: 24px;
@@ -9,6 +11,7 @@ div.approved-card-main-block {
   border-color: #77cc6d;
 
   div.approved-card-img-block {
+    cursor: pointer;
     img.card__img {
     }
   }
@@ -21,6 +24,7 @@ div.approved-card-main-block {
       justify-content: space-between;
       display: flex;
       h2.approved-internship-title__h2 {
+      padding-bottom: 32px;
         margin: 0px;
       }
       img {
@@ -30,10 +34,16 @@ div.approved-card-main-block {
     div.approved-internship-brief-block {
       display: flex;
       justify-content: space-between;
-      margin: 32px 70px 0px 0px;
+      // margin: 32px 70px 0px 0px;
+      // margin-top: 32px;
       p.approved-internship-brief__p {
+        display: flex;
+        margin-bottom: 0;
+        align-items: center;
       }
       .approved-internship-brief__button {
+        background-color: #1e4f81;
+        border: 1px solid  #1e4f81;
         img {
         }
       }
@@ -44,6 +54,8 @@ div.approved-card-main-block {
 //!------------------------------ under-review ------------------------------ */
 
 div.underReview-card-main-block {
+  height: 126px;
+  width: 682px;
   background-color: #fff;
   display: flex;
   border-radius: 24px;
@@ -76,7 +88,9 @@ div.underReview-card-main-block {
       display: flex;
       justify-content: space-between;
 
-      margin: 32px 48% 0px 0px;
+      // margin: 32px 48% 0px 0px;
+      margin-top: 32px;
+      margin-right: 9rem;
       p.underReview-internship-brief__p {
       }
     }
@@ -85,6 +99,8 @@ div.underReview-card-main-block {
 
 //!------------------------------ ended-review ------------------------------ */
 div.ended-card-main-block {
+  height: 126px;
+  width: 682px;
   background-color: #fff;
   display: flex;
   border-radius: 24px;
@@ -116,7 +132,10 @@ div.ended-card-main-block {
     div.ended-internship-brief-block {
       display: flex;
       justify-content: space-between;
-      margin: 32px 48% 0px 0px;
+      // margin: 32px 48% 0px 0px;
+      margin-top: 32px;
+      margin-right: 9rem;
+      margin-left: 1rem;
 
       p.ended-internship-brief__p {
       }
@@ -126,6 +145,8 @@ div.ended-card-main-block {
 
 //!------------------------------ rejected-review ------------------------------ */
 div.rejected-card-main-block {
+  width: 682px;
+  height: 126px;
   background-color: #fff;
   display: flex;
   border-radius: 24px;
@@ -157,7 +178,8 @@ div.rejected-card-main-block {
     div.rejected-internship-brief-block {
       display: flex;
       justify-content: space-between;
-      margin: 32px 48% 0px 0px;
+      // margin: 32px 48% 0px 0px;
+      margin: 32px 9rem 0 1rem;
 
       p.rejected-internship-brief__p {
       }

@@ -8,14 +8,14 @@ import teamIcon from "./img/headingImg/team.svg";
 import { isMoment } from "moment";
 
 export default function UserCard(props) {
-  const {firstname, city, email, phone, profileScore} = props.user;
+  const {firstname, city, email, phone, profileScore, imgUrl} = props.user;
   const {facebook, youtube, github, linkedin, quora, instagram, behance, dribbble, blog, medium} = props.digitalProfile;
   return (
     <div className="user-resume-dataBrief-block">
       <div className="userProfile-block">
         <div className="avatar-block">
           <div className="avatar-img-block">
-            <img src={""} alt=""></img>
+            <img style={{width: "100%"}} src={imgUrl} alt=""></img>
           </div>
           <h2 style={{fontWeight:500, color: "#282c3f"}}>{firstname}</h2>
         </div>

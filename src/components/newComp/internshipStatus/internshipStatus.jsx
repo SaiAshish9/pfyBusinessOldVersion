@@ -201,7 +201,7 @@ export default function InternshipStatus(props) {
     }
 
     return (
-        <div style={{ marginTop: "5rem", padding: "0 5rem"}}>
+        <div className="internship-status-huge" style={{ marginTop: "5rem", padding: "0 5rem"}}>
             <div style={{ width: "250px", margin: "auto", textAlign: "center" }}>
                 <Menu style={{ margin: "3rem 1rem" }} onClick={handleClick0} selectedKeys={[current0]} mode="horizontal">
                     <Menu.Item key="posting">
