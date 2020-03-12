@@ -140,15 +140,16 @@ const ApplicationCard = props => {
           <div>
             <div>
               <div className="sub-head--1">Verification Status</div>
-              {verificationStatus === 1200 ? 
+              {verificationStatus === 1202 ? 
               <p className="sub-head--2"><img src={verifiedSvg} alt="check" /> Verified</p> : 
               <p className="sub-head--2"><img src={notVerifiedSvg} alt="cross" /> Not Verified</p>
               }
             </div>
+            {verificationStatus === 1202 ?
             <div>
               <div className="sub-head--1">College</div>
               <p className="sub-head--2">College Name</p>
-            </div>
+            </div> : null}
           {/* <div className="sub-head--1">Verification Status</div>
               <p className="sub-head--2">Verified</p>
               <p className="sub-head--2">Not Verified</p> */}

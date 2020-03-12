@@ -97,7 +97,11 @@ export default function SingleIntersnship(props) {
                     </div>
                     <div>
                         <p className="heading">Does this internship come with a PPO ?</p>
-                        <p className="text">data not avaliable in api request</p>
+                        <p className="text">
+                        {internship.benefits ?
+                         internship.benefits.includes('PPO') ? 'Yes' : 'No' 
+                        : null}
+                        </p>
                     </div>
                     <div>
                         <p className="heading">Amount</p>

@@ -1,9 +1,12 @@
 import React from 'react';
 import downArrow from './down-arrow.svg';
 import {Checkbox} from 'antd'
+import Moment from 'react-moment';
+
 
 const CardHeader = props => {
   const isSelectAll = props.isSelectAll;
+  const updatedAt = props.updatedAt;
   console.log("%c CardHeader: user", 'font-size: 25px')
   console.log(props.user)
     const {imgUrl,firstName,college,city, resumeScore} = props.user;
@@ -29,7 +32,7 @@ const CardHeader = props => {
           <div
             style={{
               background: "#2ACF18",
-              width: {resumeScore},
+              width: `${resumeScore}%`,
               height:"2.2rem",
               padding: ".3rem .4rem",
               color: "#fff",
@@ -40,7 +43,7 @@ const CardHeader = props => {
           </div>
         </div>
       </div>
-      <div>Applied on</div>
+          <div>Applied on <Moment fromNow>{updatedAt}</Moment></div>
       <div>
         <img className="header__arrow" src={downArrow} alt="arrow"/>
       </div>

@@ -227,7 +227,7 @@ export default function InternshipStatus(props) {
                                         <p>REJECT</p>
                                     </div>
                                     <div className="clickable-options-2">
-                                        <p>Short By </p>
+                                        <p>Sort By </p>
                                         <Select defaultValue="Most Recent" style={{ width: 120 }} onChange={handleChangeOptionsinPending}>
                                             <Option value="most-recent">Most Recent</Option>
                                             <Option value="resume-score">Resume Score</Option>

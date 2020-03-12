@@ -5,44 +5,27 @@ import { ApprovedCardStat } from "./cardStat";
 import { UnderReviewCardStat } from "./cardStat";
 import { EndedCardStat } from "./cardStat";
 import { RejectedCardStat } from "./cardStat";
-import axios from 'axios';
 
-export default function UserInternship() {
+export default function UserInternship(props) {
   const history = useHistory();
 
   const handleNewInternshipForm = () => {
     history.push("/internship/form");
   };
 
-  // const [internships, setInternships] = useState(null);
-  const [approvedApplication, setApprovedApplication] = useState(null);
-  const [underReviewApplication, setUnderReviewApplication] = useState(null);
-  const [rejectedApplication, setRejectedApplication] = useState(null);
-  const [totalApplication, setTotalApplication] = useState(null);
-  const [pendingApplication, setPendingApplication] = useState(null);
+  const {approvedApplication, underReviewApplication, rejectedApplication, totalApplication, pendingApplication} = props;
+
+  // const [approvedApplication, setApprovedApplication] = useState(null);
+  // const [underReviewApplication, setUnderReviewApplication] = useState(null);
+  // const [rejectedApplication, setRejectedApplication] = useState(null);
+  // const [totalApplication, setTotalApplication] = useState(null);
+  // const [pendingApplication, setPendingApplication] = useState(null);
 
   
 
  
 
-  useEffect(() => {
-    console.log("hey useEffect is running")
-    const url = "internship/fetch_internship_as_company";
-    axios.get(url)
-      .then(res => {
-          const internships = res.data; 
-          console.log(res.data)
-          const approvedApp = internships.filter(el => el.status === 1001)
-          const underReviewApp = internships.filter(el => el.status === 1000)
-          const rejectedApp = internships.filter(el => el.status === 1002)
-          setApprovedApplication(approvedApp)
-          setUnderReviewApplication(underReviewApp)
-          setRejectedApplication(rejectedApp)
 
-          setTotalApplication(internships.length)
-          setPendingApplication(internships.length - (underReviewApp.length + rejectedApp.length))
-      })
-  }, [])
   
 
   return (
