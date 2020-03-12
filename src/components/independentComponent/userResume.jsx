@@ -94,7 +94,7 @@ export default function UserResume(props) {
           </div>
         </div>
 
-        <div className="education-block-one">
+        {resume.education ? <div className="education-block-one">
           <div className="education-block-two">
             <section style={{ display: "flex" }}>
               <img
@@ -158,7 +158,7 @@ export default function UserResume(props) {
             </div>
               
           </div>
-        </div>
+            </div> : null}
 
         <div className="education-block-one">
           <div

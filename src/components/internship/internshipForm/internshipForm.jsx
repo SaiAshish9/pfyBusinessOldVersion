@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Steps } from "antd";
+import axios from "axios";
+import { token, companyId, apiURL } from "../../constant/userToken";
 import FormInternshipDetail from "./formInternshipDetail";
 import FormResponsibility from "./formResponsibility";
 import FormStipend from "./formStipend";
@@ -11,19 +13,35 @@ import QAIcon from "./img/QAIcon.svg";
 
 const { Step } = Steps;
 
+// const InternshipFormContext = React.createContext();
+const internshipForm = { companyId };
+localStorage.setItem("internshipFormData", JSON.stringify(internshipForm));
+
 export default function InternshipForm() {
   const [currentStep, setCurrentState] = useState(0);
+
+  const formData = JSON.parse(localStorage.getItem("internshipFormData"));
 
   const handleStep = current => {
     setCurrentState(current);
   };
-  
   const handleContinue = step => {
     setCurrentState(step);
   };
-  const handleSubmit = () => {};
+
+  const handleSubmit = () => {
+    axios
+      .post(`${apiURL}internship/add`, formData, token)
+      .then(res => {
+        console.log("response", res);
+      })
+      .catch(e => {
+        console.log("error response", e.response);
+      });
+  };
 
   return (
+    // <InternshipFormContext.Provider value={""}>
     <div className="internship-container">
       <div className="step-container">
         <Steps current={currentStep} onChange={handleStep}>
@@ -63,8 +81,13 @@ export default function InternshipForm() {
         {currentStep === 2 && (
           <FormStipend handleContinue={handleContinue}></FormStipend>
         )}
-        {currentStep === 3 && <FormInterviewQuestion></FormInterviewQuestion>}
+        {currentStep === 3 && (
+          <FormInterviewQuestion
+            handleSubmit={handleSubmit}
+          ></FormInterviewQuestion>
+        )}
       </div>
     </div>
+    // </InternshipFormContext.Provider>
   );
 }

@@ -55,7 +55,7 @@ const ApplicationCard = props => {
   
   console.log("application card")
   console.log(props);
-  const { email, phone } = props.application.user;
+  const { email, phone, verificationStatus } = props.application.user;
   const userId = props.application.user._id;
   const companyId = props.companyId;
   const internshipId = props.internshipId;
@@ -140,7 +140,10 @@ const ApplicationCard = props => {
           <div>
             <div>
               <div className="sub-head--1">Verification Status</div>
-              <p className="sub-head--2"><img src={verifiedSvg} alt="check" /> Verified</p>
+              {verificationStatus === 1200 ? 
+              <p className="sub-head--2"><img src={verifiedSvg} alt="check" /> Verified</p> : 
+              <p className="sub-head--2"><img src={notVerifiedSvg} alt="cross" /> Not Verified</p>
+              }
             </div>
             <div>
               <div className="sub-head--1">College</div>

@@ -20,7 +20,12 @@ div.stipend {
       }
       .amount-input-container {
         display: flex;
+        align-items: center;
         .amount__input {
+        }
+        .amount__span {
+          font-weight: 900;
+          margin: 0px 12px 0px 12px;
         }
       }
     }

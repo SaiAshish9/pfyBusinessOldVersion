@@ -158,20 +158,21 @@ export default function InternshipStatus(props) {
             setFullList({...fullList, pending:newArr2})
 
         }
-        
-        // console.log(newArr)
-        // if(value === "resume-score"){
-            
-        // }
     }
 
     const handleChangeOptionsInShortlisted = (value ) => {
         console.log("selected " + value)
         const array = fullList.shortlisted;
-        console.log(array)
-        const newArr = array.sort((a,b) => a.user.resumeScore - b.user.resumeScore)
-        console.log('NEW ARRAY')
-        console.log(newArr)
+        if(value === "resume-score"){
+            const newArr = array.sort((a,b) => b.user.resumeScore - a.user.resumeScore)
+            setFullList({...fullList,shortlisted:newArr})
+        } else if(value === "most-recent"){
+            const newArr2 = array.sort((a,b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime());
+            console.log('%c filtered array', 'font-size: 25px')
+            console.log(newArr2)
+            setFullList({...fullList, shortlisted:newArr2})
+
+        }
         // shortlisted.sort()
     }
 
