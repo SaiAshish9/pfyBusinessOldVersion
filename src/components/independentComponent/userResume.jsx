@@ -12,27 +12,64 @@ import objectiveIcon from "./img/headingImg/objectiveIcon.svg";
 import axios from 'axios';
 import { Fragment } from "react";
 
-export default function UserResume() {
+export default function UserResume(props) {
+  console.log('IMPORTANT')
+  console.log(props)
+  const internshipId = props.location.state.internshipId;
+  console.log("internship id "+ internshipId)
   const [resume, setResume] = useState({})
   const [user, setUser] = useState({})
+  const userId = props.match.params.userId;
+
   useEffect(() => {
-    const userId = "5e2d6ffbacb703745ebc0f06";
+    
+    console.log("user id is " + props.match.userId)
     const url = `resume/user/${userId}`;
     axios.get(url)
       .then(res => {
         const resumeData = res.data.resume;
         const userData = res.data.user;
+        console.log(userData)
         console.log(resumeData)
+
         setResume(resumeData)
         setUser(userData)
       })
   },[])
 
+  const actionData = {
+    internshipId: internshipId,
+    userId: userId
+  }
+  const selectCandidateHandler = () =>{
+    const url= 'internship/accept';
+    axios.put(url, actionData)
+      .then(res => {
+        console.log(res.data)
+      })
+  }
+
+  const shortlistCandidateHandler = () => {
+    const url = 'internship/shortlist';
+    axios.put(url, actionData)
+      .then(res=> {
+        console.log(res.data)
+      })
+  }
+
+  const rejectCandidateHandler = () => {
+    const url = 'internship/reject';
+    axios.put(url,actionData)
+      .then(res => {
+        console.log(res.data)
+      })
+  }
+
   const edu = Object.entries(resume) && resume.constructor === Object && resume.education;
   // if(resume){
   //   edu = {resume.education}
   // }
-  console.log(edu)
+  // console.log(edu)
 
   return (
     <Fragment>
@@ -40,7 +77,7 @@ export default function UserResume() {
      { Object.entries(resume).length > 0 ? 
      
     <div className="resume-with-userCard-block">
-      <UserCard resume={resume} />
+      <UserCard careerObjectives={resume.careerObjectives} digitalProfile={resume.digitalProfiles} user={user} />
       <div className="resume-block">
         <div className="education-block-one">
           <div className="education-block-two">
@@ -68,7 +105,7 @@ export default function UserResume() {
               <h2 className="education-block-two-heading">Education</h2>
               
             </section>
-            <div style={{padding: "1rem 0"}}>
+            <div className="education-block" style={{padding: "1rem 0"}}>
               {resume.education.PG ?
               <div className={"education"} style={{borderBottom: "1px solid #ccc"}}>
               <p className="heading">{"Post Graduation"}</p>
@@ -80,7 +117,7 @@ export default function UserResume() {
               :null}
 
               {resume.education.UG ? 
-              <div className={"education"} style={{borderBottom: "1px solid #ccc"}}>
+              <div className={"education"} >
               <p className="heading">{"Graduation"}</p>  
               <div className="sub-head">{edu.UG.instituteName}</div>  
               <div className="sub-head">{edu.UG.course}</div>
@@ -90,7 +127,7 @@ export default function UserResume() {
             : null}
 
             {resume.education.diploma ? 
-              <div className={"education"} style={{borderBottom: "1px solid #ccc"}}>
+              <div className={"education"} >
               <p className="heading">{"Diploma"}</p>  
               <div className="sub-head">{edu.diploma.instituteName}</div>  
               <div className="sub-head">{edu.diploma.course}</div>
@@ -100,7 +137,7 @@ export default function UserResume() {
             : null}
 
             {resume.education.tenth ? 
-              <div className={"education"} style={{borderBottom: "1px solid #ccc"}}>
+              <div className={"education"} >
               <p className="heading">{"Class 10th"}</p>  
               <div className="sub-head">{edu.tenth.instituteName}</div>  
               <div className="sub-head">{edu.tenth.course}</div>
@@ -110,7 +147,7 @@ export default function UserResume() {
             : null}
 
             {resume.education.twelfth ? 
-              <div className={"education"} style={{borderBottom: "1px solid #ccc"}}>
+              <div className={"education"} >
               <p className="heading">{"Class 12th"}</p>  
               <div className="sub-head">{edu.twelfth.instituteName}</div>  
               <div className="sub-head">{edu.twelfth.course}</div>
@@ -127,7 +164,7 @@ export default function UserResume() {
           <div
             className="education-block-two"
             style={{
-              borderBottom: "1px solid"
+              // borderBottom: "1px solid"
             }}
           >
             <section style={{ display: "flex" }}>
@@ -174,11 +211,11 @@ export default function UserResume() {
           </div>
         </div>
 
-        <div className="education-block-one">
+        {resume.POR ? <div className="education-block-one">
           <div
             className="education-block-two"
             style={{
-              borderBottom: "1px solid"
+              // borderBottom: "1px solid"
             }}
           >
             <section style={{ display: "flex" }}>
@@ -191,14 +228,25 @@ export default function UserResume() {
                 Positions of responsibilities
               </h2>
             </section>
+            {resume.POR.map(por => 
+              <div className="position-of-resp">
+              <div className="pos-heading">
+                {por.position}
+              </div>
+              <div className="pos-descrition">
+                {por.description}
+              </div>
+            </div>
+              )}
+            
           </div>
-        </div>
+          </div> : null }
 
-        <div className="education-block-one">
+        { resume.trainings ? <div className="education-block-one">
           <div
             className="education-block-two"
             style={{
-              borderBottom: "1px solid"
+              // borderBottom: "1px solid #ccc"
             }}
           >
             <section style={{ display: "flex" }}>
@@ -209,14 +257,25 @@ export default function UserResume() {
               ></img>
               <h2 className="education-block-two-heading">Training</h2>
             </section>
+            { resume.trainings.map(training => 
+              <div className="resume-trainings">
+                <div className="title">
+                  {training.title}
+                </div>
+                <div className="description">
+                  {training.description}
+                </div>
+              </div>
+            
+            ) }
           </div>
-        </div>
+          </div> : null}
 
-        <div className="education-block-one">
+        { resume.projects ? <div className="education-block-one">
           <div
             className="education-block-two"
             style={{
-              borderBottom: "1px solid"
+              // borderBottom: "1px solid"
             }}
           >
             <section style={{ display: "flex" }}>
@@ -227,14 +286,31 @@ export default function UserResume() {
               ></img>
               <h2 className="education-block-two-heading">Projects</h2>
             </section>
+            {resume.projects.map(project => 
+              <div className="resume-projects">
+              <div className="title">
+                  {project.title}
+              </div>
+              <div className="description">
+                {project.description}
+              </div>
+              <div className="project-link">
+                {project.link}
+              </div>
+              <div className="duration">
+                {`${project.start.month} ${project.start.year}-`} {project.isCurrently ? "Present" : `${project.end.month} ${project.end.year}`}
+              </div>
+            </div>
+              )}
+            
           </div>
-        </div>
+          </div> : null}
 
-        <div className="education-block-one">
+        { resume.achievements ? <div className="education-block-one">
           <div
             className="education-block-two"
             style={{
-              borderBottom: "1px solid"
+              // borderBottom: "1px solid"
             }}
           >
             <section style={{ display: "flex" }}>
@@ -245,8 +321,17 @@ export default function UserResume() {
               ></img>
               <h2 className="education-block-two-heading">Achievements</h2>
             </section>
+            <div className="resume-achievements">
+              {resume.achievements.map((achive,index) =>
+                  <div className="achievements-line" key={index}>
+                    {achive}
+                  </div>
+                )}
+              <div></div>
+            </div>
           </div>
-        </div>
+        </div> : null}
+
       </div>
       <div className="apply-block">
         <div>
@@ -258,17 +343,18 @@ export default function UserResume() {
           </Button>
         </div>
         <div>
-          <Button className="select-footer-button" type="primary" size="small">
+          <Button onClick={selectCandidateHandler} className="select-footer-button" type="primary" size="small">
             Select
           </Button>
           <Button
             className="shortlist-footer-button"
             type="primary"
+            onClick={shortlistCandidateHandler}
             size="small"
           >
             Shortlist
           </Button>
-          <Button className="reject-footer-button" type="primary" size="small">
+          <Button onClick={rejectCandidateHandler} className="reject-footer-button" type="primary" size="small">
             Reject
           </Button>
         </div>

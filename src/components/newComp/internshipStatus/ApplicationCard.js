@@ -1,5 +1,8 @@
 import React, {useState} from "react";
 import { Collapse, Icon, Button, Menu, Row, Col, Checkbox } from "antd";
+import {useHistory} from 'react-router-dom';
+import verifiedSvg from './verified.svg'
+import notVerifiedSvg from './not_verified.svg'
 // import {CheckboxContext} from '../internshipStatus/internshipStatus';
 
 
@@ -47,6 +50,8 @@ const renderAnswers = (questions, answers, ) => {
 
 
 const ApplicationCard = props => {
+
+  const history = useHistory()
   
   console.log("application card")
   console.log(props);
@@ -116,10 +121,10 @@ const ApplicationCard = props => {
     >
       <Panel
         showArrow={false}
-        header={<div style={{display: "", alignItems: "center"}} > <CardHeader isSelectAll={props.isSelectAll} user={props.application.user} /> </div> }
+        header={<div className="testing" style={{display: "", alignItems: "center"}} > <CardHeader isSelectAll={props.isSelectAll} user={props.application.user} /> </div> }
         key="1"
         className={"applicationCard__customPanel "}
-        // style={{backgroundColor: props.isSelectAll ? "#ccc" : "inherit"}}
+        style={{backgroundColor: props.isSelectAll ? "#ccc" : "inherit"}}
       >
         <div className="applicationCard__content" style={{marginTop: "1rem"}}>
           <div>
@@ -133,6 +138,19 @@ const ApplicationCard = props => {
             </div>
           </div>
           <div>
+            <div>
+              <div className="sub-head--1">Verification Status</div>
+              <p className="sub-head--2"><img src={verifiedSvg} alt="check" /> Verified</p>
+            </div>
+            <div>
+              <div className="sub-head--1">College</div>
+              <p className="sub-head--2">College Name</p>
+            </div>
+          {/* <div className="sub-head--1">Verification Status</div>
+              <p className="sub-head--2">Verified</p>
+              <p className="sub-head--2">Not Verified</p> */}
+          </div>
+          <div>
             <div className="q_and_head">Interview Questions & Answers</div>
             <div>{renderAnswers(questions, answers)}</div>
           </div>
@@ -143,6 +161,10 @@ const ApplicationCard = props => {
             className="applicationCard__btn--blue"
             shape="round"
             style={{backgroundColor: "#ec3f78", border: 0}}
+            onClick={() => history.push({
+              pathname: `/user-resume/${userId}`,
+              state: { internshipId: internshipId }
+            })}
           >
           
             View Full Application

@@ -25,16 +25,21 @@ export default function InternshipStatus(props) {
     const [current0, setCurrent0] = useState("recruit");
     const [singleInternship, setSingleInternship] = useState(null)
     const [internApplication, setInternApplication] = useState(null)
-    const [isSelectAll, setIsSelectAll] = useState(false)
+
+    const [fullList, setFullList] = useState(null)
+
+    const [isSelectAllShorlisted, setIsSelectAllShorlisted] = useState(false)
+    const [isSelectAllPending, setIsSelectAllPending] = useState(false)
+
     const [noOfPending,setNoOfPending] = useState(0)
     const [noOfShortlisted,setNoOfShortlisted] = useState(0)
     const [noOfSelected,setNoOfSelected] = useState(0)
     const [noOfRejected,setNoOfRejected] = useState(0)
     // const [current, setCurrent] = useState("mail");
 
-    const pendingApplication = internApplication ? internApplication.applications.filter(application => application.status === 300).map((application, index) =>
+    const pendingApplication = fullList ? fullList.pending.map((application, index) =>
         <ApplicationCard
-            // isSelectAll={isSelectAll}
+            // isSelectAll={isSelectAllPending}
             myFun={myFun}
             key={index}
             companyId={application.companyId}
@@ -46,9 +51,9 @@ export default function InternshipStatus(props) {
     // if(pendingApplication) setNoOfPending(pendingApplication.length)
 
 
-    const shortlistedApplication = internApplication ? internApplication.applications.filter(application => application.status === 301).map((application, index) =>
+    const shortlistedApplication = fullList ? fullList.shortlisted.map((application, index) =>
         <ApplicationCard
-            // isSelectAll={isSelectAll}
+            // isSelectAll={isSelectAllShorlisted}
             myFun={myFun}
             key={index}
             companyId={application.companyId}
@@ -94,40 +99,80 @@ export default function InternshipStatus(props) {
     }
 
     // get single internship details
+    const internshipId = props.match.params.internship_id;
+
     useEffect(() => {
         console.log(props)
-        const internshipId = props.match.params.internship_id;
+        const urlForInternApplication = `internship/get_applications/${internshipId}`;
+
+        axios.get(urlForInternApplication)
+            .then(res => {
+                console.log("%c Internship Application", "color: darkblue; font-size: 25px")
+                console.log(res.data)
+                const pending = res.data.applications.filter(app => app.status === 300)
+                .sort((a,b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime());
+                const shortlisted = res.data.applications.filter(app => app.status === 301)
+                .sort((a,b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime());;
+                const selected = res.data.applications.filter(app => app.status === 302)
+                .sort((a,b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime());;
+                const rejected = res.data.applications.filter(app => app.status === 303)
+                .sort((a,b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime());;
+
+                setFullList({pending:pending, shortlisted:shortlisted, selected:selected, rejected:rejected})
+
+                setNoOfPending(pending.length)
+                setNoOfShortlisted(shortlisted.length)
+                setNoOfSelected(selected.length)
+                setNoOfRejected(rejected.length)
+
+                setInternApplication(res.data)
+            })
+    }, [changeInApplication])
+
+    useEffect(() => {
 
         const url = `internship/company_fetchone/${internshipId}`;
-        const urlForInternApplication = `internship/get_applications/${internshipId}`;
         axios.get(url)
             .then(res => {
                 console.log(res.data)
                 setSingleInternship(res.data)
             })
-        axios.get(urlForInternApplication)
-            .then(res => {
-                console.log("%c Internship Application", "color: darkblue; font-size: 25px")
-                console.log(res.data)
-                const pending = res.data.applications.filter(app => app.status === 300).length;
-                const shortlisted = res.data.applications.filter(app => app.status === 301).length;
-                const seleted = res.data.applications.filter(app => app.status === 302).length;
-                const rejected = res.data.applications.filter(app => app.status === 303).length;
-                setNoOfPending(pending)
-                setNoOfShortlisted(shortlisted)
-                setNoOfSelected(seleted)
-                setNoOfRejected(rejected)
-                setInternApplication(res.data)
-            })
-    }, [changeInApplication])
+    }, [])
 
-    const onChangeCheckbox = (e) => {
-        console.log(`checked = ${e.target.checked}`);
-        setIsSelectAll(e.target.checked)
+    // const onChangeCheckbox = (e) => {
+    //     console.log(`checked = ${e.target.checked}`);
+    //     // setIsSelectAll(e.target.checked)
+    // }
+
+    const handleChangeOptionsinPending = (value) => {
+        console.log("SELECTED " + value)
+        console.log(fullList)
+        const array = fullList.pending;
+        if(value === "resume-score"){
+            const newArr = array.sort((a,b) => b.user.resumeScore - a.user.resumeScore)
+            setFullList({...fullList,pending:newArr})
+        } else if(value === "most-recent"){
+            const newArr2 = array.sort((a,b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime());
+            console.log('%c filtered array', 'font-size: 25px')
+            console.log(newArr2)
+            setFullList({...fullList, pending:newArr2})
+
+        }
+        
+        // console.log(newArr)
+        // if(value === "resume-score"){
+            
+        // }
     }
 
-    const handleChangeOptions = (value) => {
+    const handleChangeOptionsInShortlisted = (value ) => {
         console.log("selected " + value)
+        const array = fullList.shortlisted;
+        console.log(array)
+        const newArr = array.sort((a,b) => a.user.resumeScore - b.user.resumeScore)
+        console.log('NEW ARRAY')
+        console.log(newArr)
+        // shortlisted.sort()
     }
 
     const handleClick0 = (e) => {
@@ -137,6 +182,21 @@ export default function InternshipStatus(props) {
 
     const callback = (key) => {
         console.log(key)
+    }
+
+    const onChangeCheckboxPending=(e)=>{
+        console.log(`checked = ${e.target.checked}`);
+        setIsSelectAllPending(e.target.value)
+        const allPendingCandidate =  fullList.pending.map(app => app.user._id);
+        console.log(allPendingCandidate)
+    }
+
+    const onChangeCheckboxShortlisted=(e)=>{
+        console.log(`checked = ${e.target.checked}`);
+        setIsSelectAllShorlisted(e.target.value)
+        const allShortlistedCandidate = fullList.shortlisted.map(app => app.user._id)        
+        console.log(allShortlistedCandidate)
+        
     }
 
     return (
@@ -155,26 +215,10 @@ export default function InternshipStatus(props) {
             {current0 === "recruit" ? <div>
                 <Row className="menu-1">
                     <Col span={24}>
-                        {/* <Menu className="internship-status"  onClick={handleClick} selectedKeys={[current]} mode="horizontal">
-                        <Menu.Item key="pending">
-                        Pending(0)
-                        </Menu.Item>
-                        <Menu.Item key="shortlisted" >
-                        Shortlisted(0)
-                        </Menu.Item>
-                        <Menu.Item key="selected" >
-                        Selected(0)
-                        </Menu.Item>
-                        <Menu.Item key="rejected" >
-                        Rejected(0)
-                        </Menu.Item>
-                        {/* <Menu.Item >
-                        </Menu.Item> 
-                         </Menu>  */}
                         <Tabs defaultActiveKey="pending" onChange={callback}>
                             <TabPane tab={`Pending(${noOfPending})`} key="pending">
                                 <div className="second-tab" style={{ margin: "2rem 0" }}>
-                                    <Checkbox onChange={onChangeCheckbox}>Select All</Checkbox>
+                                    <Checkbox onChange={onChangeCheckboxPending}>Select All</Checkbox>
 
                                     <div className="clickable-options" style={{ marginLeft: "2rem" }}>
                                         <p>SHORTLIST</p>
@@ -183,11 +227,11 @@ export default function InternshipStatus(props) {
                                     </div>
                                     <div className="clickable-options-2">
                                         <p>Short By </p>
-                                        <Select defaultValue="Most Recent" style={{ width: 120 }} onChange={handleChangeOptions}>
+                                        <Select defaultValue="Most Recent" style={{ width: 120 }} onChange={handleChangeOptionsinPending}>
                                             <Option value="most-recent">Most Recent</Option>
-                                            <Option value="op2">option2</Option>
-                                            <Option value="op3">option3</Option>
-                                            <Option value="op4">option4</Option>
+                                            <Option value="resume-score">Resume Score</Option>
+                                            {/* <Option value="op3">option3</Option> */}
+                                            {/* <Option value="op4">option4</Option> */}
                                         </Select>
                                     </div>
                                 </div>
@@ -195,7 +239,7 @@ export default function InternshipStatus(props) {
                             </TabPane>
                             <TabPane tab={`Shortlisted(${noOfShortlisted})`} key="shortlisted">
                                 <div className="second-tab" style={{ margin: "2rem 0" }}>
-                                    <Checkbox onChange={onChangeCheckbox}>Select All</Checkbox>
+                                    <Checkbox onChange={onChangeCheckboxShortlisted}>Select All</Checkbox>
                                     <div className="clickable-options" style={{ marginLeft: "2rem" }}>
                                         {/* <p>SHORTLIST</p> */}
                                         <p>SELECT</p>
@@ -203,11 +247,11 @@ export default function InternshipStatus(props) {
                                     </div>
                                     <div className="clickable-options-2">
                                         <p>Short By </p>
-                                        <Select defaultValue="Most Recent" style={{ width: 120 }} onChange={handleChangeOptions}>
+                                        <Select defaultValue="Most Recent" style={{ width: 120 }} onChange={handleChangeOptionsInShortlisted}>
                                             <Option value="most-recent">Most Recent</Option>
-                                            <Option value="op2">option2</Option>
-                                            <Option value="op3">option3</Option>
-                                            <Option value="op4">option4</Option>
+                                            <Option value="resume-score">Resume Score</Option>
+                                            {/* <Option value="op3">option3</Option> */}
+                                            {/* <Option value="op4">option4</Option> */}
                                         </Select>
                                     </div>
                                 </div>

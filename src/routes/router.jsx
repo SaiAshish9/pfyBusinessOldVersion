@@ -29,7 +29,7 @@ export default function AppRouter() {
         <Route path="/internship" component={Internship} exact={true} />
         <Route path="/internship/:internship_id" component={InternshipStatus} exact={true} />
         <Route path="/internship/form" component={InternshipForm} exact={true} />
-        <Route path="/user-resume" component={UserResume} exact={true} />
+        <Route path="/user-resume/:userId" component={UserResume} exact={true} />
         <Route path="/gig" component={Gig} exact={true} />
         <Route path="/marketing" component={Marketing} exact={true} />
         <Route path="/testing" component={InternshipStatus} exact={true} />
