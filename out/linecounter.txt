@@ -1,0 +1,175 @@
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2020-03-13 15:21:05
+count workspace : c:\Users\asc\Desktop\DU Express\pracify-business-ui
+total files : 147
+total code lines : 31570
+total comment lines : 732
+total blank lines : 2577
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |          .json|          15574|              0|              2|     49|
+   |            .sh|             12|              1|              2|  0.038|
+   |               |             19|              1|              5|  0.060|
+   |            .md|             37|             12|             31|   0.12|
+   |          .html|             21|             23|              1|  0.067|
+   |           .txt|              3|              1|              0| 0.0095|
+   |           .css|            210|            172|             28|   0.67|
+   |            .js|           2357|            224|            184|    7.5|
+   |          .lock|           8654|             30|           1836|     27|
+   |           .svg|            847|              0|             16|    2.7|
+   |          .scss|           1455|             75|            183|    4.6|
+   |           .jsx|           2381|            193|            289|    7.5|
+   -------------------------------------------------------------------------
+.gitignore, code is 19, comment is 1, blank is 5.
+deploy.sh, code is 12, comment is 1, blank is 2.
+package-lock.json, code is 15498, comment is 0, blank is 0.
+package.json, code is 51, comment is 0, blank is 2.
+public\favicon.ico, it is a binary file.
+public\favicon.png, it is a binary file.
+public\index.html, code is 21, comment is 23, blank is 1.
+public\logo192.png, it is a binary file.
+public\logo512.png, it is a binary file.
+public\manifest.json, code is 25, comment is 0, blank is 0.
+public\robots.txt, code is 3, comment is 1, blank is 0.
+README.md, code is 37, comment is 12, blank is 31.
+src\App.css, code is 33, comment is 0, blank is 5.
+src\App.js, code is 8, comment is 0, blank is 3.
+src\App.test.js, code is 8, comment is 0, blank is 1.
+src\components\constant\userToken.js, code is 7, comment is 0, blank is 3.
+src\components\error\pageNotFound.jsx, code is 20, comment is 0, blank is 2.
+src\components\gig\gig.jsx, code is 5, comment is 0, blank is 2.
+src\components\header\header.jsx, code is 60, comment is 2, blank is 10.
+src\components\header\headerNavLink.jsx, code is 45, comment is 0, blank is 4.
+src\components\header\logo.png, it is a binary file.
+src\components\header\mobileNavIcon.jsx, code is 13, comment is 1, blank is 2.
+src\components\header\pracifyLogo.png, it is a binary file.
+src\components\home\downloadApp.js, code is 38, comment is 2, blank is 4.
+src\components\home\footer.js, code is 66, comment is 1, blank is 3.
+src\components\home\frontBlock.js, code is 46, comment is 1, blank is 3.
+src\components\home\home.js, code is 26, comment is 1, blank is 5.
+src\components\home\homeStyled.js, code is 1353, comment is 132, blank is 76.
+src\components\home\images\footerFacebookIcon.svg, code is 36, comment is 0, blank is 0.
+src\components\home\images\footerInstagramIcon.svg, code is 1, comment is 0, blank is 0.
+src\components\home\images\footerLinkedinIcon.svg, code is 36, comment is 0, blank is 0.
+src\components\home\images\footerTwitterIcon.svg, code is 36, comment is 0, blank is 0.
+src\components\home\images\frontBlockImg.png, it is a binary file.
+src\components\home\images\logo.png, it is a binary file.
+src\components\home\images\phone.png, it is a binary file.
+src\components\home\images\playstore.png, it is a binary file.
+src\components\home\images\promotion.svg, code is 14, comment is 0, blank is 0.
+src\components\home\images\research.svg, code is 23, comment is 0, blank is 16.
+src\components\home\images\stepFourImg.png, it is a binary file.
+src\components\home\images\stepOneImg.png, it is a binary file.
+src\components\home\images\stepThreeImg.png, it is a binary file.
+src\components\home\images\stepTwoImg.png, it is a binary file.
+src\components\home\images\whyItWorkImgFour.svg, code is 17, comment is 0, blank is 0.
+src\components\home\images\whyItWorkImgOne.svg, code is 14, comment is 0, blank is 0.
+src\components\home\images\whyItWorkImgThree.svg, code is 24, comment is 0, blank is 0.
+src\components\home\images\whyItWorkImgTwo.svg, code is 17, comment is 0, blank is 0.
+src\components\home\images\workWeExec.svg, code is 20, comment is 0, blank is 0.
+src\components\home\images\workWeExecuteIcon.svg, code is 6, comment is 0, blank is 0.
+src\components\home\stepIncluded.js, code is 174, comment is 2, blank is 6.
+src\components\home\whyItWork.js, code is 126, comment is 1, blank is 10.
+src\components\home\workWeExecute.js, code is 160, comment is 1, blank is 7.
+src\components\independentComponent\img\calendarIcon.svg, code is 19, comment is 0, blank is 0.
+src\components\independentComponent\img\emailIcon.svg, code is 10, comment is 0, blank is 0.
+src\components\independentComponent\img\headingImg\educationIcon.svg, code is 12, comment is 0, blank is 0.
+src\components\independentComponent\img\headingImg\experienceIcon.svg, code is 8, comment is 0, blank is 0.
+src\components\independentComponent\img\headingImg\objectiveIcon.svg, code is 10, comment is 0, blank is 0.
+src\components\independentComponent\img\headingImg\positionIcon.svg, code is 19, comment is 0, blank is 0.
+src\components\independentComponent\img\headingImg\skillIcon.svg, code is 16, comment is 0, blank is 0.
+src\components\independentComponent\img\headingImg\team.svg, code is 44, comment is 0, blank is 0.
+src\components\independentComponent\img\headingImg\trainingIcon.svg, code is 8, comment is 0, blank is 0.
+src\components\independentComponent\img\locationIcon.svg, code is 9, comment is 0, blank is 0.
+src\components\independentComponent\img\phoneIcon.svg, code is 8, comment is 0, blank is 0.
+src\components\independentComponent\img\rupeeIcon.svg, code is 18, comment is 0, blank is 0.
+src\components\independentComponent\img\taskIcon.svg, code is 25, comment is 0, blank is 0.
+src\components\independentComponent\userCard.jsx, code is 94, comment is 3, blank is 2.
+src\components\independentComponent\userResume.jsx, code is 324, comment is 11, blank is 30.
+src\components\internship\img\applicationReceiveIcon.svg, code is 59, comment is 0, blank is 0.
+src\components\internship\img\approvedInternshipIcon.svg, code is 40, comment is 0, blank is 0.
+src\components\internship\img\boostInternshipIcon.svg, code is 8, comment is 0, blank is 0.
+src\components\internship\img\endedInternshipIcon.svg, code is 36, comment is 0, blank is 0.
+src\components\internship\img\flash.svg, code is 8, comment is 0, blank is 0.
+src\components\internship\img\internshipPostedIcon.svg, code is 8, comment is 0, blank is 0.
+src\components\internship\img\internshipView.svg, code is 19, comment is 0, blank is 0.
+src\components\internship\img\moreIcon.svg, code is 16, comment is 0, blank is 0.
+src\components\internship\img\underReviewInternIcon.svg, code is 16, comment is 0, blank is 0.
+src\components\internship\internship\cardStat.jsx, code is 149, comment is 26, blank is 14.
+src\components\internship\internship\internship.jsx, code is 50, comment is 7, blank is 7.
+src\components\internship\internship\quickStat.jsx, code is 52, comment is 0, blank is 1.
+src\components\internship\internship\userInternship.jsx, code is 46, comment is 5, blank is 15.
+src\components\internship\internshipForm\formInternshipDetail.jsx, code is 279, comment is 34, blank is 29.
+src\components\internship\internshipForm\formInterviewQuestion.jsx, code is 88, comment is 1, blank is 8.
+src\components\internship\internshipForm\formResponsibility.jsx, code is 175, comment is 0, blank is 19.
+src\components\internship\internshipForm\formStipend.jsx, code is 210, comment is 17, blank is 20.
+src\components\internship\internshipForm\img\detailIcon.svg, code is 20, comment is 0, blank is 0.
+src\components\internship\internshipForm\img\QAIcon.svg, code is 47, comment is 0, blank is 0.
+src\components\internship\internshipForm\img\responsibilityIcon.svg, code is 12, comment is 0, blank is 0.
+src\components\internship\internshipForm\img\stipendIcon.svg, code is 12, comment is 0, blank is 0.
+src\components\internship\internshipForm\internshipForm.jsx, code is 79, comment is 7, blank is 7.
+src\components\internship\internshipForm\internshipFormReducer.js, code is 0, comment is 13, blank is 4.
+src\components\internship\singleInternship\logo.jpg, it is a binary file.
+src\components\internship\singleInternship\singleIntersnship.jsx, code is 118, comment is 4, blank is 8.
+src\components\Loader\Loader.css, code is 67, comment is 0, blank is 0.
+src\components\Loader\Loader.js, code is 7, comment is 0, blank is 1.
+src\components\marketing\marketingStyle.module.css, code is 98, comment is 18, blank is 22.
+src\components\newComp\boostYourInternship\boostYourInternship.jsx, code is 50, comment is 2, blank is 12.
+src\components\newComp\boostYourInternship\flat.png, it is a binary file.
+src\components\newComp\help\help.jsx, code is 40, comment is 2, blank is 8.
+src\components\newComp\internshipStatus\ApplicationCard.js, code is 168, comment is 30, blank is 33.
+src\components\newComp\internshipStatus\ApplicationCard.scss, code is 119, comment is 5, blank is 13.
+src\components\newComp\internshipStatus\CardHeader.js, code is 53, comment is 0, blank is 6.
+src\components\newComp\internshipStatus\down-arrow.svg, code is 8, comment is 0, blank is 0.
+src\components\newComp\internshipStatus\export.svg, code is 11, comment is 0, blank is 0.
+src\components\newComp\internshipStatus\internshipStatus.jsx, code is 215, comment is 33, blank is 47.
+src\components\newComp\internshipStatus\not_verified.svg, code is 9, comment is 0, blank is 0.
+src\components\newComp\internshipStatus\verified.svg, code is 8, comment is 0, blank is 0.
+src\components\newComp\marketing\card.jsx, code is 25, comment is 1, blank is 2.
+src\components\newComp\marketing\img\banner.png, it is a binary file.
+src\components\newComp\marketing\img\billboard.png, it is a binary file.
+src\components\newComp\marketing\img\coupon.png, it is a binary file.
+src\components\newComp\marketing\img\flyer.png, it is a binary file.
+src\components\newComp\marketing\img\sellTicket.png, it is a binary file.
+src\components\newComp\marketing\marketing.jsx, code is 75, comment is 8, blank is 17.
+src\components\newComp\reportApplicant\reportApplicant.jsx, code is 77, comment is 16, blank is 9.
+src\components\newComp\shareInternship\icons\facebook.svg, code is 13, comment is 0, blank is 0.
+src\components\newComp\shareInternship\icons\link-icon.svg, code is 11, comment is 0, blank is 0.
+src\components\newComp\shareInternship\icons\linkedin.svg, code is 13, comment is 0, blank is 0.
+src\components\newComp\shareInternship\icons\twitter.svg, code is 16, comment is 0, blank is 0.
+src\components\newComp\shareInternship\shareInternship.jsx, code is 42, comment is 13, blank is 9.
+src\components\newComp\success_check\successCheck.css, code is 0, comment is 154, blank is 0.
+src\components\newComp\success_check\successCheck.jsx, code is 13, comment is 0, blank is 1.
+src\components\validation\validation.js, code is 8, comment is 0, blank is 1.
+src\font\AvenirLTStd-Medium.otf, it is a binary file.
+src\index.css, code is 12, comment is 0, blank is 1.
+src\index.js, code is 13, comment is 5, blank is 3.
+src\logo.svg, code is 7, comment is 0, blank is 0.
+src\routes\router.jsx, code is 37, comment is 0, blank is 4.
+src\serviceWorker.js, code is 95, comment is 31, blank is 15.
+src\setupTests.js, code is 1, comment is 4, blank is 0.
+src\styles\_style.scss, code is 14, comment is 1, blank is 10.
+src\styles\base\_setting.scss, code is 1, comment is 0, blank is 0.
+src\styles\header\_header.scss, code is 139, comment is 8, blank is 8.
+src\styles\header\_mobileNav.scss, code is 49, comment is 1, blank is 6.
+src\styles\internship\_formStipend.scss, code is 53, comment is 0, blank is 9.
+src\styles\internship\_internship.scss, code is 169, comment is 1, blank is 27.
+src\styles\internship\_internshipForm.scss, code is 3, comment is 0, blank is 0.
+src\styles\internship\_internshipStatus.scss, code is 52, comment is 2, blank is 12.
+src\styles\internship\_share_internship.scss, code is 28, comment is 0, blank is 1.
+src\styles\internship\_userResume.scss, code is 294, comment is 27, blank is 23.
+src\styles\internship\internship\_cardStat.scss, code is 161, comment is 8, blank is 19.
+src\styles\internship\internship\_internship.scss, code is 10, comment is 0, blank is 1.
+src\styles\internship\internship\_quickStat.scss, code is 40, comment is 0, blank is 4.
+src\styles\internship\internship\_single_internship.scss, code is 41, comment is 0, blank is 4.
+src\styles\internship\internship\_userInternship.scss, code is 17, comment is 0, blank is 4.
+src\styles\marketing\_marketing.scss, code is 106, comment is 18, blank is 26.
+src\styles\report_applicant\_report_applicant.scss, code is 18, comment is 0, blank is 3.
+src\styles\success_check\success_check.scss, code is 141, comment is 4, blank is 13.
+yarn.lock, code is 8654, comment is 30, blank is 1836.
+===============================================================================

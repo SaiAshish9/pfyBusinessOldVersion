@@ -4,7 +4,7 @@ import icon2 from "../img/applicationReceiveIcon.svg";
 import icon3 from "../img/internshipView.svg";
 
 export default function QuickStat(props) {
-  const {totalApplication} = props;
+  const {totalInternshipOfCompany, totalApplicationOfCompany, totalViewsOfCompany} = props;
   return (
     <div className="quick-stat-block">
       <div className="quick-stat-content-block">
@@ -20,7 +20,7 @@ export default function QuickStat(props) {
           </div>
           <div className="stat-brief-content-block">
             <p className="state-brief__p">Internship Posted</p>
-            <h2 className="state-brief__h2">{totalApplication}</h2>
+            <h2 className="state-brief__h2">{totalInternshipOfCompany}</h2>
           </div>
         </div>
         <div className="state-brief-sub-block">
@@ -32,7 +32,7 @@ export default function QuickStat(props) {
           </div>
           <div className="stat-brief-content-block">
             <p className="state-brief__p">Application Received</p>
-            <h2 className="state-brief__h2">Dummy data</h2>
+            <h2 className="state-brief__h2">{totalApplicationOfCompany}</h2>
           </div>
         </div>
         <div className="state-brief-sub-block">
@@ -44,7 +44,7 @@ export default function QuickStat(props) {
           </div>
           <div className="stat-brief-content-block">
             <p className="state-brief__p">Internship View</p>
-            <h2 className="state-brief__h2">Dummy data</h2>
+              <h2 className="state-brief__h2">{totalViewsOfCompany}</h2>
           </div>
         </div>
       </div>

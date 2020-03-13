@@ -1,12 +1,17 @@
-import React, {useState} from 'react';
-import { Modal, Button } from 'antd';
+import React, {useState, Fragment} from 'react';
+import { Modal, Button, message } from 'antd';
 import facebookSvg from './icons/facebook.svg';
 import linkedSvg from './icons/linkedin.svg';
 import twitterSvg from './icons/twitter.svg';
 import linkSvg from './icons/link-icon.svg';
+import ShareLink from 'react-facebook-share-link';
+import {FacebookShareButton, LinkedinShareButton, TwitterShareButton} from 'react-share';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 
-export default function ShareInternship({show, isClose}) {
+
+
+export default function ShareInternship({show, isClose, intershipId}) {
 
     // state = { visible: false };
   // const [visible, setVisible] = useState(false);
@@ -29,6 +34,10 @@ export default function ShareInternship({show, isClose}) {
     //TODO go to that particular link
   }
 
+  const url = "https://pracify.com"+intershipId;
+  const urlTest = "https://pracify.com";
+
+
     return (
         <div style={{marginTop: "10rem"}}>
             {/* <Button type="primary" onClick={showModal}>
@@ -45,18 +54,42 @@ export default function ShareInternship({show, isClose}) {
           // onOk={handleOk}
           onCancel={handleCancel}
         >
-          <div className="item" onClick={iconClickHandler} >
-            <img src={facebookSvg} alt="facebook-icon"/><p className="text" >Facebook</p>
+          {/* <ShareLink link={'https://pracify.com/internship/' + intershipId} >
+              {link => (
+                <a href={link} target='_blank'>
+                  <div className="item" >
+                  <img src={facebookSvg} alt="facebook-icon"/><p className="text" >Facebook</p>
+                </div>
+                </a>
+                
+              )}
+          </ShareLink> */}
+          <FacebookShareButton  url={urlTest} style={{width: "100%"}}>
+          <div className="item" >
+            <img src={facebookSvg} alt="facebook-icon"/><p className="text" >Facebook </p>
           </div>
+          </FacebookShareButton>
+          
+          
+          <LinkedinShareButton title={"internship"} summary={"get internship" } source={"pracify"} url={urlTest} style={{width: "100%"}}>
           <div className="item" onClick={iconClickHandler} >
             <img src={linkedSvg} alt="facebook-icon"/><p className="text" >Linkedin</p>
           </div>
+          </LinkedinShareButton>
+
+          <TwitterShareButton url={urlTest} title={"test"} hashtags={['internship']} style={{width: "100%"}}>
           <div className="item" onClick={iconClickHandler} >
             <img src={twitterSvg} alt="facebook-icon"/><p className="text" >Twitter</p>
           </div>
-          <div className="item" onClick={iconClickHandler} >
-            <img src={linkSvg} alt="facebook-icon"/><p className="text" >Copy Link</p>
-          </div>
+          </TwitterShareButton>
+          
+          <CopyToClipboard text={url}
+            onCopy={() => message.info('Copied')}>
+            <div className="item" onClick={iconClickHandler} >
+              <img src={linkSvg} alt="copy-icon"/><p className="text" >Copy Link</p>
+            </div>
+          </CopyToClipboard>
+          
         </Modal>
         </div>
     )

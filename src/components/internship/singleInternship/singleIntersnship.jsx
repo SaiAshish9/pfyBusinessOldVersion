@@ -1,19 +1,53 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Row, Col } from 'antd';
 import logo from './logo.jpg'
 import { useHistory } from 'react-router-dom';
-import axios from 'axios'
-import { useState } from 'react';
+import axios from 'axios';
+import { Fragment } from 'react';
+
 
 
 export default function SingleIntersnship(props) {
-    const history = useHistory();
-    // const [internship, setInternship] = useState(null);
 
-    const internship=props.internship;
+    const [axiosInternship, setAxiosInternship] = useState(null)
+    let divStyle;
+
+    useEffect(() => {
+        if(props.location && props.location.state.isFetchReq){
+            const url = `internship/company_fetchone/${props.match.params.internship_id}`;
+            axios.get(url)
+                .then(res => {
+                    console.log(res.data)
+                    setAxiosInternship(res.data)
+                })
+            
+        } 
+    }, []);
+
+    if(props.location && props.location.state.isFetchReq){
+        divStyle = {
+            marginTop: "10rem",
+            marginLeft:"3rem",
+            marginRight: "3rem",
+            marginBottom: "2rem",
+            backgroundColor: "#f9fbfd" 
+            };
+    } else {
+        divStyle = {
+            marginTop: "2rem",
+            backgroundColor: "#f9fbfd" 
+          };
+    }
+   
+
+    
+    const history = useHistory();
+    const internship = props.internship ? props.internship : axiosInternship
+
+    
 
     return (
-        <div style={{margin: "1rem 0", backgroundColor: "#f9fbfd"}}>
+        <div style={divStyle}>
             {internship ? 
             <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 24 }} justify="center" className="single-internship-1">
                 <Col  className="gutter-row" span={24}>
@@ -38,7 +72,7 @@ export default function SingleIntersnship(props) {
                 <Col span={8}></Col>
                 
                 
-                <Col  className="gutter-row" span={24} style={{padding: "2rem 0"}} className="section">
+                <Col  className="gutter-row" span={24} style={{padding:"2rem"}} className="section">
                     <div>
                         <p className="heading">Designation</p>
                         <p className="text">{internship.designation}</p>
@@ -47,12 +81,12 @@ export default function SingleIntersnship(props) {
                         <p className="heading">Type of internship</p>
                         <p className="text">{internship.internshipType}</p>
                     </div>
-                    <div>
+                    {internship.location.length > 0 ? <div>
                         <p className="heading">Internship Location</p>
                         <div className="text">{internship.location.map((loc, index) => 
                                 <p key={index}>{loc}</p>
                             )}</div>
-                    </div>
+                    </div> : null}
                     {/* <div>
                         <p className="heading">Stipend Type</p>
                         <p className="text">{internship.stipendType}</p>
@@ -73,28 +107,28 @@ export default function SingleIntersnship(props) {
                         <p className="heading">Internship Duration</p>
                         <p className="text">{internship.duration}</p>
                     </div>
-                    <div>
+                    {internship.responsibilities.length > 0 ? <div>
                         <p className="heading">Intern Responsibilities</p>
                         <div className="text">{internship.responsibilities.map((resp, index) => 
                                 <p key={index} >{resp}</p>
                             )}</div>
-                    </div>
-                    <div>
+                    </div> : null}
+                    { internship.skillsRequired.length > 0 ? <div>
                         <p className="heading">Skills Required</p>
                         <div className="text">{internship.skillsRequired.map(skill => 
                             <p key={skill._id}>{skill.skillName}</p>
                         )}</div>
-                    </div>
+                    </div> : null}
                     <div>
                         <p className="heading">Type of Internship</p>
                         <p className="text">{internship.stipendType}</p>
                     </div>
-                    <div>
+                   {internship.benefits.length > 0 ? <div>
                         <p className="heading">Additional Benifits</p>
                         <div className="text">{internship.benefits.map((benifit, index) => 
                                 <p key={index}>{benifit}</p>
                             )}</div>
-                    </div>
+                    </div> : null}
                     <div>
                         <p className="heading">Does this internship come with a PPO ?</p>
                         <p className="text">
@@ -107,13 +141,15 @@ export default function SingleIntersnship(props) {
                         <p className="heading">Amount</p>
                         <p className="text">{internship.stipend}</p>
                     </div>
-                    <div>
+                    {internship.questions.length > 0 ? <div>
                         <p className="heading">Interview Questions</p>
                         <div className="text">{internship.questions.map(ques => 
                                 <p key={ques._id}>{ques.question}</p>
                             )}</div>
-                    </div>
+                    </div> : null}
+                    
                 </Col>
+                
     </Row> : null }
         </div>
     )

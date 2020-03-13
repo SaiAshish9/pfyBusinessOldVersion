@@ -16,7 +16,9 @@
     "moment": "^2.24.0",
     "node-sass": "^4.13.1",
     "react": "^16.12.0",
+    "react-copy-to-clipboard": "^5.0.2",
     "react-dom": "^16.12.0",
+    "react-facebook-share-link": "^1.0.4",
     "react-fns": "^1.4.0",
     "react-hook-form": "^4.10.1",
     "react-media": "^1.10.0",
@@ -25,6 +27,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
     "react-scroll": "^1.7.16",
+    "react-share": "^4.0.1",
     "sass": "^1.25.0",
     "styled-components": "^5.0.1",
     "typewriter-effect": "^2.12.2"

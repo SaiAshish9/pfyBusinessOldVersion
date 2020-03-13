@@ -52,7 +52,10 @@ const [show, setShow] = useState(false)
     message.info('Click on menu item.', e);
     console.log('click', e);
     if(e.key === "view"){
-      history.push(`/internship/${props.internship._id}`)
+      history.push({
+        pathname :`/view-internship/${props.internship._id}`,
+        state: {isFetchReq: true}
+      })
       console.log('clicked')
     } else if(e.key === "share"){
       // setIsSetShow(!isSetShow);
@@ -67,7 +70,7 @@ const [show, setShow] = useState(false)
 
   return (
     <div  className="approved-card-main-block" style={{margin: "20px 0"}}>
-      <ShareInternship show={show} isClose={isClose}/>
+      <ShareInternship show={show} isClose={isClose} intershipId={props.internship._id} />
       <div className="approved-card-img-block">
         <img
           src={approvedInternshipIcon}
