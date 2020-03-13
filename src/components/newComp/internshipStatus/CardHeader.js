@@ -2,14 +2,17 @@ import React from 'react';
 import downArrow from './down-arrow.svg';
 import {Checkbox} from 'antd'
 import Moment from 'react-moment';
+import moment from 'moment'
+import { Fragment } from 'react';
 
 
 const CardHeader = props => {
   const isSelectAll = props.isSelectAll;
-  const updatedAt = props.updatedAt;
+  const updatedAt = props.application.updatedAt;
+  console.log(updatedAt)
   console.log("%c CardHeader: user", 'font-size: 25px')
   console.log(props.user)
-    const {imgUrl,firstName,college,city, resumeScore} = props.user;
+    const {imgUrl,firstName,college,city, resumeScore} = props.application.user;
     const onChange = (e) => {
       console.log(e.target.checked)
     }
@@ -43,7 +46,8 @@ const CardHeader = props => {
           </div>
         </div>
       </div>
-          <div>Applied on <Moment fromNow>{updatedAt}</Moment></div>
+          <div>Applied on {moment(updatedAt).fromNow()}</div>
+          {/* <div>Applied on {moment().startOf('day').fromNow()}</div> */}
       <div>
         <img className="header__arrow" src={downArrow} alt="arrow"/>
       </div>

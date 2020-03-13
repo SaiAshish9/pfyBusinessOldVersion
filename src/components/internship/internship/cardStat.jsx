@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import boostInternshipIcon from "../img/boostInternshipIcon.svg";
 import boostInternshipIcon2 from "../img/flash.svg";
 import moreIcon from "../img/moreIcon.svg";
@@ -9,29 +9,11 @@ import { Button } from "antd";
 import {useHistory} from 'react-router-dom';
 import axios from "axios";
 import { Menu, Dropdown, message } from 'antd';
+import ShareInternship from "../../newComp/shareInternship/shareInternship";
 
-function handleMenuClick(e) {
-  message.info('Click on menu item.');
 
-  console.log('click', e);
-}
 
-const menu = (
-  <Menu onClick={handleMenuClick}>
-    <Menu.Item key="1">
-      {/* <UserOutlined /> */}
-      1st menu item
-    </Menu.Item>
-    <Menu.Item key="2">
-      {/* <UserOutlined /> */}
-      2nd menu item
-    </Menu.Item>
-    <Menu.Item key="3">
-      {/* <UserOutlined /> */}
-      3rd item
-    </Menu.Item>
-  </Menu>
-);
+
 
 export function ApprovedCardStat(props) {
   const history = useHistory();
@@ -47,9 +29,45 @@ export function ApprovedCardStat(props) {
   //       history.push(`/internship/${res.data._id}`)
   //     })
   // }
+  const menu = (
+    <Menu onClick={handleMenuClick}>
+      <Menu.Item key="view">
+        {/* <UserOutlined /> */}
+        View
+      </Menu.Item>
+      <Menu.Item key="2">
+        {/* <UserOutlined /> */}
+        Edit Internship
+      </Menu.Item>
+      <Menu.Item key="share">
+        {/* <UserOutlined /> */}
+        Share Internship
+      </Menu.Item>
+    </Menu>
+  );
+// const [isSetShow, setIsSetShow] = useState(false)
+const [show, setShow] = useState(false)
+
+  function handleMenuClick(e) {
+    message.info('Click on menu item.', e);
+    console.log('click', e);
+    if(e.key === "view"){
+      history.push(`/internship/${props.internship._id}`)
+      console.log('clicked')
+    } else if(e.key === "share"){
+      // setIsSetShow(!isSetShow);
+      setShow(!show)
+      console.log(show)
+    }
+  }
+
+  const isClose = () => {
+    setShow(!show)
+  }
 
   return (
     <div  className="approved-card-main-block" style={{margin: "20px 0"}}>
+      <ShareInternship show={show} isClose={isClose}/>
       <div className="approved-card-img-block">
         <img
           src={approvedInternshipIcon}
@@ -64,7 +82,7 @@ export function ApprovedCardStat(props) {
           </h2>
           
           <Dropdown overlay={menu}>
-            <a className="ant-dropdown-link" style={{color: "black", height: "fit-content"}} onClick={e => e.preventDefault()}>
+            <a className="ant-dropdown-link" style={{color: "black", height: "fit-content", padding: "0 7px"}} onClick={e => e.preventDefault()}>
               {/* <MoreOutlined /> */} <img src={moreIcon} alt="" />
             </a>
           </Dropdown>
@@ -87,14 +105,6 @@ export function ApprovedCardStat(props) {
 
 export function UnderReviewCardStat(props) {
   const history = useHistory();
-  // const getSingleInternshipDetails = (internship_id) => {
-  //   const url = `internship/company_fetchone/${internship_id}`
-  //   axios.get(url)
-  //     .then(res => {
-  //       console.log(internship_id)
-  //       console.log(res.data)
-  //     })
-  // }
   return (
     <div onClick={() => history.push(`/internship/${props.internship._id}`)} className="underReview-card-main-block" style={{margin: "20px 0"}}>
       <div className="underReview-card-img-block">

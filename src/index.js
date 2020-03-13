@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import axios from'axios';
 import 'font-awesome/css/font-awesome.min.css';
 import "circular-std";
-
+import 'moment';
 
 // TODO API Config
 // is_api_endpoint_valid 

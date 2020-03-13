@@ -41,7 +41,6 @@ export default function Internship() {
     <div className="internship-main-block">
       {internship ? <QuickStat totalApplication={internship.totalApplication}></QuickStat> : null}
       {internship ? <UserInternship approvedApplication={internship.approvedApp} underReviewApplication={internship.underReviewApp} rejectedApplication={internship.rejectedApp} totalApplication={internship.totalApplication} pendingApplication={internship.pendingApplication} /> : null}
-      <Button onClick={handleNotification}>Notification</Button>
     </div>
   );
 }

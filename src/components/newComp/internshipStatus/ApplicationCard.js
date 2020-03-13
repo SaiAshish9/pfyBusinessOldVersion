@@ -121,7 +121,7 @@ const ApplicationCard = props => {
     >
       <Panel
         showArrow={false}
-        header={<div className="testing" style={{display: "", alignItems: "center"}} > <CardHeader isSelectAll={props.isSelectAll} user={props.application.user} /> </div> }
+        header={<div className="testing" style={{display: "", alignItems: "center"}} > <CardHeader isSelectAll={props.isSelectAll} application={props.application} /> </div> }
         key="1"
         className={"applicationCard__customPanel "}
         style={{backgroundColor: props.isSelectAll ? "#ccc" : "inherit"}}

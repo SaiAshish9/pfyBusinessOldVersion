@@ -6,21 +6,23 @@ import twitterSvg from './icons/twitter.svg';
 import linkSvg from './icons/link-icon.svg';
 
 
-export default function ShareInternship() {
+export default function ShareInternship({show, isClose}) {
 
     // state = { visible: false };
-    const [visible, setVisible] = useState(false);
+  // const [visible, setVisible] = useState(false);
+  // setVisible(props.show);
+  // const showModal = () => setVisible(true)
 
-  const showModal = () => setVisible(true)
 
-  const handleOk = e => {
-    console.log(e);
-    setVisible(false)
-  };
+  // const handleOk = e => {
+  //   console.log(e);
+  //   setVisible(false)
+  // };
 
   const handleCancel = e => {
     console.log(e);
-    setVisible(false)
+    isClose();
+    // setVisible(false)
   };
 
   const iconClickHandler = () =>{
@@ -29,9 +31,9 @@ export default function ShareInternship() {
 
     return (
         <div style={{marginTop: "10rem"}}>
-            <Button type="primary" onClick={showModal}>
-          Open Modal
-        </Button>
+            {/* <Button type="primary" onClick={showModal}>
+              Open Modal
+            </Button> */}
         <Modal
             className="share-internship-modal"
             width="300px"
@@ -39,8 +41,8 @@ export default function ShareInternship() {
             font="28px"
             footer={[]}
           title="Share Internship"
-          visible={visible}
-          onOk={handleOk}
+          visible={show}
+          // onOk={handleOk}
           onCancel={handleCancel}
         >
           <div className="item" onClick={iconClickHandler} >
