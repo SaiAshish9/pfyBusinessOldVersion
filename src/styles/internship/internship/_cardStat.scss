@@ -11,12 +11,12 @@ div.approved-card-main-block {
   border-color: #77cc6d;
 
   div.approved-card-img-block {
-    cursor: pointer;
     img.card__img {
     }
   }
 
   div.approved-internship-content-block {
+    cursor: pointer;
     width: 100%;
     margin-left: 40px;
     div.approved-internship-title-block {
@@ -71,6 +71,7 @@ div.underReview-card-main-block {
   }
 
   div.underReview-internship-content-block {
+    cursor: pointer;
     width: 100%;
     margin-left: 40px;
     div.underReview-internship-title-block {
@@ -179,7 +180,8 @@ div.rejected-card-main-block {
       display: flex;
       justify-content: space-between;
       // margin: 32px 48% 0px 0px;
-      margin: 32px 9rem 0 1rem;
+      // margin: 32px 9rem 0 1rem;
+      padding-right: 8rem;
 
       p.rejected-internship-brief__p {
       }

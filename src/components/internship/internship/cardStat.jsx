@@ -49,7 +49,7 @@ export function ApprovedCardStat(props) {
 const [show, setShow] = useState(false)
 
   function handleMenuClick(e) {
-    message.info('Click on menu item.', e);
+    // message.info('Click on menu item.', e);
     console.log('click', e);
     if(e.key === "view"){
       history.push({
@@ -91,7 +91,7 @@ const [show, setShow] = useState(false)
           </Dropdown>
         </div>
         <div className="approved-internship-brief-block">
-          <p className="approved-internship-brief__p">Total Applications : {props.internship.pendingApplications}</p>
+          <p className="approved-internship-brief__p">Total Applications : {props.internship.totalApplications}</p>
           <p className="approved-internship-brief__p">Pending Applications :{props.internship.pendingApplications} </p>
           <Button
             className="approved-internship-brief__button"
@@ -107,9 +107,43 @@ const [show, setShow] = useState(false)
 }
 
 export function UnderReviewCardStat(props) {
+  const [show, setShow] = useState(false)
+
+  const menu2 = (
+    <Menu onClick={handleMenuClick}>
+      <Menu.Item key="view">
+        View
+      </Menu.Item>
+      <Menu.Item key="2">
+        Edit Internship
+      </Menu.Item>
+      <Menu.Item key="share">
+        Share Internship
+      </Menu.Item>
+    </Menu>
+  );
+
+  function handleMenuClick(e) {
+    // message.info('Click on menu item.', e);
+    console.log('click', e);
+    if(e.key === "view"){
+      history.push({
+        pathname :`/view-internship/${props.internship._id}`,
+        state: {isFetchReq: true}
+      })
+      console.log('clicked')
+    } else if(e.key === "share"){
+      setShow(!show)
+      console.log(show)
+    }
+  }
+  const isClose = () => {
+    setShow(!show)
+  }
   const history = useHistory();
   return (
-    <div onClick={() => history.push(`/internship/${props.internship._id}`)} className="underReview-card-main-block" style={{margin: "20px 0"}}>
+    <div className="underReview-card-main-block" style={{margin: "20px 0"}}>
+      <ShareInternship show={show} isClose={isClose} intershipId={props.internship._id} />
       <div className="underReview-card-img-block">
         <img
           src={underReviewInternIcon}
@@ -119,10 +153,14 @@ export function UnderReviewCardStat(props) {
       </div>
       <div className="underReview-internship-content-block">
         <div className="underReview-internship-title-block">
-          <h2 className="underReview-internship-title__h2">
+          <h2 onClick={() => history.push(`/internship/${props.internship._id}`)} style={{flex: 1, paddingBottom: '5rem'}} className="underReview-internship-title__h2">
           {props.internship.designation}
           </h2>
-          <img src={moreIcon} alt="" />
+          <Dropdown overlay={menu2}>
+            <a className="ant-dropdown-link" style={{color: "black", height: "fit-content", padding: "0 7px"}} onClick={e => e.preventDefault()}>
+              <img src={moreIcon} alt="" />
+            </a>
+          </Dropdown>
         </div>
         {/* Not required in under review */}
         {/* <div className="underReview-internship-brief-block">
@@ -140,6 +178,7 @@ export function UnderReviewCardStat(props) {
 
 export function EndedCardStat() {
   const history = useHistory();
+  
   return (
     <div className="ended-card-main-block" >
       <div className="ended-card-img-block">
@@ -148,6 +187,7 @@ export function EndedCardStat() {
       <div className="ended-internship-content-block">
         <div className="ended-internship-title-block">
           <h2 className="ended-internship-title__h2">Business Development</h2>
+          
           <img src={moreIcon} alt="" />
         </div>
         <div className="ended-internship-brief-block">
@@ -161,25 +201,56 @@ export function EndedCardStat() {
 
 export function RejectedCardStat(props) {
    const history = useHistory();
-  // const getSingleInternshipDetails = (internship_id) => {
-  //   const url = `internship/company_fetchone/${internship_id}`
-  //   axios.get(url)
-  //     .then(res => {
-  //       console.log(internship_id)
-  //       console.log(res.data)
-  //     })
-  // }
+   const [show, setShow] = useState(false)
+
+  const menu3 = (
+    <Menu onClick={handleMenuClick}>
+      <Menu.Item key="view">
+        View
+      </Menu.Item>
+      <Menu.Item key="2">
+        Edit Internship
+      </Menu.Item>
+      <Menu.Item key="share">
+        Share Internship
+      </Menu.Item>
+    </Menu>
+  );
+
+  function handleMenuClick(e) {
+    // message.info('Click on menu item.', e);
+    console.log('click', e);
+    if(e.key === "view"){
+      history.push({
+        pathname :`/view-internship/${props.internship._id}`,
+        state: {isFetchReq: true}
+      })
+      console.log('clicked')
+    } else if(e.key === "share"){
+      setShow(!show)
+      console.log(show)
+    }
+  }
+  const isClose = () => {
+    setShow(!show)
+  }
   return (
-    <div onClick={() => history.push(`/internship/${props.internship._id}`)} className="rejected-card-main-block" style={{margin: "20px 0"}}>
+    <div  className="rejected-card-main-block" style={{margin: "20px 0"}}>
+      <ShareInternship show={show} isClose={isClose} intershipId={props.internship._id} />
       <div className="rejected-card-img-block">
         <img src={endedInternshipIcon} alt="" className="rejected-card__img" />
       </div>
       <div className="rejected-internship-content-block">
         <div className="rejected-internship-title-block">
-          <h2 className="rejected-internship-title__h2">
+          <h2 style={{flex: 1, paddingBottom: '2rem'}} onClick={() => history.push(`/internship/${props.internship._id}`)} className="rejected-internship-title__h2">
           {props.internship.designation}
           </h2>
-          <img src={moreIcon} alt="" />
+          <Dropdown overlay={menu3}>
+            <a className="ant-dropdown-link" style={{color: "black", height: "fit-content", padding: "0 7px"}} onClick={e => e.preventDefault()}>
+              <img src={moreIcon} alt="" />
+            </a>
+          </Dropdown>
+          {/* <img src={moreIcon} alt="" /> */}
         </div>
         <div className="rejected-internship-brief-block">
           <p className="rejected-internship-brief__p">Total Applications : {props.internship.totalApplications}</p>

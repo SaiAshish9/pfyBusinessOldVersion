@@ -7,7 +7,7 @@ import { Fragment } from 'react';
 
 
 const CardHeader = props => {
-  const isSelectAll = props.isSelectAll;
+  // const isSelectAll = props.isSelectAll;
   const updatedAt = props.application.updatedAt;
   console.log(updatedAt)
   console.log("%c CardHeader: user", 'font-size: 25px')

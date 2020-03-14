@@ -8,21 +8,11 @@ import ShareLink from 'react-facebook-share-link';
 import {FacebookShareButton, LinkedinShareButton, TwitterShareButton} from 'react-share';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 
+const url = "https://pracify.com/internshp/"
 
 
 
 export default function ShareInternship({show, isClose, intershipId}) {
-
-    // state = { visible: false };
-  // const [visible, setVisible] = useState(false);
-  // setVisible(props.show);
-  // const showModal = () => setVisible(true)
-
-
-  // const handleOk = e => {
-  //   console.log(e);
-  //   setVisible(false)
-  // };
 
   const handleCancel = e => {
     console.log(e);
@@ -30,12 +20,9 @@ export default function ShareInternship({show, isClose, intershipId}) {
     // setVisible(false)
   };
 
-  const iconClickHandler = () =>{
-    //TODO go to that particular link
-  }
-
-  const url = "https://pracify.com"+intershipId;
-  const urlTest = "https://pracify.com";
+  // do nothing
+  // const iconClickHandler = () =>{
+  // }
 
 
     return (
@@ -64,28 +51,28 @@ export default function ShareInternship({show, isClose, intershipId}) {
                 
               )}
           </ShareLink> */}
-          <FacebookShareButton  url={urlTest} style={{width: "100%"}}>
+          <FacebookShareButton  url={url + intershipId} style={{width: "100%"}}>
           <div className="item" >
             <img src={facebookSvg} alt="facebook-icon"/><p className="text" >Facebook </p>
           </div>
           </FacebookShareButton>
           
           
-          <LinkedinShareButton title={"internship"} summary={"get internship" } source={"pracify"} url={urlTest} style={{width: "100%"}}>
-          <div className="item" onClick={iconClickHandler} >
+          <LinkedinShareButton title={"internship"} summary={"get internship" } source={"pracify"} url={url+'/'+ intershipId} style={{width: "100%"}}>
+          <div className="item"  >
             <img src={linkedSvg} alt="facebook-icon"/><p className="text" >Linkedin</p>
           </div>
           </LinkedinShareButton>
 
-          <TwitterShareButton url={urlTest} title={"test"} hashtags={['internship']} style={{width: "100%"}}>
-          <div className="item" onClick={iconClickHandler} >
+          <TwitterShareButton url={url+'/'+ intershipId} title={"test"} hashtags={['internship']} style={{width: "100%"}}>
+          <div className="item"  >
             <img src={twitterSvg} alt="facebook-icon"/><p className="text" >Twitter</p>
           </div>
           </TwitterShareButton>
           
-          <CopyToClipboard text={url}
+          <CopyToClipboard text={url+intershipId}
             onCopy={() => message.info('Copied')}>
-            <div className="item" onClick={iconClickHandler} >
+            <div className="item"  >
               <img src={linkSvg} alt="copy-icon"/><p className="text" >Copy Link</p>
             </div>
           </CopyToClipboard>

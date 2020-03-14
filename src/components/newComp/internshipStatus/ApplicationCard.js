@@ -53,10 +53,12 @@ const ApplicationCard = props => {
 
   const history = useHistory()
   
-  console.log("application card")
+  console.log("APPLICATION CARD")
   console.log(props);
   const { email, phone, verificationStatus } = props.application.user;
   const userId = props.application.user._id;
+  const status = props.application.status;
+
   const companyId = props.companyId;
   const internshipId = props.internshipId;
   
@@ -81,7 +83,7 @@ const ApplicationCard = props => {
     axios.put(url,data)
       .then(res=> {
         console.log(res.data)
-        props.myFun(userId)
+        props.myFun({userId, status, action:"shortlisted"})
       })
   }
 
@@ -90,7 +92,7 @@ const ApplicationCard = props => {
     axios.put(url, data)
       .then(res => {
         console.log(res.data)
-        props.myFun(userId)
+        props.myFun({userId, status, action:"selected"})
       })
   }
 
@@ -99,7 +101,7 @@ const ApplicationCard = props => {
     axios.put(url,data)
       .then(res => {
         console.log(res.data)
-        props.myFun(userId)
+        props.myFun({userId, status, action:"rejected"})
       })
   }
   const checkbbb = (e) =>{
@@ -124,7 +126,7 @@ const ApplicationCard = props => {
         header={<div className="testing" style={{display: "", alignItems: "center"}} > <CardHeader isSelectAll={props.isSelectAll} application={props.application} /> </div> }
         key="1"
         className={"applicationCard__customPanel "}
-        style={{backgroundColor: props.isSelectAll ? "#ccc" : "inherit"}}
+        style={{backgroundColor: props.isSelectAll ? "#e4e1e1" : "inherit"}}
       >
         <div className="applicationCard__content" style={{marginTop: "1rem"}}>
           <div>
@@ -169,10 +171,7 @@ const ApplicationCard = props => {
               pathname: `/user-resume/${userId}`,
               state: { internshipId: internshipId }
             })}
-          >
-          
-            View Full Application
-          </Button>
+          > View Full Application </Button>
           <div>
             <Button
               type="primary"
