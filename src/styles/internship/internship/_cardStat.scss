@@ -1,4 +1,5 @@
 div.approved-card-main-block {
+  cursor: pointer;
   background-color: #fff;
   display: flex;
   border-radius: 24px;
@@ -44,6 +45,7 @@ div.approved-card-main-block {
 //!------------------------------ under-review ------------------------------ */
 
 div.underReview-card-main-block {
+  cursor: pointer;
   background-color: #fff;
   display: flex;
   border-radius: 24px;
@@ -85,6 +87,7 @@ div.underReview-card-main-block {
 
 //!------------------------------ ended-review ------------------------------ */
 div.ended-card-main-block {
+  cursor: pointer;
   background-color: #fff;
   display: flex;
   border-radius: 24px;
@@ -126,6 +129,7 @@ div.ended-card-main-block {
 
 //!------------------------------ rejected-review ------------------------------ */
 div.rejected-card-main-block {
+  cursor: pointer;
   background-color: #fff;
   display: flex;
   border-radius: 24px;

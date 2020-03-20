@@ -13,17 +13,13 @@ export default function UserInternship() {
   const handleNewInternshipForm = () => {
     history.push("/internship/form");
   };
-
+  
   // const [internships, setInternships] = useState(null);
   const [approvedApplication, setApprovedApplication] = useState(null);
   const [underReviewApplication, setUnderReviewApplication] = useState(null);
   const [rejectedApplication, setRejectedApplication] = useState(null);
   const [totalApplication, setTotalApplication] = useState(null);
   const [pendingApplication, setPendingApplication] = useState(null);
-
-  
-
- 
 
   useEffect(() => {
     console.log("hey useEffect is running")

@@ -33,10 +33,10 @@ export default function InternshipForm() {
     axios
       .post(`${apiURL}internship/add`, formData, token)
       .then(res => {
-        console.log("response", res);
+        // console.log("response", res);
       })
       .catch(e => {
-        console.log("error response", e.response);
+        // console.log("error response", e.response);
       });
   };
 

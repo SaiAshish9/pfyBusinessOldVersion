@@ -18,6 +18,7 @@ const CardHeader = props => {
         <img
           className={"applicationCard__image"}
           src={imgUrl}
+          alt=""
         />
       </div>
     <div className="header__name sub-head--2">{firstName}</div>
