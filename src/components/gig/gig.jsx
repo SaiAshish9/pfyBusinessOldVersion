@@ -1,7 +1,9 @@
 import React from "react";
 
-const Gig = () => {
-  return <div>Gig</div>;
-};
-
-export default Gig;
+export default function Gig() {
+  return (
+    <div className="">
+      <h1 className="main-header">Gigs</h1>
+    </div>
+  );
+}

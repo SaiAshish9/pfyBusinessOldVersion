@@ -26,7 +26,7 @@ const Header = () => {
 
   const myMobileNav = {
     transition: "transform 1s ease-in-out",
-    transform: isNavOpen ? "translate(0%,0px)" : "translate(100%,0px)"
+    transform: isNavOpen ? "translate(0%,0px)" : "translate(100%,0px)",
   };
 
   return (
@@ -40,7 +40,7 @@ const Header = () => {
                 className="headerNav"
                 style={{
                   transition: "all 0.6s ease 0s",
-                  boxShadow: y > 20 ? "0px 2px 16px -6px black" : "none"
+                  boxShadow: y > 20 ? "0px 2px 16px -6px black" : "none",
                 }}
               >
                 <div className="logo-container" onClick={handleLogo}>

@@ -2,11 +2,16 @@ import React from "react";
 import { Button } from "antd";
 import { Link as RouteLink } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import cookie from "js-cookie";
 
 import { Link } from "react-scroll";
 
-
 export default function HeaderNavLink() {
+  const history = useHistory();
+  const handleLogin = () => {
+    cookie.set("token", "123");
+    history.push("/home");
+  };
   return (
     <>
       <Link
@@ -40,10 +45,12 @@ export default function HeaderNavLink() {
         Our Services
       </Link>
 
-      <RouteLink to="/internship" className="myLink4">
+      {/* <RouteLink to="/internship" className="myLink4">
         Internship
-      </RouteLink>
-      <Button className="header__button1">Login</Button>
+      </RouteLink> */}
+      <Button onClick={handleLogin} className="header__button1">
+        Login
+      </Button>
     </>
   );
 }
