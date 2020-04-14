@@ -1,0 +1,13 @@
+.ant-modal-wrap {
+  backdrop-filter: blur(4px);
+  .ant-modal {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 0px;
+    .ant-modal-content {
+      min-height: 100vh;
+      border-radius: 0px;
+    }
+  }
+}
