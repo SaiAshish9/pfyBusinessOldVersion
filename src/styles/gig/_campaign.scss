@@ -1,0 +1,29 @@
+.campaign-main-block {
+  display: flex;
+  flex-wrap: wrap;
+
+  .campaign-block {
+    border-radius: 3px;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.16);
+    min-width: 184px;
+    min-height: 120px;
+    font-size: 16px;
+    margin: 16px 40px 2px 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .campaign__p {
+      text-align: center;
+      padding: 20px 0px;
+      margin: 0;
+      font-size: 16px;
+    }
+    .campaign__button {
+      width: 100%;
+      border-radius: initial;
+      background-color: #3b599b;
+      color: #fff;
+    }
+  }
+}

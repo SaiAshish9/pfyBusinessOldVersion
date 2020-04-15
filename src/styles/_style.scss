@@ -1,15 +1,15 @@
+@import "./base/base";
 @import "./base/setting";
 
 @import "./header/header";
 @import "./header/mobileNav";
-
-
-// @import "./home/home";
+@import "./header/privateHeader";
 
 @import "./internship/internship/internship";
 @import "./internship/internship";
 @import "./internship/formStipend";
 
+@import "./gig/gig";
 
 @import "./success_check/success_check";
 

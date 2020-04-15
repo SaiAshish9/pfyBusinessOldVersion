@@ -1,0 +1,52 @@
+@import "./createCampaign";
+@import "./campaign";
+
+div.gig-main-block {
+  margin-bottom: 28px;
+  h1.gig-main__header {
+    font-size: 36px;
+    font-weight: 700;
+  }
+
+  div.showOff-block {
+    display: grid;
+    grid-template-areas:
+      "image header"
+      "image para";
+    border-radius: 9px;
+    border: solid 1px #c6c6c6;
+    padding: 36px 48px;
+    img.showOff__img {
+      grid-area: image;
+      max-width: 276px;
+    }
+
+    h1.showOff__h1 {
+      grid-area: header;
+      margin-top: 24px;
+      font-size: 24px;
+      font-size: 28px;
+      line-height: 1.43;
+      color: #062f4f;
+    }
+
+    p.showOff__p {
+      grid-area: para;
+      font-size: 18px;
+      color: #062f4f;
+    }
+  }
+}
+
+.new-or-existing-gig-block {
+  margin-top: 28px;
+  .new-gig-block {
+    border-radius: 9px;
+    border: solid 1px #c6c6c6;
+    padding: 36px 48px;
+    margin-bottom: 40px;
+    .marketing-block {
+    }
+  }
+}
+
