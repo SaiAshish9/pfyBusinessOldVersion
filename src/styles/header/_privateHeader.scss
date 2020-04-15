@@ -5,6 +5,7 @@
     .ant-layout-sider-children {
       position: fixed;
       width: inherit;
+      background-color: #f9f9f9;
       .logo {
         background-color: #062f4f;
         height: 64px;
@@ -43,7 +44,7 @@
       background-color: #062f4f;
       position: fixed;
       width: 100%;
-      z-index: 1;
+      z-index: 2;
       img {
       }
     }

@@ -1,4 +1,5 @@
 @import "./createCampaign";
+@import "./campaign";
 
 div.gig-main-block {
   margin-bottom: 28px;
@@ -45,35 +46,7 @@ div.gig-main-block {
     padding: 36px 48px;
     margin-bottom: 40px;
     .marketing-block {
-      .facebook-block {
-        display: flex;
-      }
     }
   }
 }
 
-.facebook-block {
-  display: flex;
-  flex-wrap: wrap;
-
-  .campaign-block {
-    border-radius: 3px;
-    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.16);
-    min-width: 184px;
-    font-size: 16px;
-    margin: 2px 40px 2px 2px;
-
-    .campaign__p {
-      text-align: center;
-      padding: 20px 0px;
-      margin: 0;
-      font-size: 16px;
-    }
-    .campaign__button {
-      width: 100%;
-      border-radius: initial;
-      background-color: #3b599b;
-      color: #fff;
-    }
-  }
-}
