@@ -1,0 +1,30 @@
+.share-internship-modal .ant-modal-content{
+    .ant-modal-header{
+        .ant-modal-title{
+            font-size: 1.2rem;
+        }
+    }
+    .ant-modal-body{
+        padding: 0;
+        .item{
+            padding: 20px;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+            display: flex;
+            cursor: pointer;
+            .text{
+                margin:0;
+                padding: 0 20px;
+                font-size: 1rem;
+                font-weight: 500;
+            }
+        }
+    }
+    .ant-modal-footer{
+        padding: 0;
+        border-top: unset;
+    }
+    
+}
+ 

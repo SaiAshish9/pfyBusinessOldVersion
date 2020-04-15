@@ -1,0 +1,44 @@
+div.quick-stat-block {
+  background-color: #fff;
+  width: 80%;
+  border-radius: 24px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+
+  div.quick-stat-content-block {
+    border-bottom: 1px solid #d3d3d3;
+    margin: 20px 40px;
+    p.quick-stat__p {
+    }
+  }
+
+  div.stat-brief-block {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 60px 20px 60px;
+    div.state-brief-sub-block {
+      display: flex;
+      align-items: center;
+      div.state-brief-img-block {
+        width: 75px;
+        height: 75px;
+        border-radius: 37px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img.state-brief__img {
+        }
+      }
+
+      div.stat-brief-content-block {
+        margin-left: 20px;
+        p.state-brief__p {
+          margin-bottom: 0px;
+        }
+
+        h2.state-brief__h2 {
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+}

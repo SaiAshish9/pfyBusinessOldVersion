@@ -1,0 +1,197 @@
+
+.internship-main-block{
+  font-family: $myFont;
+
+}
+.internship-container {
+  padding: 100px 0px;
+  background-color: #f9fbfd;
+  .step-container {
+    padding: 20px 80px;
+  }
+  .internship-form-container {
+    background-color: #fff;
+    margin: 20px 320px;
+    padding: 30px 50px;
+    .radio-button-container1 {
+      display: flex;
+      .radio-button-subContainer1 {
+        display: flex;
+        flex-direction: column;
+      }
+      .radio-button-subContainer2 {
+        display: flex;
+        flex-direction: column;
+        margin-left: 80px;
+      }
+    }
+    .profile-input-container {
+      margin-top: 20px;
+    }
+    .typeOfInternship-container {
+      margin: 30px 0px;
+    }
+    .internshipLocation-container {
+      align-items: center;
+      .internshipLocation__checkbox {
+        width: 120px;
+      }
+      h3 {
+        margin: 0px 8px;
+      }
+      .internshipLocation__select {
+        margin-left: 20px;
+        .ant-select-search__field {
+          margin-left: 6px;
+          flex: 1;
+        }
+      }
+    }
+
+    div.opening-duration-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+
+      div.number-of-opening-container {
+        flex: 1;
+        h2.opening-container__h2 {
+        }
+
+        .opening-container__input {
+          width: 80%;
+        }
+      }
+
+      div.internship-duration-container {
+        flex: 1;
+
+        h2.internship-duration__h2 {
+        }
+
+        div.internship-duration-input-container {
+          display: flex;
+          .internship-duration__input1 {
+          }
+
+          .internship-duration__input2 {
+          }
+        }
+      }
+    }
+
+    div.start-last-container {
+      margin-top: 30px;
+      display: flex;
+      div.number-of-opening-container {
+        flex: 1;
+        h2.opening-container__h2 {
+        }
+      }
+
+      div.internship-duration-container {
+        flex: 1;
+        h2.internship-duration__h2 {
+        }
+
+        div.internship-duration-input-container {
+        }
+      }
+    }
+
+    .submit-button-container {
+      display: flex;
+      justify-content: flex-end;
+      .submit-button {
+        color: white;
+        background-color: #ec3f78;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+        border-color: #ec3f78;
+        margin-top: 30px;
+      }
+    }
+  }
+
+  div.interview-ques-container {
+    div.interview-ques-header-container {
+      display: flex;
+      align-items: baseline;
+      h2.interview-ques__h2 {
+      }
+
+      span.interview-ques__span {
+        margin-left: 40px;
+        color: #ec3f78;
+        font-weight: 500;
+      }
+    }
+
+    .interview-ques__input {
+      margin-bottom: 20px;
+    }
+
+    div.interview-ques-input-container {
+      display: flex;
+      // flex-direction: column;
+      .interview-ques__input {
+        margin-bottom: 20px;
+      }
+
+      .interview-ques__icon {
+      }
+    }
+
+    span.interview-add-question {
+      color: #ec3f78;
+      font-weight: 500;
+    }
+
+    div.submit-button-container {
+      .submit-button {
+      }
+    }
+  }
+
+  div.responsibility-container {
+    div.intern-res-container {
+      margin-bottom: 24px;
+      h2.intern-res__h2 {
+      }
+      .intern-res-input-container {
+        .intern-res__input {
+        }
+        .interview-ques__icon {
+        }
+      }
+
+      span.add-responsibility {
+        color: #ec3f78;
+        font-weight: 500;
+      }
+    }
+
+    div.intern-skill-container {
+      margin-bottom: 24px;
+      h2.intern-skill__h2 {
+      }
+
+      .intern-skill__select {
+      }
+    }
+
+    div.intern-requirement-container {
+      h2.intern-requirement__h2 {
+      }
+
+      .intern-requirement-input-container {
+        .intern-requirement__input {
+        }
+      }
+
+      span.intern-requirement__span {
+        color: #ec3f78;
+        font-weight: 500;
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+div.stipend {
+  div.stipend-amount-container {
+    margin-bottom: 30px;
+    display: flex;
+    div.stipend-container {
+      flex: 1;
+
+      h2.stipend__h2 {
+      }
+
+      .stipend__select {
+        width: 40%;
+      }
+    }
+
+    div.amount-container {
+      flex: 1;
+
+      h2.amount__h2 {
+      }
+      .amount-input-container {
+        display: flex;
+        align-items: center;
+        .amount__input {
+        }
+        .amount__span {
+          font-weight: 900;
+          margin: 0px 12px 0px 12px;
+        }
+      }
+    }
+  }
+
+  div.additional-benefit {
+    margin-bottom: 30px;
+    h2.additional-benefit__h2 {
+    }
+
+    div.additional-benefit-input-container {
+      .additional-benefit__input {
+      }
+
+      .additional-benefit__icon {
+      }
+    }
+
+    span.additional-benefit-add-question {
+      color: #ec3f78;
+      font-weight: 500;
+    }
+  }
+  div.ppo-container {
+    div.ppo-block {
+      margin-bottom: 30px;
+      p.ppo__paragraph {
+      }
+
+      div.ppo-option {
+      }
+    }
+  }
+}
