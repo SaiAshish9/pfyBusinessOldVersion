@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Modal, Button, Input } from "antd";
 import CustomCampaign from "./customCampaign";
-import modalSvg from "../../assets/img/gig/modalSvg.svg";
+import modalSvg from "../../assets/img/modalSvg.svg";
 
 const css = "font-size:30px";
 export default function Campaign({ firstName, lastName }) {
@@ -23,6 +23,7 @@ export default function Campaign({ firstName, lastName }) {
     console.log(e);
     setModalVisible(false);
   };
+
   const modalTitle = (
     <div className="custom-modal-title">
       <img src={modalSvg} alt="" className="modal-title__img" />
