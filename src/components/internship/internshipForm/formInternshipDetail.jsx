@@ -6,22 +6,6 @@ import moment from "moment";
 
 const { Option } = Select;
 
-// const internCategory = [
-//   "Business Development(sales)",
-//   "Graphic Design",
-//   "Social Media Marketing",
-//   "Web Development",
-//   "Marketing",
-//   "Human Resources",
-//   "Other",
-//   "Digital Marketing",
-//   "Campus Ambassador",
-//   "Mobile App Development",
-//   "Law/Legal",
-//   "Operations",
-//   "Content Writing"
-// ];
-
 export default function FormInternshipDetail({ handleContinue }) {
   const formData = JSON.parse(localStorage.getItem("internshipFormData"));
   const myDuration = !!formData.duration
@@ -47,8 +31,8 @@ export default function FormInternshipDetail({ handleContinue }) {
         : null,
       applyBefore: !!formData.applyBefore
         ? moment(formData.applyBefore, "DD-MMM-YYYY")
-        : null
-    }
+        : null,
+    },
   });
 
   //! --------------------------- input data testing --------------------------- */
@@ -130,7 +114,7 @@ export default function FormInternshipDetail({ handleContinue }) {
         noOfPosition,
         duration,
         startingOfInternship,
-        applyBefore
+        applyBefore,
       })
     );
   }, [
@@ -143,7 +127,7 @@ export default function FormInternshipDetail({ handleContinue }) {
     isLocationAllIndia,
     applyBefore,
     internshipCategory,
-    designation
+    designation,
   ]);
 
   const myCity = ["Delhi", "NCR", "Bangalore", "Mumbai"];
@@ -156,11 +140,11 @@ export default function FormInternshipDetail({ handleContinue }) {
     );
   });
 
-  const internshipStartDisabledDate = current => {
+  const internshipStartDisabledDate = (current) => {
     return current && current < moment().endOf("day");
   };
 
-  const onSubmit = data => console.log(data);
+  const onSubmit = (data) => console.log(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -168,33 +152,31 @@ export default function FormInternshipDetail({ handleContinue }) {
         <Controller
           as={
             <Radio.Group>
-              <h2>Select Primary Profile</h2>
+              <h3>Select Primary Profile</h3>
               {/* //TODO  create logic on the basis of other*/}
-              <div className="radio-button-container1">
-                <div className="radio-button-subContainer1">
-                  <Radio value="Business Development(sales)">
-                    Business Development(sales)
-                  </Radio>
-                  <Radio value="Graphic Design">Graphic Design</Radio>
-                  <Radio value="Social Media Marketing">
-                    Social Media Marketing
-                  </Radio>
-                  <Radio value="Web Development">Web Development</Radio>
-                  <Radio value="Marketing">Marketing</Radio>
-                  <Radio value="Human Resources">Human Resources</Radio>
-                  <Radio value="other">Other</Radio>
-                </div>
-                <div className="radio-button-subContainer2">
-                  <Radio value="Digital Marketing">Digital Marketing</Radio>
-                  <Radio value="Campus Ambassador">Campus Ambassador</Radio>
-                  <Radio value="Mobile App Development">
-                    Mobile App Development
-                  </Radio>
-                  <Radio value="Law/Legal">Law/Legal</Radio>
-                  <Radio value="Operations">Operations</Radio>
-                  <Radio value="Content Writing">Content Writing</Radio>
-                </div>
+              {/* <div className="radio-button-container"> */}
+              <div className="radio-button-container">
+                <Radio value="Business Development(sales)">
+                  Business Development(sales)
+                </Radio>
+                <Radio value="Graphic Design">Graphic Design</Radio>
+                <Radio value="Social Media Marketing">
+                  Social Media Marketing
+                </Radio>
+                <Radio value="Web Development">Web Development</Radio>
+                <Radio value="Marketing">Marketing</Radio>
+                <Radio value="Human Resources">Human Resources</Radio>
+                <Radio value="other">Other</Radio>
+                <Radio value="Digital Marketing">Digital Marketing</Radio>
+                <Radio value="Campus Ambassador">Campus Ambassador</Radio>
+                <Radio value="Mobile App Development">
+                  Mobile App Development
+                </Radio>
+                <Radio value="Law/Legal">Law/Legal</Radio>
+                <Radio value="Operations">Operations</Radio>
+                <Radio value="Content Writing">Content Writing</Radio>
               </div>
+              {/* </div> */}
             </Radio.Group>
           }
           name="internshipCategory"
@@ -215,7 +197,7 @@ export default function FormInternshipDetail({ handleContinue }) {
           as={
             <Radio.Group>
               <div className="radio-button-container2">
-                <h2>Select type of internship</h2>
+                <h3>Select type of internship</h3>
                 <Radio value="In Office">Regular (In Office)</Radio>
                 <Radio value="work from home">Work From Home</Radio>
               </div>
@@ -227,13 +209,8 @@ export default function FormInternshipDetail({ handleContinue }) {
       </div>
 
       <div>
-        <h2>Internship Location</h2>
-        <div
-          className="internshipLocation-container"
-          style={{
-            display: "flex"
-          }}
-        >
+        <h3>Internship Location</h3>
+        <div className="internshipLocation-container">
           <Controller
             as={<Checkbox>All India</Checkbox>}
             name="isLocationAllIndia"
@@ -245,8 +222,8 @@ export default function FormInternshipDetail({ handleContinue }) {
             <Controller
               as={
                 <Select
-                  mode="tags" 
-                  style={{ width: "100%" }}
+                  mode="tags"
+                  // style={{ width: "100%" }}
                   placeholder="Please select"
                   disabled={isLocationAllIndia}
                 >
@@ -263,7 +240,7 @@ export default function FormInternshipDetail({ handleContinue }) {
 
       <div className="opening-duration-container">
         <div className="number-of-opening-container">
-          <h2 className="opening-container__h2">Number of openings</h2>
+          <h3 className="opening-container__h2">Number of openings</h3>
           {/*//TODO  add array of input*/}
           <Controller
             as={<Input className="opening-container__input"></Input>}
@@ -272,7 +249,7 @@ export default function FormInternshipDetail({ handleContinue }) {
           />
         </div>
         <div className="internship-duration-container">
-          <h2 className="internship-duration__h2">Internship Duration</h2>
+          <h3 className="internship-duration__h2">Internship Duration</h3>
           <div className="internship-duration-input-container">
             <Controller
               as={<Input className="internship-duration__input1"></Input>}
@@ -298,7 +275,7 @@ export default function FormInternshipDetail({ handleContinue }) {
 
       <div className="start-last-container">
         <div className="number-of-opening-container">
-          <h2 className="opening-container__h2">Internship Start Date</h2>
+          <h3 className="opening-container__h2">Internship Start Date</h3>
           <Controller
             as={
               <DatePicker
@@ -311,7 +288,7 @@ export default function FormInternshipDetail({ handleContinue }) {
           />
         </div>
         <div className="internship-duration-container">
-          <h2 className="internship-duration__h2">Last Date to Apply</h2>
+          <h3 className="internship-duration__h2">Last Date to Apply</h3>
           <div className="internship-duration-input-container">
             <Controller
               as={
@@ -326,16 +303,6 @@ export default function FormInternshipDetail({ handleContinue }) {
             />
           </div>
         </div>
-      </div>
-
-      <div className="submit-button-container">
-        <Button
-          htmlType="submit"
-          className="submit-button"
-          onClick={() => handleContinue(1)}
-        >
-          CONTINUE
-        </Button>
       </div>
     </form>
   );

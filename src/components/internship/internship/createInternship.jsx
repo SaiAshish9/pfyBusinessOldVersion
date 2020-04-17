@@ -2,12 +2,13 @@ import React, { useContext } from "react";
 import { Modal, Button } from "antd";
 import { ModalVisibleContext } from "./newInternship";
 import modalSvg from "../../../assets/img/modalSvg.svg";
+import FormInternshipDetail from "../internshipForm/formInternshipDetail";
 
 export default function CreateInternship() {
   const { modalVisible, dispatchModalVisible } = useContext(
     ModalVisibleContext
   );
-  
+
   const modalTitle = (
     <div className="custom-modal-title">
       <img src={modalSvg} alt="" className="modal-title__img" />
@@ -22,7 +23,7 @@ export default function CreateInternship() {
   const modalFooter = (
     <div className="custom-modal-footer">
       <Button className="goBack-button">Go Back</Button>
-      <Button className="contactUs-button">Contact Us</Button>
+      <Button className="contactUs-button">Next</Button>
     </div>
   );
   const handleCancel = (e) => {
@@ -38,6 +39,8 @@ export default function CreateInternship() {
       // centered={true}
       onCancel={handleCancel}
       className="contactToAdmin-modal"
-    ></Modal>
+    >
+      <FormInternshipDetail />
+    </Modal>
   );
 }

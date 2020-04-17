@@ -1,3 +1,93 @@
-.internship-container{
-    font-family: $myFont;
+.internship-container {
+  font-family: $myFont;
+}
+
+.radio-button-container {
+  display: flex;
+  flex-direction: column;
+}
+// .radio-button-subContainer2 {
+//   display: flex;
+//   flex-direction: column;
+//   margin-left: 80px;
+// }
+
+.profile-input-container {
+  margin-top: 20px;
+}
+.typeOfInternship-container {
+  margin: 30px 0px;
+}
+
+.internshipLocation-container {
+  display: flex;
+  align-items: center;
+
+  .internshipLocation__checkbox {
+    width: 120px;
+  }
+  h3 {
+    margin: 0px 8px;
+  }
+  .internshipLocation__select {
+    margin-left: 20px;
+    width: 78%;
+    .ant-select-search__field {
+      margin-left: 6px;
+      flex: 1;
+    }
+  }
+}
+
+div.opening-duration-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+
+  div.number-of-opening-container {
+    flex: 1;
+    h3.opening-container__h2 {
+    }
+
+    .opening-container__input {
+      width: 80%;
+    }
+  }
+
+  div.internship-duration-container {
+    flex: 1;
+
+    h3.internship-duration__h2 {
+    }
+
+    div.internship-duration-input-container {
+      display: flex;
+      .internship-duration__input1 {
+        max-width: 60px;
+        margin-right: 12px;
+      }
+
+      .internship-duration__input2 {
+      }
+    }
+  }
+}
+
+div.start-last-container {
+  margin-top: 30px;
+  display: flex;
+  div.number-of-opening-container {
+    flex: 1;
+    h3.opening-container__h2 {
+    }
+  }
+
+  div.internship-duration-container {
+    flex: 1;
+    h3.internship-duration__h2 {
+    }
+
+    div.internship-duration-input-container {
+    }
+  }
 }
