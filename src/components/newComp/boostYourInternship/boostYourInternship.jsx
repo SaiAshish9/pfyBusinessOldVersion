@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 import { Modal, Button } from 'antd';
 import flatImg from './flat.png';
 
-
+let i=1;
 const  BoostYourInternship = (props) => {
+  console.log("rener " + i++)
 
     const [loading, setLoading] = useState(false)
     const [visible, setVisible] = useState(false)
@@ -32,7 +33,7 @@ const  BoostYourInternship = (props) => {
       };
 
       const selectPriceHandler =  (price) => {
-        setSelectedPrice(price);
+          setSelectedPrice(price)
       }
 
     return (
@@ -61,10 +62,10 @@ const  BoostYourInternship = (props) => {
                 {/* <hr/> */}
                 <br/>
                 <div className="price-cards">
-                  <div onClick={() => selectPriceHandler(550)}  className="single-card">
+                  <div onClick={() => selectPriceHandler(550)} style={{background: selectedPrice == 550 ? "#d8d6dc" : "none" }}  className="single-card">
                     <div>2 days Boost <br/> <span>INR 550</span> </div>
                   </div>
-                  <div onClick={() => selectPriceHandler(1110)} className="single-card">
+                  <div onClick={() => selectPriceHandler(1110)} style={{background: selectedPrice == 1110 ? "#d8d6dc" : "none" }} className="single-card">
                     <div>5 days Boost <br/> <span>INR 1110</span> </div>
                   </div>
                   

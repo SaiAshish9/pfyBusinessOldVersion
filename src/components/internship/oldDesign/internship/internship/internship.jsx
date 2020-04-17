@@ -1,8 +1,11 @@
 import { Tabs } from "antd";
-import React from "react";
-import showOffImg from "../../../assets/img/gig/showOffImg.svg";
-import ExistingInternship from "./existingInternship";
-import NewInternship from "./newInternship";
+import React, {useState, useEffect} from "react";
+// import showOffImg from "../../../assets/img/gig/showOffImg.svg";
+// import showOffImg from "../";
+// import ExistingInternship from "./existingInternship";
+// import NewInternship from "./newInternship";
+import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 const { TabPane } = Tabs;
 
@@ -55,7 +58,7 @@ export default function Internship() {
     <div className="gig-main-block">
       <h1 className="gig-main__header">Internship</h1>
       <div className="showOff-block">
-        <img src={showOffImg} alt="" className="showOff__img" />
+        <img src={"showOffImg"} alt="" className="showOff__img" />
         <h1 className="showOff__h1">
           Some Dummy Text For The Representation !
         </h1>
@@ -67,14 +70,14 @@ export default function Internship() {
       </div>
       <Tabs defaultActiveKey="1" className="new-or-existing-gig-block">
         <TabPane tab="New Internships" key="1">
-          <NewInternship></NewInternship>
+          {/* <NewInternship></NewInternship> */}
         </TabPane>
         <TabPane
           tab="Existing Internships"
           key="2"
           className="existing-gig-blocsk"
         >
-          <ExistingInternship></ExistingInternship>
+          {/* <ExistingInternship></ExistingInternship> */}
         </TabPane>
       </Tabs>
     </div>

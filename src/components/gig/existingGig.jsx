@@ -34,7 +34,7 @@ const columns = [
     dataIndex: 'key',
     key: 'sno',
     rowKey: i,
-    render: key => <span key={i} style={{fontWeight: 500}}>{i}</span>,
+    render: key => <span key={i} style={{fontWeight: 500}}>{i++}</span>,
   },
   {
     title: 'Post',

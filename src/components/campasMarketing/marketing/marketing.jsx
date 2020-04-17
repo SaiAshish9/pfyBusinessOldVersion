@@ -85,7 +85,7 @@ const CampusMarketing = (props) => {
                 </p>
             </div>
             
-            <div className="marketing-cardItems" style={{margin: "0.5rem"}}>
+            <div className="marketing-cardItems" style={{margin: "2rem 0"}}>
                 
             <Card cardHandler={cardHandler} value="flyer" heading={"Flyer"} image={flyerImg} price={1500} />
             <Card cardHandler={cardHandler} value="coupons" heading={"Coupons"} image={coupon} price={1500} />
