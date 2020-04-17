@@ -3,6 +3,8 @@ import { Collapse, Icon, Button, Menu, Row, Col, Checkbox } from "antd";
 import {useHistory} from 'react-router-dom';
 import verifiedSvg from './verified.svg'
 import notVerifiedSvg from './not_verified.svg'
+import {WarningFilled, CaretRightOutlined } from '@ant-design/icons';
+
 // import {CheckboxContext} from '../internshipStatus/internshipStatus';
 
 
@@ -118,7 +120,8 @@ const ApplicationCard = props => {
     <Collapse
       bordered={false}
       expandIcon={({ isActive }) => (
-        <Icon type="caret-right" rotate={isActive ? 90 : 0} />
+        // <Icon type="caret-right" rotate={isActive ? 90 : 0} />
+        <CaretRightOutlined  rotate={isActive ? 90 : 0} />
       )}
     >
       <Panel
@@ -203,7 +206,9 @@ const ApplicationCard = props => {
           </div>
         </div>
         <p className="applicationCard__warning">
-          <Icon type="warning" theme="filled" /> Report This Applicant
+          {/* <Icon type="warning" theme="filled" /> */}
+          <WarningFilled />
+           Report This Applicant
         </p>
       </Panel>
     </Collapse>

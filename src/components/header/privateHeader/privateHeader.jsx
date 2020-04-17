@@ -61,10 +61,12 @@ export default function PrivateHeader({ component: Component, ...rest }) {
             </Link>
           </Menu.Item>
           <Menu.Item key="4">
-            <span className="anticon">
-              <img src={campusMarketingIcon} alt="" className="" />
-            </span>
-            <span>Campus Marketing</span>
+            <Link to="campus-marketing">
+              <span className="anticon">
+                <img src={campusMarketingIcon} alt="" className="" />
+              </span>
+              <span>Campus Marketing</span>
+            </Link>
           </Menu.Item>
           <Menu.Item key="5">
             <span className="anticon">
@@ -109,8 +111,8 @@ export default function PrivateHeader({ component: Component, ...rest }) {
         <Content
           className="site-layout-background"
           style={{
-            margin: "88px 16px",
-            padding: 24,
+            margin: "5rem 1rem",
+            // padding: "1rem",
             minheight: 280,
           }}
         >

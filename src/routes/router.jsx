@@ -7,12 +7,15 @@ import PageNotFound from "../components/error/pageNotFound";
 import Gig from "../components/gig/gig";
 import LandingPage from "../components/home/home";
 import UserResume from "../components/independentComponent/userResume";
-import Internship from "../components/internship/internship/internship";
-import InternshipForm from "../components/internship/internshipForm/internshipForm";
+import Internship from "../components/internship/internship/internship"; 
+import Internship2 from "../components/internship/oldDesign/internship/internship/internship"; 
+// import InternshipForm from "../components/internship/oldDesign/internshipForm/internshipForm";
 import InternshipStatus from "../components/newComp/internshipStatus/internshipStatus";
 import Marketing from "../components/newComp/marketing/marketing";
 import PrivateRoute from "./privateRoute";
 import PublicRoute from "./publicRoute";
+import SpecificGig from '../components/gig/specificGig';
+import CampusMarketing from '../components/campasMarketing/marketing/marketing';
 
 const history = createBrowserHistory();
 
@@ -42,10 +45,7 @@ export default function AppRouter() {
 
         <PrivateRoute path="/home" component={CompanyHome} exact={true} />
         <PrivateRoute path="/internship" component={Internship} exact={true} />
-        <PrivateRoute
-          path="/internship/form"
-          component={InternshipForm}
-          exact={true}
+        {/* <PrivateRoute path="/internship/form" component={InternshipForm} exact={true} */}
         />
         <PrivateRoute
           path="/internship/:internship_id"
@@ -54,6 +54,10 @@ export default function AppRouter() {
         />
 
         <PrivateRoute path="/gigs" component={Gig} exact={true} />
+        <PrivateRoute path="/campus-marketing" component={CampusMarketing} exact={true} />
+        <PrivateRoute path="/specific-gig/:id" component={SpecificGig} exact={true} />
+        
+
         <PublicRoute component={PageNotFound} />
       </Switch>
     </Router>

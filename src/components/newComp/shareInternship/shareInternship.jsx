@@ -12,7 +12,7 @@ const url = "https://pracify.com/internshp/"
 
 
 
-export default function ShareInternship({show, isClose, intershipId}) {
+export default function ShareInternship({isShow, isClose, intershipId}) {
 
   const handleCancel = e => {
     console.log(e);
@@ -37,7 +37,7 @@ export default function ShareInternship({show, isClose, intershipId}) {
             font="28px"
             footer={[]}
           title="Share Internship"
-          visible={show}
+          visible={isShow}
           // onOk={handleOk}
           onCancel={handleCancel}
         >

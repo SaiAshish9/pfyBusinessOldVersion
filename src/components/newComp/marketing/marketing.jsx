@@ -7,10 +7,10 @@ import coupon from './img/coupon.png';
 import sellTicket from './img/sellTicket.png';
 import billboard from './img/billboard.png';
 import {card as Card, } from './card';
-import SuccessCheck from '../success_check/successCheck';
+import SuccessCheck from '../../independentComponent/success_check/successCheck';
 
 
-const Marketing = (props) => {
+const CampusMarketing = (props) => {
 
     const [flyer, setFlyer] = useState(false)
     const [coupons, setCoupons] = useState(false)
@@ -83,7 +83,8 @@ const Marketing = (props) => {
                 <p className="marketing-subHeading">Enter primary Profile</p>
             </section>
             
-            <div className="marketing-cardItems" style={{margin: "2.5rem"}}>
+            <div className="marketing-cardItems" style={{margin: "0.5rem"}}>
+                
             <Card cardHandler={cardHandler} value="flyer" heading={"Flyer"} image={flyerImg} price={1500} />
             <Card cardHandler={cardHandler} value="coupons" heading={"Coupons"} image={coupon} price={1500} />
             <Card cardHandler={cardHandler} value="standees" heading={"Standees and Banners"} image1={billboard} image2={banner} price={1500} />
@@ -97,4 +98,4 @@ const Marketing = (props) => {
     )
 }
 
-export default Marketing;
+export default CampusMarketing;
