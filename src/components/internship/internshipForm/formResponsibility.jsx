@@ -16,14 +16,14 @@ export default function FormResponsibility({ handleContinue }) {
 
   const internSkill =
     arrayValidation(formData.skillRequired) &&
-    formData.skillRequired.map(userSkill => {
+    formData.skillRequired.map((userSkill) => {
       return userSkill.skillName;
     });
 
   const { control, handleSubmit, watch } = useForm({
     defaultValues: {
-      skillRequired: internSkill
-    }
+      skillRequired: internSkill,
+    },
   });
   const mySkillRequired = watch("skillRequired");
   const [responsibilities, setResponsibilities] = useState(internRes);
@@ -32,8 +32,7 @@ export default function FormResponsibility({ handleContinue }) {
   const responsibility = "responsibility";
   const requirement = "requirement";
 
-
-  const handleAddResponsibility = category => {
+  const handleAddResponsibility = (category) => {
     if (category === "responsibility") {
       setResponsibilities([...responsibilities, ""]);
     } else {
@@ -69,7 +68,7 @@ export default function FormResponsibility({ handleContinue }) {
   useEffect(() => {
     const skillRequired =
       arrayValidation(mySkillRequired) &&
-      mySkillRequired.map(userSkill => {
+      mySkillRequired.map((userSkill) => {
         return { skillName: userSkill };
       });
 
@@ -79,7 +78,7 @@ export default function FormResponsibility({ handleContinue }) {
         ...formData,
         skillRequired,
         responsibilities,
-        otherRequirements
+        otherRequirements,
       })
     );
   }, [responsibilities, otherRequirements, formData, mySkillRequired]);
@@ -89,7 +88,7 @@ export default function FormResponsibility({ handleContinue }) {
     "Javascript",
     "Java",
     "Statistics",
-    "Data Science"
+    "Data Science",
   ];
   const mySkill = skills.map((skill, index) => (
     <Option key={index} value={skill}>
@@ -100,7 +99,7 @@ export default function FormResponsibility({ handleContinue }) {
   return (
     <div className="responsibility-container">
       <div className="intern-skill-container">
-        <h2 className="intern-skill__h2">Skills Required</h2>
+        <h3 className="intern-skill__h3">Skills Required</h3>
         {/*//TODO  add array of select skill*/}
 
         <Controller
@@ -120,7 +119,7 @@ export default function FormResponsibility({ handleContinue }) {
       </div>
 
       <div className="intern-res-container">
-        <h2 className="intern-res__h2">Intern Responsibilities</h2>
+        <h3 className="intern-res__h3">Intern Responsibilities</h3>
         {responsibilities.length > 0 &&
           responsibilities.map((addQuestion, index) => (
             <div
@@ -132,7 +131,7 @@ export default function FormResponsibility({ handleContinue }) {
                 addonBefore={index + 1}
                 className="intern-res__input"
                 value={addQuestion}
-                onChange={e => handleAddQuestion(e, index, responsibility)}
+                onChange={(e) => handleAddQuestion(e, index, responsibility)}
               />
               <Icon
                 className=""
@@ -150,7 +149,7 @@ export default function FormResponsibility({ handleContinue }) {
       </div>
 
       <div className="intern-requirement-container">
-        <h2 className="intern-requirement__h2">Requirements From Interns</h2>
+        <h3 className="intern-requirement__h3">Requirements From Interns</h3>
 
         {otherRequirements.length > 0 &&
           otherRequirements.map((addQuestion, index) => (
@@ -163,7 +162,7 @@ export default function FormResponsibility({ handleContinue }) {
                 addonBefore={index + 1}
                 className="intern-requirement__input"
                 value={addQuestion}
-                onChange={e => handleAddQuestion(e, index, requirement)}
+                onChange={(e) => handleAddQuestion(e, index, requirement)}
               />
               <Icon
                 className=""
@@ -178,16 +177,6 @@ export default function FormResponsibility({ handleContinue }) {
         >
           +Add Requirements
         </span>
-      </div>
-
-      <div className="submit-button-container">
-        <Button
-          htmlType="submit"
-          className="submit-button"
-          onClick={() => handleContinue(2)}
-        >
-          CONTINUE
-        </Button>
       </div>
     </div>
   );

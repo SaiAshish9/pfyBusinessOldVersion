@@ -18,8 +18,6 @@ export default function FormInternshipDetail({ handleContinue }) {
 
   const { control, handleSubmit, watch } = useForm({
     defaultValues: {
-      // internshipCategory: formData.internshipCategory,
-      // designation: formData.designation,
       internshipType: formData.internshipType,
       isLocationAllIndia: thisIsAllIndia,
       location: thisIsAllIndia ? undefined : formData.location,
@@ -166,7 +164,6 @@ export default function FormInternshipDetail({ handleContinue }) {
                 <Radio value="Web Development">Web Development</Radio>
                 <Radio value="Marketing">Marketing</Radio>
                 <Radio value="Human Resources">Human Resources</Radio>
-                <Radio value="other">Other</Radio>
                 <Radio value="Digital Marketing">Digital Marketing</Radio>
                 <Radio value="Campus Ambassador">Campus Ambassador</Radio>
                 <Radio value="Mobile App Development">
@@ -175,6 +172,7 @@ export default function FormInternshipDetail({ handleContinue }) {
                 <Radio value="Law/Legal">Law/Legal</Radio>
                 <Radio value="Operations">Operations</Radio>
                 <Radio value="Content Writing">Content Writing</Radio>
+                <Radio value="other">Other</Radio>
               </div>
               {/* </div> */}
             </Radio.Group>
