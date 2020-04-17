@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Modal, Button, Input } from "antd";
-import modalSvg from "../../assets/img/gig/modalSvg.svg";
+import modalSvg from "../../assets/img/modalSvg.svg";
 
 const css = "font-size:30px";
 export default function CreateCampaign({ isModalVisible, fullName }) {

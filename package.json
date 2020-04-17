@@ -30,6 +30,7 @@
     "react-scripts": "3.4.0",
     "react-scroll": "^1.7.16",
     "react-share": "^4.0.1",
+    "react-simple-chatbot": "^0.6.1",
     "sass": "^1.25.0",
     "styled-components": "^5.0.1",
     "typewriter-effect": "^2.12.2"

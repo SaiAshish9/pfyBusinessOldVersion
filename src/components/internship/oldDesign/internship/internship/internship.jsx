@@ -1,14 +1,10 @@
-import React, {useState, useEffect} from "react";
-import { Button, notification, Switch } from "antd";
-import { useHistory } from "react-router-dom";
-import QuickStat from "./quickStat";
-import UserInternship from "./userInternship";
-import axios from 'axios';
-import { Fragment } from "react";
-import {Skeleton} from 'antd';
-// import { LoadingOutlined } from '@ant-design/icons';
-// const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
+import { Tabs } from "antd";
+import React from "react";
+import showOffImg from "../../../assets/img/gig/showOffImg.svg";
+import ExistingInternship from "./existingInternship";
+import NewInternship from "./newInternship";
 
+const { TabPane } = Tabs;
 
 export default function Internship() {
   const history = useHistory();
@@ -56,17 +52,31 @@ export default function Internship() {
       })
   }, [])
   return (
-    <Fragment>
-    { !loading ? <div className="internship-main-block">
-      {internship ? <QuickStat totalInternshipOfCompany={internship.totalInternshipOfCompany} totalApplicationOfCompany={internship.totalApplicationOfCompany} totalViewsOfCompany={internship.totalViewsOfCompany} ></QuickStat> : null}
-      {internship ? <UserInternship approvedApplication={internship.approvedApp} underReviewApplication={internship.underReviewApp} rejectedApplication={internship.rejectedApp} totalApplication={internship.totalApplication} pendingApplication={internship.pendingApplication} /> : null}
-    </div> : 
-    <div style={{margin: "3rem 0", padding: "5rem"}}>
-      <Skeleton  avatar paragraph={{ rows: 4 }} />
-      <div style={{margin: "2rem 0", padding:"3rem", width: "682px" }} >
-      <Skeleton  avatar paragraph={{ rows: 2 }} />
+    <div className="gig-main-block">
+      <h1 className="gig-main__header">Internship</h1>
+      <div className="showOff-block">
+        <img src={showOffImg} alt="" className="showOff__img" />
+        <h1 className="showOff__h1">
+          Some Dummy Text For The Representation !
+        </h1>
+        <p className="showOff__p">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when.
+        </p>
       </div>
-    </div> }
-    </Fragment>
+      <Tabs defaultActiveKey="1" className="new-or-existing-gig-block">
+        <TabPane tab="New Internships" key="1">
+          <NewInternship></NewInternship>
+        </TabPane>
+        <TabPane
+          tab="Existing Internships"
+          key="2"
+          className="existing-gig-blocsk"
+        >
+          <ExistingInternship></ExistingInternship>
+        </TabPane>
+      </Tabs>
+    </div>
   );
 }
