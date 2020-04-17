@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="74" height="74" viewBox="0 0 74 74">
+    <defs>
+        <style>
+            .prefix__cls-3{fill:#d5d6db}.prefix__cls-6{fill:#3a556a}.prefix__cls-8{fill:#2d93ba}.prefix__cls-9{fill:#27a2db}
+        </style>
+    </defs>
+    <g id="prefix__Group_147" data-name="Group 147" transform="translate(-402 -725)">
+        <rect id="prefix__Rectangle_357" width="74" height="74" data-name="Rectangle 357" rx="4" transform="translate(402 725)" style="fill:#3cbcb0"/>
+        <g id="prefix__research" transform="translate(309.04 632.04)">
+            <path id="prefix__Path_308" d="M132.268 104.96h-25.481a1.827 1.827 0 0 0-1.827 1.827v46.347a1.827 1.827 0 0 0 1.827 1.827h34.633a1.827 1.827 0 0 0 1.827-1.827v-37.195z" data-name="Path 308" style="fill:#ebf0f3"/>
+            <path id="prefix__Path_309" d="M258.758 104.96v9.152a1.827 1.827 0 0 0 1.827 1.827h9.152z" class="prefix__cls-3" data-name="Path 309" transform="translate(-126.49)"/>
+            <path id="prefix__Rectangle_424" d="M0 0H4.364V6.294H0z" data-name="Rectangle 424" transform="translate(109.376 133.033)" style="fill:#fcd462"/>
+            <path id="prefix__Rectangle_425" d="M0 0H4.364V1.296H0z" data-name="Rectangle 425" transform="translate(109.376 139.333)" style="fill:#f6c358"/>
+            <path id="prefix__Rectangle_426" d="M0 0H4.364V1.296H0z" class="prefix__cls-6" data-name="Rectangle 426" transform="translate(115.651 139.333)"/>
+            <path id="prefix__Rectangle_427" d="M0 0H4.364V13.79H0z" data-name="Rectangle 427" transform="translate(115.651 125.542)" style="fill:#64798a"/>
+            <path id="prefix__Rectangle_428" d="M0 0H4.364V1.296H0z" class="prefix__cls-8" data-name="Rectangle 428" transform="translate(121.924 139.333)"/>
+            <path id="prefix__Rectangle_429" d="M0 0H4.364V9.605H0z" class="prefix__cls-9" data-name="Rectangle 429" transform="translate(121.924 129.724)"/>
+            <path id="prefix__Rectangle_430" d="M0 0H4.364V22.676H0z" data-name="Rectangle 430" transform="translate(128.196 116.651)" style="fill:#44c4a1"/>
+            <path id="prefix__Rectangle_431" d="M0 0H4.364V1.296H0z" data-name="Rectangle 431" transform="translate(128.196 139.333)" style="fill:#3ea69b"/>
+            <path id="prefix__Rectangle_432" d="M0 0H4.364V15.983H0z" data-name="Rectangle 432" transform="translate(134.466 123.347)" style="fill:#e56353"/>
+            <path id="prefix__Rectangle_433" d="M0 0H4.364V1.296H0z" data-name="Rectangle 433" transform="translate(134.466 139.333)" style="fill:#d15241"/>
+            <g id="prefix__Group_137" data-name="Group 137" transform="translate(109.375 144.332)">
+                <path id="prefix__Rectangle_434" d="M0 0H29.454V1.818H0z" class="prefix__cls-3" data-name="Rectangle 434"/>
+                <path id="prefix__Rectangle_435" d="M0 0H29.454V1.818H0z" class="prefix__cls-3" data-name="Rectangle 435" transform="translate(0 4.819)"/>
+            </g>
+            <circle id="prefix__Ellipse_141" cx="9.329" cy="9.329" r="9.329" data-name="Ellipse 141" transform="translate(124.169 124.169)" style="opacity:.25;fill:#27a2db"/>
+            <path id="prefix__Path_310" d="M216.535 218.8l1.946 1.946 2.266-2.266-1.946-1.946a12.214 12.214 0 1 0-2.266 2.266zm-14.017-3.09a9.329 9.329 0 1 1 13.194 0 9.329 9.329 0 0 1-13.195.001z" class="prefix__cls-6" data-name="Path 310" transform="translate(-75.616 -75.616)"/>
+            <path id="prefix__Path_311" d="M314.54 317.605l3.065-3.065a.391.391 0 0 1 .553 0l1.162 1.162-3.62 3.618-1.162-1.162a.391.391 0 0 1 .002-.553z" data-name="Path 311" transform="translate(-172.274 -172.274)" style="fill:#2f4859"/>
+            <path id="prefix__Path_312" d="M318.958 323.767a.266.266 0 0 1 0-.376l4.433-4.433a.266.266 0 0 1 .376 0l6.062 6.062-4.809 4.809z" class="prefix__cls-9" data-name="Path 312" transform="translate(-175.937 -175.937)"/>
+            <path id="prefix__Path_313" d="M358.267 353.458l.991.991a.266.266 0 0 1 0 .376l-4.433 4.433a.266.266 0 0 1-.376 0l-.991-.991z" class="prefix__cls-8" data-name="Path 313" transform="translate(-204.376 -204.376)"/>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,32 @@
+.existingGigs-table{
+    .ant-table-body > table{
+        border: none;
+        .last-tr{
+            border-right: none;
+        }
+        .post-column{
+            cursor: pointer;
+        }
+    }
+}
+
+// existing internship
+.boost-internship-btn{
+    background-color: #30c434;
+    height: 3rem;
+    width: 9rem;
+    border-radius: 5rem;
+    border: none;
+    color: white;
+    font-weight: 500;
+}
+.boost-internship-btn:hover, .boost-internship-btn:focus, .boost-internship-btn:active{
+    background-color: #30c434;
+    color: white;
+    border: none;
+}
+.last-tr-internship{
+    padding: 1rem;
+    width: 20%;
+}
+
