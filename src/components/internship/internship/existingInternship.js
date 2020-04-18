@@ -4,7 +4,13 @@ import img1 from '../../../assets/existingGigs/img1.svg'
 import img2 from '../../../assets/existingGigs/img2.svg'
 import img3 from '../../../assets/existingGigs/img3.svg'
 import img4 from '../../../assets/existingGigs/img4.svg'
-import img5 from '../../../assets/existingGigs/img5.svg'
+import img5 from '../../../assets/existingGigs/img5.svg';
+import rocket from '../../../assets/img/internship/rocket.svg';
+import view from '../../../assets/img/internship/view.svg';
+import pen from '../../../assets/img/internship/pen.svg';
+import share from '../../../assets/img/internship/share.svg';
+import cap from '../../../assets/img/internship/graduation-cap.svg';
+
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
 import { MoreOutlined, ShareAltOutlined  } from '@ant-design/icons';
@@ -21,22 +27,32 @@ export default function ExistingInternship() {
   const [internshipId, setInternshipId] = useState(null)
 
   const menu = (id) =>  (
-    <Menu onClick={(e ) => handleMenuClick(e, id)}>
+    <Menu className="dropdown-menu" onClick={(e ) => handleMenuClick(e, id)}>
        <Menu.Item key="share">
-       <ShareAltOutlined />
-        Share Internship
+         <div style={{display: "flex"}}>
+            <img style={{marginRight: "0.5rem"}} src={share} alt="" />
+            Share Internship
+         </div>
+       
       </Menu.Item>
       <Menu.Item key="edit">
-        {/* <UserOutlined /> */}
-        Edit Internship
+      <div style={{display: "flex"}}>
+            <img style={{marginRight: "0.5rem"}} src={pen} alt="" />
+            Edit Internship
+      </div>
+        
       </Menu.Item>
       <Menu.Item key="view">
-        {/* <UserOutlined /> */}
-        View Internship
+        <div style={{display: "flex"}}>
+              <img style={{marginRight: "0.5rem"}} src={view} alt="" />
+              View Internship
+        </div>
       </Menu.Item>
       <Menu.Item key="post">
-        {/* <UserOutlined /> */}
-        Post Similar Internship
+        <div style={{display: "flex"}}>
+              <img style={{marginRight: "0.5rem"}} src={cap} alt="" />
+              Post Similar Internship
+        </div>
       </Menu.Item>
      
      
@@ -96,7 +112,7 @@ const columns = [
     className: "post-column",
     key: 'post',
     render: (record) => (
-    <div onClick={() => history.push('/specific-gig/'+record._id)} >
+    <div onClick={() => history.push('/internship/'+record._id)} >
       <img style={{height: "5rem", width: "5rem", marginRight: "1rem"}} src={require(`../../../assets/existingGigs/img${Math.floor(Math.random()*4+1)}.svg`)} alt=""/>
        <span>{record.designation}</span> </div>
     )
@@ -127,10 +143,11 @@ const columns = [
     className: 'last-tr-internship',
     render: (record) => (
       <div style={{display: "flex", justifyContent:"space-betweem", alignItems: "center"}}>
-        {/* <button className="boost-internship-btn">
+        {/* <div onClick={boostInternship} className="boost-internship-btn">
           <span>Boost <br/> Internship</span>
-        </button> */}
-        <Button onClick={boostInternship} className="boost-internship-btn">Boost Internship</Button>
+          <img src={rocket} alt=""/>
+        </div> */}
+        <Button onClick={boostInternship} className="boost-internship-btn"><span>Boost <br/> Internship </span> <img src={rocket} alt=""/> </Button>
         <Dropdown overlay={() => menu(record._id)}>
             <a className="ant-dropdown-link" style={{color: "black", height: "fit-content", padding: "0 7px"}} onClick={e => e.preventDefault()}>
               <MoreOutlined style={{fontSize: "1.5rem"}} /> 

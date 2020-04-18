@@ -61,7 +61,7 @@ export default function PrivateHeader({ component: Component, ...rest }) {
             </Link>
           </Menu.Item>
           <Menu.Item key="4">
-            <Link to="campus-marketing">
+            <Link to="/campus-marketing">
               <span className="anticon">
                 <img src={campusMarketingIcon} alt="" className="" />
               </span>

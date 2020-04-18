@@ -24,6 +24,7 @@ export default function ShareInternship({isShow, isClose, intershipId}) {
   // const iconClickHandler = () =>{
   // }
 
+ 
 
     return (
         <div style={{marginTop: "10rem"}}>
@@ -32,7 +33,7 @@ export default function ShareInternship({isShow, isClose, intershipId}) {
             </Button> */}
         <Modal
             className="share-internship-modal"
-            width="300px"
+            width="569px"
             style={{fontSize: "2rem"}}
             font="28px"
             footer={[]}
@@ -51,7 +52,32 @@ export default function ShareInternship({isShow, isClose, intershipId}) {
                 
               )}
           </ShareLink> */}
-          <FacebookShareButton  url={url + intershipId} style={{width: "100%"}}>
+          <div className="social-media-icons" >
+            <div className="social-media-icon" >
+              <FacebookShareButton  url={url + intershipId} style={{width: "100%"}}>
+                <img src={facebookSvg} alt="facebook-icon"/>
+              </FacebookShareButton>
+            </div>
+            <div className="social-media-icon">
+              <LinkedinShareButton title={"internship"} summary={"get internship" } source={"pracify"} url={url+'/'+ intershipId} style={{width: "100%"}}>
+              <img src={linkedSvg} alt="facebook-icon"/>
+            </LinkedinShareButton>
+            </div>
+            <div  className="social-media-icon">
+              <TwitterShareButton url={url+'/'+ intershipId} title={"test"} hashtags={['internship']} style={{width: "100%"}}>
+              <img src={twitterSvg} alt="facebook-icon"/>
+            </TwitterShareButton>
+            </div>
+            <div style={{cursor: "pointer"}} className="social-media-icon">
+              <CopyToClipboard text={url+intershipId}
+              onCopy={() => message.info('Copied')}>
+                <img src={linkSvg} alt="copy-icon"/>
+            </CopyToClipboard>
+            </div>
+          </div>
+          
+
+          {/* <FacebookShareButton  url={url + intershipId} style={{width: "100%"}}>
           <div className="item" >
             <img src={facebookSvg} alt="facebook-icon"/><p className="text" >Facebook </p>
           </div>
@@ -75,7 +101,7 @@ export default function ShareInternship({isShow, isClose, intershipId}) {
             <div className="item"  >
               <img src={linkSvg} alt="copy-icon"/><p className="text" >Copy Link</p>
             </div>
-          </CopyToClipboard>
+          </CopyToClipboard> */}
           
         </Modal>
         </div>

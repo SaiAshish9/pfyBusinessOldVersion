@@ -1,7 +1,25 @@
-.share-internship-modal .ant-modal-content{
+.share-internship-modal {
+    .social-media-icons{
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: space-between;
+        padding: 3rem 4rem;
+    .social-media-icon{    
+        width: 92px;
+        height: 92px;
+        border-radius: 8px;
+        border: solid 1px #707070;
+        display: flex;
+        justify-content: center;
+        // margin: 0 1rem;
+        }
+    }
+.ant-modal-content{
     .ant-modal-header{
+        text-align: center;
         .ant-modal-title{
-            font-size: 1.2rem;
+            font-size: 1.5rem;
         }
     }
     .ant-modal-body{
@@ -26,5 +44,6 @@
         border-top: unset;
     }
     
+}
 }
  

@@ -1,24 +1,44 @@
 .existingGigs-table{
-    .ant-table-body {
-        border: none;
-        .last-tr{
-            border-right: none;
-        }
-        .post-column{
-            cursor: pointer;
+    .dropdown-menu{
+        .ant-dropdown-menu-item{
+            display: flex;
+            img{
+                margin-right: 0.5rem;
+            }
         }
     }
+    .post-column{
+        cursor: pointer;
+    }
+    .last-tr{
+        border-right: none!important;
+    }
+    // table{
+    //     .ant-table-body {
+    //         border: none;
+    //         .last-tr{
+    //             border-right: none;
+    //         }
+    //         .post-column{
+    //             cursor: pointer;
+    //         }
+    //     }
+    // }
+    
 }
 
 // existing internship
 .boost-internship-btn{
     background-color: #30c434;
-    height: 3rem;
-    width: 9rem;
+    height: 3.5rem;
+    width: 9.8rem;
     border-radius: 5rem;
     border: none;
     color: white;
     font-weight: 500;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 .boost-internship-btn:hover, .boost-internship-btn:focus, .boost-internship-btn:active{
     background-color: #30c434;

@@ -23,7 +23,9 @@
     }
     &__ProgressBar{
         border-radius: 4px;
-        background: #ccc;
+        // background: #ccc;
+        border: solid 1px #d7d7d7;
+        display: flex;
         width: 15rem;
         font-size: 1.1rem;
         border-radius: 5px;

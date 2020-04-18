@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import { Menu, Checkbox, Select, Row, Col, Tabs } from 'antd';
+import { Menu, Checkbox, Select, Row, Col, Tabs, Skeleton } from 'antd';
 import exportSvg from './export.svg';
 import ApplicationCard from './ApplicationCard';
 import SingleInternship from '../../internship/oldDesign/singleInternship/singleIntersnship';
@@ -21,9 +21,54 @@ const textToStatusCode = {
     selected: 302,
     rejected: 303
 }
+let i=0;
 
+const WorkerCard = (props) => {
+    const user = props.application ? props.application.user : null
+    if(user)
+        return(
+            <div key={props.key} className={"applied-worker-card" + (i++%2==0 ? " background-color-nth-child": "") + (props.isSelectAll ? " select-all" : "")}>
+            <div className="img-and-name">
+                <img className="img" src={user.imgUrl} alt="" ></img>
+                <span>{user.firstName}</span>
+            </div>
+            <div className="college-name">
+                Netaji Subhash Institute of Technology
+            </div>
+            <div className="city">
+            {user.city}
+            </div>
+            <div className="progress-bar">
+            <div className="header__progress">
+                <div className={"applicationCard__ProgressBar"}>
+                <div
+                    style={{
+                    background: "#2ACF18",
+                    width: `${user.resumeScore}%`,
+                    // width: "70%",
+                    height:"2.2rem",
+                    padding: ".3rem .4rem",
+                    color: "black",
+                    borderRadius: "5px",
+                    // border: "solid 1px #d7d7d7"
+                    }}
+                >
+                
+                <p style={{width:"15rem", fontSize: "1rem", padding:0,marginBottom:0}}>Resume Score : {user.resumeScore}%</p>
+                </div>
+                </div>
+                <div></div>
+            </div>
+            </div>
+        </div>
+    
+    )
+    else return (<div></div>)
+}
 
 export default function InternshipStatus(props) {
+
+   
 
     const myFun = (data) => {
         //STATUS
@@ -78,17 +123,21 @@ export default function InternshipStatus(props) {
     const [isSelectAllRejected, setIsSelectAllRejected] = useState(false)
     const [isSelectAllSelected, setIsSelectAllSelected] = useState(false)
 
+    console.log('FULL LIST', fullList)
+
     // console.log("isSelectAllPending " + isSelectAllPending)
 
     const pendingApplication = fullList ? fullList.pending.map((application, index) =>
-        <ApplicationCard
-            isSelectAll={isSelectAllPending}
-            myFun={myFun}
-            key={index}
-            companyId={application.companyId}
-            internshipId={props.match.params.internship_id}
-            application={application}
-        />
+        <WorkerCard key={index} application={application} isSelectAll={isSelectAllPending} />
+
+        // <ApplicationCard
+        //     isSelectAll={isSelectAllPending}
+        //     myFun={myFun}
+        //     key={index}
+        //     companyId={application.companyId}
+        //     // internshipId={props.match.params.internshipId}
+        //     application={application}
+        // />
     ) : null;
     // console.log(pendingApplication)
     // if(pendingApplication) setNoOfPending(pendingApplication.length)
@@ -98,39 +147,20 @@ export default function InternshipStatus(props) {
 
 
     const shortlistedApplication = fullList ? fullList.shortlisted.map((application, index) =>
-        <ApplicationCard
-            isSelectAll={isSelectAllShorlisted}
-            myFun={myFun}
-            key={index}
-            companyId={application.companyId}
-            internshipId={props.match.params.internship_id}
-            application={application}
-        />
-    ) : null;
+        <WorkerCard key={index} application={application} isSelectAll={isSelectAllShorlisted} />
+    ) 
+    : null;
     // console.log(shortlistedApplication)
     // if(shortlistedApplication) setNoOfShortlisted(shortlistedApplication.length)
 
     const selectedApplication = fullList ? fullList.selected.map((application, index) =>
-        <ApplicationCard
-            isSelectAll={isSelectAllSelected}
-            myFun={myFun}
-            key={index}
-            companyId={application.companyId}
-            internshipId={props.match.params.internship_id}
-            application={application}
-        />
+    <WorkerCard key={index} application={application} isSelectAll={isSelectAllSelected} />
+        
     ) : null;
     // if(selectedApplication) setNoOfSelected(selectedApplication.length)
 
     const rejectedApplication = fullList ? fullList.rejected.map((application, index) =>
-        <ApplicationCard
-            myFun={myFun}
-            isSelectAll={isSelectAllRejected}
-            key={index}
-            companyId={application.companyId}
-            internshipId={props.match.params.internship_id}
-            application={application}
-        />
+    <WorkerCard application={application} isSelectAll={isSelectAllRejected} />
     ) : null;
     // if(rejectedApplication) setNoOfRejected(rejectedApplication)
 
@@ -145,7 +175,8 @@ export default function InternshipStatus(props) {
     }
 
     // get single internship details
-    const internshipId = props.match.params.internship_id;
+    // const internshipId = props.match.params.internship_id;
+    const internshipId = props.internshipId;
 
     const sortByRecent = (data) =>{
                 const pending = data.applications.filter(app => app.status === 300)
@@ -176,6 +207,13 @@ export default function InternshipStatus(props) {
                       noOfShortlisted:shortlisted.length})
 
                 // setInternApplication(res.data)
+                const dataToSend = {
+                    pending: pending.length,
+                    shortlisted :shortlisted.length,
+                    selected :selected.length
+                }
+            
+                props.data(dataToSend); 
             })
     }, [changeInApplication])
 
@@ -268,16 +306,18 @@ export default function InternshipStatus(props) {
         }
         
     }
+    
 
+    const ranArr= [1,2,3,4,5,6]
    
     return (
-        <div className="internship-status-huge" style={{ marginTop: "5rem", padding: "0 5rem"}}>
+        <div className="internship-status-huge" >
             {fullList ? <div>
                 <Row className="menu-1">
                     <Col span={24}>
                         <Tabs defaultActiveKey="pending" onChange={callback}>
                             <TabPane tab={`Pending(${fullList.noOfPending})`} key="pending">
-                                <div className="second-tab" style={{ margin: "2rem 0" }}>
+                                <div className="second-tab" >
                                     <Checkbox checked={selectAllChechbox.pending} onChange={(e) => onChangeCheckbox(e, "pending")}>Select All</Checkbox>
 
                                     <div className="clickable-options" style={{ marginLeft: "2rem" }}>
@@ -296,9 +336,10 @@ export default function InternshipStatus(props) {
                                     </div>
                                 </div>
                                 {pendingApplication}
+                                
                             </TabPane>
                             <TabPane tab={`Shortlisted(${fullList.noOfShortlisted})`} key="shortlisted">
-                                <div className="second-tab" style={{ margin: "2rem 0" }}>
+                                <div className="second-tab" >
                                     <Checkbox checked={selectAllChechbox.shortlist} onChange={(e) => onChangeCheckbox(e, "shortlist")}>Select All</Checkbox>
                                     <div className="clickable-options" style={{ marginLeft: "2rem" }}>
                                         {/* <p>SHORTLIST</p> */}
@@ -316,7 +357,7 @@ export default function InternshipStatus(props) {
                                 {shortlistedApplication}
                             </TabPane>
                             <TabPane tab={`Selected(${fullList.noOfSelected})`} key="selected">
-                            <div className="second-tab" style={{ margin: "2rem 0" }}>
+                            <div className="second-tab" >
                                     <Checkbox checked={selectAllChechbox.select} onChange={(e) => onChangeCheckbox(e, "select")}>Select All</Checkbox>
                                     <div className="clickable-options" style={{ marginLeft: "2rem" }}>
                                         {/* <p>SHORTLIST</p> */}
@@ -334,7 +375,7 @@ export default function InternshipStatus(props) {
                                 {selectedApplication}
                             </TabPane>
                             <TabPane tab={`Rejected(${fullList.noOfRejected})`} key="rejected">
-                            <div className="second-tab" style={{ margin: "2rem 0" }}>
+                            <div className="second-tab" >
                                     <Checkbox checked={selectAllChechbox.reject} onChange={(e) => onChangeCheckbox(e, "reject")}>Select All</Checkbox>
                                     <div className="clickable-options" style={{ marginLeft: "2rem" }}>
                                         <p onClick={()=> selectAllActionHandler(303, "shortlist")}>SHORTLIST</p>
@@ -353,7 +394,7 @@ export default function InternshipStatus(props) {
                         </Tabs>
                     </Col>
                 </Row>
-            </div> : null}
+            </div> : <Skeleton active />}
         </div>
 
     )
