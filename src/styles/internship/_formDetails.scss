@@ -1,80 +1,92 @@
 .radio-button-container {
+  display: flex;
+  .button-container-part-one {
     display: flex;
     flex-direction: column;
   }
-  .profile-input-container {
-    margin-top: 20px;
-  }
-  .typeOfInternship-container {
-    margin: 30px 0px;
-  }
-  .internshipLocation-container {
+  .button-container-part-two {
     display: flex;
-    align-items: center;
-  
-    .internshipLocation__checkbox {
-      width: 120px;
+    flex-direction: column;
+  }
+}
+.profile-input-container {
+  margin-top: 20px;
+}
+.typeOfInternship-container {
+  margin: 30px 0px;
+}
+
+.internshipLocation-container {
+  display: flex;
+  align-items: center;
+
+  .internshipLocation__checkbox {
+    width: 120px;
+  }
+  h3 {
+    margin: 0px 8px;
+  }
+  .internshipLocation__select {
+    margin-left: 20px;
+    width: 78%;
+    .ant-select-search__field {
+      margin-left: 6px;
+      flex: 1;
     }
-    h3 {
-      margin: 0px 8px;
+  }
+}
+.opening-duration-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+
+  div.number-of-opening-container {
+    flex: 1;
+    h3.opening-container__h2 {
     }
-    .internshipLocation__select {
-      margin-left: 20px;
-      width: 78%;
-      .ant-select-search__field {
-        margin-left: 6px;
-        flex: 1;
+
+    .opening-container__input {
+      width: 80%;
+    }
+  }
+
+  div.internship-duration-container {
+    flex: 1;
+
+    h3.internship-duration__h2 {
+    }
+
+    div.internship-duration-input-container {
+      display: flex;
+      .internship-duration__input1 {
+        max-width: 60px;
+        margin-right: 12px;
+      }
+
+      .internship-duration__input2 {
+        width: 100%;
       }
     }
   }
-  .opening-duration-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 30px;
-  
-    div.number-of-opening-container {
-      flex: 1;
-      h3.opening-container__h2 {
-      }
-  
-      .opening-container__input {
-        width: 80%;
-      }
+}
+.startDateToApply-lastDateToApply-container {
+  margin-top: 30px;
+  display: flex;
+  div.startDateToApply-container {
+    flex: 1;
+    h3.startDateToApply__h3 {
     }
-  
-    div.internship-duration-container {
-      flex: 1;
-  
-      h3.internship-duration__h2 {
-      }
-  
-      div.internship-duration-input-container {
-        display: flex;
-        .internship-duration__input1 {
-          max-width: 60px;
-          margin-right: 12px;
-        }
-  
-        .internship-duration__input2 {
-        }
-      }
+    .startDateToApply__datePicker {
+      width: 80%;
     }
   }
-  .start-last-container {
-    margin-top: 30px;
-    display: flex;
-    div.number-of-opening-container {
-      flex: 1;
-      h3.opening-container__h2 {
-      }
+
+  div.lastDateToApply-container {
+    flex: 1;
+    h3.lastDateToApply__h3 {
     }
-  
-    div.internship-duration-container {
-      flex: 1;
-      h3.internship-duration__h2 {
-      }
-  
-      div.internship-duration-input-container {
-      }
+    .lastDateToApply__datePicker {
+      width: 100%;
     }
   }
+}

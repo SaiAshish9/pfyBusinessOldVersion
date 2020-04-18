@@ -9,8 +9,8 @@ import { Link } from "react-scroll";
 export default function HeaderNavLink() {
   const history = useHistory();
   const handleLogin = () => {
-    cookie.set("token", "123");
-    history.push("/home");
+    // cookie.set("token", "123");
+    // history.push("/home");
   };
   return (
     <>

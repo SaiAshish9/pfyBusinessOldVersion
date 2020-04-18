@@ -152,27 +152,30 @@ export default function FormInternshipDetail({ handleContinue }) {
             <Radio.Group>
               <h3>Select Primary Profile</h3>
               {/* //TODO  create logic on the basis of other*/}
-              {/* <div className="radio-button-container"> */}
               <div className="radio-button-container">
-                <Radio value="Business Development(sales)">
-                  Business Development(sales)
-                </Radio>
-                <Radio value="Graphic Design">Graphic Design</Radio>
-                <Radio value="Social Media Marketing">
-                  Social Media Marketing
-                </Radio>
-                <Radio value="Web Development">Web Development</Radio>
-                <Radio value="Marketing">Marketing</Radio>
-                <Radio value="Human Resources">Human Resources</Radio>
-                <Radio value="Digital Marketing">Digital Marketing</Radio>
-                <Radio value="Campus Ambassador">Campus Ambassador</Radio>
-                <Radio value="Mobile App Development">
-                  Mobile App Development
-                </Radio>
-                <Radio value="Law/Legal">Law/Legal</Radio>
-                <Radio value="Operations">Operations</Radio>
-                <Radio value="Content Writing">Content Writing</Radio>
-                <Radio value="other">Other</Radio>
+                <div className="button-container-part-one">
+                  <Radio value="Business Development(sales)">
+                    Business Development(sales)
+                  </Radio>
+                  <Radio value="Graphic Design">Graphic Design</Radio>
+                  <Radio value="Social Media Marketing">
+                    Social Media Marketing
+                  </Radio>
+                  <Radio value="Web Development">Web Development</Radio>
+                  <Radio value="Marketing">Marketing</Radio>
+                  <Radio value="Human Resources">Human Resources</Radio>
+                  <Radio value="other">Other</Radio>
+                </div>
+                <div className="button-container-part-two">
+                  <Radio value="Digital Marketing">Digital Marketing</Radio>
+                  <Radio value="Campus Ambassador">Campus Ambassador</Radio>
+                  <Radio value="Mobile App Development">
+                    Mobile App Development
+                  </Radio>
+                  <Radio value="Law/Legal">Law/Legal</Radio>
+                  <Radio value="Operations">Operations</Radio>
+                  <Radio value="Content Writing">Content Writing</Radio>
+                </div>
               </div>
               {/* </div> */}
             </Radio.Group>
@@ -271,9 +274,9 @@ export default function FormInternshipDetail({ handleContinue }) {
         </div>
       </div>
 
-      <div className="start-last-container">
-        <div className="number-of-opening-container">
-          <h3 className="opening-container__h2">Internship Start Date</h3>
+      <div className="startDateToApply-lastDateToApply-container">
+        <div className="startDateToApply-container">
+          <h3 className="startDateToApply__h3">Internship Start Date</h3>
           <Controller
             as={
               <DatePicker
@@ -283,23 +286,23 @@ export default function FormInternshipDetail({ handleContinue }) {
             }
             name="startingOfInternship"
             control={control}
+            className="startDateToApply__datePicker"
           />
         </div>
-        <div className="internship-duration-container">
-          <h3 className="internship-duration__h2">Last Date to Apply</h3>
-          <div className="internship-duration-input-container">
-            <Controller
-              as={
-                <DatePicker
-                  format="DD-MMM-YYYY"
-                  placeholder="Start Date"
-                  // disabledDate={}
-                />
-              }
-              name="applyBefore"
-              control={control}
-            />
-          </div>
+        <div className="lastDateToApply-container">
+          <h3 className="lastDateToApply__h3">Last Date to Apply</h3>
+          <Controller
+            as={
+              <DatePicker
+                format="DD-MMM-YYYY"
+                placeholder="Start Date"
+                // disabledDate={}
+              />
+            }
+            name="applyBefore"
+            control={control}
+            className="lastDateToApply__datePicker"
+          />
         </div>
       </div>
     </form>
