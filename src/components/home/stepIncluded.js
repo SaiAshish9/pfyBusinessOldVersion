@@ -16,6 +16,8 @@ import stepTwoImg from "./images/stepTwoImg.png";
 import stepThreeImg from "./images/stepThreeImg.png";
 import stepFourImg from "./images/stepFourImg.png";
 // import { withTheme } from "styled-components";
+import { RightOutlined, DownOutlined } from '@ant-design/icons';
+
 
 const mainHeading = {
   margin: "40px 0px 80px 66px",
@@ -164,7 +166,9 @@ const StepIncluded = ({ handleScrollTwo }) => {
       </div>
       <div className="step-button-block">
         <button className="step-button-one">
-          GET A QUOTE <Icon type="right" style={{ marginLeft: "8px" }} />
+          GET A QUOTE 
+          {/* <Icon type="right" style={{ marginLeft: "8px" }} /> */}
+          <RightOutlined style={{ marginLeft: "8px" }} />
         </button>
         <Link
           activeClass="active"
@@ -175,7 +179,9 @@ const StepIncluded = ({ handleScrollTwo }) => {
           className="myLink2"
         >
           <button className="step-button-two" onClick={handleScrollTwo}>
-            LEARN MORE <Icon type="down" style={{ marginLeft: "8px" }} />
+            LEARN MORE 
+            {/* <Icon type="down" style={{ marginLeft: "8px" }} /> */}
+            <DownOutlined style={{ marginLeft: "8px" }} />
           </button>
         </Link>
       </div>

@@ -1,0 +1,137 @@
+.applicationCard{
+    .select-all {
+        background-color: #ccc;
+    }
+    &__customPanel{
+        background: #fff;
+     //   border-radius: 4rem;
+        margin-bottom: 24;
+        border-radius: 43px !important;
+        border: 0;
+        overflow: hidden;
+        box-shadow: 0 3px 6px rgba(0,0,0,.16);
+        margin-bottom: 1rem ;
+        .sub-head--1{
+            color: #78869A;
+            font-size: 1.1rem;
+        }
+        .sub-head--2{
+            font-size: 1.1rem;
+            color:#333743;
+
+        }
+    }
+    &__ProgressBar{
+        border-radius: 4px;
+        background: #ccc;
+        width: 15rem;
+        font-size: 1.1rem;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    &__header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1.5rem;
+
+        .header{
+            &__image{
+                width: 10%;
+            }
+            &__name{
+                width: 20%;
+                text-transform: capitalize;
+
+            }
+            &__college{
+                width: 25%;
+
+            }
+            &__city{
+                width: 20%;
+
+            }
+            &__progress{
+
+                width: 25%;
+            }
+        }
+
+    }
+    &__image{
+        height: 2.5rem;
+        width: 2.5rem;
+        border-radius: 50%;
+    }
+    &__content{
+        display: flex;
+        justify-content: space-around;
+
+        .q_and_head{
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(#A9ABB2,.54);
+        }
+        .question{
+            font-size: 1rem;
+            color: #78869A;
+        }
+        .answer{
+            font-size: 1rem;
+            color:#333743;
+        }
+        
+    }
+    &__btns{
+        display: flex;
+        justify-content: space-between;
+        padding:2rem 5rem 0 ;
+        button{
+            margin: 0 1rem 0 0;
+        }
+    }
+    &__btn--grey{
+        background: rgba(#2D176E,.2);
+        text-transform: uppercase;
+        color:#2D176E;
+        border: none;
+  //      font-size: 1.1rem;
+    }
+    &__btn--green{
+        background: #2ACF18;
+        text-transform: uppercase;
+        color:#fff;
+        border: none;
+
+  //      font-size: 1.1rem;
+    }
+    &__btn--red{
+        background: rgba(#FF0000,.16);
+        text-transform: uppercase;
+        color: #FF0000;
+        border: none;
+
+  //      font-size: 1.1rem;
+    }
+    &__btn--blue{
+        background: #137EFC;
+        text-transform: uppercase;
+  //      font-size: 1.1rem;
+    }
+    &__warning{
+        color:#ff0000;
+        text-transform: uppercase;
+        padding:1rem 5rem 0 ;
+
+    }
+}
+
+.ant-collapse-content-box {
+    .row-items{
+        padding: 20px 0;
+        .row-items-heading{
+            color: #78869A;
+        }   
+    }
+}

@@ -5,7 +5,7 @@ div.stipend {
     div.stipend-container {
       flex: 1;
 
-      h2.stipend__h2 {
+      h3.stipend__h3 {
       }
 
       .stipend__select {
@@ -16,11 +16,16 @@ div.stipend {
     div.amount-container {
       flex: 1;
 
-      h2.amount__h2 {
+      h3.amount__h3 {
       }
       .amount-input-container {
         display: flex;
+        align-items: center;
         .amount__input {
+        }
+        .amount__span {
+          font-weight: 900;
+          margin: 0px 12px 0px 12px;
         }
       }
     }
@@ -28,7 +33,7 @@ div.stipend {
 
   div.additional-benefit {
     margin-bottom: 30px;
-    h2.additional-benefit__h2 {
+    h3.additional-benefit__h3 {
     }
 
     div.additional-benefit-input-container {
@@ -41,13 +46,14 @@ div.stipend {
 
     span.additional-benefit-add-question {
       color: #ec3f78;
+      font-size: 12px;
       font-weight: 500;
     }
   }
   div.ppo-container {
     div.ppo-block {
       margin-bottom: 30px;
-      p.ppo__paragraph {
+      .ppo__paragraph {
       }
 
       div.ppo-option {

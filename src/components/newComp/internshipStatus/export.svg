@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="26.221" height="22.944" viewBox="0 0 26.221 22.944">
+    <defs>
+        <style>
+            .cls-1{fill:#ec3f78}
+        </style>
+    </defs>
+    <g id="export" transform="translate(0 -31.998)">
+        <path id="Path_2943" d="M18.027 82.029H3.278V67.28h4.916V64H1.639A1.639 1.639 0 0 0 0 65.641v18.027a1.638 1.638 0 0 0 1.639 1.639h18.027a1.637 1.637 0 0 0 1.634-1.639v-8.143h-3.273z" class="cls-1" data-name="Path 2943" transform="translate(0 -30.365)"/>
+        <path id="Path_2944" d="M147.338 37.079l-6.555-4.916a.82.82 0 0 0-1.311.656v2.458h-2.458A9.023 9.023 0 0 0 128 44.29a.819.819 0 0 0 1.552.367l.193-.385a7.334 7.334 0 0 1 6.6-4.079h3.13v2.458a.819.819 0 0 0 1.311.656l6.555-4.916a.819.819 0 0 0 0-1.311z" class="cls-1" data-name="Path 2944" transform="translate(-121.445)"/>
+    </g>
+</svg>

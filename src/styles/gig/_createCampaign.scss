@@ -1,0 +1,143 @@
+.ant-modal-wrap {
+  backdrop-filter: blur(4px);
+  .ant-modal.contactToAdmin-modal {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 0px;
+    .ant-modal-content {
+      min-height: 100vh;
+      border-radius: 0px;
+      .ant-modal-header {
+        padding: initial;
+        border-bottom: none;
+        .ant-modal-title {
+          .custom-modal-title {
+            position: relative;
+            .modal-title__img {
+              width: 100%;
+            }
+            .modal-title-content {
+              position: absolute;
+              bottom: -44px;
+              padding: 0 40px;
+              .modal-title__header {
+                margin-bottom: 8px;
+                line-height: 1;
+                font-size: 36px;
+                font-weight: 500;
+              }
+              .modal-title__para {
+                font-weight: 400;
+                font-size: 18px;
+              }
+            }
+          }
+        }
+      }
+
+      .ant-modal-body {
+        padding: 24px 40px;
+        margin-top: 32px;
+        %label {
+          margin-bottom: 6px;
+          opacity: 0.6;
+          color: #000;
+          line-height: 1.44;
+          font-size: 18px;
+        }
+        %input {
+          height: 46px;
+          border-radius: 4px;
+          border: solid 1px #c6c6c6;
+          margin-bottom: 20px;
+        }
+        %select {
+          width: 100%;
+          margin-bottom: 20px;
+          .ant-select-selector {
+            height: 46px;
+            border-radius: 4px;
+            border: solid 1px #c6c6c6;
+          }
+        }
+        %textarea {
+          height: 109px;
+          border-radius: 4px;
+          border: solid 1px #c6c6c6;
+          background-color: #f5f5f5;
+          margin-bottom: 20px;
+        }
+        /* ---------------------------- default campaign body---------------------------- */
+        .default-block {
+          .requirement__p {
+            @extend%label;
+          }
+          .requirement__input {
+            @extend%input;
+          }
+          .budget__p {
+            @extend%label;
+          }
+          .budget__input {
+            @extend%input;
+          }
+          .quantity__p {
+            @extend%label;
+          }
+          .quantity__input {
+            @extend%input;
+          }
+        }
+
+        /* ---------------------------- custom campaign body ---------------------------- */
+        .custom-block-one {
+          .select-option__p {
+            @extend%label;
+          }
+
+          .select-option__select {
+            @extend%select;
+          }
+          .additional-comment__p {
+            @extend%label;
+          }
+          .additional-comment__textarea {
+            @extend%textarea;
+          }
+        }
+
+      }
+
+      .ant-modal-footer {
+        padding: 10px 40px 40px;
+        // position: absolute;
+        width: 100%;
+        bottom: 0px;
+        border-top: none;
+        .custom-modal-footer {
+          display: flex;
+          justify-content: space-between;
+          .goBack-button {
+            width: 155px;
+            height: 49px;
+            border-radius: 10px;
+            background-color: #f5f5f5;
+            font-size: 18px;
+            font-weight: 700;
+            // color: #fff;
+          }
+          .contactUs-button {
+            width: 231px;
+            height: 49px;
+            border-radius: 10px;
+            background-color: #3b599b;
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import avenirr from "../../font/AvenirLTStd-Medium.otf";
+import avenirr from "../../assets/font/AvenirLTStd-Medium.otf";
 
 export const MyBlockOne = styled.div`
   position: absolute;
