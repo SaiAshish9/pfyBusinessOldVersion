@@ -8,7 +8,6 @@
 @import "./internship/internship/internship";
 @import "./internship/internship";
 
-@import "./gig/gig";
 
 @import "./success_check/success_check";
 
@@ -22,8 +21,8 @@
 
 @import "./internship/form";
 @import "./internship/userResume";
-@import "./internship/userResume";
 
-@import "./gig//existingGig";
+@import "./gig/gig";
+@import "./gig/existingGig";
 @import "./gig/specific_gig";
-@import "./gig//gigProfile";
+@import "./gig/gigProfile";
