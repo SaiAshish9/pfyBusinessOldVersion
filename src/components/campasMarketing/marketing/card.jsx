@@ -1,12 +1,11 @@
 import React, {Fragment} from 'react';
-
 // import style from "../marketing/marketingStyle.module.css"
 
 
 export function card(props) {
     let img;
     
-        img =  <img style={{paddingTop: "25px"}} src={props.image} alt="First Image"/>
+        img =  <img style={{paddingTop: props.value === "coupons" ? "40px" : "25px"}} src={props.image} alt="First Image"/>
     
     return (
         <div className="marketing-card-box">

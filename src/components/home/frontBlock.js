@@ -2,6 +2,8 @@
 import React, { useRef, useEffect } from "react";
 import Typewriter from "typewriter-effect";
 import { Link } from "react-scroll";
+import { RightOutlined, DownOutlined  } from '@ant-design/icons';
+
 
 import { Icon } from "antd";
 import {
@@ -60,7 +62,10 @@ const FrontBlock = ({ handleScrollOne }) => {
       </div>
       <div className="button">
         <button className="first-button">
-          MAKE IT HAPPEN <Icon type="right" style={{ marginLeft: "8px" }} />
+          MAKE IT HAPPEN 
+          {/* <Icon type="right" style={{ marginLeft: "8px" }} /> */}
+          <RightOutlined style={{ marginLeft: "8px" }} />
+
         </button>
 
         <Link
@@ -75,7 +80,9 @@ const FrontBlock = ({ handleScrollOne }) => {
             className="second-button"
             // onClick={handleScrollOne}
           >
-            LEARN MORE <Icon type="down" style={{ marginLeft: "8px" }} />
+            LEARN MORE 
+            {/* <Icon type="down" style={{ marginLeft: "8px" }} /> */}
+            <DownOutlined style={{ marginLeft: "8px" }} />
           </button>
         </Link>
       </div>

@@ -1,4 +1,11 @@
- 
+ .campus-marketing{
+  //  margin: 5rem 0;
+   text-align: center;
+   .heading{
+     font-size: 36px;
+     font-weight: 700;
+     text-align: start;
+   }
   .marketing-cardItems {
     margin: 10rem 5rem;
     display: flex;
@@ -17,22 +24,34 @@
   }
   
   .marketing-card-box {
-    width: 280px;
-    height: 358px;
+    width: 236px;
+    height: 305px;
     border-radius: 16px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
     background-color: #ffffff;
     text-align: center;
-    border-bottom: 5px solid #ec3f78;
+    // border-bottom: 5px solid #ec3f78;
     padding: 15px;
     margin-bottom: 2rem;
+    .price-button{
+      width: 95%;
+      height: 3rem;
+      border-radius: 5px;
+      box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.16);
+      background-color: #ec3f78;
+      border: none;
+      font-size: 1rem;
+      font-weight: 500;
+      margin-top: 2rem;
+      color: #fff;
+    }
   }
   
   .marketing-card-text1 {
     padding-top: 1rem;
     color: #282c3f;
-    font-size: 1.5rem;
-    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+    margin-bottom: 0;
   }
   
   .marketing-card-text2 {
@@ -119,6 +138,20 @@
     padding: 5px 15px;
     border-radius: 12px;
   }
+
+  .enquire-button{
+    width: 12rem;
+    height: 3.5rem;
+    border-radius: 3rem;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.16);
+    background-color: #ec3f78;
+    font-size: 20px;
+    font-weight: 700;
+    border: none;
+  }
+
+ }
+  
   
   .help .ant-modal-header{
     border-bottom: unset;
@@ -147,4 +180,47 @@
 
   .internship-booster .ant-modal-header{
     border-bottom: unset;
+  }
+
+  .internship-booster{
+    .ant-modal-title{
+      font-size: 1.5rem;
+    }
+    .boost-purchase-btn{
+      width: 13rem;
+      height: 2.5rem;
+      font-weight: 500;
+      font-size: 1.25rem;
+      box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.16);
+      background-color: #3b599b;
+      border: none;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+    .price-cards{
+      display: flex;
+      justify-content: space-around;
+      padding: 0 4rem;
+      .single-card{
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        text-align: center;
+        width: 225px;
+        height: 113px;
+        border-radius: 8px;
+        box-shadow: 0 3px 30px 0 rgba(0, 0, 0, 0.16);
+        div{
+          margin: auto;
+          font-size: 20px;
+          font-weight: 500;
+          span{
+            font-size: 34px;
+            font-weight: 500;
+            color: #3b599b;
+          }
+        }
+      }
+
+    }
   }

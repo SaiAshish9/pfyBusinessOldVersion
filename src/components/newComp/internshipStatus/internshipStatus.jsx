@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { Menu, Checkbox, Select, Row, Col, Tabs } from 'antd';
 import exportSvg from './export.svg';
 import ApplicationCard from './ApplicationCard';
-import SingleInternship from '../../internship/singleInternship/singleIntersnship';
+import SingleInternship from '../../internship/oldDesign/singleInternship/singleIntersnship';
 import axios from 'axios';
 const { Option } = Select;
 const { TabPane } = Tabs;

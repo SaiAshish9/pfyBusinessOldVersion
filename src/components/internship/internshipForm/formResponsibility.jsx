@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Input, Select, Icon, Button } from "antd";
 import { useForm, Controller } from "react-hook-form";
 import { arrayValidation } from "../../validation/validation";
+import {DeleteOutlined, DeleteOutline} from '@ant-design/icons';
 
 const { Option } = Select;
 export default function FormResponsibility({ handleContinue }) {
@@ -133,11 +134,13 @@ export default function FormResponsibility({ handleContinue }) {
                 value={addQuestion}
                 onChange={(e) => handleAddQuestion(e, index, responsibility)}
               />
-              <Icon
+              {/* <Icon
                 className=""
                 type="delete"
                 onClick={() => handleDeleteInput(index, responsibility)}
-              ></Icon>
+              ></Icon> */}
+              <DeleteOutlined onClick={() => handleDeleteInput(index, responsibility)}/>
+
             </div>
           ))}
         <span
@@ -164,11 +167,12 @@ export default function FormResponsibility({ handleContinue }) {
                 value={addQuestion}
                 onChange={(e) => handleAddQuestion(e, index, requirement)}
               />
-              <Icon
+              {/* <Icon
                 className=""
                 type="delete"
                 onClick={() => handleDeleteInput(index, requirement)}
-              ></Icon>
+              ></Icon> */}
+              <DeleteOutlined onClick={() => handleDeleteInput(index, requirement)}/>
             </div>
           ))}
         <span

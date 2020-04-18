@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Input, Button, Icon, Checkbox } from "antd";
 import { useForm, Controller } from "react-hook-form";
 import { arrayValidation } from "../../validation/validation";
+import {DeleteOutlined} from '@ant-design/icons';
+
 
 export default function FormInterviewQuestion({ handleSubmit }) {
   const formData = JSON.parse(localStorage.getItem("internshipFormData"));
@@ -72,11 +74,12 @@ export default function FormInterviewQuestion({ handleSubmit }) {
             >
               Long Answer
             </Checkbox>
-            <Icon
+            {/* <Icon
               className="interview-ques__icon"
               type="delete"
               onClick={() => handleDeleteInput(index)}
-            ></Icon>
+            ></Icon> */}
+            <DeleteOutlined onClick={() => handleDeleteInput(index)} />
           </div>
         ))}
       <span className="interview-add-question" onClick={handleAddInput}>

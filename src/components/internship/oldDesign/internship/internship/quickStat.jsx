@@ -1,7 +1,7 @@
 import React from "react";
-import icon1 from "../img/internshipPostedIcon.svg";
-import icon2 from "../img/applicationReceiveIcon.svg";
-import icon3 from "../img/internshipView.svg";
+// import icon1 from "../img/internshipPostedIcon.svg";
+// import icon2 from "../img/applicationReceiveIcon.svg";
+// import icon3 from "../img/internshipView.svg";
 
 export default function QuickStat(props) {
   const {totalInternshipOfCompany, totalApplicationOfCompany, totalViewsOfCompany} = props;
@@ -16,7 +16,7 @@ export default function QuickStat(props) {
             className="state-brief-img-block"
             style={{ backgroundColor: "#f7b924" }}
           >
-            <img src={icon1} alt="" className="state-brief__img" />
+            <img src={'icon1'} alt="" className="state-brief__img" />
           </div>
           <div className="stat-brief-content-block">
             <p className="state-brief__p">Internship Posted</p>
@@ -28,7 +28,7 @@ export default function QuickStat(props) {
             className="state-brief-img-block"
             style={{ backgroundColor: "#7a49f3" }}
           >
-            <img src={icon2} alt="" className="state-brief__img" />
+            <img src={"icon2"} alt="" className="state-brief__img" />
           </div>
           <div className="stat-brief-content-block">
             <p className="state-brief__p">Application Received</p>
@@ -40,7 +40,7 @@ export default function QuickStat(props) {
             className="state-brief-img-block"
             style={{ backgroundColor: "#4eca8a" }}
           >
-            <img src={icon3} alt="" className="state-brief__img" />
+            <img src={'icon3'} alt="" className="state-brief__img" />
           </div>
           <div className="stat-brief-content-block">
             <p className="state-brief__p">Internship View</p>

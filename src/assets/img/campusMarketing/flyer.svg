@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="74.791" height="99" viewBox="0 0 74.791 99">
+    <defs>
+        <style>
+            .prefix__cls-1,.prefix__cls-7{fill:#e7ecee}.prefix__cls-1,.prefix__cls-2,.prefix__cls-4{stroke:#000;stroke-width:2px}.prefix__cls-2,.prefix__cls-6{fill:#fff}.prefix__cls-4{fill:#ff76a8}
+        </style>
+    </defs>
+    <g id="prefix__flyer" transform="translate(-62.891 1)">
+        <path id="prefix__Path_370" d="M184.9 89.4h-48.821a5.683 5.683 0 0 1-5.684-5.684V5.684A5.683 5.683 0 0 1 136.079 0H184.9a5.683 5.683 0 0 1 5.684 5.684v78.035A5.684 5.684 0 0 1 184.9 89.4z" class="prefix__cls-1" data-name="Path 370" transform="translate(-53.905)"/>
+        <path id="prefix__Path_371" d="M160.491 0h-24.412a5.684 5.684 0 0 0-5.679 5.684v78.035a5.684 5.684 0 0 0 5.684 5.684h24.412z" class="prefix__cls-2" data-name="Path 371" transform="translate(-53.905)"/>
+        <path id="prefix__Path_372" d="M130.4 381.969v11.354a5.684 5.684 0 0 0 5.684 5.684H184.9a5.683 5.683 0 0 0 5.684-5.684v-11.354z" data-name="Path 372" transform="translate(-53.905 -309.604)" style="fill:#d64a7d;stroke:#000;stroke-width:2px"/>
+        <path id="prefix__Path_373" d="M160.491 381.969H130.4v11.354a5.684 5.684 0 0 0 5.684 5.684h24.412z" class="prefix__cls-4" data-name="Path 373" transform="translate(-53.905 -309.604)"/>
+        <path id="prefix__Path_374" d="M118.4 129.5H69.575a5.683 5.683 0 0 1-5.684-5.684v-78.03a5.683 5.683 0 0 1 5.684-5.686H118.4a5.683 5.683 0 0 1 5.684 5.684v78.035a5.684 5.684 0 0 1-5.684 5.681z" class="prefix__cls-1" data-name="Path 374" transform="translate(0 -32.505)"/>
+        <path id="prefix__Path_375" d="M93.987 40.1H69.575a5.684 5.684 0 0 0-5.684 5.684v78.035a5.684 5.684 0 0 0 5.684 5.684h24.412V40.1z" class="prefix__cls-2" data-name="Path 375" transform="translate(0 -32.505)"/>
+        <path id="prefix__Path_376" d="M63.891 422.071v11.354a5.684 5.684 0 0 0 5.684 5.684H118.4a5.683 5.683 0 0 0 5.684-5.684v-11.354z" data-name="Path 376" transform="translate(0 -342.108)" style="fill:#e64e86;stroke:#000;stroke-width:2px"/>
+        <path id="prefix__Path_377" d="M93.987 422.071h-30.1v11.354a5.684 5.684 0 0 0 5.684 5.684h24.416v-17.038z" class="prefix__cls-4" data-name="Path 377" transform="translate(0 -342.108)"/>
+        <g id="prefix__Group_274" data-name="Group 274" transform="translate(75.596 25.766)">
+            <path id="prefix__Path_378" d="M151.811 141.686h22.272a2.842 2.842 0 0 0 0-5.684h-22.272a2.842 2.842 0 0 0 0 5.684z" class="prefix__cls-6" data-name="Path 378" transform="translate(-144.556 -136.002)"/>
+            <path id="prefix__Path_379" d="M128.518 237.461h31.1a2.842 2.842 0 0 0 0-5.684h-31.1a2.842 2.842 0 0 0 0 5.684z" class="prefix__cls-6" data-name="Path 379" transform="translate(-125.676 -213.632)"/>
+            <path id="prefix__Path_380" d="M159.615 278.859h-31.1a2.842 2.842 0 1 0 0 5.684h31.1a2.842 2.842 0 1 0 0-5.684z" class="prefix__cls-6" data-name="Path 380" transform="translate(-125.676 -251.794)"/>
+            <path id="prefix__Path_381" d="M159.615 325.941h-31.1a2.842 2.842 0 1 0 0 5.684h31.1a2.842 2.842 0 1 0 0-5.684z" class="prefix__cls-6" data-name="Path 381" transform="translate(-125.676 -289.956)"/>
+        </g>
+        <g id="prefix__Group_275" data-name="Group 275" transform="translate(75.596 25.766)">
+            <path id="prefix__Path_382" d="M162.947 136h-11.136a2.842 2.842 0 0 0 0 5.684h11.136V136z" class="prefix__cls-7" data-name="Path 382" transform="translate(-144.556 -136.002)"/>
+            <path id="prefix__Path_383" d="M144.067 231.777h-15.549a2.842 2.842 0 0 0 0 5.684h15.549v-5.684z" class="prefix__cls-7" data-name="Path 383" transform="translate(-125.676 -213.632)"/>
+            <path id="prefix__Path_384" d="M144.067 278.859h-15.549a2.842 2.842 0 1 0 0 5.684h15.549v-5.684z" class="prefix__cls-7" data-name="Path 384" transform="translate(-125.676 -251.794)"/>
+            <path id="prefix__Path_385" d="M144.067 325.941h-15.549a2.842 2.842 0 1 0 0 5.684h15.549v-5.684z" class="prefix__cls-7" data-name="Path 385" transform="translate(-125.676 -289.956)"/>
+        </g>
+    </g>
+</svg>

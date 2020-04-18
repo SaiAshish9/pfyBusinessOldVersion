@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { Icon } from "antd";
 import { FooterStyled } from "./homeStyled";
 import logo from "./images/logo.png";
+import { HeartFilled } from '@ant-design/icons';
+
 
 const Footer = () => {
   return (
@@ -59,7 +61,7 @@ const Footer = () => {
           marginBottom: "0px"
         }}
       >
-        Made with <Icon type="heart" theme="filled" style={{ color: "Red" }} />{" "}
+        Made with <HeartFilled style={{color: "#ff0000"}} />{" "}
         in India
         <br />
       </p>

@@ -1,15 +1,15 @@
 import React, {useState} from "react";
-import boostInternshipIcon from "../img/boostInternshipIcon.svg";
-import boostInternshipIcon2 from "../img/flash.svg";
-import moreIcon from "../img/moreIcon.svg";
-import approvedInternshipIcon from "../img/approvedInternshipIcon.svg";
-import underReviewInternIcon from "../img/underReviewInternIcon.svg";
-import endedInternshipIcon from "../img/endedInternshipIcon.svg";
+// import boostInternshipIcon from "../img/boostInternshipIcon.svg";
+// import boostInternshipIcon2 from "../img/flash.svg";
+import moreIcon from "../../img/moreIcon.svg";
+// import approvedInternshipIcon from "../img/approvedInternshipIcon.svg";
+// import underReviewInternIcon from "../img/underReviewInternIcon.svg";
+// import endedInternshipIcon from "../img/endedInternshipIcon.svg";
 import { Button } from "antd";
 import {useHistory} from 'react-router-dom';
 import axios from "axios";
 import { Menu, Dropdown, message } from 'antd';
-import ShareInternship from "../../newComp/shareInternship/shareInternship";
+import ShareInternship from "../../../../newComp/shareInternship/shareInternship";
 
 
 
@@ -73,7 +73,7 @@ const [show, setShow] = useState(false)
       <ShareInternship show={show} isClose={isClose} intershipId={props.internship._id} />
       <div className="approved-card-img-block">
         <img
-          src={approvedInternshipIcon}
+          src={'approvedInternshipIcon'}
           alt=""
           className="approved-card__img"
         />
@@ -98,7 +98,7 @@ const [show, setShow] = useState(false)
             type="primary"
             shape="round"
           >
-            <img src={boostInternshipIcon} style={{width: "15px", height: "15px", }} alt=""></img>Boost Internship
+            <img src={'boostInternshipIcon'} style={{width: "15px", height: "15px", }} alt=""></img>Boost Internship
           </Button>
         </div>
       </div>
@@ -146,7 +146,7 @@ export function UnderReviewCardStat(props) {
       <ShareInternship show={show} isClose={isClose} intershipId={props.internship._id} />
       <div className="underReview-card-img-block">
         <img
-          src={underReviewInternIcon}
+          src={'underReviewInternIcon'}
           alt=""
           className="underReview-card__img"
         />
@@ -182,7 +182,7 @@ export function EndedCardStat() {
   return (
     <div className="ended-card-main-block" >
       <div className="ended-card-img-block">
-        <img src={endedInternshipIcon} alt="" className="ended-card__img" />
+        <img src={'endedInternshipIcon'} alt="" className="ended-card__img" />
       </div>
       <div className="ended-internship-content-block">
         <div className="ended-internship-title-block">
@@ -238,7 +238,7 @@ export function RejectedCardStat(props) {
     <div  className="rejected-card-main-block" style={{margin: "20px 0"}}>
       <ShareInternship show={show} isClose={isClose} intershipId={props.internship._id} />
       <div className="rejected-card-img-block">
-        <img src={endedInternshipIcon} alt="" className="rejected-card__img" />
+        <img src={'endedInternshipIcon'} alt="" className="rejected-card__img" />
       </div>
       <div className="rejected-internship-content-block">
         <div className="rejected-internship-title-block">

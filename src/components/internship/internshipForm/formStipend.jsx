@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Select, Input, Radio, Button, Icon } from "antd";
 import { useForm, Controller } from "react-hook-form";
 import { arrayValidation } from "../../validation/validation";
+import DeleteOutlined from "@ant-design/icons";
 
 const { Option } = Select;
 export default function FormStipend({ handleContinue }) {
@@ -178,11 +179,12 @@ export default function FormStipend({ handleContinue }) {
                   value={addQuestion}
                   onChange={(e) => handleEditBenefit(e, index)}
                 />
-                <Icon
+                {/* <Icon
                   className="additional-benefit__icon"
                   type="delete"
                   onClick={() => handleDeleteBenefit(index)}
-                ></Icon>
+                ></Icon> */}
+                <DeleteOutlined onClick={() => handleDeleteBenefit(index)} />
               </div>
             ))}
           <span
