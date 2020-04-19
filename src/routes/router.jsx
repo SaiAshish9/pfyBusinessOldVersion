@@ -20,13 +20,13 @@ import StudentOffer from "../components/studentOffer/studentOffer";
 import EditProfile from "../components/editProfile/editProfile";
 
 const history = createBrowserHistory();
-
+const rootURL = "/test"; 
 export default function AppRouter() {
   return (
     <Router history={history}>
       <Switch>
         <PublicRoute
-          path="/"
+          path={`${rootURL}`}
           component={LandingPage}
           exact={true}
         ></PublicRoute>
