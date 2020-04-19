@@ -31,7 +31,7 @@ export default function PrivateHeader({ component: Component, ...rest }) {
 
   return (
     <Layout>
-      <Sider trigger={null} collapsible collapsed={collapsed}>
+      <Sider trigger={null} collapsible collapsed={collapsed} width={240}>
         <div className="logo">
           <img src={logo} alt="" className="" style={{ width: "154px" }} />
         </div>
@@ -44,6 +44,7 @@ export default function PrivateHeader({ component: Component, ...rest }) {
               <span>Home</span>
             </Link>
           </Menu.Item>
+
           <Menu.Item key="2">
             <Link to="/internship">
               <span className="anticon">
@@ -52,6 +53,7 @@ export default function PrivateHeader({ component: Component, ...rest }) {
               <span>Internships</span>
             </Link>
           </Menu.Item>
+
           <Menu.Item key="3">
             <Link to="/gigs">
               <span className="anticon">
@@ -60,6 +62,7 @@ export default function PrivateHeader({ component: Component, ...rest }) {
               <span>Gigs</span>
             </Link>
           </Menu.Item>
+
           <Menu.Item key="4">
             <Link to="campus-marketing">
               <span className="anticon">
@@ -68,18 +71,25 @@ export default function PrivateHeader({ component: Component, ...rest }) {
               <span>Campus Marketing</span>
             </Link>
           </Menu.Item>
+
           <Menu.Item key="5">
-            <span className="anticon">
-              <img src={studentOffersIcon} alt="" className="" />
-            </span>
-            <span>Student Offers</span>
+            <Link to="/student-offer">
+              <span className="anticon">
+                <img src={studentOffersIcon} alt="" className="" />
+              </span>
+              <span>Student Offers</span>
+            </Link>
           </Menu.Item>
+
           <Menu.Item key="6">
-            <span className="anticon">
-              <img src={editProfileIcon} alt="" className="" />
-            </span>
-            <span>Edit Profile</span>
+            <Link to="/edit-profile">
+              <span className="anticon">
+                <img src={editProfileIcon} alt="" className="" />
+              </span>
+              <span>Edit Profile</span>
+            </Link>
           </Menu.Item>
+
           <Menu.Item key="7" style={{ marginTop: 220 }} onClick={handleLogout}>
             <span className="anticon">
               <img src={logoutIcon} alt="" className="" />
@@ -111,8 +121,7 @@ export default function PrivateHeader({ component: Component, ...rest }) {
         <Content
           className="site-layout-background"
           style={{
-            margin: "5rem 1rem",
-            // padding: "1rem",
+            margin: "5rem 3rem",
             minheight: 280,
           }}
         >
