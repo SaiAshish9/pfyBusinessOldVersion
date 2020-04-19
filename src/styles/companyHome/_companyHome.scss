@@ -2,6 +2,7 @@
   border-radius: 9px;
   border: solid 1px #c6c6c6;
   padding: 25px;
+  margin-bottom: 30px;
   display: grid;
   grid-template: "imgBlock button";
   .img-block {
@@ -31,35 +32,54 @@
 
 .all-link-block {
   display: grid;
-//   grid-template: ;
-
+  grid-template:
+    "gig internship"
+    "campusMarketing studentOffer";
+  // grid-template: ;
+  grid-gap: 32px;
   %block {
-    border: solid 1px #e05b49;
     background-color: #f5f5f5;
-    padding: 42px 32px;
+    border-radius: 9px;
+    padding: 42px 0 0 32px;
+    display: grid;
+    grid-template:
+      "text text"
+      "name button";
   }
   %about-text {
+    grid-area: text;
     opacity: 0.5;
-    font-family: CircularStd;
     font-size: 18px;
     line-height: 1.44;
     color: #062f4f;
+    margin-bottom: 38px;
   }
   %link-name {
+    grid-area: name;
+    margin: 0;
     opacity: 0.7;
-    font-family: CircularStd;
     font-size: 28px;
-    line-height: 0.64;
     color: #000000;
+    width: 124%;
+    line-height: 1;
   }
   %link-button {
+    grid-area: button;
+    justify-self: end;
+    align-self: end;
     width: 162px;
     height: 55px;
-    background-color: #e05b49;
+    border-radius: 9px 0 9px 0;
+    font-family: CircularStd;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 3;
+    color: #ffffff;
   }
   .gig-link-block {
     @extend%block;
     grid-area: gig;
+    border: solid 1px #e05b49;
 
     .about-gig-link {
       @extend%about-text;
@@ -71,12 +91,15 @@
 
     .gig-button {
       @extend%link-button;
+      background-color: #e05b49;
+      border: 1px solid #e05b49;
     }
   }
 
   .internship-link-block {
     @extend%block;
     grid-area: internship;
+    border: solid 1px #7d7bb7;
 
     .about-internship-link {
       @extend%about-text;
@@ -88,11 +111,14 @@
 
     .internship-button {
       @extend%link-button;
+      background-color: #7d7bb7;
+      border: 1px solid #7d7bb7;
     }
   }
 
   .campusMarketing-link-block {
     @extend%block;
+    border: solid 1px #90dfaa;
     grid-area: campusMarketing;
 
     .about-campusMarketing-link {
@@ -105,12 +131,15 @@
 
     .campusMarketing-button {
       @extend%link-button;
+      background-color: #90dfaa;
+      border: 1px solid #90dfaa;
     }
   }
 
   .studentOffer-link-block {
     @extend%block;
     grid-area: studentOffer;
+    border: solid 1px #ffd05b;
 
     .about-studentOffer-link {
       @extend%about-text;
@@ -122,6 +151,8 @@
 
     .studentOffer-button {
       @extend%link-button;
+      background-color: #ffd05b;
+      border: 1px solid #ffd05b;
     }
   }
 }
