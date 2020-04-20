@@ -1,12 +1,10 @@
 import React from "react";
 import showOffImg from "../../../assets/img/gig/showOffImg.svg";
 import { Tabs } from "antd";
-// import Campaign from "./campaign";
-// import ExistingGig from "./existingGig";
-import ExistingInternship from './existingInternship';
+import NewInternship from "./newInternship";
+import ExistingInternship from "./existingInternship";
 
 const { TabPane } = Tabs;
-
 
 export default function Internship() {
   const css = "font-size:30px";
@@ -27,10 +25,14 @@ export default function Internship() {
       </div>
       <Tabs defaultActiveKey="1" className="new-or-existing-gig-block">
         <TabPane tab="New Internships" key="1">
-            
+          <NewInternship />
         </TabPane>
-        <TabPane tab="Existing Internships" key="2" className="existing-gig-block">
-            <ExistingInternship />
+        <TabPane
+          tab="Existing Internships"
+          key="2"
+          className="existing-gig-block"
+        >
+          <ExistingInternship />
         </TabPane>
       </Tabs>
     </div>

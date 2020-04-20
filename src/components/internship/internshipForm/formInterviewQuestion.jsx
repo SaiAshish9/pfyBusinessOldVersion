@@ -17,7 +17,7 @@ export default function FormInterviewQuestion({ handleSubmit }) {
     setQuestionsState([...questionsState, { question: "", questionType: 0 }]);
   };
 
-  const handleDeleteInput = index => {
+  const handleDeleteInput = (index) => {
     const question = [...questionsState];
     question.splice(index, 1);
     setQuestionsState(question);
@@ -44,7 +44,7 @@ export default function FormInterviewQuestion({ handleSubmit }) {
       "internshipFormData",
       JSON.stringify({
         ...formData,
-        questions: questionsState
+        questions: questionsState,
       })
     );
   }, [formData, questionsState]);
@@ -52,10 +52,9 @@ export default function FormInterviewQuestion({ handleSubmit }) {
   return (
     <div className="interview-ques-container">
       <div className="interview-ques-header-container">
-        <h2 className="interview-ques__h2">Interview Question</h2>
+        <h3 className="interview-ques__h3">Interview Question</h3>
         <span className="interview-ques__span">+Add Sample Question</span>
       </div>
-      {/* <Input className="interview-ques__input"></Input> */}
       {questionsState.length > 0 &&
         questionsState.map((addQuestion, index) => (
           <div
@@ -67,11 +66,11 @@ export default function FormInterviewQuestion({ handleSubmit }) {
               addonBefore={index + 1}
               className="interview-ques__input"
               value={addQuestion.question}
-              onChange={e => handleAddQuestion(e, index)}
+              onChange={(e) => handleAddQuestion(e, index)}
             />
             <Checkbox
               checked={addQuestion.questionType === 0 ? false : true}
-              onChange={e => handleLongAnswer(e, index)}
+              onChange={(e) => handleLongAnswer(e, index)}
             >
               Long Answer
             </Checkbox>
@@ -86,15 +85,6 @@ export default function FormInterviewQuestion({ handleSubmit }) {
       <span className="interview-add-question" onClick={handleAddInput}>
         +Add Question
       </span>
-      <div className="submit-button-container">
-        <Button
-          htmlType="submit"
-          className="submit-button"
-          onClick={handleSubmit}
-        >
-          SUBMIT
-        </Button>
-      </div>
     </div>
   );
 }

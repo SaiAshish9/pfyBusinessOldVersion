@@ -1,0 +1,42 @@
+div.interview-ques-container {
+  margin-bottom: 30px;
+  div.interview-ques-header-container {
+    display: flex;
+    align-items: baseline;
+    h3.interview-ques__h3 {
+    }
+
+    span.interview-ques__span {
+      font-size: 12px;
+      margin-left: 40px;
+      color: #ec3f78;
+      font-weight: 500;
+    }
+  }
+
+  .interview-ques__input {
+    margin-bottom: 20px;
+  }
+
+  div.interview-ques-input-container {
+    display: flex;
+    // flex-direction: column;
+    .interview-ques__input {
+      margin-bottom: 20px;
+    }
+
+    .interview-ques__icon {
+    }
+  }
+
+  span.interview-add-question {
+    font-size: 12px;
+    color: #ec3f78;
+    font-weight: 500;
+  }
+
+  div.submit-button-container {
+    .submit-button {
+    }
+  }
+}

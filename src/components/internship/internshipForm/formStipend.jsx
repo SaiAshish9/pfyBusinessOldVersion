@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Select, Input, Radio, Button, Icon } from "antd";
 import { useForm, Controller } from "react-hook-form";
 import { arrayValidation } from "../../validation/validation";
+import DeleteOutlined from "@ant-design/icons";
 
 const { Option } = Select;
 export default function FormStipend({ handleContinue }) {
-  // const [stipendType, setStipendTye] = useState();
   const formData = JSON.parse(localStorage.getItem("internshipFormData"));
 
   const internBenefit = arrayValidation(formData.benefits)
@@ -19,8 +19,8 @@ export default function FormStipend({ handleContinue }) {
       stipendType: formData.stipendType,
       stipend: formData.stipend,
       minStipend: formData.minStipend,
-      maxStipend: formData.maxStipend
-    }
+      maxStipend: formData.maxStipend,
+    },
   });
 
   //! --------------------------- input data testing --------------------------- */
@@ -40,9 +40,6 @@ export default function FormStipend({ handleContinue }) {
   const maxStipend = watch("maxStipend");
   console.log("maxStipend", watch("maxStipend"));
   console.log("");
-
-  // console.log("minStipend", watch("minStipend"));
-  // console.log("");
 
   console.log("benefits", benefits);
   console.log("");
@@ -68,7 +65,7 @@ export default function FormStipend({ handleContinue }) {
         stipend: myStipend,
         minStipend: myMinStipend,
         maxStipend: myMaxStipend,
-        benefits
+        benefits,
       })
     );
   }, [formData, stipendType, benefits, stipend, minStipend, maxStipend]);
@@ -79,7 +76,7 @@ export default function FormStipend({ handleContinue }) {
     setBenefits([...benefits, ""]);
   };
 
-  const handleDeleteBenefit = index => {
+  const handleDeleteBenefit = (index) => {
     const question = [...benefits];
     question.splice(index, 1);
     setBenefits(question);
@@ -100,7 +97,7 @@ export default function FormStipend({ handleContinue }) {
       <div className="stipend">
         <div className="stipend-amount-container">
           <div className="stipend-container">
-            <h2 className="stipend__h2">Stipend</h2>
+            <h3 className="stipend__h3">Stipend</h3>
             <Controller
               as={
                 <Select
@@ -121,7 +118,7 @@ export default function FormStipend({ handleContinue }) {
           </div>
           {stipendType === "fixed" && (
             <div className="amount-container">
-              <h2 className="amount__h2">Amount</h2>
+              <h3 className="amount__h3">Amount</h3>
               <Controller
                 as={
                   <Input
@@ -137,7 +134,7 @@ export default function FormStipend({ handleContinue }) {
           )}
           {stipendType === "negotiable" && (
             <div className="amount-container">
-              <h2 className="amount-container">Amount</h2>
+              <h3 className="amount-container">Amount</h3>
               <div className="amount-input-container">
                 <Controller
                   as={
@@ -168,7 +165,7 @@ export default function FormStipend({ handleContinue }) {
         </div>
 
         <div className="additional-benefit">
-          <h2 className="additional-benefit__h2">Additional Benefits</h2>
+          <h3 className="additional-benefit__h3">Additional Benefits</h3>
           {benefits.length > 0 &&
             benefits.map((addQuestion, index) => (
               <div
@@ -180,7 +177,7 @@ export default function FormStipend({ handleContinue }) {
                   addonBefore={index + 1}
                   className="additional-benefit__input"
                   value={addQuestion}
-                  onChange={e => handleEditBenefit(e, index)}
+                  onChange={(e) => handleEditBenefit(e, index)}
                 />
                 {/* <Icon
                   className="additional-benefit__icon"
@@ -200,9 +197,9 @@ export default function FormStipend({ handleContinue }) {
 
         <div className="ppo-container">
           <div className="ppo-block">
-            <p className="ppo__paragraph">
+            <h3 className="ppo__paragraph">
               Does this Internship Come with a PPO?
-            </p>
+            </h3>
             <div className="ppo-option">
               <Controller
                 as={
@@ -219,7 +216,7 @@ export default function FormStipend({ handleContinue }) {
             </div>
           </div>
           <div className="ppo-block">
-            <p className="ppo__paragraph">Will you provide a certificate?</p>
+            <h3 className="ppo__paragraph">Will you provide a certificate?</h3>
             <div className="ppo-option">
               <Controller
                 as={
@@ -237,11 +234,7 @@ export default function FormStipend({ handleContinue }) {
             </div>
           </div>
         </div>
-        <div className="submit-button-container">
-          <Button className="submit-button" onClick={() => handleContinue(3)}>
-            CONTINUE
-          </Button>
-        </div>
+        <div className="submit-button-container"></div>
       </div>
     </form>
   );

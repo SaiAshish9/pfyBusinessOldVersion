@@ -1,17 +1,14 @@
-.internship-container {
-  font-family: $myFont;
-}
-
 .radio-button-container {
   display: flex;
-  flex-direction: column;
+  .button-container-part-one {
+    display: flex;
+    flex-direction: column;
+  }
+  .button-container-part-two {
+    display: flex;
+    flex-direction: column;
+  }
 }
-// .radio-button-subContainer2 {
-//   display: flex;
-//   flex-direction: column;
-//   margin-left: 80px;
-// }
-
 .profile-input-container {
   margin-top: 20px;
 }
@@ -38,8 +35,7 @@
     }
   }
 }
-
-div.opening-duration-container {
+.opening-duration-container {
   display: flex;
   justify-content: space-between;
   margin-top: 30px;
@@ -68,26 +64,29 @@ div.opening-duration-container {
       }
 
       .internship-duration__input2 {
+        width: 100%;
       }
     }
   }
 }
-
-div.start-last-container {
+.startDateToApply-lastDateToApply-container {
   margin-top: 30px;
   display: flex;
-  div.number-of-opening-container {
+  div.startDateToApply-container {
     flex: 1;
-    h3.opening-container__h2 {
+    h3.startDateToApply__h3 {
+    }
+    .startDateToApply__datePicker {
+      width: 80%;
     }
   }
 
-  div.internship-duration-container {
+  div.lastDateToApply-container {
     flex: 1;
-    h3.internship-duration__h2 {
+    h3.lastDateToApply__h3 {
     }
-
-    div.internship-duration-input-container {
+    .lastDateToApply__datePicker {
+      width: 100%;
     }
   }
 }
