@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Layout, Menu } from "antd";
-import { Route, Link, useHistory } from "react-router-dom";
+import { Route, Link, useHistory, useLocation } from "react-router-dom";
 import cookie from "js-cookie";
 
 import logo from "../../../assets/img/logo.png";
@@ -17,6 +17,7 @@ import studentOffersIcon from "../../../assets/img/sideBarIcon/studentOffersIcon
 const { Header, Sider, Content } = Layout;
 export default function PrivateHeader({ component: Component, ...rest }) {
   const history = useHistory();
+  const location = useLocation();
 
   const [collapsed, setCollapsed] = useState(false);
 
@@ -29,13 +30,45 @@ export default function PrivateHeader({ component: Component, ...rest }) {
     history.push("/");
   };
 
+  const selectedKey = () => {
+    switch (location.pathname) {
+      case "/internship": {
+        return ["2"];
+      }
+      case "/gigs": {
+        return ["3"];
+      }
+
+      case "/campus-marketing": {
+        return ["4"];
+      }
+
+      case "/student-offer": {
+        return ["5"];
+      }
+
+      case "/edit-profile": {
+        return ["6"];
+      }
+
+      default: {
+        return ["1"];
+      }
+    }
+  };
+
   return (
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed} width={240}>
         <div className="logo">
           <img src={logo} alt="" className="" style={{ width: "154px" }} />
         </div>
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
+        <Menu
+          theme="dark"
+          mode="inline"
+          defaultSelectedKeys={["1"]}
+          selectedKeys={selectedKey()}
+        >
           <Menu.Item key="1">
             <Link to="/home">
               <span className="anticon">
@@ -98,6 +131,7 @@ export default function PrivateHeader({ component: Component, ...rest }) {
           </Menu.Item>
         </Menu>
       </Sider>
+
       <Layout className="site-layout">
         <Header className="site-layout-background" style={{ padding: 0 }}>
           {collapsed ? (
