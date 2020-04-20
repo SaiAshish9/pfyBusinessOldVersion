@@ -4,8 +4,11 @@ import exportSvg from './export.svg';
 import ApplicationCard from './ApplicationCard';
 import SingleInternship from '../../internship/oldDesign/singleInternship/singleIntersnship';
 import axios from 'axios';
+import WorkerDetails from '../../internship/internship/WorkerDetails';
+
 const { Option } = Select;
 const { TabPane } = Tabs;
+
 // export const CheckboxContext = React.createContext({ colour: 'blue', lang: 'en' });
 
 
@@ -24,10 +27,29 @@ const textToStatusCode = {
 let i=0;
 
 const WorkerCard = (props) => {
-    const user = props.application ? props.application.user : null
+    const user = props.application ? props.application.user : null;
+
+    const [isShow, setIsShow] = useState(false)
+
+    const isClose = () => {
+        setIsShow(false);
+    };
+
+    
+    // console.log("USER/WORKER CARD DETAILS  ", user);
+    
+    const openWorkerProfile = () => {
+        console.log(1);
+        setIsShow(true)
+
+    }
+
+
     if(user)
         return(
-            <div key={props.key} className={"applied-worker-card" + (i++%2==0 ? " background-color-nth-child": "") + (props.isSelectAll ? " select-all" : "")}>
+            <Fragment>
+            <WorkerDetails isShow={isShow} isClose={isClose} userId={user._id} />
+            <div onClick={openWorkerProfile} key={props.key} className={"applied-worker-card" + (i++%2==0 ? " background-color-nth-child": "") + (props.isSelectAll ? " select-all" : "")}>
             <div className="img-and-name">
                 <img className="img" src={user.imgUrl} alt="" ></img>
                 <span>{user.firstName}</span>
@@ -61,6 +83,7 @@ const WorkerCard = (props) => {
             </div>
             </div>
         </div>
+        </Fragment>
     
     )
     else return (<div></div>)

@@ -9,12 +9,12 @@
         height: 13rem;        
         display: flex;
         justify-content: space-between;
-        width: 95%;
+        width: 98%;
         
         .summary{
             color: white;
             padding: 1rem 1.5rem;
-            width: 42rem;
+            width: 69%;
             background-color: #3b599b;
             border-radius: 9px;
             box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
@@ -39,7 +39,7 @@
         .overview{
             color: white;
             padding: 1rem 1.5rem;
-            width: 21.5rem;
+            width: 30%;
             background-color: #3b599b;
             border-radius: 9px;
             box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
@@ -60,7 +60,7 @@
         }
     }
     .applied-workers{
-        width: 95%;
+        width: 98%;
         height: 100%;
         box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);
         border: solid 1px #e4e4e4;

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { Table, Tag, Button, Dropdown, Menu   } from 'antd';
+import { Table, Tag, Button, Dropdown, Menu, Skeleton   } from 'antd';
 import img1 from '../../../assets/existingGigs/img1.svg'
 import img2 from '../../../assets/existingGigs/img2.svg'
 import img3 from '../../../assets/existingGigs/img3.svg'
@@ -143,15 +143,11 @@ const columns = [
     className: 'last-tr-internship',
     render: (record) => (
       <div style={{display: "flex", justifyContent:"space-betweem", alignItems: "center"}}>
-        {/* <div onClick={boostInternship} className="boost-internship-btn">
-          <span>Boost <br/> Internship</span>
-          <img src={rocket} alt=""/>
-        </div> */}
+        
         <Button onClick={boostInternship} className="boost-internship-btn"><span>Boost <br/> Internship </span> <img src={rocket} alt=""/> </Button>
         <Dropdown overlay={() => menu(record._id)}>
             <a className="ant-dropdown-link" style={{color: "black", height: "fit-content", padding: "0 7px"}} onClick={e => e.preventDefault()}>
               <MoreOutlined style={{fontSize: "1.5rem"}} /> 
-              {/* <img src={moreIcon} alt="" /> */}
             </a>
           </Dropdown>
         
@@ -169,42 +165,40 @@ const isClose = () => {
 const data = applications;
 
   return (
-    <div className="">
-      
-      <Table rowKey={i} className="existingGigs-table" columns={columns} dataSource={data} bordered pagination={false} />
+    <div className="">      
+  <table className="existing-gigs-table">
+    <tbody>
+    <tr >
+      <th className="first-col">S.No</th>
+      <th>Post</th>
+      <th>Status</th>
+      <th>Date</th>
+      <th className="last-col">Category</th>
+    </tr>
+
+    {applications ? applications.map((application, index) => 
+      <tr key={index} className="data-row">
+        <td className="first-col">{index+1}</td>
+        <td onClick={() => history.push('/internship/'+application._id)} className="post-col"> <img className="img" src={require(`../../../assets/existingGigs/img${Math.floor(Math.random()*4+1)}.svg`)} alt=""/>{application.designation}</td>
+        <td><div className="dot" style={{ background: application.status === 1001 ? "#00e007" :  application.status === 1000 ? "#e0e000" : "#e00000"}}></div> { application.status === 1000 ? "Under Review " :  application.status === 1001 ? "Live" : "Rejected" } </td>
+        <td style={{fontSize: "1.2rem", fontWeight: 500}}>{application.totalApplications}</td>
+        <td className="last-col">
+        <div style={{display: "flex", justifyContent:"space-betweem", alignItems: "center"}}>
+          <Button onClick={boostInternship} className="boost-internship-btn"><span>Boost <br/> Internship </span> <img src={rocket} alt=""/> </Button>
+          <Dropdown overlay={() => menu(application._id)}>
+            <a className="ant-dropdown-link" style={{color: "black", height: "fit-content", padding: "0 7px"}} onClick={e => e.preventDefault()}>
+                <MoreOutlined style={{fontSize: "1.5rem"}} /> 
+            </a>
+          </Dropdown>
+      </div>
+        </td>
+      </tr>
+    ) : <Skeleton width="100%" active />}
+
+    </tbody>
+  </table>
       <ShareInternship isShow={isShow} isClose={isClose} intershipId={internshipId}  />
       <BoostYourInternship isShowBoost={isShowBoost} isCloseBoost={isCloseBoost} intershipId={internshipId}  />
-      {/* <Table dataSource={data} ellipsis= "enable" bordered pagination={false}>
-      <Column style={{borderLeft: "none"}}  title="S No." dataIndex="key" key="key" />
-      <Column title="Post" dataIndex="firstName" key="post" />
-      <Column title="Status" dataIndex="age" key="status" />
-      <Column title="Date" dataIndex="address" key="date" />
-      <Column style={{borderRight: "none"}}  title="Category" dataIndex="lastName" key="category" /> */}
-    {/* <Column
-      title="Tags"
-      dataIndex="tags"
-      key="tags"
-      render={tags => (
-        <span>
-          {tags.map(tag => (
-            <Tag color="blue" key={tag}>
-              {tag}
-            </Tag>
-          ))}
-        </span>
-      )}
-    /> */}
-    {/* <Column
-      title="Action"
-      key="action"
-      render={(record) => (
-        <span>
-          <a style={{ marginRight: 16 }}>Invite {record.lastName}</a>
-          <a>Delete</a>
-        </span>
-      )}
-    /> */}
-  {/* </Table> */}
     </div>
   );
 }

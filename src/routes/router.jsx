@@ -1,6 +1,6 @@
 import { createBrowserHistory } from "history";
 import React from "react";
-import { Router, Switch } from "react-router-dom";
+import { Router, Switch, Route } from "react-router-dom";
 // -------------------------------- ******** -------------------------------- */
 import CompanyHome from "../components/companyHome/companyHome";
 import PageNotFound from "../components/error/pageNotFound";
@@ -14,16 +14,13 @@ import InternshipStatus from "../components/newComp/internshipStatus/internshipS
 import Marketing from "../components/newComp/marketing/marketing";
 import PrivateRoute from "./privateRoute";
 import PublicRoute from "./publicRoute";
-<<<<<<< HEAD
 import SpecificGig from '../components/gig/specificGig';
 import CampusMarketing from '../components/campasMarketing/marketing/marketing';
 import InternshipDetails from '../components/internship/internship/internshipDetails';
-=======
-import SpecificGig from "../components/gig/specificGig";
-import CampusMarketing from "../components/campasMarketing/marketing/marketing";
+// import SpecificGig from "../components/gig/specificGig";
+// import CampusMarketing from "../components/campasMarketing/marketing/marketing";
 import StudentOffer from "../components/studentOffer/studentOffer";
 import EditProfile from "../components/editProfile/editProfile";
->>>>>>> ae238eebce7d00791352f0e74d41d9f9ba5c9592
 
 const history = createBrowserHistory();
 

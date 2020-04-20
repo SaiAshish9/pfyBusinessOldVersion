@@ -15,7 +15,8 @@ import { Fragment } from "react";
 export default function UserResume(props) {
   console.log('IMPORTANT')
   console.log(props)
-  const internshipId = props.location.state.internshipId;
+  // const internshipId = props.location.state.internshipId;
+  const internshipId = "5e6f2c5d3422b56f87738726";
   console.log("internship id "+ internshipId)
   const [resume, setResume] = useState({})
   const [user, setUser] = useState({})

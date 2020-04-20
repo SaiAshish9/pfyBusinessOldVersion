@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import randomImg from '../../assets/img/logo.png';
-import { Progress, Tabs, Checkbox, Select } from 'antd';
+import { Progress, Tabs, Checkbox, Select, Skeleton } from 'antd';
 import { useHistory } from 'react-router-dom';
 import GigProfile from './gigProfile';
 import axios from 'axios';
@@ -193,7 +193,7 @@ export default function SpecificGig(props) {
                         {application.user.resumeScore}%
                     </div>
                 </div>
-                    ) : null}
+                ) : <Skeleton height="50vh" active />}
             </div>
             <div className="task-info">
             <Tabs defaultActiveKey="1" tabBarExtraContent={selectOptions}>

@@ -1,0 +1,224 @@
+%title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    opacity: 0.8;
+    color: black;
+    border-bottom: none;
+}
+
+
+%bigBlock{
+    @extend %block;
+    .title{
+        display: flex;
+        img{
+            margin-right: 1.3rem;
+        }
+        span{
+            @extend %title;                    
+        }
+    }
+    .outer-block{
+        padding-left: 2rem;
+        .details{
+            padding: 0rem 1rem;
+            border-left: 3px solid #5468d1 ;
+            span{
+                opacity: 0.5;
+                font-size: 0.8rem;
+            }
+            
+        }
+    }
+}
+
+%block{
+    padding: 1rem 1.5rem;
+    height: fit-content;
+    border-radius: 10px;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.16);
+    background-color: #ffffff;
+}
+.worker-details-modal{
+    .ant-modal-body{
+        padding: 2.5rem;
+        padding-bottom: 0;
+    }
+    .main-block{
+        border-radius: 9px;
+        border: solid 1px #b7b7b7;
+        padding: 1.75rem;
+        display: flex;
+        justify-content: space-between;
+        .interview-questions{
+            width: 28%;
+            height: 100%;
+            border-radius: 9px;
+            border: solid 1px #b7b7b7;
+            padding: 1rem;
+            .title{
+                font-size: 1.25rem;
+                font-weight: 500;
+                padding-bottom: 0.5rem;
+                border-bottom: 1px solid #ccc;
+            }
+            .qna{
+                padding: 1rem 0;
+                .question{
+                    margin-bottom: 0.1rem;
+                    color: black;
+                    opacity: 0.9;
+                    font-size: 13px;
+                }
+                .answer{
+                    opacity: 0.6;
+                    color: black;
+                    font-size: 12px;
+                }
+            }
+            
+        }
+        .resume-details{
+            color: black;
+            height: 82vh;
+            overflow: scroll;
+            width: 70%;
+            .about-block, .achievement-block{
+                margin-bottom: 1rem;
+                @extend %bigBlock;                
+            }
+            .education-block{
+                margin-bottom: 1rem;
+                @extend %bigBlock;
+                .details{
+                    margin-bottom: 1rem;
+                    p{
+                        font-size: 0.9rem;
+                        margin-bottom: 0.5rem;
+                    }
+                    span{
+                        font-size: 11px;
+                    }
+                }
+            } 
+            .work-experience-block, .projects-block{
+                margin-bottom: 1rem;
+                @extend %bigBlock;
+                .details{
+                    margin-bottom: 1rem;
+                    p{
+                        font-size: 0.9rem;
+                        margin-bottom: 0.5rem;
+                        .company-name{
+                            font-size: 1rem;
+                        }
+                        .position{ 
+                            font-size: 0.85rem;
+                        }
+                    }
+                    .desc{
+                        font-size: 0.8rem;
+                    }
+                    .city{
+                        font-size: 0.8rem;
+                    }
+                    .year{
+                        font-size: 0.8rem;
+                    }
+                }
+            } 
+
+            .pos{
+                margin-bottom: 1rem;
+                @extend %bigBlock;
+                .details{
+                    margin-bottom: 1rem;
+                    p{
+                        font-size: 0.9rem;
+                        margin-bottom: 0.5rem;
+                    }
+                }
+            }
+            .trainings{
+                margin-bottom: 1rem;
+                @extend %bigBlock;
+                .details{
+                    margin-bottom: 1rem;
+                    p{
+                        font-size: 0.9rem;
+                        margin-bottom: 0.5rem;
+                    }
+                }
+            }
+
+            .digital-profile-block{
+                margin-bottom: 1rem;
+                @extend %bigBlock;
+                .socila-media-icons{
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 1rem 7rem;
+                    .icon{
+                        cursor: pointer;
+                        width: 4rem;
+                        height: 4rem;
+                        border-radius: 8px;
+                        border: solid 1px #707070;
+                        padding: 1rem;
+
+                    }
+                }
+            }
+            
+            
+        }
+    }
+    .footer-btns{
+        display: flex;
+        justify-content: space-between;
+        padding: 2.5rem 0;
+        .report{
+            cursor: pointer;
+            text-transform: uppercase;
+            color: #ff0000;
+            align-items: center;
+            display: flex;
+            img{
+                margin: 0 0.25rem;
+            }
+        }
+        .buttons{
+            .btn{
+                margin-right: 0.5rem;
+            }
+            .reject{
+                width: 8.5rem;
+                height: 2.5rem;
+                border: 2px solid #ff0000;
+                color: #ff0000;
+                border-radius: 5px;
+                font-size: 1rem;
+                font-weight: 700;
+            }
+            .shortlist{
+                width: 8.5rem;
+                height: 2.5rem;
+                border: 2px solid #5689fb;
+                color: #5689fb;
+                border-radius: 5px;
+                font-size: 1rem;
+                font-weight: 700;
+            }
+            .select{
+                width: 8.5rem;
+                height: 2.5rem;
+                border: 2px solid #3fee32;
+                color: #3fee32;
+                border-radius: 5px;
+                font-size: 1rem;
+                font-weight: 700;
+            }
+        }
+    }
+    
+}
