@@ -1,20 +1,20 @@
 import React from "react";
 import { Button } from "antd";
-import { Link as RouteLink } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import {} from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import cookie from "js-cookie";
 
-import { Link } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
 
 export default function HeaderNavLink() {
   const history = useHistory();
-  const handleLogin = () => {
+  const handleDummyLogin = () => {
     cookie.set("token", "123");
     history.push("/home");
   };
   return (
     <>
-      <Link
+      <ScrollLink
         activeClass="active"
         to="howItWork"
         smooth={true}
@@ -23,8 +23,8 @@ export default function HeaderNavLink() {
         className="myLink1"
       >
         How it Works
-      </Link>
-      <Link
+      </ScrollLink>
+      <ScrollLink
         activeClass="active"
         to="whyPracify"
         smooth={true}
@@ -33,8 +33,8 @@ export default function HeaderNavLink() {
         className="myLink2"
       >
         Why Pracify
-      </Link>
-      <Link
+      </ScrollLink>
+      <ScrollLink
         activeClass="active"
         to="ourService"
         smooth={true}
@@ -43,13 +43,17 @@ export default function HeaderNavLink() {
         className="myLink3"
       >
         Our Services
-      </Link>
+      </ScrollLink>
 
       {/* <RouteLink to="/internship" className="myLink4">
         Internship
       </RouteLink> */}
-      <Button onClick={handleLogin} className="header__button1">
-        Login
+      {/* <Link to="/login">
+        <Button className="header__button1">Login</Button>
+      </Link> */}
+
+      <Button onClick={handleDummyLogin} className="header__button1">
+        {"-- Login --"}
       </Button>
     </>
   );

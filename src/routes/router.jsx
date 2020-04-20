@@ -18,6 +18,8 @@ import SpecificGig from "../components/gig/specificGig";
 import CampusMarketing from "../components/campasMarketing/marketing/marketing";
 import StudentOffer from "../components/studentOffer/studentOffer";
 import EditProfile from "../components/editProfile/editProfile";
+import Login from "../components/registerOrLogin/login";
+import Register from "../components/registerOrLogin/login";
 
 const history = createBrowserHistory();
 
@@ -35,17 +37,17 @@ export default function AppRouter() {
           component={UserResume}
           exact={true}
         />
-        {/* <PublicRoute path="/gig" component={Gig} exact={true} /> */}
         <PublicRoute path="/marketing" component={Marketing} exact={true} />
         <PublicRoute
           path="/testing"
           component={InternshipStatus}
           exact={true}
         />
+        <PublicRoute path="/login" component={Login} exact={true} />
+
+        <PublicRoute path="/register" component={Register} exact={true} />
         <PrivateRoute path="/home" component={CompanyHome} exact={true} />
         <PrivateRoute path="/internship" component={Internship} exact={true} />
-        {/* <PrivateRoute path="/internship/form" component={InternshipForm} exact={true} */}
-        />
         <PrivateRoute
           path="/internship/:internship_id"
           component={InternshipStatus}

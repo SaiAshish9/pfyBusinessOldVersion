@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Route, Redirect, useLocation } from "react-router-dom";
 import Header from "../components/header/header";
 import PrivateHeader from "../components/header/privateHeader/privateHeader";
 
@@ -7,9 +7,9 @@ import cookie from "js-cookie";
 
 // const history = createBrowserHistory();
 export default function PublicRoute({ component: Component, ...rest }) {
+  const location = useLocation();
   const token = cookie.get("token");
-  const checkIt = { ...rest };
-  console.log("checkIt", checkIt);
+
   return (
     <Route
       {...rest}
@@ -19,7 +19,7 @@ export default function PublicRoute({ component: Component, ...rest }) {
             <Redirect to="/home" />
           ) : (
             <>
-              <Header />
+              {location.pathname !== ("/login" || "/register") && <Header />}
               <Component {...props} />
             </>
           )}
