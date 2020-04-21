@@ -1,0 +1,33 @@
+.BrainhubCarousel {
+  margin-top: 28px;
+  div.showcase-carousel-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img.carousel__img {
+    }
+
+    h1.carousel__heading {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 26px;
+      font-weight: 500;
+      line-height: 1.38;
+    }
+
+    p.carousel__para {
+      margin: 0;
+      text-align: center;
+      opacity: 0.8;
+      font-size: 18px;
+      line-height: 1.44;
+    }
+  }
+
+  .carousel__left-arrow {
+    cursor: pointer;
+  }
+  .carousel__right-arrow {
+    cursor: pointer;
+  }
+}

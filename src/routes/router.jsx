@@ -18,8 +18,8 @@ import SpecificGig from "../components/gig/specificGig";
 import CampusMarketing from "../components/campasMarketing/marketing/marketing";
 import StudentOffer from "../components/studentOffer/studentOffer";
 import EditProfile from "../components/editProfile/editProfile";
-import Login from "../components/registerOrLogin/login";
-import Register from "../components/registerOrLogin/login";
+import Login from "../components/loginOrSignUp/login";
+import SignUp from "../components/loginOrSignUp/signUp";
 
 const history = createBrowserHistory();
 
@@ -27,6 +27,7 @@ export default function AppRouter() {
   return (
     <Router history={history}>
       <Switch>
+        {/*//! ----------------Public Route----------------- */}
         <PublicRoute
           path="/"
           component={LandingPage}
@@ -44,8 +45,9 @@ export default function AppRouter() {
           exact={true}
         />
         <PublicRoute path="/login" component={Login} exact={true} />
+        <PublicRoute path="/register" component={SignUp} exact={true} />
 
-        <PublicRoute path="/register" component={Register} exact={true} />
+        {/*//! ----------------Private Route----------------- */}
         <PrivateRoute path="/home" component={CompanyHome} exact={true} />
         <PrivateRoute path="/internship" component={Internship} exact={true} />
         <PrivateRoute
@@ -74,6 +76,7 @@ export default function AppRouter() {
           component={EditProfile}
           exact={true}
         />
+        
         <PublicRoute component={PageNotFound} />
       </Switch>
     </Router>

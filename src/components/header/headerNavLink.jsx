@@ -48,9 +48,9 @@ export default function HeaderNavLink() {
       {/* <RouteLink to="/internship" className="myLink4">
         Internship
       </RouteLink> */}
-      {/* <Link to="/login">
+      <Link to="/login">
         <Button className="header__button1">Login</Button>
-      </Link> */}
+      </Link>
 
       <Button onClick={handleDummyLogin} className="header__button1">
         {"-- Login --"}
