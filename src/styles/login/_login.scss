@@ -19,6 +19,31 @@
       border: solid 0.5px #79ffeb;
     }
   }
+  %textarea {
+    height: 96px;
+    border-radius: 4px;
+    border: solid 0.5px #707070;
+    background-color: #f7f8fa;
+    margin-bottom: 25px;
+    &:focus {
+      border: solid 0.5px #79ffeb;
+    }
+  }
+  %select {
+    width: 100%;
+    .ant-select-selector {
+      height: 48px;
+      border-radius: 4px;
+      border: solid 0.5px #707070;
+      background-color: #f7f8fa;
+      .ant-select-selection-item {
+        line-height: 42px;
+      }
+      &:focus-within {
+        border: solid 0.5px #79ffeb;
+      }
+    }
+  }
   %button {
     height: 56px;
     width: 100%;
@@ -124,6 +149,7 @@
     "email email"
     "password password"
     "otp otp"
+    "aboutCompany aboutCompany"
     "button button";
   grid-gap: 0px 20px;
   .fullName {
@@ -201,15 +227,16 @@
       @extend%label;
     }
     .companyType__input {
-      @extend%input;
+      @extend%select;
     }
   }
   .aboutCompany {
+    grid-area: aboutCompany;
     .aboutCompany__label {
       @extend%label;
     }
     .aboutCompany__input {
-      @extend%input;
+      @extend%textarea;
     }
   }
 
