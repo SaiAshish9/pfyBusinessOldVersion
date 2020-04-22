@@ -21,6 +21,8 @@ import InternshipDetails from '../components/internship/internship/internshipDet
 // import CampusMarketing from "../components/campasMarketing/marketing/marketing";
 import StudentOffer from "../components/studentOffer/studentOffer";
 import EditProfile from "../components/editProfile/editProfile";
+import Login from "../components/loginOrSignUp/login";
+import SignUp from "../components/loginOrSignUp/signUp";
 
 const history = createBrowserHistory();
 
@@ -28,6 +30,7 @@ export default function AppRouter() {
   return (
     <Router history={history}>
       <Switch>
+        {/*//! ----------------Public Route----------------- */}
         <PublicRoute
           path="/"
           component={LandingPage}
@@ -38,7 +41,6 @@ export default function AppRouter() {
           component={UserResume}
           exact={true}
         />
-        {/* <PublicRoute path="/gig" component={Gig} exact={true} /> */}
         <PublicRoute path="/marketing" component={Marketing} exact={true} />
         <PrivateRoute path="/campus-marketing" component={CampusMarketing} exact={true} />
         <PublicRoute
@@ -46,10 +48,12 @@ export default function AppRouter() {
           component={InternshipDetails}
           exact={true}
         />
+        <PublicRoute path="/login" component={Login} exact={true} />
+        <PublicRoute path="/register" component={SignUp} exact={true} />
+
+        {/*//! ----------------Private Route----------------- */}
         <PrivateRoute path="/home" component={CompanyHome} exact={true} />
         <PrivateRoute path="/internship" component={Internship} exact={true} />
-        {/* <PrivateRoute path="/internship/form" component={InternshipForm} exact={true} */}
-        />
         <PrivateRoute
           path="/internship/:internshipId"
           component={InternshipDetails}
@@ -79,6 +83,7 @@ export default function AppRouter() {
           component={EditProfile}
           exact={true}
         />
+        
         <PublicRoute component={PageNotFound} />
       </Switch>
     </Router>
