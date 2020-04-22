@@ -1,0 +1,60 @@
+.edit-profile-block{
+    .heading{
+        font-size: 2.25rem;
+        font-weight: bold;
+    }
+    .edit-profile-cards{
+        height: fit-content;
+        display: flex;
+        justify-content: space-between;
+        .personal-details > h1.heading, .company-details > h1.heading{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 500;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 0.75rem;
+            span{
+                font-size: 1rem;
+                color: #00bfa6;
+                cursor: pointer;
+            }
+        } 
+        .personal-details{
+            width: 42%;
+            border-radius: 9px;
+            border: solid 1px #c6c6c6;  
+            padding: 1rem 1.5rem;  
+             
+            .details{
+                font-size: 1.25rem;
+                color: black;
+                margin-bottom: 0.7rem;
+                .title{
+                    opacity: 0.5;
+                }
+            }
+        }
+        .company-details{
+            width: 52%;
+            border-radius: 9px;
+            border: solid 1px #c6c6c6;  
+            padding: 1rem 1.5rem; 
+            .details{
+                font-size: 1.25rem;
+                color: black;
+                margin-bottom: 0.7rem;
+                .title{
+                    opacity: 0.5;
+                }
+            }
+            img.img{
+                height: 6.5rem;
+                width: 6.5rem;
+                border-radius: 50%;
+            }
+        }
+    }
+
+}
