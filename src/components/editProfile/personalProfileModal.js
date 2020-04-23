@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Modal, Form, Input, Button} from 'antd';
 
 
-export default function PersonalProfileModal({isShow, isClose}){
+export default function PersonalProfileModal({isShow, isClose, isShowChangePasswordModal}){
     
     const handleCancel = () => {
         isClose()
@@ -18,6 +18,9 @@ export default function PersonalProfileModal({isShow, isClose}){
       const onFinishFailed = errorInfo => {
         console.log('Failed:', errorInfo);
       };
+    const openChangePasswordModal = () => {
+        isShowChangePasswordModal()
+    }
 
 return(
     <Modal
@@ -83,7 +86,11 @@ return(
         name="password"
         placeholder="change password"
       >
-        <Input disabled className="input-style pass" placeholder="change password" />
+        {/* <Input disabled className="input-style pass" placeholder="change password" /> */}
+        <div className="password-div">
+          <div>*******</div>
+          <div onClick={openChangePasswordModal} className="change-passwd-text">change Password</div>
+        </div>
       </Form.Item>
       <Form.Item className="button" >
         <Button className="submit-btn" type="primary" htmlType="submit">

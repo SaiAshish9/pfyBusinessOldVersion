@@ -11,6 +11,9 @@ export default function EditProfile() {
   // for company profile modal
   const [isShow2, setIsShow2] = useState(false)
 
+  // for change password modal
+  const [isShow3, setIsShow3] = useState(false)
+
   const personalProfileHandler = () => {
     setIsShow(true)
   }
@@ -27,9 +30,20 @@ export default function EditProfile() {
     setIsShow2(false);
   }
 
+  const isClose3 = () => {
+    setIsShow3(false);
+  }
+
+  const passwordModal = () =>{
+    isClose();
+    setIsShow3(true)
+  }
+
+  
   return (
     <Fragment>
-      <ChangePassword isShow={isShow} isClose={isClose} />
+      <ChangePassword isShow={isShow3} isClose={isClose3} />
+      <PersonalProfileModal isShow={isShow} isClose={isClose} isShowChangePasswordModal={passwordModal} />
       <CompanyProfileModal isShow={isShow2} isClose={isClose2} />
     
     <div className="edit-profile-block">
