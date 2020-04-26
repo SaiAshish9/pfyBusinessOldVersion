@@ -1,4 +1,6 @@
 import React from "react";
+import { Element } from "react-scroll";
+
 import OurPromise from "./ourPromise";
 import WhyPracify from "./whyPracify";
 import HIW from "./HIW";
@@ -10,9 +12,19 @@ export default function LandingPage() {
   return (
     <div className="main-landingPage-block">
       <OurPromise></OurPromise>
-      <WhyPracify></WhyPracify>
-      <HIW />
-      <WWD />
+
+      <Element name="whyPracify">
+        <WhyPracify></WhyPracify>
+      </Element>
+
+      <Element name="howItWork">
+        <HIW />
+      </Element>
+
+      <Element name="ourService">
+        <WWD />
+      </Element>
+
       <MPO />
       <Footer />
     </div>

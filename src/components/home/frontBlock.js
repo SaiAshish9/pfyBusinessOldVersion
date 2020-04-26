@@ -18,9 +18,20 @@ import pinkImage from "./images/frontBlockImg.png";
 const FrontBlock = ({ handleScrollOne }) => {
   return (
     <FrontBlockStyled>
-      <RouteLink to="/landingPage">
-        <Button>New landing page</Button>
-      </RouteLink>
+      <div className="" style={{ width: "100%", textAlign: "center" }}>
+        <RouteLink to="/landingPage">
+          <Button
+            style={{
+              background: "black",
+              marginRight: "200px",
+              color: "white",
+            }}
+          >
+            New landing page
+          </Button>
+        </RouteLink>
+      </div>
+
       <div className="content-with-image">
         <div className="content-background">
           <MyBlockTwo className="one" />
