@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { Input, Button, Icon, Checkbox } from "antd";
-import { useForm, Controller } from "react-hook-form";
+import { DeleteOutlined } from "@ant-design/icons";
+import { Checkbox, Input } from "antd";
+import React, { useEffect, useState } from "react";
 import { arrayValidation } from "../../validation/validation";
-import {DeleteOutlined} from '@ant-design/icons';
 
-
-export default function FormInterviewQuestion({ handleSubmit }) {
+export default function FormInterviewQuestion() {
   const formData = JSON.parse(localStorage.getItem("internshipFormData"));
-  const internQues = arrayValidation(formData.questions)
-    ? [...formData.questions]
-    : [];
+  const internQues =
+    formData && arrayValidation(formData.questions)
+      ? [...formData.questions]
+      : [];
 
   const [questionsState, setQuestionsState] = useState(internQues);
 

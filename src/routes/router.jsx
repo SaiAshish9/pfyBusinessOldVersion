@@ -5,7 +5,8 @@ import { Router, Switch, Route } from "react-router-dom";
 import CompanyHome from "../components/companyHome/companyHome";
 import PageNotFound from "../components/error/pageNotFound";
 import Gig from "../components/gig/gig";
-import LandingPage from "../components/home/home";
+import OldLandingPage from "../components/home/home";
+import LandingPage from "../components/landingPage/landingPage";
 import UserResume from "../components/independentComponent/userResume";
 import Internship from "../components/internship/internship/internship";
 // import Internship2 from "../components/internship/oldDesign/internship/internship/internship";
@@ -14,9 +15,9 @@ import InternshipStatus from "../components/newComp/internshipStatus/internshipS
 import Marketing from "../components/newComp/marketing/marketing";
 import PrivateRoute from "./privateRoute";
 import PublicRoute from "./publicRoute";
-import SpecificGig from '../components/gig/specificGig';
-import CampusMarketing from '../components/campasMarketing/marketing/marketing';
-import InternshipDetails from '../components/internship/internship/internshipDetails';
+import SpecificGig from "../components/gig/specificGig";
+import CampusMarketing from "../components/campasMarketing/marketing/marketing";
+import InternshipDetails from "../components/internship/internship/internshipDetails";
 // import SpecificGig from "../components/gig/specificGig";
 // import CampusMarketing from "../components/campasMarketing/marketing/marketing";
 import StudentOffer from "../components/studentOffer/studentOffer";
@@ -33,6 +34,11 @@ export default function AppRouter() {
         {/*//! ----------------Public Route----------------- */}
         <PublicRoute
           path="/"
+          component={OldLandingPage}
+          exact={true}
+        ></PublicRoute>
+        <PublicRoute
+          path="/landingPage"
           component={LandingPage}
           exact={true}
         ></PublicRoute>
@@ -42,7 +48,11 @@ export default function AppRouter() {
           exact={true}
         />
         <PublicRoute path="/marketing" component={Marketing} exact={true} />
-        <PrivateRoute path="/campus-marketing" component={CampusMarketing} exact={true} />
+        <PrivateRoute
+          path="/campus-marketing"
+          component={CampusMarketing}
+          exact={true}
+        />
         <PublicRoute
           path="/testing"
           component={InternshipDetails}
@@ -60,9 +70,13 @@ export default function AppRouter() {
           exact={true}
         />
         <PrivateRoute path="/gigs" component={Gig} exact={true} />
-        
-        <PrivateRoute path="/specific-gig/:id" component={SpecificGig} exact={true} />
-        
+
+        <PrivateRoute
+          path="/specific-gig/:id"
+          component={SpecificGig}
+          exact={true}
+        />
+
         <PrivateRoute
           path="/campus-marketing"
           component={CampusMarketing}
@@ -83,7 +97,7 @@ export default function AppRouter() {
           component={EditProfile}
           exact={true}
         />
-        
+
         <PublicRoute component={PageNotFound} />
       </Switch>
     </Router>

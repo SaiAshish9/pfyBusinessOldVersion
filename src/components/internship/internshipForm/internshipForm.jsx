@@ -29,16 +29,16 @@ export default function InternshipForm() {
     setCurrentState(step);
   };
 
-  const handleSubmit = () => {
-    axios
-      .post(`${apiURL}internship/add`, formData, token)
-      .then(res => {
-        // console.log("response", res);
-      })
-      .catch(e => {
-        // console.log("error response", e.response);
-      });
-  };
+  // const handleSubmit = () => {
+  //   axios
+  //     .post(`${apiURL}internship/add`, formData, token)
+  //     .then(res => {
+  //       // console.log("response", res);
+  //     })
+  //     .catch(e => {
+  //       // console.log("error response", e.response);
+  //     });
+  // };
 
   return (
     // <InternshipFormContext.Provider value={""}>
@@ -83,7 +83,7 @@ export default function InternshipForm() {
         )}
         {currentStep === 3 && (
           <FormInterviewQuestion
-            handleSubmit={handleSubmit}
+            // handleSubmit={handleSubmit}
           ></FormInterviewQuestion>
         )}
       </div>

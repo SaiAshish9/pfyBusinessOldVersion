@@ -2,20 +2,23 @@ import React, { useState, useEffect } from "react";
 import { Input, Select, Icon, Button } from "antd";
 import { useForm, Controller } from "react-hook-form";
 import { arrayValidation } from "../../validation/validation";
-import {DeleteOutlined, DeleteOutline} from '@ant-design/icons';
+import { DeleteOutlined, DeleteOutline } from "@ant-design/icons";
 
 const { Option } = Select;
 export default function FormResponsibility({ handleContinue }) {
   const formData = JSON.parse(localStorage.getItem("internshipFormData"));
 
-  const internRes = arrayValidation(formData.responsibilities)
-    ? formData.responsibilities
-    : [];
-  const internReq = arrayValidation(formData.otherRequirements)
-    ? formData.otherRequirements
-    : [];
+  const internRes =
+    formData && arrayValidation(formData.responsibilities)
+      ? formData.responsibilities
+      : [];
+  const internReq =
+    formData && arrayValidation(formData.otherRequirements)
+      ? formData.otherRequirements
+      : [];
 
   const internSkill =
+    formData &&
     arrayValidation(formData.skillRequired) &&
     formData.skillRequired.map((userSkill) => {
       return userSkill.skillName;
@@ -139,8 +142,9 @@ export default function FormResponsibility({ handleContinue }) {
                 type="delete"
                 onClick={() => handleDeleteInput(index, responsibility)}
               ></Icon> */}
-              <DeleteOutlined onClick={() => handleDeleteInput(index, responsibility)}/>
-
+              <DeleteOutlined
+                onClick={() => handleDeleteInput(index, responsibility)}
+              />
             </div>
           ))}
         <span
@@ -172,7 +176,9 @@ export default function FormResponsibility({ handleContinue }) {
                 type="delete"
                 onClick={() => handleDeleteInput(index, requirement)}
               ></Icon> */}
-              <DeleteOutlined onClick={() => handleDeleteInput(index, requirement)}/>
+              <DeleteOutlined
+                onClick={() => handleDeleteInput(index, requirement)}
+              />
             </div>
           ))}
         <span

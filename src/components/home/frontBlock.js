@@ -1,22 +1,26 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useRef, useEffect } from "react";
+import { Button } from "antd";
 import Typewriter from "typewriter-effect";
 import { Link } from "react-scroll";
-import { RightOutlined, DownOutlined  } from '@ant-design/icons';
-
+import { RightOutlined, DownOutlined } from "@ant-design/icons";
+import { Link as RouteLink } from "react-router-dom/cjs/react-router-dom.min";
 
 import { Icon } from "antd";
 import {
   MyBlockOne,
   MyBlockTwo,
   MyBlockThree,
-  FrontBlockStyled
+  FrontBlockStyled,
 } from "./homeStyled";
 import pinkImage from "./images/frontBlockImg.png";
 
 const FrontBlock = ({ handleScrollOne }) => {
   return (
     <FrontBlockStyled>
+      <RouteLink to="/landingPage">
+        <Button>New landing page</Button>
+      </RouteLink>
       <div className="content-with-image">
         <div className="content-background">
           <MyBlockTwo className="one" />
@@ -39,10 +43,10 @@ const FrontBlock = ({ handleScrollOne }) => {
                     "Lead Generation",
                     "Data Transcription",
                     "Vendor Onboarding",
-                    "Data Entry"
+                    "Data Entry",
                   ],
                   autoStart: true,
-                  loop: true
+                  loop: true,
                 }}
               />
             </h1>
@@ -62,10 +66,9 @@ const FrontBlock = ({ handleScrollOne }) => {
       </div>
       <div className="button">
         <button className="first-button">
-          MAKE IT HAPPEN 
+          MAKE IT HAPPEN
           {/* <Icon type="right" style={{ marginLeft: "8px" }} /> */}
           <RightOutlined style={{ marginLeft: "8px" }} />
-
         </button>
 
         <Link
@@ -80,7 +83,7 @@ const FrontBlock = ({ handleScrollOne }) => {
             className="second-button"
             // onClick={handleScrollOne}
           >
-            LEARN MORE 
+            LEARN MORE
             {/* <Icon type="down" style={{ marginLeft: "8px" }} /> */}
             <DownOutlined style={{ marginLeft: "8px" }} />
           </button>
