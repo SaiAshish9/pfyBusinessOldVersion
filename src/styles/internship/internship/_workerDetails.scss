@@ -6,6 +6,11 @@
     border-bottom: none;
 }
 
+%scroll-div{
+    width: 98%;
+    margin: auto;
+    margin-bottom: 1rem;
+}
 
 %bigBlock{
     @extend %block;
@@ -79,16 +84,16 @@
             
         }
         .resume-details{
-            color: black;
+            // color: black;
             height: 82vh;
             overflow: scroll;
             width: 70%;
             .about-block, .achievement-block{
-                margin-bottom: 1rem;
+                @extend %scroll-div;
                 @extend %bigBlock;                
             }
             .education-block{
-                margin-bottom: 1rem;
+                @extend %scroll-div;
                 @extend %bigBlock;
                 .details{
                     margin-bottom: 1rem;
@@ -102,7 +107,7 @@
                 }
             } 
             .work-experience-block, .projects-block{
-                margin-bottom: 1rem;
+                @extend %scroll-div;
                 @extend %bigBlock;
                 .details{
                     margin-bottom: 1rem;
@@ -128,8 +133,30 @@
                 }
             } 
 
+            .skills{
+                @extend %scroll-div;
+                @extend %bigBlock;
+                .skill{
+                    padding: 0.5rem;
+                    border: solid 1px #707070;
+                    border-radius: 5px;
+                    display: inline-flex;
+                    margin: 0.25rem;
+                    img{
+                        width: 20px;
+                        height: 20px;
+                    }
+                    .name{
+                        margin-right: 0.25rem;
+                        // font-size: 8px;
+                        font-weight: 600;
+                        color: #707070;
+                    }
+                }
+            }
+
             .pos{
-                margin-bottom: 1rem;
+                @extend %scroll-div;
                 @extend %bigBlock;
                 .details{
                     margin-bottom: 1rem;
@@ -140,7 +167,7 @@
                 }
             }
             .trainings{
-                margin-bottom: 1rem;
+                @extend %scroll-div;
                 @extend %bigBlock;
                 .details{
                     margin-bottom: 1rem;
@@ -152,11 +179,11 @@
             }
 
             .digital-profile-block{
-                margin-bottom: 1rem;
+                @extend %scroll-div;
                 @extend %bigBlock;
                 .socila-media-icons{
                     display: flex;
-                    justify-content: space-between;
+                    justify-content: space-around;
                     padding: 1rem 7rem;
                     .icon{
                         cursor: pointer;

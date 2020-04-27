@@ -162,65 +162,6 @@
     background-color: #ec3f78;
   }
 
-  .internship-booster, .help .ant-modal-footer {
-    border-top: unset;
-    text-align: center;
+  
 
-  }
-
-   .ant-modal-footer .ant-btn-primary{
-    background-color: #ec3f78;
-  }
-
-  .internship-booster .ant-modal-footer {
-    border-top: unset;
-    text-align: center;
-
-  }
-
-  .internship-booster .ant-modal-header{
-    border-bottom: unset;
-  }
-
-  .internship-booster{
-    .ant-modal-title{
-      font-size: 1.5rem;
-    }
-    .boost-purchase-btn{
-      width: 13rem;
-      height: 2.5rem;
-      font-weight: 500;
-      font-size: 1.25rem;
-      box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.16);
-      background-color: #3b599b;
-      border: none;
-      border-radius: 4px;
-      margin-bottom: 1rem;
-    }
-    .price-cards{
-      display: flex;
-      justify-content: space-around;
-      padding: 0 4rem;
-      .single-card{
-        cursor: pointer;
-        display: inline-flex;
-        align-items: center;
-        text-align: center;
-        width: 225px;
-        height: 113px;
-        border-radius: 8px;
-        box-shadow: 0 3px 30px 0 rgba(0, 0, 0, 0.16);
-        div{
-          margin: auto;
-          font-size: 20px;
-          font-weight: 500;
-          span{
-            font-size: 34px;
-            font-weight: 500;
-            color: #3b599b;
-          }
-        }
-      }
-
-    }
-  }
+  

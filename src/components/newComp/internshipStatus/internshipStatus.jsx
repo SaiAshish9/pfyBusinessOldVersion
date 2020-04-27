@@ -26,8 +26,8 @@ const textToStatusCode = {
 }
 let i=0;
 
-const WorkerCard = (props) => {
-    const user = props.application ? props.application.user : null;
+const WorkerCard = ({application, key, isSelectAll, internshipId}) => {
+    const user = application ? application.user : null;
 
     const [isShow, setIsShow] = useState(false)
 
@@ -48,8 +48,8 @@ const WorkerCard = (props) => {
     if(user)
         return(
             <Fragment>
-            <WorkerDetails isShow={isShow} isClose={isClose} userId={user._id} />
-            <div onClick={openWorkerProfile} key={props.key} className={"applied-worker-card" + (i++%2==0 ? " background-color-nth-child": "") + (props.isSelectAll ? " select-all" : "")}>
+            <WorkerDetails internshipId={internshipId} isShow={isShow} isClose={isClose} userId={user._id} />
+            <div onClick={openWorkerProfile} key={key} className={"applied-worker-card" + (i++%2==0 ? " background-color-nth-child": "") + (isSelectAll ? " select-all" : "")}>
             <div className="img-and-name">
                 <img className="img" src={user.imgUrl} alt="" ></img>
                 <span>{user.firstName}</span>
@@ -151,7 +151,7 @@ export default function InternshipStatus(props) {
     // console.log("isSelectAllPending " + isSelectAllPending)
 
     const pendingApplication = fullList ? fullList.pending.map((application, index) =>
-        <WorkerCard key={index} application={application} isSelectAll={isSelectAllPending} />
+        <WorkerCard key={index} internshipId={props.internshipId} application={application} isSelectAll={isSelectAllPending} />
 
         // <ApplicationCard
         //     isSelectAll={isSelectAllPending}
@@ -170,20 +170,20 @@ export default function InternshipStatus(props) {
 
 
     const shortlistedApplication = fullList ? fullList.shortlisted.map((application, index) =>
-        <WorkerCard key={index} application={application} isSelectAll={isSelectAllShorlisted} />
+        <WorkerCard key={index} internshipId={props.internshipId} application={application} isSelectAll={isSelectAllShorlisted} />
     ) 
     : null;
     // console.log(shortlistedApplication)
     // if(shortlistedApplication) setNoOfShortlisted(shortlistedApplication.length)
 
     const selectedApplication = fullList ? fullList.selected.map((application, index) =>
-    <WorkerCard key={index} application={application} isSelectAll={isSelectAllSelected} />
+    <WorkerCard key={index} internshipId={props.internshipId} application={application} isSelectAll={isSelectAllSelected} />
         
     ) : null;
     // if(selectedApplication) setNoOfSelected(selectedApplication.length)
 
     const rejectedApplication = fullList ? fullList.rejected.map((application, index) =>
-    <WorkerCard application={application} isSelectAll={isSelectAllRejected} />
+    <WorkerCard key={index} application={application} internshipId={props.internshipId} isSelectAll={isSelectAllRejected} />
     ) : null;
     // if(rejectedApplication) setNoOfRejected(rejectedApplication)
 
@@ -227,7 +227,7 @@ export default function InternshipStatus(props) {
 
                 setFullList({pending:pending, shortlisted:shortlisted, selected:selected, rejected:rejected,
                      noOfPending:pending.length, noOfRejected:rejected.length, noOfSelected:selected.length,
-                      noOfShortlisted:shortlisted.length})
+                      noOfShortlisted:shortlisted.length, companyId:res.data.companyId})
 
                 // setInternApplication(res.data)
                 const dataToSend = {

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="167" height="167" viewBox="0 0 167 167">
+    <defs>
+        <filter id="prefix__Rectangle_1199" width="167" height="167" x="0" y="0" filterUnits="userSpaceOnUse">
+            <feOffset dy="4"/>
+            <feGaussianBlur result="blur" stdDeviation="10"/>
+            <feFlood flood-opacity=".161"/>
+            <feComposite in2="blur" operator="in"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <style>
+            .prefix__cls-2{fill:#fff}
+        </style>
+    </defs>
+    <g id="prefix__Group_435" data-name="Group 435" transform="translate(-645.763 -319.002)">
+        <g id="prefix__Group_430" data-name="Group 430" transform="translate(675.501 345.002)">
+            <g transform="translate(-29.74 -26)">
+                <rect id="prefix__Rectangle_1199-2" width="107" height="107" data-name="Rectangle 1199" rx="17" transform="translate(30 26)" style="fill:#444584"/>
+            </g>
+            <g id="prefix__Icon_ionic-ios-rocket" data-name="Icon ionic-ios-rocket" transform="translate(27.202 27.887)">
+                <path id="prefix__Path_2853" d="M56.848 4.1a.57.57 0 0 0-.426-.439c-7.029-1.718-23.27 4.406-32.069 13.2a38.033 38.033 0 0 0-4.277 5.052 15.914 15.914 0 0 0-7.739.969C5.812 25.756 3.912 33.25 3.383 36.467a1.157 1.157 0 0 0 1.266 1.344l10.479-1.15a23.294 23.294 0 0 0 .142 2.364 2.345 2.345 0 0 0 .685 1.434l4.057 4.057a2.345 2.345 0 0 0 1.434.685 23.25 23.25 0 0 0 2.352.142l-1.15 10.466a1.157 1.157 0 0 0 1.344 1.266c3.217-.517 10.724-2.416 13.58-8.941a15.986 15.986 0 0 0 .982-7.714 38.094 38.094 0 0 0 5.065-4.277C52.455 27.358 58.541 11.479 56.848 4.1zM35.762 24.761a5.518 5.518 0 1 1 7.8 0 5.513 5.513 0 0 1-7.8 0z" class="prefix__cls-2" data-name="Path 2853" transform="translate(-3.366 -3.372)"/>
+                <path id="prefix__Path_2854" d="M17.7 29.612a4.9 4.9 0 0 1-2.558 1.034 3.478 3.478 0 0 1-4.005-4.005 4.805 4.805 0 0 1 1.021-2.545l.013-.013a.432.432 0 0 0-.362-.736 5.94 5.94 0 0 0-3.476 1.693c-2.327 2.324-2.546 10.955-2.546 10.955s8.644-.22 10.97-2.545a5.9 5.9 0 0 0 1.693-3.476.442.442 0 0 0-.75-.362z" class="prefix__cls-2" data-name="Path 2854" transform="translate(-1.338 13.354)"/>
+            </g>
+        </g>
+    </g>
+</svg>

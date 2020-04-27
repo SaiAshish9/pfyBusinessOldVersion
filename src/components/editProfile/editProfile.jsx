@@ -64,10 +64,10 @@ export default function EditProfile() {
             <div className="title">Email</div>
             <div className="detail">mayank114@gmail.com</div>
           </div>
-          <div className="details">
+          {/* <div className="details">
             <div className="title">Password</div>
             <div className="detail">************</div>
-          </div>
+          </div> */}
           
         </div>
         <div className="company-details">
@@ -87,10 +87,10 @@ export default function EditProfile() {
                   <img className="img" src={randomImg} alt=""/>
                 </div>
             </div>
-            <div className="details">
+            {/* <div className="details">
               <div className="title">Company Type</div>
               <div className="detail">dabcdefghijkm@gmail.com@</div>
-            </div>
+            </div> */}
             <div className="details">
               <div className="title">About Company</div>
               <div className="detail">Lorem Ipsum is simply dummy text of the pyuvcb</div>
