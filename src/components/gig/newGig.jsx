@@ -70,7 +70,7 @@ export default function NewGig() {
     <div className="campaign-main-block">
       {campaignName.map((name, index) => {
         const fullName = name.split(" ");
-        console.log(fullName);
+        // console.log(fullName);
         return (
           <Campaign
             firstName={fullName[0]}

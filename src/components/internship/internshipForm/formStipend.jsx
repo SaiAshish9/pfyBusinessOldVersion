@@ -5,21 +5,20 @@ import { arrayValidation } from "../../validation/validation";
 import DeleteOutlined from "@ant-design/icons";
 
 const { Option } = Select;
-export default function FormStipend({ handleContinue }) {
+export default function FormStipend() {
   const formData = JSON.parse(localStorage.getItem("internshipFormData"));
 
-  const internBenefit = arrayValidation(formData.benefits)
-    ? formData.benefits
-    : [];
+  const internBenefit =
+    formData && arrayValidation(formData.benefits) ? formData.benefits : [];
 
   const [benefits, setBenefits] = useState(internBenefit);
 
   const { control, handleSubmit, watch } = useForm({
     defaultValues: {
-      stipendType: formData.stipendType,
-      stipend: formData.stipend,
-      minStipend: formData.minStipend,
-      maxStipend: formData.maxStipend,
+      stipendType: formData && formData.stipendType,
+      stipend: formData && formData.stipend,
+      minStipend: formData && formData.minStipend,
+      maxStipend: formData && formData.maxStipend,
     },
   });
 

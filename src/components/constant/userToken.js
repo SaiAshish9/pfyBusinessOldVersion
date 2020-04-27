@@ -1,10 +1,10 @@
 export const token = {
   headers: {
     companytoken:
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZGNjMDQ4M2Q4OGZjODNjZDRmMTgzM2MiLCJpYXQiOjE1ODAxMTgzNTUsImV4cCI6MTU4ODc1ODM1NX0.FTe7E-WfhHbmFjbzvY0p71OZM4u6Ipj6CxQIEqxv3Rk"
-  }
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTZmMjdkNzhlZTNjNzZkZDlkNzQ1NjUiLCJpYXQiOjE1ODQzNDI5OTksImV4cCI6MTU5Mjk4Mjk5OX0.Gw4fOySz4pEis0djNALlgTA09QLxutkPPXTPmzkGugE",
+  },
 };
 
-export const companyId = "5dcc0483d88fc83cd4f1833c";
+export const companyId = "5e6f27d78ee3c76dd9d74565";
 
-export const apiURL = "http://35.154.129.241:5000/";
+export const apiURL = "https://pracify.com/testing/";

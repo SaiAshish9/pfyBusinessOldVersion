@@ -1,0 +1,98 @@
+div.why-pracify-block {
+  padding: 40px 0px;
+  text-align: center;
+  .why-pracify-header-block {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    h1.why-pracify-header {
+      margin-bottom: 40px;
+      position: relative;
+      padding-bottom: 12px;
+      font-size: 36px;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: 1.8px;
+      color: #444584;
+      .header-img-one {
+        position: absolute;
+        left: -36px;
+        top: -22px;
+      }
+      .header-img-two {
+        position: absolute;
+        left: -20px;
+        top: -16px;
+      }
+      &:before {
+        content: "";
+        position: absolute;
+        left: 25%;
+        bottom: 0;
+        height: 3px;
+        width: 50%;
+        background: #444584;
+        border-bottom: 3px solid #444584;
+        border-radius: 70px;
+      }
+    }
+  }
+
+  .why-pracify-disc-main-block {
+    display: flex;
+    padding: 0 46px 0 70px;
+
+    div.whyPracify-desc-block {
+      flex: 1;
+      border-radius: 10px;
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.12);
+      background-color: #ffffff;
+      text-align: center;
+      margin-right: 24px;
+      padding: 24px 32px 24px 32px;
+      div.whyPracify-desc-img-block {
+        margin-bottom: 20px;
+        background-image: url("../../assets/img/landingPage/WPBackgroundIcon.svg");
+        background-repeat: no-repeat;
+        background-position: right;
+        height: 108px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        background-position-x: 76px;
+
+        img.whyPracify-desc__img {
+          margin-bottom: 14px;
+        }
+      }
+
+      h2.whyPracify-desc__headerOne {
+        opacity: 0.9;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 1.5;
+        letter-spacing: 1px;
+        color: #444584;
+        margin: 0;
+      }
+
+      h2.whyPracify-desc__headerTwo {
+        opacity: 0.9;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 1.5;
+        letter-spacing: 1px;
+        color: #444584;
+        margin: 0;
+      }
+
+      p.whyPracify-desc__para {
+        font-size: 16px;
+        line-height: 1.88;
+        color: #000000;
+        margin-top: 24px;
+      }
+    }
+  }
+}

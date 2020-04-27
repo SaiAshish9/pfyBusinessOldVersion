@@ -10,6 +10,7 @@ import FormStipend from "../internshipForm/formStipend";
 import FormInterviewQuestion from "../internshipForm/formInterviewQuestion";
 
 const internshipForm = { companyId };
+
 localStorage.setItem("internshipFormData", JSON.stringify(internshipForm));
 
 export default function CreateInternship() {
@@ -34,9 +35,12 @@ export default function CreateInternship() {
       .post(`${apiURL}internship/add`, formData, token)
       .then((res) => {
         console.log(res);
+        localStorage.clear();
+        setFormStep(0);
+        dispatchModalVisible({ type: "cancelModalVisible" });
       })
       .catch((e) => {
-        console.log(e);
+        console.log(e.response);
       });
   };
 

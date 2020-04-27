@@ -6,30 +6,31 @@ import moment from "moment";
 
 const { Option } = Select;
 
-export default function FormInternshipDetail({ handleContinue }) {
+export default function FormInternshipDetail() {
   const formData = JSON.parse(localStorage.getItem("internshipFormData"));
-  const myDuration = !!formData.duration
-    ? formData.duration.split("-")
-    : ["", ""];
+  const myDuration =
+    formData && !!formData.duration ? formData.duration.split("-") : ["", ""];
   const thisIsAllIndia =
-    formData.location && formData.location.includes("All India");
+    formData && formData.location && formData.location.includes("All India");
 
   const [myFormData, setMyFormData] = useState(formData);
 
   const { control, handleSubmit, watch } = useForm({
     defaultValues: {
-      internshipType: formData.internshipType,
-      isLocationAllIndia: thisIsAllIndia,
-      location: thisIsAllIndia ? undefined : formData.location,
-      noOfPosition: formData.noOfPosition,
-      internshipDuration: myDuration[0],
-      weekOrMonth: myDuration[1],
-      startingOfInternship: !!formData.startingOfInternship
-        ? moment(formData.startingOfInternship, "DD-MMM-YYYY")
-        : null,
-      applyBefore: !!formData.applyBefore
-        ? moment(formData.applyBefore, "DD-MMM-YYYY")
-        : null,
+      internshipType: formData && formData.internshipType,
+      isLocationAllIndia: formData && thisIsAllIndia,
+      location: thisIsAllIndia ? "" : (formData && formData.location) || [],
+      noOfPosition: (formData && formData.noOfPosition) || "",
+      internshipDuration: myDuration[0] || "",
+      weekOrMonth: myDuration[1] || "",
+      startingOfInternship:
+        formData && !!formData.startingOfInternship
+          ? moment(formData.startingOfInternship, "DD-MMM-YYYY")
+          : null,
+      applyBefore:
+        formData && !!formData.applyBefore
+          ? moment(formData.applyBefore, "DD-MMM-YYYY")
+          : null,
     },
   });
 
@@ -47,9 +48,8 @@ export default function FormInternshipDetail({ handleContinue }) {
   console.log("internshipType", internshipType);
   console.log("");
 
-  const isLocationAllIndia =
-    ("isLocationAllIndia", watch("isLocationAllIndia"));
-  console.log("isLocationAllIndia", watch("isLocationAllIndia"));
+  const [isLocationAllIndia, setIsLocationAllIndia] = useState(false);
+  console.log("isLocationAllIndia", isLocationAllIndia);
   console.log("");
 
   const myLocation = watch("location");
@@ -83,18 +83,6 @@ export default function FormInternshipDetail({ handleContinue }) {
 
   useEffect(() => {
     const location = isLocationAllIndia ? ["All India"] : myLocation;
-
-    // const isInternCategory = internCategory.forEach((internRole, index) => {
-    //   const myInternRole = internshipCategory === "other" ? false : internRole;
-    //   console.log("myInternRole", myInternRole);
-    //   if (internCategory[index] === myInternRole) {
-    //     console.log("is Running");
-    //     return true;
-    //   } else {
-    //     console.log("is running other");
-    //     return false;
-    //   }
-    // });
 
     const myDesignation = internshipCategory === "other" ? designation : null;
     const myInternshipCategory =
@@ -212,12 +200,12 @@ export default function FormInternshipDetail({ handleContinue }) {
       <div>
         <h3>Internship Location</h3>
         <div className="internshipLocation-container">
-          <Controller
-            as={<Checkbox>All India</Checkbox>}
-            name="isLocationAllIndia"
-            control={control}
+          <Checkbox
             className="internshipLocation__checkbox"
-          />
+            onClick={(e) => setIsLocationAllIndia(e.target.checked)}
+          >
+            All India
+          </Checkbox>
           <h3>OR</h3>
           {
             <Controller
