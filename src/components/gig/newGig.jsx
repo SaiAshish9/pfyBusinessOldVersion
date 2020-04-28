@@ -90,7 +90,7 @@ export default function NewGig() {
         <div key={index} className="new-gig-block">
           <h1 className="">{name}</h1>
           {name === "Marketing" && (
-            <Tabs defaultActiveKey="1" className="marketing-block">
+            <Tabs defaultActiveKey="1" className="marketing-section">
               <TabPane tab="Facebook" key="1" className="facebook-block">
                 {specificCampaign(marketing.facebook)}
               </TabPane>
