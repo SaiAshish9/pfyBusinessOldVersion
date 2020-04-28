@@ -4,8 +4,9 @@ import { Route, Link, useHistory, useLocation } from "react-router-dom";
 import cookie from "js-cookie";
 
 import logo from "../../../assets/img/logo.png";
-import leftIcon from "../../../assets/img/header/arrowLeft.svg";
-import rightIcon from "../../../assets/img/header/arrowRight.svg";
+import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
+// import MenuFoldOutlined from "../../../assets/img/header/arrowLeft.svg";
+// import MenuUnfoldOutlined from "../../../assets/img/header/arrowRight.svg";
 import campusMarketingIcon from "../../../assets/img/sideBarIcon/campusMarketingIcon.svg";
 import editProfileIcon from "../../../assets/img/sideBarIcon/editProfileIcon.svg";
 import gigIcon from "../../../assets/img/sideBarIcon/gigIcon.svg";
@@ -32,10 +33,10 @@ export default function PrivateHeader({ component: Component, ...rest }) {
 
   const selectedKey = () => {
     switch (location.pathname) {
-      case "/internship": {
+      case "/gigs": {
         return ["2"];
       }
-      case "/gigs": {
+      case "/internship": {
         return ["3"];
       }
 
@@ -63,6 +64,14 @@ export default function PrivateHeader({ component: Component, ...rest }) {
         <div className="logo">
           <img src={logo} alt="" className="" style={{ width: "154px" }} />
         </div>
+        {!collapsed && (
+          <div className="company-avatar-block">
+            <div className="company-avatar"></div>
+            <h3 className="company-name">TEAM CAR DELIGHT</h3>
+            <h5 className="company-mail-address">contact@teamcardelight.com</h5>
+          </div>
+        )}
+
         <Menu
           theme="dark"
           mode="inline"
@@ -74,25 +83,25 @@ export default function PrivateHeader({ component: Component, ...rest }) {
               <span className="anticon">
                 <img src={homeIcon} alt="" className="" />
               </span>
-              <span>Home</span>
+              <span>Dashboard</span>
             </Link>
           </Menu.Item>
 
           <Menu.Item key="2">
-            <Link to="/internship">
-              <span className="anticon">
-                <img src={internshipIcon} alt="" className="" />
-              </span>
-              <span>Internships</span>
-            </Link>
-          </Menu.Item>
-
-          <Menu.Item key="3">
             <Link to="/gigs">
               <span className="anticon">
                 <img src={gigIcon} alt="" className="" />
               </span>
               <span>Gigs</span>
+            </Link>
+          </Menu.Item>
+
+          <Menu.Item key="3">
+            <Link to="/internship">
+              <span className="anticon">
+                <img src={internshipIcon} alt="" className="" />
+              </span>
+              <span>Internships</span>
             </Link>
           </Menu.Item>
 
@@ -123,7 +132,7 @@ export default function PrivateHeader({ component: Component, ...rest }) {
             </Link>
           </Menu.Item>
 
-          <Menu.Item key="7" style={{ marginTop: 220 }} onClick={handleLogout}>
+          <Menu.Item key="7" onClick={handleLogout}>
             <span className="anticon">
               <img src={logoutIcon} alt="" className="" />
             </span>
@@ -135,21 +144,9 @@ export default function PrivateHeader({ component: Component, ...rest }) {
       <Layout className="site-layout">
         <Header className="site-layout-background" style={{ padding: 0 }}>
           {collapsed ? (
-            <img
-              onClick={handleToggle}
-              src={rightIcon}
-              alt=""
-              className=""
-              style={{ cursor: "pointer" }}
-            />
+            <MenuUnfoldOutlined onClick={handleToggle} className="trigger" />
           ) : (
-            <img
-              onClick={handleToggle}
-              src={leftIcon}
-              alt=""
-              className=""
-              style={{ cursor: "pointer" }}
-            />
+            <MenuFoldOutlined onClick={handleToggle} className="trigger" />
           )}
         </Header>
         <Content

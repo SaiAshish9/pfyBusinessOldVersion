@@ -1,20 +1,46 @@
 .ant-layout.ant-layout-has-sider {
   .ant-layout-sider {
-    background-color: #f9f9f9;
+    background-color: #444584;
     height: 100vh;
     .ant-layout-sider-children {
       position: fixed;
       width: inherit;
-      background-color: #f9f9f9;
+      background-color: #444584;
       .logo {
-        background-color: #062f4f;
+        background-color: #444584;
         height: 64px;
         img {
         }
       }
 
+      .company-avatar-block {
+        text-align: center;
+        margin: 20px 0;
+        .company-avatar {
+          width: 100px;
+          height: 100px;
+          background-color: #fff;
+          margin: 20px auto;
+          border-radius: 50px;
+        }
+
+        .company-name {
+          color: #fff;
+          font-size: 16px;
+          font-weight: 900;
+          line-height: 1.38;
+        }
+
+        .company-mail-address {
+          color: #ffffff;
+          font-size: 14px;
+          font-weight: bold;
+          line-height: 1.38;
+        }
+      }
+
       .ant-menu {
-        background-color: #f9f9f9;
+        background-color: #444584;
         .ant-menu-item {
           .anticon {
             img {
@@ -22,18 +48,21 @@
           }
 
           span {
-            color: #000;
+            font-size: 16px;
+            line-height: 1.38;
+            text-align: left;
+            color: #ffffff;
           }
           &:hover {
             // color: wheat;
-            background-color: rgba(6, 47, 79, 0.1);
+            background-color: rgba(255, 255, 255, 0.1);
           }
           // &:focus {
           // }
         }
       }
       .ant-menu-item.ant-menu-item-selected {
-        background-color: rgba(6, 47, 79, 0.1);
+        background-color: rgba(255, 255, 255, 0.1);
       }
     }
   }
@@ -41,15 +70,20 @@
   .site-layout.ant-layout {
     background-color: #fff;
     .site-layout-background.ant-layout-header {
-      background-color: #062f4f;
+      background-color: #fff;
       position: fixed;
       width: 100%;
       z-index: 2;
-      img {
+      .trigger {
+        margin-left: 20px;
+        svg {
+          width: 24px;
+          height: 24px;
+        }
       }
-    }
 
-    .site-layout-background.ant-layout-content {
+      .site-layout-background.ant-layout-content {
+      }
     }
   }
 }
