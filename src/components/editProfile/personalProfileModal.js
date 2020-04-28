@@ -35,21 +35,34 @@ return(
             <Form
                 className="form"
                 layout={"vertical"}
-                initialValues={{fullname: "Mayank Muppal", email: "mayank114@gmail.com", mobile: 9743518746, password: "**********"}}
+                initialValues={{firstname: "Mayank", lastname: "Muppal", email: "mayank114@gmail.com", mobile: 9743518746, password: "**********"}}
                 hideRequiredMark={true}
                 name="personal-profile"
                 onFinish={onFinish}
                 onFinishFailed={onFinishFailed}
                 >
-    <div className="inline-form">
+    {/* <div className="inline-form"> */}
       <Form.Item
-        label="Full Name"
-        className="fullname-input"
-        name="fullname"
+        label="First Name"
+        className="firstname-input"
+        name="firstname"
         rules={[
           {
             required: true,
-            message: 'Please input your fullname!',
+            message: 'Please input your firstname!',
+          },
+        ]}
+      >
+        <Input className="input-style" />
+      </Form.Item>
+      <Form.Item
+        label="Last Name"
+        className="lastname-input"
+        name="lastname"
+        rules={[
+          {
+            required: true,
+            message: 'Please input your lastname!',
           },
         ]}
       >
@@ -68,7 +81,7 @@ return(
       >
         <Input className="input-style" />
       </Form.Item>
-      </div>
+      {/* </div> */}
       <Form.Item
         label="Email"
         name="email"
@@ -81,17 +94,16 @@ return(
       >
         <Input className="input-style" />
       </Form.Item>
-      <Form.Item
+      {/* <Form.Item
         label="Password"
         name="password"
         placeholder="change password"
       >
-        {/* <Input disabled className="input-style pass" placeholder="change password" /> */}
         <div className="password-div">
           <div>*******</div>
           <div onClick={openChangePasswordModal} className="change-passwd-text">change Password</div>
         </div>
-      </Form.Item>
+      </Form.Item> */}
       <Form.Item className="button" >
         <Button className="submit-btn" type="primary" htmlType="submit">
           Save Changes

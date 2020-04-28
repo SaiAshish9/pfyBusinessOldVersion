@@ -1,0 +1,80 @@
+main .marketing-block{
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    margin: 1.5rem 0 ;
+    .block-1{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 160px));
+        grid-row-gap: 1rem;
+        grid-column-gap: 1rem;
+        .square-card{
+            height: 9.5rem;
+            width: 9rem;
+            border-radius: 0.75rem;
+            border-left: 15px solid #444584;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+            font-size: 1.25rem;
+            color: #444584;
+            // display: flex;
+            text-align: center;
+            align-items: center;
+            img{
+                // position: relative;
+                margin-top: 2rem;
+            }
+            .text{
+                // position: absolute;
+                margin-top: -5rem;
+            }
+        }
+    }
+   .block-2{
+       border-radius: 0.75rem;
+    //    width: 45%;
+       background-color: white;
+       padding: 2rem;
+       text-align: center;
+       p{
+           margin-bottom: 2rem;
+           color: #444584;
+           font-size: 1rem;
+       }
+       h1{
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #444584;
+       }
+       .circular-cards{
+           display: flex;
+           justify-content: space-between;
+           flex-wrap: wrap;
+        .card{
+            padding: 1rem;
+            height: 7rem;
+            width: 7rem;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.16);
+            img{
+                max-width: 80px;
+                max-height: 80px;
+            }
+               
+           }
+       }
+       .enquire-btn{
+        width: 11rem;
+        height: 2.5rem;
+        background-color: #38bdba;
+        color: white;
+        border-radius: 5rem;
+        margin-top: 1rem;
+       }
+       
+   }
+
+}

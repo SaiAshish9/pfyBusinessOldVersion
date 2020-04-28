@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import {Modal, Skeleton, Button} from 'antd';
+import {Modal, Skeleton, Button, message} from 'antd';
 import WorkerDetailsCard from '../../independentComponent/workerDetailsCard';
 import personAdd from '../../../assets/img/internship/workerDetails/person-add.svg'
 import book from '../../../assets/img/internship/workerDetails/book.svg'
@@ -14,10 +14,14 @@ import project from '../../../assets/img/internship/workerDetails/project.svg'
 import suitcase from '../../../assets/img/internship/workerDetails/suitcase.svg'
 import trophy from '../../../assets/img/internship/workerDetails/trophy.svg'
 import report from '../../../assets/img/internship/workerDetails/report.svg'
+import star from '../../../assets/img/internship/workerDetails/star.svg'
 
-export default function WorkerDetails({isShow, isClose, userId}) {
+// import axios from 'axios';
+
+export default function WorkerDetails({isShow, isClose, userId, internshipId}) {
     console.log("USER ID ", userId)
     const [user, setUser] = useState(null)
+    const [resume, setResume] = useState(null)
 
     useEffect(() => {
         const url = `resume/user/${userId}`
@@ -26,8 +30,36 @@ export default function WorkerDetails({isShow, isClose, userId}) {
                 const data = res.data;
                 console.log(data);
                 setUser(data.user)
+                setResume(data.resume)
             })
+
+
     },[])
+
+    const buttonHandler = (action) => {
+        let url;
+        if(action === "reject") url = 'internship/reject'
+        else if(action === "shortlist") url = 'internship/shortlist'
+        else if(action === 'select') url = 'internship/accept'
+
+        const data = {
+            internshipId: internshipId,
+	        userId: resume._id,
+        }
+
+        console.log('reject data ', data)
+        axios.put(url,data)
+            .then(res => {
+                console.log(res)
+                message.info("done")
+            })
+            .catch(err => console.log(err))
+    }
+
+    const openSocialMediaLink = (link) =>{
+        console.log(link + 'LINK')
+        window.open('https://'+link, '_blank')
+    }
 
     const handleOk = () =>{
         isClose();
@@ -37,6 +69,8 @@ export default function WorkerDetails({isShow, isClose, userId}) {
         isClose()
     }
 
+    
+    // const {education, digitalProfiles, achievements, workExperience, skills, POR, trainings,projects } = resume
     return (
         <Modal
           visible={isShow}
@@ -58,7 +92,7 @@ export default function WorkerDetails({isShow, isClose, userId}) {
                     <p class="answer">A. Interview Questions dummy text for an interview answer this big or a much bigger length?</p>
                 </div>
             </section>
-            <section className="resume-details">
+            { resume ? <section className="resume-details">
                 <div className="about-block">
                     <div className="title">
                         <img src={personAdd} alt="" />
@@ -82,14 +116,14 @@ export default function WorkerDetails({isShow, isClose, userId}) {
                         <span>Education</span>
                     </div>
                     <div className="outer-block">
-                        <div className="details">
+                        {resume.education && resume.education.graduation ? <div className="details">
                             <p>Graduation</p>
-                            <span>IIT Delhi<br/> ECE<br/> 8 CGPA<br/> 2015-2019</span>
-                        </div>
-                        <div className="details">
-                            <p>Graduation</p>
-                            <span>IIT Delhi<br/> ECE<br/> 8 CGPA<br/> 2015-2019</span>
-                        </div>
+                            <span><br/> <br/> <br/> 2015-2019</span>
+                        </div> : null}
+                        {resume.education && resume.education.diploma ?  <div className="details">
+                            <p>Diploma</p>
+                            <span>{resume.education.diploma.instituteName}<br/> {resume.education.diploma.course}<br/> {resume.education.diploma.marks.val} {resume.education.diploma.marks.type}<br/> {resume.education.diploma.startYear}-{resume.education.diploma.endYear}</span>
+                        </div> : null}
                     </div>
                 </div>
                 <div className="work-experience-block">
@@ -98,7 +132,19 @@ export default function WorkerDetails({isShow, isClose, userId}) {
                         <span>Work Experience</span>
                     </div>
                     <div className="outer-block">
-                        <div className="details">
+                        {resume.workExperience.map((workExperience,index) => 
+                            <div key={index} className="details">
+                            <p>
+                                <span className="company-name">{workExperience.organisation}</span> <br/>
+                                <span className="position">{workExperience.designation}</span>
+                            </p>
+                            <p className="desc">
+                                {workExperience.description}
+                            </p>
+                            <span className="city">{workExperience.location}</span> <br/>
+                            <span className="year">{workExperience.start.year}-{workExperience.end.year}</span>
+                        `</div>)} 
+                        {/* <div className="details">
                             <p>
                                 <span className="company-name">Himalyan Gypsey</span> <br/>
                                 <span className="position">Human resource Intern</span>
@@ -112,40 +158,43 @@ export default function WorkerDetails({isShow, isClose, userId}) {
                             </p>
                             <span className="city">Delhi</span> <br/>
                             <span className="year">2015-2016</span>
-                        </div>
-                        <div className="details">
-                            <p>
-                                <span className="company-name">Himalyan Gypsey</span> <br/>
-                                <span className="position">Human resource Intern</span>
-                            </p>
-                            <p className="desc">
-                                Energetic individual looking to showcase excellent 
-                                presentation skills and transform theoretical 
-                                knowledge of banking principles into practical 
-                                applications of current and saving Account Opening, 
-                                Wealth Management, and Forex Transactions.
-                            </p>
-                            <span className="city">Delhi</span> <br/>
-                            <span className="year">2015-2016</span>
-                        </div>
+                        </div> */}
+                    </div>
+                </div>
+                <div className="skills">
+                    <div className="title">
+                        <img src={personAdd} alt="" />
+                        <span>Skills</span>
+                    </div>
+                    <div className="outer-block">
+                        {resume.skills.map((skill,index) =>  
+                            <div key={index} className="skill">
+                                <span className="name">{skill.name}</span>
+                                {[...Array(skill.rating)].map(e => <img src={star} alt="" /> )}
+                                {/* { <img src={star} alt="" />} */}
+                                {/* <img src={star} alt="" /> */}
+                                {/* <img src={star} alt="" /> */}
+                            </div> )}
+                        {/* <div className="skill">
+                            <span className="name">Online Market Handle</span>
+                            <img src={star} alt="" />
+                            <img src={star} alt="" />
+                        </div> */}
                     </div>
                 </div>
                 <div className="pos">
-                <div className="title">
+                    <div className="title">
                         <img src={personAdd} alt="" />
                         <span>Position of Responsibility</span>
                     </div>
                     <div className="outer-block">
-                        <div className="details">
-                            <p>Himalyan Gypsey</p>
+                        {resume.POR.map((por, index) =>  
+                        <div key={index} className="details">
+                            <p>{por.position}</p>
                             <span>
-                                Energetic individual looking to showcase excellent 
-                                presentation skills and transform theoretical 
-                                knowledge of banking principles into practical 
-                                applications of current and saving Account Opening, 
-                                Wealth Management, and Forex Transactions.
+                                {por.description}
                             </span>
-                        </div>
+                        </div> )}
                     </div>
                 </div>
                 <div className="trainings">
@@ -154,16 +203,13 @@ export default function WorkerDetails({isShow, isClose, userId}) {
                         <span>Trainings</span>
                     </div>
                     <div className="outer-block">
-                        <div className="details">
-                            <p>Himalyan Gypsey</p>
+                       {resume.trainings.map((training,index) => 
+                       <div key={index} className="details">
+                            <p>{training.title}</p>
                             <span>
-                                Energetic individual looking to showcase excellent 
-                                presentation skills and transform theoretical 
-                                knowledge of banking principles into practical 
-                                applications of current and saving Account Opening, 
-                                Wealth Management, and Forex Transactions.
+                                {training.description}
                             </span>
-                        </div>
+                        </div> )}
                     </div>
                 </div>
                 <div className="projects-block">
@@ -172,21 +218,18 @@ export default function WorkerDetails({isShow, isClose, userId}) {
                         <span>Projects</span>
                     </div>
                     <div className="outer-block">
-                        <div className="details">
+                        {resume.projects.map((project,index) =>
+                         <div key={index} className="details">
                             <p>
                                 <span className="company-name">Himalyan Gypsey</span> <br/>
-                                <span className="position">Human resource Intern</span>
+                                <span className="position">{project.title}</span>
                             </p>
                             <p className="desc">
-                                Energetic individual looking to showcase excellent 
-                                presentation skills and transform theoretical 
-                                knowledge of banking principles into practical 
-                                applications of current and saving Account Opening, 
-                                Wealth Management, and Forex Transactions.
+                                {project.description}
                             </p>
                             <span className="city">Delhi</span> <br/>
-                            <span className="year">2015-2016</span>
-                        </div>
+                            <span className="year">{project.start.year}-{project.end.year}</span>
+                        </div> )}
                         <div className="details">
                             <p>
                                 <span className="company-name">Himalyan Gypsey</span> <br/>
@@ -211,12 +254,11 @@ export default function WorkerDetails({isShow, isClose, userId}) {
                     </div>
                     <div className="outer-block">
                         <div className="details">
-                            <span>
-                                Energetic individual looking to showcase excellent presentation skills and
-                                transform theoretical knowledge of banking principles into practical 
-                                applications of current and saving Account Opening, Wealth Management,
-                                and Forex Transactions.
-                            </span>
+                        {resume.achievements.map((achi,index) =>
+                            <span key={index}>
+                                {achi} <br/>
+                            </span> 
+                        )}
                             
                         </div>
                     </div>
@@ -227,33 +269,22 @@ export default function WorkerDetails({isShow, isClose, userId}) {
                         <span>Digital Profiles</span>
                     </div>
                     <div className="socila-media-icons">
-                        
-                            <img className="icon" src={facebook} alt="" />
-                            <img className="icon" src={twitter} alt="" />
-                            <img className="icon" src={instagram} alt="" />
-                            <img className="icon" src={dribble} alt="" />
-                    
-                        {/* <div className="icon">
-                        <img src={instagram} alt="" />
-                        </div>
-                        <div className="icon">
-                        <img src={dribble} alt="" />
-                        </div>
-                        <div className="icon">
-                        <img src={twitter} alt="" />
-                        </div> */}
+                        {resume.digitalProfiles.facebook ? <img onClick={() => openSocialMediaLink(resume.digitalProfiles.facebook)} className="icon" src={facebook} alt="" />:null }
+                        {resume.digitalProfiles.twitter ?<img onClick={() => openSocialMediaLink(resume.digitalProfiles.twitter)} className="icon" src={twitter} alt="" />: null}
+                        {resume.digitalProfiles.instagram ? <img onClick={() => openSocialMediaLink(resume.digitalProfiles.instagram)} className="icon" src={instagram} alt="" />: null}
+                        {resume.digitalProfiles.dribble ? <img onClick={() => openSocialMediaLink(resume.digitalProfiles.dribble)} className="icon" src={dribble} alt="" />: null}
                     </div>
                 </div>
-            </section>
+            </section> : <Skeleton width='5rem' /> }
             
         </div>
         <div className="footer-btns">
             <div className="report"><img src={report} alt="" /> REPORT THIS APPLICANT</div>
 
                 <div className="buttons">
-                   <Button className="btn reject"   >Reject</Button>
-                   <Button className="btn shortlist"   >Shortlist</Button>
-                   <Button className="btn select"   >Select</Button>
+                   <Button onClick={() => buttonHandler("reject")} className="btn reject"   >Reject</Button>
+                   <Button onClick={() => buttonHandler("shortlist")} className="btn shortlist"   >Shortlist</Button>
+                   <Button onClick={() => buttonHandler("select")} className="btn select"   >Select</Button>
                 </div>
             </div>
           

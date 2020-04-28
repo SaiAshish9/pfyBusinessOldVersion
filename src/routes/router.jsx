@@ -19,7 +19,8 @@ import SpecificGig from "../components/gig/specificGig";
 import CampusMarketing from "../components/campasMarketing/marketing/marketing";
 import InternshipDetails from "../components/internship/internship/internshipDetails";
 // import SpecificGig from "../components/gig/specificGig";
-// import CampusMarketing from "../components/campasMarketing/marketing/marketing";
+import NewCampusMarketing from "../components/campasMarketing/marketing/newMarketing";
+import NewCampusMarketing2 from "../components/campasMarketing/marketing/newMarketing2";
 import StudentOffer from "../components/studentOffer/studentOffer";
 import EditProfile from "../components/editProfile/editProfile";
 import Login from "../components/loginOrSignUp/login";
@@ -48,11 +49,7 @@ export default function AppRouter() {
           exact={true}
         />
         <PublicRoute path="/marketing" component={Marketing} exact={true} />
-        <PrivateRoute
-          path="/campus-marketing"
-          component={CampusMarketing}
-          exact={true}
-        />
+        {/* <PrivateRoute path="/campus-marketing" component={CampusMarketing} exact={true} /> */}
         <PublicRoute
           path="/testing"
           component={InternshipDetails}
@@ -79,7 +76,7 @@ export default function AppRouter() {
 
         <PrivateRoute
           path="/campus-marketing"
-          component={CampusMarketing}
+          component={NewCampusMarketing2}
           exact={true}
         />
         <PrivateRoute

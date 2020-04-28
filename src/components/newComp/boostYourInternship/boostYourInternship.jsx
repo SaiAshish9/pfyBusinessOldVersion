@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { Modal, Button } from 'antd';
 import flatImg from './flat.png';
+import rocket from '../../../assets/img/boostInternship/rocket.svg'
 
 let i=1;
 const  BoostYourInternship = (props) => {
@@ -42,36 +43,39 @@ const  BoostYourInternship = (props) => {
           Open Modal with customized footer
         </Button> */}
         <Modal
-        width="42rem"
+        width="49rem"
         className="internship-booster"
         style={{textAlign: "center",}}
           visible={props.isShowBoost}
-          title="Boost Your Internship Posting!"
+          // title="Boost Internship"
           onOk={handleOk}
           onCancel={handleCancel}
-          footer={[
-            <Button className={"boost-purchase-btn"}  key="submit" type="primary" loading={loading} onClick={handleOk}>
-            Purchase
-          </Button>            
-          ]}
+          footer={null}
         >
-            <img src={flatImg} alt="flat img"/>
-            <div style={{fontWeight: 500}}>
-                <p style={{fontSize: "1.2rem"}}>Want to reach more students?</p>
-                <p>Feature your internship on project X to get 5X <br/> more visibility and applicants </p>
+          <div className="header">
+            <div className="text">Boost Internship</div>
+            <div className="border-bottom"></div>
+          </div>
+            <img className="rocket-img" src={rocket} alt=""/>
+            <div className="details" style={{fontWeight: 500}}>
+                <p className="para-1">Not receiving enough applications?</p>
+                <p className="para-2">Boost your internship today to feature your posting on the top of Pracify's mobile app and website.</p>
                 {/* <hr/> */}
                 <br/>
                 <div className="price-cards">
-                  <div onClick={() => selectPriceHandler(550)} style={{background: selectedPrice == 550 ? "#d8d6dc" : "none" }}  className="single-card">
+                  <div onClick={() => selectPriceHandler(550)} style={{background: selectedPrice == 550 ? "#d8d6dc" : "#fff" }}  className="single-card">
                     <div>2 days Boost <br/> <span>INR 550</span> </div>
                   </div>
-                  <div onClick={() => selectPriceHandler(1110)} style={{background: selectedPrice == 1110 ? "#d8d6dc" : "none" }} className="single-card">
+                  <div onClick={() => selectPriceHandler(1110)} style={{background: selectedPrice == 1110 ? "#d8d6dc" : "#fff" }} className="single-card">
                     <div>5 days Boost <br/> <span>INR 1110</span> </div>
                   </div>
                   
                 </div>
 
             </div>
+          <Button className={"boost-purchase-btn"}  onClick={handleOk}>
+            BOOST NOW
+          </Button> 
             
         </Modal>
       </div>

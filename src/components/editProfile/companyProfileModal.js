@@ -87,7 +87,8 @@ return(
         
         <Input className="input-style" />
       </Form.Item>
-      <Form.Item
+      </div>
+      {/* <Form.Item
         label="Company Type"
         className="width"
         name="companyType"
@@ -103,7 +104,7 @@ return(
           <Option value="startUp">Start Up</Option>
           <Option value="usa">U.S.A</Option>
         </Select>
-      </Form.Item>
+      </Form.Item> */}
       {/* </Form.Item> */}
       
       <Form.Item
@@ -120,7 +121,7 @@ return(
         <Input className="input-style" />
         
       </Form.Item>
-      </div>
+      {/* </div> */}
 
       <Form.Item
         label="About Company"
