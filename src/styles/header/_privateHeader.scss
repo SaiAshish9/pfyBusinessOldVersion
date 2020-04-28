@@ -81,9 +81,11 @@
           height: 24px;
         }
       }
-
-      .site-layout-background.ant-layout-content {
-      }
+    }
+    .site-layout-background.ant-layout-content {
+      background-color: #f7f7f7;
+      padding: 5rem 3rem;
+      min-height: 280px;
     }
   }
 }

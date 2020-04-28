@@ -10,7 +10,7 @@ export default function Login() {
 
   const handleLogin = () => {
     cookie.set("token", "123");
-    history.push("/home");
+    history.push("/dashboard");
   };
 
   return (

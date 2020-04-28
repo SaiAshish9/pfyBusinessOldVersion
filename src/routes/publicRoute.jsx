@@ -17,7 +17,7 @@ export default function PublicRoute({ component: Component, ...rest }) {
       component={(props) => (
         <>
           {token === "123" ? (
-            <Redirect to="/home" />
+            <Redirect to="/dashboard" />
           ) : (
             <>
               {!pathWithoutHeader && <Header />}

@@ -1,0 +1,122 @@
+.dashboard-main-block {
+  .campus-hiring-main-block {
+    display: flex;
+    .campus-hiring-block {
+      position: relative;
+      border-radius: 6px;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+      background-color: #ffffff;
+      padding: 28px 20px 16px;
+      .campus-hiring-header {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.38;
+        color: #000;
+      }
+
+      .campus-hiring-para {
+        opacity: 0.8;
+        font-size: 14px;
+        line-height: 1.43;
+        color: #000;
+      }
+
+      .campus-hiring-button {
+        border-radius: 12px;
+        box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.16);
+        background-color: #38bdba;
+        border: 1px solid #38bdba;
+
+        font-size: 10px;
+        font-weight: bold;
+        line-height: 1.4;
+        color: #ffffff;
+      }
+      &:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 16px;
+        background: #444584;
+        border-radius: 6px 6px 0 0;
+        top: 0px;
+        left: 0;
+      }
+    }
+  }
+}
+
+%tab-custom-style {
+  .ant-tabs-bar.ant-tabs-top-bar.ant-tabs-card-bar {
+    margin: 0;
+    .ant-tabs-nav.ant-tabs-nav-animated {
+      width: 100%;
+      div {
+        display: flex;
+        justify-content: space-around;
+        .ant-tabs-tab {
+          flex: 1;
+          margin: 0;
+          border: none;
+          text-align: center;
+          background-color: #38bdba;
+          opacity: 0.8;
+          font-size: 14px;
+          font-weight: bold;
+          letter-spacing: normal;
+          color: #000000;
+          &:hover {
+            color: #38bdba;
+            border-bottom: 1px solid #38bdba;
+            background: #f1f1f1;
+          }
+        }
+        .ant-tabs-tab-active.ant-tabs-tab {
+          color: #38bdba;
+          border-bottom: 1px solid #38bdba;
+          background: #fff;
+        }
+      }
+    }
+  }
+}
+
+.gig-list-main-block {
+  margin-top: 40px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ffffff;
+  .myGig-heading {
+    background-color: #ccf3f5;
+    margin: 0;
+    padding: 16px 25px;
+    opacity: 0.8;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.43;
+    color: #000000;
+  }
+  .myTab {
+    @extend%tab-custom-style;
+  }
+}
+
+.internship-list-main-block {
+  margin-top: 40px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ffffff;
+  .internship-heading {
+    background-color: #ccf3f5;
+    margin: 0;
+    padding: 16px 25px;
+    opacity: 0.8;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.43;
+    color: #000000;
+  }
+  .myTab {
+    @extend%tab-custom-style;
+  }
+}

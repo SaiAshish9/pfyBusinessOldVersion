@@ -82,7 +82,7 @@ export default function SignUp() {
   const onSubmitFinalRegister = (data) => {
     console.log(data);
     cookie.set("token", "123");
-    history.push("/home");
+    history.push("/dashboard");
   };
 
   const [isRegister, setIsRegister] = useState(false);

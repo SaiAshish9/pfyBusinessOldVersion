@@ -10,7 +10,7 @@ export default function HeaderNavLink() {
   const history = useHistory();
   const handleDummyLogin = () => {
     cookie.set("token", "123");
-    history.push("/home");
+    history.push("/dashboard");
   };
   return (
     <>

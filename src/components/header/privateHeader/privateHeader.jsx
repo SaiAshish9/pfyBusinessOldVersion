@@ -79,7 +79,7 @@ export default function PrivateHeader({ component: Component, ...rest }) {
           selectedKeys={selectedKey()}
         >
           <Menu.Item key="1">
-            <Link to="/home">
+            <Link to="/dashboard">
               <span className="anticon">
                 <img src={homeIcon} alt="" className="" />
               </span>
@@ -152,8 +152,6 @@ export default function PrivateHeader({ component: Component, ...rest }) {
         <Content
           className="site-layout-background"
           style={{
-            margin: "5rem 3rem",
-            minheight: 280,
           }}
         >
           <Route

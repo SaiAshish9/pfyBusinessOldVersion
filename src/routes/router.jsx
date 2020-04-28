@@ -2,7 +2,7 @@ import { createBrowserHistory } from "history";
 import React from "react";
 import { Router, Switch, Route } from "react-router-dom";
 // -------------------------------- ******** -------------------------------- */
-import CompanyHome from "../components/companyHome/companyHome";
+import Dashboard from "../components/dashboard/dashboard";
 import PageNotFound from "../components/error/pageNotFound";
 import Gig from "../components/gig/gig";
 import OldLandingPage from "../components/home/home";
@@ -62,7 +62,7 @@ export default function AppRouter() {
         <PublicRoute path="/register" component={SignUp} exact={true} />
 
         {/*//! ----------------Private Route----------------- */}
-        <PrivateRoute path="/home" component={CompanyHome} exact={true} />
+        <PrivateRoute path="/dashboard" component={Dashboard} exact={true} />
         <PrivateRoute path="/internship" component={Internship} exact={true} />
         <PrivateRoute
           path="/internship/:internshipId"
