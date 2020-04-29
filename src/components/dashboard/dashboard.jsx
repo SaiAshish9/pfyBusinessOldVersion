@@ -107,12 +107,7 @@ export default function Dashboard() {
         <h2 className="myGig-heading">MY GIGS</h2>
         <Tabs defaultActiveKey="1" className="myTab" type="card">
           <TabPane tab="All" key="1" className="">
-            <Table
-              columns={columns}
-              dataSource={gigData}
-              pagination={false}
-              // scroll={{ x: true }}
-            />
+            <Table columns={columns} dataSource={gigData} pagination={false}  />
           </TabPane>
           <TabPane tab="Active" key="2" className="">
             <Table columns={columns} dataSource={null} pagination={false} />
