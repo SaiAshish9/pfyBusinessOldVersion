@@ -66,7 +66,7 @@ export default function ShareInternship({isShow, isClose, intershipId}) {
             <div style={{cursor: "pointer"}} className="social-media-icon">
               <CopyToClipboard text={url+intershipId}
               onCopy={() => message.info('Copied')}>
-                <img src={linkSvg} alt="copy-icon"/>
+                <img className="copy-icon-style" src={linkSvg} alt="copy-icon"/>
             </CopyToClipboard>
             </div>
           </div>

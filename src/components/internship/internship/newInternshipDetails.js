@@ -102,7 +102,7 @@ export default function NewInternshipDetails() {
             </div>
             <div className="interns-application-block">
                 <div className="heading">
-                    <h2>Applications</h2>
+                    <h2>APPLICATIONS</h2>
                     <div className="filter">
                         <p>Sort By </p>
                         <Select defaultValue="Most Recent" style={{ width: 120 }} 
