@@ -68,11 +68,11 @@ export default function AppRouter() {
         />
         <PrivateRoute path="/gigs" component={Gig} exact={true} />
 
-        <PrivateRoute
-          path="/specific-gig/:id"
-          component={SpecificGig}
+        {/* <PrivateRoute
+          path="/application/:id"
+          component={GigApplication}
           exact={true}
-        />
+        /> */}
 
         <PrivateRoute
           path="/campus-marketing"

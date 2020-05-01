@@ -2,6 +2,8 @@ import React from "react";
 import { Button, Tabs, Table } from "antd";
 import { MoreOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
+import GigTable from "../gigTable";
+import InternshipTable from "../internshipTable";
 const { TabPane } = Tabs;
 
 const campusHiringContent = [
@@ -103,51 +105,9 @@ export default function Dashboard() {
           </div>
         ))}
       </div>
-      <div className="gig-list-main-block">
-        <h2 className="myGig-heading">MY GIGS</h2>
-        <Tabs defaultActiveKey="1" className="myTab" type="card">
-          <TabPane tab="All" key="1" className="">
-            <Table
-              columns={columns}
-              dataSource={gigData}
-              pagination={false}
-              // scroll={{ x: true }}
-            />
-          </TabPane>
-          <TabPane tab="Active" key="2" className="">
-            <Table columns={columns} dataSource={null} pagination={false} />
-          </TabPane>
-          <TabPane tab="Under Review" key="3" className="">
-            <Table columns={columns} dataSource={gigData} pagination={false} />
-          </TabPane>
-          <TabPane tab="Closed" key="4" className="">
-            <Table columns={columns} dataSource={null} pagination={false} />
-          </TabPane>
-          <TabPane tab="Draft" key="5" className="">
-            <Table columns={columns} dataSource={gigData} pagination={false} />
-          </TabPane>
-        </Tabs>
-      </div>
-      <div className="internship-list-main-block">
-        <h2 className="internship-heading">MY Internships</h2>
-        <Tabs defaultActiveKey="1" className="myTab" type="card">
-          <TabPane tab="All" key="1" className="">
-            <Table columns={columns} dataSource={gigData} pagination={false} />
-          </TabPane>
-          <TabPane tab="Active" key="2" className="">
-            <Table columns={columns} dataSource={null} pagination={false} />
-          </TabPane>
-          <TabPane tab="Under Review" key="3" className="">
-            <Table columns={columns} dataSource={gigData} pagination={false} />
-          </TabPane>
-          <TabPane tab="Closed" key="4" className="">
-            <Table columns={columns} dataSource={null} pagination={false} />
-          </TabPane>
-          <TabPane tab="Draft" key="5" className="">
-            <Table columns={columns} dataSource={gigData} pagination={false} />
-          </TabPane>
-        </Tabs>
-      </div>
+
+      <GigTable />
+      <InternshipTable />
     </div>
   );
 }

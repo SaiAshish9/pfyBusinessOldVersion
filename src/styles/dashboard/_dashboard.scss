@@ -82,7 +82,6 @@
 }
 
 .gig-list-main-block {
-  margin-top: 40px;
   border-radius: 6px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
   background-color: #ffffff;
@@ -96,9 +95,9 @@
     line-height: 1.43;
     color: #000000;
   }
-  .myTab {
-    @extend%tab-custom-style;
-  }
+}
+.myTab {
+  @extend%tab-custom-style;
 }
 
 .internship-list-main-block {
@@ -116,7 +115,7 @@
     line-height: 1.43;
     color: #000000;
   }
-  .myTab {
-    @extend%tab-custom-style;
-  }
+}
+.myTab {
+  @extend%tab-custom-style;
 }
