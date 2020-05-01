@@ -1,56 +1,43 @@
 .ant-modal-wrap {
-  backdrop-filter: blur(4px);
+  // backdrop-filter: blur(4px);
   .ant-modal.contactToAdmin-modal {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    padding: 0px;
+    top: 40px;
     .ant-modal-content {
-      min-height: 100vh;
-      border-radius: 0px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.16);
+      background-color: #f7f7f7;
+      border: none;
       .ant-modal-header {
-        padding: initial;
-        border-bottom: none;
+        text-align: center;
+        background-color: #f7f7f7;
+        border-radius: 12px;
+        border: none;
+
         .ant-modal-title {
-          .custom-modal-title {
-            position: relative;
-            .modal-title__img {
-              width: 100%;
-            }
-            .modal-title-content {
-              position: absolute;
-              bottom: -44px;
-              padding: 0 40px;
-              .modal-title__header {
-                margin-bottom: 8px;
-                line-height: 1;
-                font-size: 36px;
-                font-weight: 500;
-              }
-              .modal-title__para {
-                font-weight: 400;
-                font-size: 18px;
-              }
-            }
-          }
+          opacity: 0.8;
+          font-size: 28px;
+          line-height: 1.43;
+          color: #000000;
         }
       }
 
       .ant-modal-body {
-        padding: 24px 40px;
-        margin-top: 32px;
+        padding: 0px 40px 20px 40px;
+        // margin-top: 32px;
         %label {
           margin-bottom: 6px;
-          opacity: 0.6;
-          color: #000;
-          line-height: 1.44;
-          font-size: 18px;
+          opacity: 0.5;
+          font-size: 20px;
+          font-weight: 500;
+          line-height: 1.4;
+          color: #636363;
         }
         %input {
-          height: 46px;
+          height: 48px;
           border-radius: 4px;
-          border: solid 1px #c6c6c6;
-          margin-bottom: 20px;
+          border: solid 0.5px #707070;
+          background-color: #ffffff;
+          margin-bottom: 12px;
         }
         %select {
           width: 100%;
@@ -106,7 +93,6 @@
             @extend%textarea;
           }
         }
-
       }
 
       .ant-modal-footer {
