@@ -16,6 +16,7 @@ import Marketing from "../components/newComp/marketing/marketing";
 import PrivateRoute from "./privateRoute";
 import PublicRoute from "./publicRoute";
 import SpecificGig from "../components/gig/specificGig";
+import CampaignCustom from "../components/gig/campaignCustom";
 import CampusMarketing from "../components/campasMarketing/marketing/marketing";
 import InternshipDetails from "../components/internship/internship/internshipDetails";
 // import SpecificGig from "../components/gig/specificGig";
@@ -67,7 +68,11 @@ export default function AppRouter() {
           exact={true}
         />
         <PrivateRoute path="/gigs" component={Gig} exact={true} />
-
+        <PrivateRoute
+          path="/create-campaign/:campaignTitle"
+          component={CampaignCustom}
+          exact={true}
+        />
         {/* <PrivateRoute
           path="/application/:id"
           component={GigApplication}

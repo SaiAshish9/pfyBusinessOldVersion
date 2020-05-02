@@ -1,127 +1,405 @@
-.ant-modal-wrap {
-  // backdrop-filter: blur(4px);
-  .ant-modal.contactToAdmin-modal {
-    top: 40px;
-    .ant-modal-content {
-      border-radius: 12px;
-      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.16);
+// backdrop-filter: blur(4px);
+.ant-modal.contactToAdmin-modal {
+  top: 40px;
+  .ant-modal-content {
+    border-radius: 12px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.16);
+    background-color: #f7f7f7;
+    border: none;
+    .ant-modal-header {
+      text-align: center;
       background-color: #f7f7f7;
+      border-radius: 12px;
       border: none;
-      .ant-modal-header {
-        text-align: center;
-        background-color: #f7f7f7;
-        border-radius: 12px;
-        border: none;
 
-        .ant-modal-title {
+      .ant-modal-title {
+        opacity: 0.8;
+        font-size: 28px;
+        line-height: 1.43;
+        color: #000000;
+      }
+    }
+
+    .ant-modal-body {
+      padding: 0px 40px 20px 40px;
+      // margin-top: 32px;
+      %label {
+        margin-bottom: 6px;
+        opacity: 0.5;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 1.4;
+        color: #636363;
+      }
+      %input {
+        height: 48px;
+        border-radius: 4px;
+        border: solid 0.5px #707070;
+        background-color: #ffffff;
+        margin-bottom: 12px;
+      }
+      %select {
+        width: 100%;
+        margin-bottom: 20px;
+        .ant-select-selector {
+          height: 46px;
+          border-radius: 4px;
+          border: solid 1px #c6c6c6;
+          .ant-select-selection-item {
+            padding-top: 7px;
+          }
+        }
+      }
+      %textarea {
+        height: 109px;
+        border-radius: 4px;
+        border: solid 1px #c6c6c6;
+        background-color: #f5f5f5;
+        margin-bottom: 20px;
+      }
+      /* ---------------------------- default campaign body---------------------------- */
+      .default-block {
+        .requirement__p {
+          @extend%label;
+        }
+        .requirement__input {
+          @extend%input;
+        }
+        .budget__p {
+          @extend%label;
+        }
+        .budget__input {
+          @extend%input;
+        }
+        .quantity__p {
+          @extend%label;
+        }
+        .quantity__input {
+          @extend%input;
+        }
+      }
+    }
+
+    .ant-modal-footer {
+      padding: 10px 40px 40px;
+      // position: absolute;
+      width: 100%;
+      bottom: 0px;
+      border-top: none;
+      .custom-modal-footer {
+        display: flex;
+        justify-content: space-between;
+        .goBack-button {
+          width: 155px;
+          height: 49px;
+          border-radius: 10px;
+          background-color: #f5f5f5;
+          font-size: 18px;
+          font-weight: 700;
+          // color: #fff;
+        }
+        .contactUs-button {
+          width: 231px;
+          height: 49px;
+          border-radius: 10px;
+          background-color: #3b599b;
+          font-size: 18px;
+          font-weight: 700;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+/* ---------------------------- custom campaign body ---------------------------- */
+%custom-campaign-label {
+  opacity: 0.6;
+  font-size: 18px;
+  line-height: 1.44;
+  color: #000000;
+  margin: 0;
+}
+
+%custom-campaign-input {
+  border-radius: 4px;
+  height: 46px;
+  border: solid 1px #c6c6c6;
+  margin-bottom: 16px;
+  width: 100%;
+  // background-color: #ffffff;
+}
+
+%custom-campaign-select {
+  width: 100%;
+  margin-bottom: 16px;
+  .ant-select-selector {
+    height: 46px;
+    border-radius: 4px;
+    border: solid 1px #c6c6c6;
+  }
+  // background-color: #ffffff;
+}
+
+.customCampaign-main-block {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px 40px 40px;
+  position: relative;
+  .customCampaign-close-button {
+    position: absolute;
+    right: 20px;
+  }
+  .campaignTitle-heading {
+    text-align: center;
+    opacity: 0.8;
+    font-size: 28px;
+    line-height: 1.43;
+    color: #000000;
+  }
+
+  .stepOne-customCampaign-block {
+    display: flex;
+    justify-content: space-between;
+
+
+    .customCampaign-block-one {
+      flex: 1;
+      margin-right: 20px;
+
+      .selectOption-label {
+        @extend%custom-campaign-label;
+      }
+
+      .select-option-select {
+        @extend%custom-campaign-select;
+      }
+
+      .lastDateToApply-label {
+        @extend%custom-campaign-label;
+      }
+
+      .lastDateToApply-datePicker {
+        @extend%custom-campaign-input;
+      }
+
+      .gender-label {
+        @extend%custom-campaign-label;
+      }
+
+      .gender-select {
+        @extend%custom-campaign-select;
+      }
+
+      .chargesPerWorker-label {
+        @extend%custom-campaign-label;
+      }
+
+      .chargesPerWorker-input {
+        @extend%custom-campaign-input;
+      }
+
+      .numOfWorker-label {
+        @extend%custom-campaign-label;
+      }
+
+      .numOfWorker-input {
+        @extend%custom-campaign-input;
+      }
+    }
+
+    .customCampaign-block-two {
+      flex: 1;
+      margin-left: 20px;
+      position: relative;
+      .cities-label {
+        @extend%custom-campaign-label;
+      }
+
+      .cities-select {
+        @extend%custom-campaign-select;
+      }
+
+      .taskDescription-label {
+        @extend%custom-campaign-label;
+      }
+
+      .taskDescription-textarea {
+        @extend%custom-campaign-input;
+        height: 92px;
+      }
+
+      .interviewQues-label {
+        @extend%custom-campaign-label;
+      }
+
+      .interviewQues-input {
+        @extend%custom-campaign-input;
+      }
+      .customCampaign-next-button {
+        position: absolute;
+        margin-bottom: 16px;
+        bottom: 0;
+        right: 0;
+
+        width: 50%;
+        height: 48px;
+        border-radius: 25px;
+        box-shadow: 0 7px 20px 0 rgba(0, 0, 0, 0.16);
+        background-color: #00bfa6;
+
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 1.44;
+        color: #ffffff;
+      }
+    }
+  }
+
+  .stepTwo-customCampaign-block {
+    display: flex;
+    margin-top: 20px;
+    .next-step-guide-block {
+      flex: 1;
+      border-radius: 15px;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+      background-color: #ffffff;
+      margin-right: 8px;
+      padding: 40px;
+      .next-step-guide-header {
+        opacity: 0.8;
+        font-size: 26px;
+        font-weight: 500;
+        line-height: 1.38;
+        color: #000000;
+      }
+
+      .next-step-guide-list {
+        li {
           opacity: 0.8;
-          font-size: 28px;
+          font-size: 18px;
+          line-height: 1.4;
+          text-align: left;
+          color: #000000;
+          margin-bottom: 12px;
+        }
+      }
+    }
+
+    .campaign-payment-block {
+      // position: relative;
+      flex: 1;
+      border-radius: 15px;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+      background-color: #ffffff;
+      margin-left: 8px;
+      padding: 40px;
+
+      .campaign-payment-header {
+        opacity: 0.7;
+        font-size: 26px;
+        font-weight: 500;
+        color: #000000;
+      }
+
+      .campaign-payment-summery-block {
+        border-radius: 10px;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+        border-left: 10px solid #444584;
+        margin-bottom: 20px;
+        display: grid;
+        padding: 20px;
+
+        %small-font {
+          opacity: 0.54;
+          margin: 0;
+          font-size: 14px;
           line-height: 1.43;
           color: #000000;
         }
+        %large-font {
+          font-size: 24px;
+          margin: 0;
+          line-height: 1.42;
+          color: #000000;
+        }
+
+        .total-gig-workers-header {
+          @extend%small-font;
+          grid-column: 1/3;
+        }
+        .task-fees-header {
+          @extend%small-font;
+          grid-column: 3/4;
+        }
+        .amount-before-tax-header {
+          @extend%small-font;
+          grid-column: 5/6;
+        }
+        .total-gig-workers {
+          @extend%large-font;
+          justify-self: flex-end;
+        }
+        .multiple-symbol {
+          @extend%large-font;
+          justify-self: center;
+        }
+        .task-fees {
+          @extend%large-font;
+        }
+        .equalTo-symbol {
+          @extend%large-font;
+        }
+        .amount-before-tax {
+          @extend%large-font;
+        }
+        .total-gst {
+          @extend%small-font;
+          grid-column: 5/6;
+        }
       }
 
-      .ant-modal-body {
-        padding: 0px 40px 20px 40px;
-        // margin-top: 32px;
-        %label {
-          margin-bottom: 6px;
-          opacity: 0.5;
-          font-size: 20px;
-          font-weight: 500;
-          line-height: 1.4;
-          color: #636363;
-        }
-        %input {
+      .campaign-payment-gst-guide {
+        text-align: center;
+        padding: 16px;
+        border-radius: 10px;
+        background-color: rgba(0, 191, 166, 0.1);
+
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.43;
+        color: #000000;
+      }
+
+      .campaign-payment-button-block {
+        display: flex;
+        margin-top: 88px;
+        .campaign-payment-later {
+          flex: 1;
+          margin-right: 8px;
           height: 48px;
-          border-radius: 4px;
-          border: solid 0.5px #707070;
+          border-radius: 25px;
+          border: solid 2px #00bfa6;
           background-color: #ffffff;
-          margin-bottom: 12px;
-        }
-        %select {
-          width: 100%;
-          margin-bottom: 20px;
-          .ant-select-selector {
-            height: 46px;
-            border-radius: 4px;
-            border: solid 1px #c6c6c6;
-          }
-        }
-        %textarea {
-          height: 109px;
-          border-radius: 4px;
-          border: solid 1px #c6c6c6;
-          background-color: #f5f5f5;
-          margin-bottom: 20px;
-        }
-        /* ---------------------------- default campaign body---------------------------- */
-        .default-block {
-          .requirement__p {
-            @extend%label;
-          }
-          .requirement__input {
-            @extend%input;
-          }
-          .budget__p {
-            @extend%label;
-          }
-          .budget__input {
-            @extend%input;
-          }
-          .quantity__p {
-            @extend%label;
-          }
-          .quantity__input {
-            @extend%input;
-          }
+
+          font-size: 18px;
+          font-weight: bold;
+          line-height: 1.44;
+          color: #00bfa6;
         }
 
-        /* ---------------------------- custom campaign body ---------------------------- */
-        .custom-block-one {
-          .select-option__p {
-            @extend%label;
-          }
+        .campaign-payment-now {
+          flex: 1;
+          margin-left: 8px;
+          height: 48px;
+          border-radius: 25px;
+          box-shadow: 0 7px 20px 0 rgba(0, 0, 0, 0.16);
+          background-color: #00bfa6;
 
-          .select-option__select {
-            @extend%select;
-          }
-          .additional-comment__p {
-            @extend%label;
-          }
-          .additional-comment__textarea {
-            @extend%textarea;
-          }
-        }
-      }
-
-      .ant-modal-footer {
-        padding: 10px 40px 40px;
-        // position: absolute;
-        width: 100%;
-        bottom: 0px;
-        border-top: none;
-        .custom-modal-footer {
-          display: flex;
-          justify-content: space-between;
-          .goBack-button {
-            width: 155px;
-            height: 49px;
-            border-radius: 10px;
-            background-color: #f5f5f5;
-            font-size: 18px;
-            font-weight: 700;
-            // color: #fff;
-          }
-          .contactUs-button {
-            width: 231px;
-            height: 49px;
-            border-radius: 10px;
-            background-color: #3b599b;
-            font-size: 18px;
-            font-weight: 700;
-            color: #fff;
-          }
+          font-size: 18px;
+          font-weight: bold;
+          line-height: 1.44;
+          color: #ffffff;
         }
       }
     }
