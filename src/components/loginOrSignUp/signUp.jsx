@@ -123,7 +123,6 @@ export default function SignUp() {
       return;
     }
     if (info.file.status === "done") {
-      // Get this url from response in real world.
       getBase64(info.file.originFileObj, (imageUrl) => {
         setLoading(false);
         setImageUrl(imageUrl);
@@ -133,6 +132,7 @@ export default function SignUp() {
 
   return (
     <div className="login-main-block">
+      <ShowCaseCarousel />
       <div className="login-form-block">
         <h4 className="goBackToPracify" onClick={() => history.push("/")}>
           <img src={arrowLeft} alt="" className="goBackArrow" /> Pracify
@@ -249,9 +249,6 @@ export default function SignUp() {
             </span>
           </div>
         )}
-      </div>
-      <div className="login-showcase-carousel-block">
-        <ShowCaseCarousel></ShowCaseCarousel>
       </div>
     </div>
   );
