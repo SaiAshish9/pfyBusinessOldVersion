@@ -1,12 +1,10 @@
-import React, { useState } from "react";
-import { Layout, Menu } from "antd";
-import { Route, Link, useHistory, useLocation } from "react-router-dom";
+import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
+import { Layout, Menu, Button } from "antd";
 import cookie from "js-cookie";
-
+import React, { useState } from "react";
+import { Link, Route, useHistory, useLocation } from "react-router-dom";
+/* -------------------------------- ******** -------------------------------- */
 import logo from "../../../assets/img/logo.png";
-import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
-// import MenuFoldOutlined from "../../../assets/img/header/arrowLeft.svg";
-// import MenuUnfoldOutlined from "../../../assets/img/header/arrowRight.svg";
 import campusMarketingIcon from "../../../assets/img/sideBarIcon/campusMarketingIcon.svg";
 import editProfileIcon from "../../../assets/img/sideBarIcon/editProfileIcon.svg";
 import gigIcon from "../../../assets/img/sideBarIcon/gigIcon.svg";
@@ -142,18 +140,27 @@ export default function PrivateHeader({ component: Component, ...rest }) {
       </Sider>
 
       <Layout className="site-layout">
-        <Header className="site-layout-background" style={{ padding: 0 }}>
-          {collapsed ? (
-            <MenuUnfoldOutlined onClick={handleToggle} className="trigger" />
-          ) : (
-            <MenuFoldOutlined onClick={handleToggle} className="trigger" />
-          )}
-        </Header>
-        <Content
+        <Header
           className="site-layout-background"
-          style={{
-          }}
+          style={{ width: collapsed ? "94.14%" : "82.43%" }}
         >
+          <>
+            {collapsed ? (
+              <MenuUnfoldOutlined onClick={handleToggle} className="trigger" />
+            ) : (
+              <MenuFoldOutlined onClick={handleToggle} className="trigger" />
+            )}
+            <div className="header-links">
+              <Button className="howItWorkButton">How it works?</Button>
+              <div className="header-avatar-block">
+            <div className="avatar-on-header">{"S"}</div>
+                <span className="avatar-name">{"Shivam Malhotra"}</span>
+              </div>
+              <span className="needHelp-button">Help</span>
+            </div>
+          </>
+        </Header>
+        <Content className="site-layout-background" style={{}}>
           <Route
             {...rest}
             component={(props) => (

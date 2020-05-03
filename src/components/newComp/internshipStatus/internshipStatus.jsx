@@ -353,8 +353,6 @@ export default function InternshipStatus(props) {
                                         <Select defaultValue="Most Recent" style={{ width: 120 }} onChange={(value) => handleChangeOptions(value, "pending")}>
                                             <Option value="most-recent">Most Recent</Option>
                                             <Option value="resume-score">Resume Score</Option>
-                                            {/* <Option value="op3">option3</Option> */}
-                                            {/* <Option value="op4">option4</Option> */}
                                         </Select>
                                     </div>
                                 </div>

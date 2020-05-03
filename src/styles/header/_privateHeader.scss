@@ -70,15 +70,69 @@
   .site-layout.ant-layout {
     background-color: #f7f7f7;
     .site-layout-background.ant-layout-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       background-color: #fff;
-      position: fixed;
-      width: 100%;
+      padding: 0px 40px 0px 0;
       z-index: 2;
+      position: fixed;
       .trigger {
         margin-left: 20px;
+        flex: 1;
+        text-align: initial;
         svg {
           width: 24px;
           height: 24px;
+        }
+      }
+      .header-links {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex: 1;
+
+        .howItWorkButton {
+          height: 40px;
+          border-radius: 4px;
+          background-color: #ec3f78;
+          border: 1px solid #ec3f78;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 1.38;
+          color: #ffffff;
+        }
+        .header-avatar-block {
+          display: flex;
+          align-items: center;
+          .avatar-on-header {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            background-color: #d8d8d8;
+            font-size: 18px;
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: 0.9px;
+            color: #ffffff;
+          }
+          .avatar-name {
+            font-size: 18px;
+            line-height: 1.44;
+            color: #000000;
+            margin-left: 12px;
+          }
+        }
+
+        .needHelp-button {
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 1.38;
+          color: #000000;
+          cursor: pointer;
         }
       }
     }

@@ -1,10 +1,10 @@
 import React, {useState, Fragment} from 'react';
 import { Modal, Button, message } from 'antd';
-import facebookSvg from './icons/facebook.svg';
-import linkedSvg from './icons/linkedin.svg';
-import twitterSvg from './icons/twitter.svg';
-import linkSvg from './icons/link-icon.svg';
-import ShareLink from 'react-facebook-share-link';
+import facebookSvg from '../../../assets/img/shareInternship/facebook.jpg';
+import linkedSvg from '../../../assets/img/shareInternship/linkedIn.jpg';
+import twitterSvg from '../../../assets/img/shareInternship/twitter.svg';
+import linkSvg from '../../../assets/img/shareInternship/copyLink.svg';
+// import ShareLink from 'react-facebook-share-link';
 import {FacebookShareButton, LinkedinShareButton, TwitterShareButton} from 'react-share';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 
@@ -33,25 +33,20 @@ export default function ShareInternship({isShow, isClose, intershipId}) {
             </Button> */}
         <Modal
             className="share-internship-modal"
-            width="569px"
+            width="378px"
             style={{fontSize: "2rem"}}
             font="28px"
             footer={[]}
-          title="Share Internship"
+          // title="Share Internship"
           visible={isShow}
           // onOk={handleOk}
           onCancel={handleCancel}
         >
-          {/* <ShareLink link={'https://pracify.com/internship/' + intershipId} >
-              {link => (
-                <a href={link} target='_blank'>
-                  <div className="item" >
-                  <img src={facebookSvg} alt="facebook-icon"/><p className="text" >Facebook</p>
-                </div>
-                </a>
-                
-              )}
-          </ShareLink> */}
+          <div className="header">
+            <div className="text">Share Internship</div>
+            <div className="border-bottom"></div>
+          </div>
+          
           <div className="social-media-icons" >
             <div className="social-media-icon" >
               <FacebookShareButton  url={url + intershipId} style={{width: "100%"}}>
@@ -71,7 +66,7 @@ export default function ShareInternship({isShow, isClose, intershipId}) {
             <div style={{cursor: "pointer"}} className="social-media-icon">
               <CopyToClipboard text={url+intershipId}
               onCopy={() => message.info('Copied')}>
-                <img src={linkSvg} alt="copy-icon"/>
+                <img className="copy-icon-style" src={linkSvg} alt="copy-icon"/>
             </CopyToClipboard>
             </div>
           </div>

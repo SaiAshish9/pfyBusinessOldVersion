@@ -19,6 +19,7 @@ import SpecificGig from "../components/gig/specificGig";
 import CampaignCustom from "../components/gig/campaignCustom";
 import CampusMarketing from "../components/campasMarketing/marketing/marketing";
 import InternshipDetails from "../components/internship/internship/internshipDetails";
+import NewInternshipDetails from "../components/internship/internship/newInternshipDetails";
 // import SpecificGig from "../components/gig/specificGig";
 import NewCampusMarketing from "../components/campasMarketing/marketing/newMarketing";
 import NewCampusMarketing2 from "../components/campasMarketing/marketing/newMarketing2";
@@ -64,7 +65,7 @@ export default function AppRouter() {
         <PrivateRoute path="/internship" component={Internship} exact={true} />
         <PrivateRoute
           path="/internship/:internshipId"
-          component={InternshipDetails}
+          component={NewInternshipDetails}
           exact={true}
         />
         <PrivateRoute path="/gigs" component={Gig} exact={true} />
