@@ -82,11 +82,11 @@
   }
 }
 
-.gig-list-main-block {
+.gig-list-main-block, .internship-list-main-block {
   border-radius: 6px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
   background-color: #ffffff;
-  .myGig-heading {
+  .myGig-heading, .internship-heading {
     background-color: #ccf3f5;
     margin: 0;
     padding: 16px 25px;

@@ -30,7 +30,6 @@ export default function NewInternship() {
 
   const [isShow, setIsShow] = useState(false)
   const handleCreateInternship = () => {
-    // dispatchModalVisible({ type: "modalVisible" });
     setIsShow(true)
     console.log('open create internship modal')
 

@@ -1,13 +1,24 @@
-import React, { Fragment } from 'react';
+import React, { Fragment,useState } from 'react';
 import {Button, Tabs, Select} from 'antd';
 import randomImg from '../../../assets/randomImg.jpg';
-
+import view from '../../../assets/img/internship/internshipDetails/view.svg'
+import edit from '../../../assets/img/internship/internshipDetails/edit.svg'
+import close from '../../../assets/img/internship/internshipDetails/close.svg'
+import calendar from '../../../assets/img/internship/internshipDetails/calendar.svg'
+import share from '../../../assets/img/internship/internshipDetails/share.svg'
+import rocket from '../../../assets/img/internship/rocket.svg'
+import BoostInternship from '../../newComp/boostYourInternship/boostYourInternship';
+import ShareInternship from '../../newComp/shareInternship/shareInternship';
 
 
 const { TabPane } = Tabs;
 const { Option } = Select;
 
 export default function NewInternshipDetails() {
+    const [isShowBoost, setIsShowBoost] = useState(false)
+    const [isShowShareInternship, setIsShowShareInternship] = useState(false)
+
+
 
     const internCards = (
         <Fragment>
@@ -65,23 +76,40 @@ export default function NewInternshipDetails() {
     </Fragment>
     );
 
+    const boostIntermshipHandler = () => {
+        setIsShowBoost(true);
+    }
+    const isCloseBoost = () => {
+        setIsShowBoost(false);
+    }
+    const isShowShare = () => {
+        setIsShowShareInternship(true);
+    }
+    const isCloseShare = () => {
+        setIsShowShareInternship(false);
+    }
+
     return (
+        <Fragment>
+            
         <div className="internship-details-block">
             <div className="internship-summary-and-overview-block">
+            <BoostInternship isShowBoost={isShowBoost} isCloseBoost={isCloseBoost} />
+            <ShareInternship isShow={isShowShareInternship} isClose={isCloseShare} intershipId={null} />
                 <div className="summary-block">
                     <h1 className="heading">Business Development Internship</h1>
                     <div className="suumary-details">
                         <div>Stipend <br/> <span>&#8377; 7000</span> </div>
                         <div>Deadline <br/> <span>15th April</span> </div>
                         <div>Duration <br/> <span>2 Months</span> </div>
-                        <Button className="boost-btn"> Boost Internship </Button>
+                        <Button onClick={boostIntermshipHandler} className="boost-btn"> <img  src={rocket} alt=""/> Boost Internship </Button>
                     </div>
                     <div className="action-buttons">
-                        <Button className="view-btn">View Internship</Button>
-                        <Button className="edit-btn">Edit Internship</Button>
-                        <Button className="close-btn">Close Hiring</Button>
-                        <Button className="extend-btn">Extend Deadline</Button>
-                        <Button className="share-btn">Share Internship</Button>
+                        <Button className="view-btn"><img src={view} alt=""/> View Internship</Button>
+                        <Button className="edit-btn"><img src={edit} alt=""/> Edit Internship</Button>
+                        <Button className="close-btn"><img src={close} alt=""/> Close Hiring</Button>
+                        <Button className="extend-btn"><img src={calendar} alt=""/> Extend Deadline</Button>
+                        <Button onClick={isShowShare} className="share-btn"><img src={share} alt=""/> Share Internship</Button>
                     </div>
                 </div>
                 <div className="overview-block">
@@ -131,5 +159,6 @@ export default function NewInternshipDetails() {
                 </Tabs>
             </div>
         </div>
+        </Fragment>
     )
 }

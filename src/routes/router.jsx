@@ -27,6 +27,7 @@ import EditProfile from "../components/editProfile/editProfile";
 import Login from "../components/loginOrSignUp/login";
 import SignUp from "../components/loginOrSignUp/signUp";
 import NewCreateInternship from '../components/internship/internshipForm/newCreateInternship';
+import Internship2 from '../components/internship/internship/internship2';
 
 const history = createBrowserHistory();
 
@@ -62,7 +63,7 @@ export default function AppRouter() {
 
         {/*//! ----------------Private Route----------------- */}
         <PrivateRoute path="/dashboard" component={Dashboard} exact={true} />
-        <PrivateRoute path="/internship" component={Internship} exact={true} />
+        <PrivateRoute path="/internship" component={Internship2} exact={true} />
         <PrivateRoute
           path="/internship/:internshipId"
           component={NewInternshipDetails}

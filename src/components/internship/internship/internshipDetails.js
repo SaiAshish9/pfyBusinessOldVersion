@@ -12,7 +12,8 @@ export default function InternshipDetails(props) {
     }
 
     useEffect(() => {
-            const url = `internship/company_fetchone/${props.match.params.internshipId}`;
+            // const url = `internship/company_fetchone/${props.match.params.internshipId}`;
+            const url = `internship/company_fetchone/5e6f2c5d3422b56f87738726`;
             axios.get(url)
                 .then(res => {
                     let data = res.data;

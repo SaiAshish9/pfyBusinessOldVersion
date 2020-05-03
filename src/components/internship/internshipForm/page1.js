@@ -106,11 +106,11 @@ export default function Page1(props) {
                         
                         
 
-                            <div>
+                            <div style={{marginLeft: "3rem"}}>
                                 <h2>Internship Location</h2>
                                 <Form.Item  className="location" name="location"  rules={[{required: true, message: 'Required'}]}>
                                     <Radio.Group>
-                                        <Radio.Button style={{width: "11rem", marginLeft:"3rem",textAlign:"center"}}  value="all-india">All India</Radio.Button>
+                                        <Radio.Button style={{width: "11rem",textAlign:"center"}}  value="all-india">All India</Radio.Button>
                                     </Radio.Group>
                                 </Form.Item>
                             </div>
