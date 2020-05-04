@@ -48,9 +48,9 @@ export default function ShowCaseCarousel() {
   const [carousel, setCarousel] = useState({
     slides: carouselContent.map((carouselContent, index) => (
       <div key={index} className="showcase-carousel-block">
-        <img src={carouselContent.img} alt="" className="carousel__img" />
         <h1 className="carousel__heading">{carouselContent.heading}</h1>
         <p className="carousel__para">{carouselContent.para}</p>
+        <img src={carouselContent.img} alt="" className="carousel__img" />
       </div>
     )),
 
@@ -66,7 +66,7 @@ export default function ShowCaseCarousel() {
   };
 
   return (
-    <div className="">
+    <div className="showcase-carousel-main-block">
       <Carousel
         arrowLeft={
           <img src={arrowLeft} alt="" className="carousel__left-arrow" />
