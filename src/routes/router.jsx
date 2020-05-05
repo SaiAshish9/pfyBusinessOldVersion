@@ -29,6 +29,7 @@ import Login from "../components/loginOrSignUp/login";
 import SignUp from "../components/loginOrSignUp/signUp";
 import NewCreateInternship from '../components/internship/internshipForm/newCreateInternship';
 import Internship2 from '../components/internship/internship/internship2';
+import NewAppliedGig from '../components/gig/newAppliedGig';
 
 const history = createBrowserHistory();
 
@@ -89,7 +90,7 @@ export default function AppRouter() {
         />
         <PrivateRoute
           path="/specific-gig/:id"
-          component={SpecificGig}
+          component={NewAppliedGig}
           exact={true}
         />
         <PrivateRoute

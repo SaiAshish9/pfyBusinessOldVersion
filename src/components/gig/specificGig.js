@@ -45,9 +45,7 @@ export default function SpecificGig(props) {
         console.log(e.target.checked);
     }
 
-    const isUpdate = () => {
-        setIsRefresh(Math.random())
-    }
+    
     const selectHandler = (value) => {
         console.log(`selected and filterapplication ${value}`);
         console.log(filterApplication)
@@ -69,6 +67,7 @@ export default function SpecificGig(props) {
       const selectHandler2 = (value) => {
         console.log(`selected ${value}`);
       }
+      
     const openWorkerModal = (UserId) => {
         setUserId(UserId);
         setIsShow(true)
@@ -77,7 +76,9 @@ export default function SpecificGig(props) {
 
     const isClose = () => {
         setIsShow(false)
-
+    }
+    const isUpdate = () => {
+        setIsRefresh(Math.random())
     }
 
     const selectOptions = (
