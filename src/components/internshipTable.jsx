@@ -1,9 +1,12 @@
 import { MoreOutlined } from "@ant-design/icons";
 import { Table, Tabs } from "antd";
 import React from "react";
+import {Link} from 'react-router-dom';
 const { TabPane } = Tabs;
 
 export default function InternshipTable({ isDataSource }) {
+  const internshipId = '5e6f2c5d3422b56f87738726'
+
   const columns = [
     {
       title: "S.No",
@@ -14,7 +17,7 @@ export default function InternshipTable({ isDataSource }) {
       title: "Job Title",
       dataIndex: "jobTitle",
       key: "jobTitle",
-      // ellipsis: true,
+      render: (jobTitle) => <Link to={`/internship/${internshipId}`}>{jobTitle}</Link>,
     },
     {
       title: "Location",

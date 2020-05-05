@@ -35,9 +35,7 @@ const WorkerCard = ({application, key, isSelectAll, internshipId}) => {
         setIsShow(false);
     };
 
-    
-    // console.log("USER/WORKER CARD DETAILS  ", user);
-    
+        
     const openWorkerProfile = () => {
         console.log(1);
         setIsShow(true)

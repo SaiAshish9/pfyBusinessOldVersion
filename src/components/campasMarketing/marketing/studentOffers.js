@@ -2,7 +2,7 @@ import React from 'react';
 import {Button} from 'antd'
 import boy from '../../../assets/img/campusMarketing/boy.svg'
 
-export default function NewCampusMarketing2() {
+export default function StudentOffers() {
     return (
         <main className="campus-marketing-2">
             <div className="block-1">

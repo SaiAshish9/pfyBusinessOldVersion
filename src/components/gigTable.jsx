@@ -6,6 +6,7 @@ import React from "react";
 const { TabPane } = Tabs;
 
 export default function GigTable() {
+  const internshipId = '5e6f2c5d3422b56f87738726'
   const columns = [
     {
       title: "S.No",
@@ -16,7 +17,7 @@ export default function GigTable() {
       title: "Job Title",
       dataIndex: "jobTitle",
       key: "jobTitle",
-      render: (jobTitle) => <Link>{jobTitle}</Link>,
+      render: (jobTitle) => <Link to={`/specific-gig/${internshipId}`}>{jobTitle}</Link>,
     },
     {
       title: "Location",

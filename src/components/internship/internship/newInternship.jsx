@@ -1,11 +1,13 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer, Fragment } from "react";
 import { Modal, Button } from "antd";
 import CreateInternship from "./createInternship";
 import modalSvg from "../../../assets/img/modalSvg.svg";
+import NewCreateInternship from '../internshipForm/newCreateInternship';
 
 export const ModalVisibleContext = React.createContext();
 
 function modalVisibleReducer(state, action) {
+  
   switch (action.type) {
     case "modalVisible": {
       return true;
@@ -26,11 +28,20 @@ export default function NewInternship() {
     false
   );
 
+  const [isShow, setIsShow] = useState(false)
   const handleCreateInternship = () => {
-    dispatchModalVisible({ type: "modalVisible" });
+    setIsShow(true)
+    console.log('open create internship modal')
+
   };
 
+  const close = () => {
+    setIsShow(false)
+  }
+
   return (
+    <Fragment>
+      <NewCreateInternship isShow={isShow} close={close} />
     <div className="newInternship-main-block">
       <div className="newInternship-block-one">
         <div className="img-block-one"></div>
@@ -76,5 +87,6 @@ export default function NewInternship() {
         <CreateInternship />
       </ModalVisibleContext.Provider>
     </div>
+    </Fragment>
   );
 }

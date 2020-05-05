@@ -22,11 +22,14 @@ import InternshipDetails from "../components/internship/internship/internshipDet
 import NewInternshipDetails from "../components/internship/internship/newInternshipDetails";
 // import SpecificGig from "../components/gig/specificGig";
 import NewCampusMarketing from "../components/campasMarketing/marketing/newMarketing";
-import NewCampusMarketing2 from "../components/campasMarketing/marketing/newMarketing2";
-import StudentOffer from "../components/studentOffer/studentOffer";
+import StudentOffers from "../components/campasMarketing/marketing/studentOffers";
+// import StudentOffer from "../components/studentOffer/studentOffer";
 import EditProfile from "../components/editProfile/editProfile";
 import Login from "../components/loginOrSignUp/login";
 import SignUp from "../components/loginOrSignUp/signUp";
+import NewCreateInternship from '../components/internship/internshipForm/newCreateInternship';
+import Internship2 from '../components/internship/internship/internship2';
+import NewAppliedGig from '../components/gig/newAppliedGig';
 
 const history = createBrowserHistory();
 
@@ -52,9 +55,9 @@ export default function AppRouter() {
         />
         <PublicRoute path="/marketing" component={Marketing} exact={true} />
         {/* <PrivateRoute path="/campus-marketing" component={CampusMarketing} exact={true} /> */}
-        <PublicRoute
+        <Route
           path="/testing"
-          component={InternshipDetails}
+          component={NewCreateInternship}
           exact={true}
         />
         <PublicRoute path="/login" component={Login} exact={true} />
@@ -62,7 +65,7 @@ export default function AppRouter() {
 
         {/*//! ----------------Private Route----------------- */}
         <PrivateRoute path="/dashboard" component={Dashboard} exact={true} />
-        <PrivateRoute path="/internship" component={Internship} exact={true} />
+        <PrivateRoute path="/internship" component={Internship2} exact={true} />
         <PrivateRoute
           path="/internship/:internshipId"
           component={NewInternshipDetails}
@@ -82,17 +85,17 @@ export default function AppRouter() {
 
         <PrivateRoute
           path="/campus-marketing"
-          component={NewCampusMarketing2}
+          component={NewCampusMarketing}
           exact={true}
         />
         <PrivateRoute
           path="/specific-gig/:id"
-          component={SpecificGig}
+          component={NewAppliedGig}
           exact={true}
         />
         <PrivateRoute
           path="/student-offer"
-          component={StudentOffer}
+          component={StudentOffers}
           exact={true}
         />
         <PrivateRoute
