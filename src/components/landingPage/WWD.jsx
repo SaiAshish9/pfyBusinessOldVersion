@@ -1,11 +1,11 @@
 import React from "react";
 import circle16 from "../../assets/img/landingPage/circle16.svg";
 import circle38 from "../../assets/img/landingPage/circle38.svg";
-import WWDBusinessDevelopment from "../../assets/img/landingPage/WWDBusinessDevelopment.svg";
-import WWDDataModeration from "../../assets/img/landingPage/WWDDataModeration.svg";
-import WWDFreelanceImg from "../../assets/img/landingPage/WWDFreelanceImg.svg";
-import WWDMarketing from "../../assets/img/landingPage/WWDMarketing.svg";
-import WWDResearch from "../../assets/img/landingPage/WWDResearch.svg";
+import WWDBusinessDevelopment from "../../assets/img/landingPage/WWDBusinessDevelopment.gif";
+import WWDDataModeration from "../../assets/img/landingPage/WWDDataModeration.gif";
+import WWDFreelanceImg from "../../assets/img/landingPage/WWDFreelanceImg.gif";
+import WWDMarketing from "../../assets/img/landingPage/WWDMarketing.gif";
+import WWDResearch from "../../assets/img/landingPage/WWDResearch.gif";
 import { Tabs, Button } from "antd";
 const { TabPane } = Tabs;
 
