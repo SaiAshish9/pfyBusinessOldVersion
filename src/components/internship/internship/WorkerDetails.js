@@ -16,7 +16,6 @@ import trophy from '../../../assets/img/internship/workerDetails/trophy.svg'
 import report from '../../../assets/img/internship/workerDetails/report.svg'
 import star from '../../../assets/img/internship/workerDetails/star.svg'
 
-// import axios from 'axios';
 
 export default function WorkerDetails({isShow, isClose, userId, internshipId}) {
     console.log("USER ID ", userId)
@@ -28,12 +27,13 @@ export default function WorkerDetails({isShow, isClose, userId, internshipId}) {
         axios.get(url)
             .then(res => {
                 const data = res.data;
-                console.log(data);
+                console.log('RESUME ', data);
                 setUser(data.user)
                 setResume(data.resume)
             })
-
-
+            .catch(err => {
+                console.log(err)
+            })
     },[])
 
     const buttonHandler = (action) => {
@@ -42,12 +42,13 @@ export default function WorkerDetails({isShow, isClose, userId, internshipId}) {
         else if(action === "shortlist") url = 'internship/shortlist'
         else if(action === 'select') url = 'internship/accept'
 
+
         const data = {
             internshipId: internshipId,
 	        userId: resume._id,
         }
 
-        console.log('reject data ', data)
+        console.log('IDs ', data)
         axios.put(url,data)
             .then(res => {
                 console.log(res)
@@ -84,12 +85,12 @@ export default function WorkerDetails({isShow, isClose, userId, internshipId}) {
         {user ? <WorkerDetailsCard user={user} /> : <Skeleton width="14rem" active />}
         <div className="main-block">
             <section className="interview-questions">
-                <div class="title">Interview Questions</div>
-                <div class="qna">
-                    <p class="question">1 . Interview Questions dummy text for an interview question this big?</p>
-                    <p class="answer">A. Interview Questions dummy text for an interview answer this big or a much bigger length?</p>
-                    <p class="question">1 . Interview Questions dummy text for an interview question this big?</p>
-                    <p class="answer">A. Interview Questions dummy text for an interview answer this big or a much bigger length?</p>
+                <div className="title">Interview Questions</div>
+                <div className="qna">
+                    <p className="question">1 . Interview Questions dummy text for an interview question this big?</p>
+                    <p className="answer">A. Interview Questions dummy text for an interview answer this big or a much bigger length?</p>
+                    <p className="question">1 . Interview Questions dummy text for an interview question this big?</p>
+                    <p className="answer">A. Interview Questions dummy text for an interview answer this big or a much bigger length?</p>
                 </div>
             </section>
             { resume ? <section className="resume-details">
@@ -110,7 +111,7 @@ export default function WorkerDetails({isShow, isClose, userId, internshipId}) {
                         </div>
                     </div>
                 </div>
-                <div className="education-block">
+                {resume.education ? <div className="education-block">
                     <div className="title">
                         <img src={book} alt="" />
                         <span>Education</span>
@@ -125,8 +126,8 @@ export default function WorkerDetails({isShow, isClose, userId, internshipId}) {
                             <span>{resume.education.diploma.instituteName}<br/> {resume.education.diploma.course}<br/> {resume.education.diploma.marks.val} {resume.education.diploma.marks.type}<br/> {resume.education.diploma.startYear}-{resume.education.diploma.endYear}</span>
                         </div> : null}
                     </div>
-                </div>
-                <div className="work-experience-block">
+                </div> :null }
+                {resume.workExperience.length ? <div className="work-experience-block">
                     <div className="title">
                         <img src={suitcase} alt="" />
                         <span>Work Experience</span>
@@ -160,8 +161,8 @@ export default function WorkerDetails({isShow, isClose, userId, internshipId}) {
                             <span className="year">2015-2016</span>
                         </div> */}
                     </div>
-                </div>
-                <div className="skills">
+                </div> : null }
+                {resume.skills.length ? <div className="skills">
                     <div className="title">
                         <img src={personAdd} alt="" />
                         <span>Skills</span>
@@ -170,7 +171,7 @@ export default function WorkerDetails({isShow, isClose, userId, internshipId}) {
                         {resume.skills.map((skill,index) =>  
                             <div key={index} className="skill">
                                 <span className="name">{skill.name}</span>
-                                {[...Array(skill.rating)].map(e => <img src={star} alt="" /> )}
+                                {[...Array(skill.rating)].map((e,index) => <img key={index} src={star} alt="" /> )}
                                 {/* { <img src={star} alt="" />} */}
                                 {/* <img src={star} alt="" /> */}
                                 {/* <img src={star} alt="" /> */}
@@ -181,8 +182,8 @@ export default function WorkerDetails({isShow, isClose, userId, internshipId}) {
                             <img src={star} alt="" />
                         </div> */}
                     </div>
-                </div>
-                <div className="pos">
+                </div> : null}
+                {resume.POR.length ? <div className="pos">
                     <div className="title">
                         <img src={personAdd} alt="" />
                         <span>Position of Responsibility</span>
@@ -196,8 +197,8 @@ export default function WorkerDetails({isShow, isClose, userId, internshipId}) {
                             </span>
                         </div> )}
                     </div>
-                </div>
-                <div className="trainings">
+                </div> : null }
+                {resume.trainings.length ? <div className="trainings">
                     <div className="title">
                         <img src={suitcase} alt="" />
                         <span>Trainings</span>
@@ -211,8 +212,8 @@ export default function WorkerDetails({isShow, isClose, userId, internshipId}) {
                             </span>
                         </div> )}
                     </div>
-                </div>
-                <div className="projects-block">
+                </div> : null }
+                {resume.projects.length ? <div className="projects-block">
                     <div className="title">
                         <img src={suitcase} alt="" />
                         <span>Projects</span>
@@ -246,8 +247,8 @@ export default function WorkerDetails({isShow, isClose, userId, internshipId}) {
                             <span className="year">2015-2016</span>
                         </div>
                     </div>
-                </div>
-                <div className="achievement-block">
+                </div> : null }
+                {resume.achievements.length ? <div className="achievement-block">
                     <div className="title">
                         <img src={trophy} alt="" />
                         <span>Achievement</span>
@@ -262,7 +263,7 @@ export default function WorkerDetails({isShow, isClose, userId, internshipId}) {
                             
                         </div>
                     </div>
-                </div>
+                </div> : null }
                 <div className="digital-profile-block">
                     <div className="title">
                         <img src={profile} alt="" />

@@ -1,21 +1,26 @@
-import React, { Fragment,useState } from 'react';
-import {Button, Tabs, Select, Table} from 'antd';
+import React, { Fragment,useState,useEffect } from 'react';
+import {Button, Tabs, Select, Table, Skeleton} from 'antd';
 import randomImg from '../../assets/randomImg.jpg';
 import view from '../../assets/img/internship/internshipDetails/view.svg'
 import Internship from '../internship/internship/internship';
 import WorkerDetails from '../internship/internship/WorkerDetails';
 import GigProfile from './gigProfile';
+import axios from 'axios';
+import moment from 'moment';
 
 
 const { TabPane } = Tabs;
 const { Option } = Select;
 
-export default function NewInternshipDetails() {
-    let internshipId = '5e6f2c5d3422b56f87738726';
+export default function NewInternshipDetails(props) {
+    // let internshipId = '5e6f2c5d3422b56f87738726';
     let userId = '5e6f6c763422b56f8773878c';
+    const id = props.match.params.id
+    console.log('ID '+ id)
 
     const [isShow, setIsShow] = useState(false)
     const [isRefresh, setIsRefresh] = useState(null)
+    const [gig, setGig] = useState(null)
     // const [userId, setUserId] = useState(null)
 
 
@@ -166,11 +171,6 @@ export default function NewInternshipDetails() {
           isCompleted: 'Completed Gig Successfully'
         };
       });
-
-    //   const openModel = (InternshipId) => {
-    //     setIsShow(true)
-    //   }
-
       
     const openModel = (UserId) => {
         // setUserId(UserId);
@@ -185,6 +185,27 @@ export default function NewInternshipDetails() {
         setIsRefresh(Math.random())
     }
           
+    useEffect(() => {
+      const url = `mission/company/fetchone/${id}`;
+      axios.get(url)
+        .then(res => {
+          const data = res.data;
+          console.log('SINGLE GIG ', data)
+          setGig(data)
+        })
+    }, [])
+
+    const getDateDifference  = (startDate, endDate) => {
+      console.log(startDate + ' and  ' + endDate)
+      let now = moment(startDate); //todays date
+      let end = moment(endDate); // another date
+      let duration = moment.duration(end.diff(now));
+
+      let months = duration.asMonths().toFixed(2) + ' Months'
+
+      // console.log(' NOW ' + now + ' END '+ end + ' DURATION ' + duration + ' FINAL ' + months)
+      return months
+    }
 
     return (
         <Fragment> 
@@ -193,14 +214,15 @@ export default function NewInternshipDetails() {
             /> */}
             <GigProfile isUpdate={isUpdate} isShow={isShow} isClose={isClose} userId={userId} />
         <div className="gig-details-block">
-            <div className="gig-summary-and-overview-block">
+            {gig ? <div className="gig-summary-and-overview-block">
                 <div className="summary-block">
-                    <h1 className="heading">Business Development Internship</h1>
+                    <h1 className="heading">{gig.title}</h1>
                     <div className="suumary-details">
                         <div>Category <br/> <span> Marketing</span> </div>
-                        <div>Deadline <br/> <span>15th April</span> </div>
-                        <div>Duration <br/> <span>2 Months</span> </div>
-                        <div>Total Task <br/> <span>5</span> </div>
+                        
+                        <div>Deadline <br/> <span>{moment(gig.missionEndDate).format('Do MMM')}</span> </div>
+                        <div>Duration <br/> <span>{getDateDifference(gig.missionStartDate, gig.missionEndDate)}</span> </div>
+                        <div>Total Task <br/> <span>{gig.tasks.length} </span> </div>
                     </div>
                     <div className="action-buttons">
                         <Button className="view-btn"><img src={view} alt=""/> View Gig</Button>
@@ -210,18 +232,18 @@ export default function NewInternshipDetails() {
                     <h1 className="heading">Application Overview</h1>
                     <div className="details">
                         <div className="single-detail">
-                            <p>Pending</p> <span>5</span>
+                            <p>Pending</p> <span>72</span>
                         </div>
                         <div className="single-detail">
-                             <p>Shortlisted</p> <span>12</span>
+                             <p>Shortlisted</p> <span>10/100</span>
                         </div>
                         <div className="single-detail">
-                             <p>Selected</p> <span>3</span>
+                             <p>Selected</p> <span>2/10</span>
                         </div>
                     </div>
                     
                 </div>
-            </div>
+          </div> : <Skeleton active /> }
             <div className="interns-application-block">
                 <div className="heading">
                     <h2>APPLICATIONS</h2>

@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Campaign from "./campaign";
 import marketingIcon from "../../assets/img/gig/campaignCategoryIcon/marketingIcon.svg";
 import BDIcon from "../../assets/img/gig/campaignCategoryIcon/BDIcon.svg";
 import dataModerationIcon from "../../assets/img/gig/campaignCategoryIcon/dataModerationIcon.svg";
 import RandAIcon from "../../assets/img/gig/campaignCategoryIcon/RandAIcon.svg";
 import freelanceIcon from "../../assets/img/gig/campaignCategoryIcon/freelanceIcon.svg";
-import { Tabs } from "antd";
+import { Tabs, Skeleton } from "antd";
 import ExistingGig from "./existingGig";
 import NewGig from "./newGig";
 import GigTable from "../gigTable";
 import arrowIcon from "../../assets/img/arrowIcon.svg";
+import axios from 'axios';
 
 const { TabPane } = Tabs;
 
@@ -102,7 +103,10 @@ const gigTab = gigTabTitle.map((data, index) => (
 
 export default function Gig() {
   const css = "font-size:30px";
+
+
   const [key, setKey] = useState(0);
+  const [gigs, setGigs] = useState(null);
 
   const campaign = (title) => (
     <>
@@ -112,9 +116,21 @@ export default function Gig() {
     </>
   );
 
+  useEffect(() => {
+    const url = `mission/get_company_missions`;
+    axios.get(url)
+      .then(res => {
+        const {data} = res
+        console.log('GIGS ARE ',data)
+        setGigs(data)
+      })
+  }, [])
+
+
+
   return (
     <div className="gig-main-block">
-      <GigTable />
+      {gigs ?  <GigTable gigs={gigs} /> : <Skeleton active /> }
       <h2 className="create-campaign-heading">Creat New Gig</h2>
       <Tabs
         activeKey={`${key}`}

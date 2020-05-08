@@ -88,6 +88,7 @@
             height: 82vh;
             overflow: scroll;
             width: 70%;
+            padding: 1rem 0;
             .about-block, .achievement-block{
                 @extend %scroll-div;
                 @extend %bigBlock;                

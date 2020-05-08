@@ -49,7 +49,7 @@ export default function Page2(props) {
                         <div className="inline-form">
                             <div >
                                 <h2>Select Internship Profile</h2>
-                                <Form.List  name="intern-responsibilities">
+                                <Form.List  name="responsibilities">
                                     {(fields, { add, remove }) => {
                                     /**
                                      * `fields` internal fill with `name`, `key`, `fieldKey` props.
@@ -84,7 +84,7 @@ export default function Page2(props) {
                                     }}
                                 </Form.List>
                                 <h2>Requirements From Interns</h2>
-                                <Form.List  name="requirements-from-interns">
+                                <Form.List  name="otherRequirements">
                                     {(fields, { add, remove }) => {
                                     /**
                                      * `fields` internal fill with `name`, `key`, `fieldKey` props.
@@ -120,7 +120,7 @@ export default function Page2(props) {
                                 </Form.List>
                                 <h2>Skills</h2>
                                 <Form.Item
-                                    name="skills"
+                                    name="skillsRequired"
                                     // label="Type Cities"
                                     rules={[{ required: true,message: 'Required',  type: 'array'},]}
                                 >
@@ -137,7 +137,7 @@ export default function Page2(props) {
                             </div>
                             <div>
                             <h2>Interview Questions</h2>
-                                <Form.List  name="interview-questions">
+                                <Form.List  name="questions">
                                     {(fields, { add, remove }) => {
                                     /**
                                      * `fields` internal fill with `name`, `key`, `fieldKey` props.
