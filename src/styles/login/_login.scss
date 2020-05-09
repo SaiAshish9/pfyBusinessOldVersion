@@ -27,56 +27,59 @@
     color: #000000;
   }
   %input {
-    // height: 48px;
     border-radius: 0px;
-    border-width: 0 0 1px 0;
+    border-width: 0 0 2px 0;
     border-style: solid;
-    border-color: #00bfa6;
     margin-bottom: 25px;
-    &:focus {
-      border-width: 0 0 2px 0 !important;
-      border-style: solid;
-      border-color: #00bfa6;
-      box-shadow: none !important;
-    }
-    &:hover {
-      border-width: 0 0 2px 0 !important;
-      border-style: solid;
-      border-color: #00bfa6;
-      box-shadow: none !important;
-    }
-
+    border-color: #d3d3d3;
+    font-size: 15px;
+    // line-height: 1.43;
+    &:focus,
+    &:hover,
     &:focus-within {
       border-width: 0 0 2px 0 !important;
+      border-style: solid;
+      border-color: #00bfa6;
       box-shadow: none !important;
     }
     .ant-input-prefix {
       line-height: 1.2;
       margin-right: 12px;
     }
+    
   }
   %textarea {
-    height: 96px;
-    border-radius: 4px;
-    border: solid 0.5px #707070;
-    // background-color: #f7f8fa;
+    border-radius: 0px;
+    border-width: 0 0 2px 0;
+    border-style: solid;
     margin-bottom: 25px;
-    &:focus {
-      border: solid 0.5px #79ffeb;
+    border-color: #d3d3d3;
+    font-size: 15px;
+    &:focus,
+    &:hover,
+    &:focus-within {
+      border-width: 0 0 2px 0 !important;
+      border-style: solid;
+      border-color: #00bfa6;
+      box-shadow: none !important;
     }
   }
   %select {
     width: 100%;
+    font-size: 15px;
+    margin-bottom: 25px;
     .ant-select-selector {
-      height: 48px;
-      border-radius: 4px;
-      border: solid 0.5px #707070;
-      // background-color: #f7f8fa;
-      .ant-select-selection-item {
-        line-height: 42px;
-      }
+      border-radius: 0px;
+      border-width: 0 0 2px 0;
+      border-color: #d3d3d3;
+      border-style: solid;
+      &:focus,
+      &:hover,
       &:focus-within {
-        border: solid 0.5px #79ffeb;
+        border-width: 0 0 2px 0 !important;
+        border-style: solid;
+        border-color: #00bfa6;
+        box-shadow: none !important;
       }
     }
   }
@@ -100,7 +103,7 @@
     border-radius: 18px;
     box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.16);
     background-color: #ffffff;
-    padding: 34px 68px;
+    padding: 34px 60px;
 
     .login__header {
       text-align: center;
@@ -110,13 +113,6 @@
       color: #000000;
       margin: 0 0 30px 0;
     }
-
-    // .login__para {
-    //   opacity: 0.7;
-    //   font-size: 26px;
-    //   line-height: 1.38;
-    //   color: #000000;
-    // }
 
     .form-block {
       .email__input {
@@ -163,59 +159,60 @@
 
   .showcase-carousel-main-block {
     width: 45%;
-    // height: 100%;
+  }
+
+  @media screen and (max-width: 812px) {
+    height: 200%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .showcase-carousel-main-block {
+      width: 100%;
+    }
   }
 }
 
 .signUp-form-block {
   display: grid;
-  grid-template-areas:
-    "fullName mobile"
-    "email email"
-    "password password"
-    "otp otp"
-    "aboutCompany aboutCompany"
-    "button button";
   grid-gap: 0px 20px;
-  .fullName {
-    grid-area: fullName;
-
-    .fullName__label {
-      @extend%label;
-    }
-    .fullName__input {
+  grid-template-areas:
+    "firstName"
+    "lastName"
+    "mobile"
+    "email"
+    "password"
+    "otp"
+    "aboutCompany"
+    "button";
+  .firstName {
+    grid-area: firstName;
+    .firstName__input {
       @extend%input;
-      //
     }
   }
 
+  .lastName {
+    grid-area: lastName;
+    .lastName__input {
+      @extend%input;
+    }
+  }
   .mobile {
     grid-area: mobile;
-    .mobile__label {
-      @extend%label;
-    }
     .mobile__input {
       @extend%input;
-      //
     }
   }
 
   .email {
     grid-area: email;
-    .email__label {
-      @extend%label;
-    }
     .email__input {
       @extend%input;
-      //
     }
   }
 
   .password {
     grid-area: password;
-    .password__label {
-      @extend%label;
-    }
     .password__input {
       @extend%input;
     }
@@ -223,43 +220,29 @@
 
   .email-otp {
     grid-area: otp;
-    .email-otp__label {
-      @extend%label;
-    }
+
     .email-otp__input {
       @extend%input;
     }
   }
 
   .companyName {
-    .companyName__label {
-      @extend%label;
-    }
     .companyName__input {
       @extend%input;
     }
   }
   .companyWebsite {
-    .companyWebsite__label {
-      @extend%label;
-    }
     .companyWebsite__input {
       @extend%input;
     }
   }
   .companyType {
-    .companyType__label {
-      @extend%label;
-    }
     .companyType__input {
       @extend%select;
     }
   }
   .aboutCompany {
     grid-area: aboutCompany;
-    .aboutCompany__label {
-      @extend%label;
-    }
     .aboutCompany__input {
       @extend%textarea;
     }

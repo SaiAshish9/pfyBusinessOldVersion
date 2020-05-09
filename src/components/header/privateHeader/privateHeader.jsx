@@ -138,7 +138,7 @@ export default function PrivateHeader({ component: Component, ...rest }) {
           </Menu.Item>
         </Menu>
       </Sider>
-
+      
       <Layout className="site-layout">
         <Header
           className="site-layout-background"

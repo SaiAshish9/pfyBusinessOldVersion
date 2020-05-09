@@ -6,23 +6,36 @@ import { useForm, Controller } from "react-hook-form";
 import cookie from "js-cookie";
 import ShowCaseCarousel from "./showCaseCarousel";
 import arrowLeft from "../../assets/img/goBackLeftArrow.svg";
+import userIcon from "../../assets/img/loginOrSignUp/userIcon.svg";
+import mailIcon from "../../assets/img/loginOrSignUp/mailIcon.svg";
+import phoneNumberIcon from "../../assets/img/loginOrSignUp/phoneNumberIcon.svg";
+import passwordIcon from "../../assets/img/loginOrSignUp/passwordIcon.svg";
 
 const userDetail = [
   {
-    name: "Full Name",
-    formName: "fullName",
+    name: "First Name",
+    formName: "firstName",
+    icon: userIcon,
   },
   {
-    name: "Mobile",
+    name: "Last Name",
+    formName: "lastName",
+    icon: userIcon,
+  },
+  {
+    name: "Mobile Number",
     formName: "mobile",
+    icon: phoneNumberIcon,
   },
   {
-    name: "E-mail Address",
+    name: "Email Address",
     formName: "email",
+    icon: mailIcon,
   },
   {
     name: "Password",
     formName: "password",
+    icon: passwordIcon,
   },
 ];
 
@@ -56,7 +69,6 @@ const beforeUpload = (file) => {
 
 export default function SignUp() {
   const history = useHistory();
-  const inputRef = useRef();
   const { control, handleSubmit, watch, reset, errors } = useForm({
     defaultValues: {},
   });
@@ -66,7 +78,8 @@ export default function SignUp() {
   const onSubmit = (data) => {
     console.log(data);
     reset({
-      fullName: "",
+      firstName: "",
+      lastName: "",
       mobile: "",
       email: "",
       password: "",
@@ -90,17 +103,20 @@ export default function SignUp() {
   const [loading, setLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState();
 
-  const whichInputField = (inputType, formName) => {
+  const whichInputField = (inputType, inputName, formName) => {
     switch (inputType) {
       case "input": {
-        return <Input className={`${formName}__input`} />;
+        return (
+          <Input placeholder={inputName} className={`${formName}__input`} />
+        );
       }
       case "select": {
         return (
           <Select
             className={`${formName}__input`}
             listItemHeight={10}
-            listHeight={250}
+            listHeight={200}
+            placeholder={inputName}
           >
             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((data, index) => (
               <Option key={index}> {data}</Option>
@@ -109,7 +125,9 @@ export default function SignUp() {
         );
       }
       case "textArea": {
-        return <TextArea className={`${formName}__input`} />;
+        return (
+          <TextArea className={`${formName}__input`} placeholder={inputName} />
+        );
       }
       default: {
         console.log("there is some problem");
@@ -138,22 +156,27 @@ export default function SignUp() {
           <img src={arrowLeft} alt="" className="goBackArrow" /> Pracify
         </h4>
         <h1 className="login__header">Sign Up</h1>
-        <p className="login__para">
-          {isRegister
-            ? "We've sent you OTP on your email address"
-            : "Get Started!"}
-        </p>
-
+        {isRegister && !isFinalRegister && (
+          <p className="OTP__para">
+            "We've sent you One Time Password (OTP) to verify your email
+            address. Please enter it to continue."
+          </p>
+        )}
         {!isRegister ? (
           <form onSubmit={handleSubmit(onSubmit)} className="signUp-form-block">
             {userDetail.map((userDetail, index) => {
               return (
                 <div className={`${userDetail.formName}`} key={index}>
-                  <p className={`${userDetail.formName}__label`}>
-                    {userDetail.name}
-                  </p>
                   <Controller
-                    as={<Input className={`${userDetail.formName}__input`} />}
+                    as={
+                      <Input
+                        prefix={
+                          <img src={userDetail.icon} alt="" className="" />
+                        }
+                        placeholder={userDetail.name}
+                        className={`${userDetail.formName}__input`}
+                      />
+                    }
                     name={`${userDetail.formName}`}
                     control={control}
                   />
@@ -170,9 +193,8 @@ export default function SignUp() {
             className="signUp-form-block"
           >
             <div className="email-otp">
-              <p className="email-otp__label">Email OTP</p>
               <Controller
-                as={<Input className="email-otp__input" />}
+                as={<Input placeholder="Enter OTP" className="email-otp__input" />}
                 name="otp"
                 control={control}
                 rules={{ required: true, minLength: 3 }}
@@ -215,12 +237,10 @@ export default function SignUp() {
 
               {companyDetail.map((companyDetail, index) => (
                 <div className={`${companyDetail.formName}`} key={index}>
-                  <p className={`${companyDetail.formName}__label`}>
-                    {companyDetail.name}
-                  </p>
                   <Controller
                     as={whichInputField(
                       companyDetail.type,
+                      companyDetail.name,
                       companyDetail.formName
                     )}
                     name={`${companyDetail.formName}`}
@@ -235,10 +255,9 @@ export default function SignUp() {
             </form>
           </>
         )}
-
         {!isRegister && (
           <div className="newUserOrForgotPassword">
-            <span className="newUser__span">
+            <div className="newUser__span">
               Already a member?{" "}
               <span
                 className="register__span"
@@ -246,7 +265,7 @@ export default function SignUp() {
               >
                 Login
               </span>
-            </span>
+            </div>
           </div>
         )}
       </div>
