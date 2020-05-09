@@ -1,11 +1,11 @@
 
 .gig-details-block{
     .gig-summary-and-overview-block{
-        
         display: flex;
         justify-content: space-between;
-        height: 14rem; 
+        flex-wrap: wrap;
         .summary-block{
+            flex: 1 1 500px;
             background-color: #fff;
             .heading{
                 font-size: 1.5rem;
@@ -13,7 +13,7 @@
             }
             border-radius: 9px;
             box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-            width: 72.5%;;
+            // width: 72.5%;;
             border-top: 1rem solid #444584;
             padding: 1rem;
             .suumary-details{
@@ -58,8 +58,10 @@
             }
         }
         .overview-block{
+            flex: 1 1 300px;
+
             background-color: #fff;
-            width: 25.5%;
+            // width: 25.5%;
             border-radius: 9px;
             box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
             border-top: 1rem solid #444584;
@@ -177,6 +179,9 @@
 }
 
 .applied-gigs, .selected-gigs, .completed-gigs{
+    .task-submission-col{
+        width: 15rem !important;
+    }
     .resume-score{
         .progress-bar{
             display: flex;
@@ -202,7 +207,7 @@
         }
     }
     .gig-score{
-        width: 17rem;
+        width: 15rem;
     }
     .name-and-img{
         // min-width: 30%;
@@ -229,6 +234,7 @@
 
 .selected-gigs, .completed-gigs{
     .submitted, .is-completed{
+        
         .dot{
             height: 0.75rem;
             width: 0.75rem;
