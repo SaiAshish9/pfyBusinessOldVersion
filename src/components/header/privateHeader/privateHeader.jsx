@@ -4,6 +4,7 @@ import cookie from "js-cookie";
 import React, { useState } from "react";
 import { Link, Route, useHistory, useLocation } from "react-router-dom";
 /* -------------------------------- ******** -------------------------------- */
+import HowPracifyWork from "../../howPracifyWork";
 import logo from "../../../assets/img/logo.png";
 import campusMarketingIcon from "../../../assets/img/sideBarIcon/campusMarketingIcon.svg";
 import editProfileIcon from "../../../assets/img/sideBarIcon/editProfileIcon.svg";
@@ -138,7 +139,7 @@ export default function PrivateHeader({ component: Component, ...rest }) {
           </Menu.Item>
         </Menu>
       </Sider>
-      
+
       <Layout className="site-layout">
         <Header
           className="site-layout-background"
@@ -151,9 +152,10 @@ export default function PrivateHeader({ component: Component, ...rest }) {
               <MenuFoldOutlined onClick={handleToggle} className="trigger" />
             )}
             <div className="header-links">
-              <Button className="howItWorkButton">How it works?</Button>
+              <HowPracifyWork />
+
               <div className="header-avatar-block">
-            <div className="avatar-on-header">{"S"}</div>
+                <div className="avatar-on-header">{"S"}</div>
                 <span className="avatar-name">{"Shivam Malhotra"}</span>
               </div>
               <span className="needHelp-button">Help</span>

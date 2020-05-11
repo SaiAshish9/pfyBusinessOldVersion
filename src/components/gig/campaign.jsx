@@ -17,8 +17,7 @@ export default function Campaign({ campaignTitle }) {
       : setModalVisible(true);
   };
 
-  const handleCancel = (e) => {
-    console.log(e);
+  const handleCancel = () => {
     setModalVisible(false);
   };
 

@@ -1,0 +1,64 @@
+.hero-main-block {
+  padding: 0 50px 0 50px;
+  display: flex;
+  .hero-content {
+    position: relative;
+    padding: 100px 50px 0 0px;
+    .hero-content-heading {
+      word-spacing: -12px;
+      margin-bottom: 16px;
+      line-height: 1.22;
+      font-size: 36px;
+      font-weight: 500;
+      color: #333e49;
+    }
+
+    .hero-content-para {
+      font-size: 20px;
+      color: #686868;
+      word-spacing: -8px;
+    }
+
+    .hero-content-button {
+      width: 263px;
+      height: 60px;
+      border-radius: 30px;
+      border: solid 2px #444584;
+      background: transparent;
+
+      font-size: 22px;
+      line-height: 1.82;
+      color: #444584;
+    }
+    .chipOne {
+      position: absolute;
+      left: 70px;
+      top: 20px;
+    }
+    .chipTwo {
+      position: absolute;
+      left: 440px;
+      top: 50px;
+    }
+    .chipThree {
+      position: absolute;
+      left: -30px;
+      top: 190px;
+    }
+    .chipFour {
+      position: absolute;
+      right: 10px;
+      bottom: 110px;
+    }
+    .chipFive {
+      position: absolute;
+      bottom: 10px;
+      left: 90px;
+    }
+  }
+
+  .hero-img {
+    margin-top: 20px;
+    width: 670px;
+  }
+}

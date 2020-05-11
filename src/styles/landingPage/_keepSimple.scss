@@ -1,0 +1,99 @@
+.keepSimple-main-block {
+  margin-top: 120px;
+  .keepSimple-message-block {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    .keepSimple-message {
+      position: relative;
+      word-spacing: -12px;
+      margin: 0 60px;
+      font-size: 36px;
+      line-height: 1.36;
+      font-weight: bold;
+      text-align: center;
+      color: #333e49;
+    }
+    .chipOne {
+      position: absolute;
+      top: -50px;
+      left: 440px;
+    }
+    .chipTwo {
+      position: absolute;
+      right: 70px;
+      top: 50px;
+    }
+    .chipThree {
+      position: absolute;
+      bottom: -40px;
+      left: 210px;
+    }
+    .chipFour {
+      position: absolute;
+      right: 330px;
+      top: -30px;
+    }
+    .chipFive {
+      position: absolute;
+      bottom: -20px;
+      right: 40%;
+    }
+  }
+
+  .content-main-block {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 40px;
+    .content-block {
+      text-align: center;
+      margin: 6px;
+      .content-img {
+      }
+
+      .content-heading {
+        font-size: 20px;
+        font-weight: 900;
+      }
+
+      .content-subHeading {
+        font-size: 32px;
+        word-spacing: -8px;
+        font-weight: bold;
+        color: #333e49;
+        margin: 0 0px 8px 0px;
+      }
+
+      .content-para {
+        font-size: 20px;
+        color: #3d3d3d;
+        margin: 0 36px;
+      }
+    }
+    .content-block:nth-child(1) {
+      .content-heading {
+        color: #ff5e16;
+      }
+      .content-para {
+        margin: 0 24px;
+      }
+    }
+    .content-block:nth-child(2) {
+      .content-heading {
+        color: #4385e0;
+      }
+      .content-para {
+        margin: 0 85px;
+      }
+    }
+    .content-block:nth-child(3) {
+      .content-heading {
+        margin-top: 7px;
+        color: #4d52d1;
+      }
+      .content-para {
+        margin: 0 38px;
+      }
+    }
+  }
+}
