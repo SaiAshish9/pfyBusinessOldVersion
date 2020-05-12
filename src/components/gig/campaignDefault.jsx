@@ -1,5 +1,7 @@
-import React from "react";
-import { Modal, Button, Input } from "antd";
+import React, { useEffect } from "react";
+import axios from "axios";
+
+import { Modal, Button, Input, Form, InputNumber } from "antd";
 import modalSvg from "../../assets/img/modalSvg.svg";
 
 export default function DefaultCampaign({
@@ -7,24 +9,47 @@ export default function DefaultCampaign({
   modalVisible,
   handleCancel,
 }) {
+  const [form] = Form.useForm();
+
+  const handleSubmit = () => {
+    form
+      .validateFields()
+      .then((values) => {
+        form.resetFields();
+        onCreate(values);
+      })
+      .catch((info) => {
+        console.log("Validate Failed:", info);
+      });
+  };
+
+  const onCreate = (values) => {
+    console.log("Received values of form: ", values);
+    const data = { ...values, formName: campaignTitle };
+    console.log(data);
+    axios
+      .post("company_contact_us/create", data)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+    handleCancel();
+  };
+
   const modalFooter = (
     <div className="custom-modal-footer">
-      <Button className="goBack-button">Go Back</Button>
-      <Button className="contactUs-button">Contact Us</Button>
+      <Button
+        className="contactUs-button"
+        htmlType="submit"
+        onClick={handleSubmit}
+      >
+        SUBMIT
+      </Button>
     </div>
   );
 
-  const modalTitle = (
-    <div className="custom-modal-title">
-      <img src={modalSvg} alt="" className="modal-title__img" />
-      <div className="modal-title-content">
-        <h1 className="modal-title__header">{`${campaignTitle}`}</h1>
-        <p className="modal-title__para">
-          Fill the details below and our team will contact you
-        </p>
-      </div>
-    </div>
-  );
   return (
     <Modal
       title={`${campaignTitle}`}
@@ -34,18 +59,65 @@ export default function DefaultCampaign({
       className="contactToAdmin-modal"
       width={860}
     >
-      <div className="default-block">
+      <Form
+        className="default-block"
+        form={form}
+        hideRequiredMark={true}
+        name="defaultGigCampaign"
+      >
         <p className="requirement__p">Please share your requirement</p>
-        <Input className="requirement__input"></Input>
+        <Form.Item
+          name="description"
+          rules={[
+            {
+              required: true,
+              message: "Please tell us about your requirement!",
+            },
+          ]}
+        >
+          <Input className="requirement__input"></Input>
+        </Form.Item>
 
         <p className="budget__p">Please tell us your budget</p>
-        <Input className="budget__input"></Input>
+        <Form.Item
+          name="budget"
+          rules={[
+            {
+              required: true,
+              message: "what is your estimated budget!",
+            },
+            {
+              type: "number",
+              message: "number only input!",
+            },
+          ]}
+        >
+          <InputNumber className="budget__input"></InputNumber>
+        </Form.Item>
+
         <p className="budget__p">How many gig workers do you want to hire?</p>
-        <Input className="budget__input"></Input>
+        <Form.Item
+          name="noOfWorkers"
+          rules={[
+            {
+              required: true,
+              message: "How many gig workers do you want to hire ?",
+            },
+          ]}
+        >
+          <InputNumber className="budget__input"></InputNumber>
+        </Form.Item>
 
         <p className="quantity__p">Any additional information (optional)</p>
         <Input className="quantity__input"></Input>
-      </div>
+      </Form>
     </Modal>
   );
 }
+
+// {
+// 	"formName":"Marketing",
+// 	"description":"I want to creat a mission",
+// 	"budget":1000,
+// 	"noOfWorkers":100
+// }

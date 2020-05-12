@@ -184,7 +184,7 @@ export default function SignUp() {
               );
             })}
             <Button htmlType="submit" className="register__button">
-              REGISTER
+              NEXT
             </Button>
           </form>
         ) : !isFinalRegister ? (
@@ -250,7 +250,7 @@ export default function SignUp() {
                 </div>
               ))}
               <Button htmlType="submit" className="register__button">
-                REGISTER
+                SUBMIT
               </Button>
             </form>
           </>

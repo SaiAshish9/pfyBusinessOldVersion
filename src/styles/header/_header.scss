@@ -25,58 +25,40 @@
     div.link-container {
       display: flex;
       align-items: center;
-      .myLink1 {
-        text-decoration: none;
-        padding: 10px 10px;
-        color: #273152;
-        font-size: 20px;
 
-        &:hover {
-          color: #1890ff;
-          cursor: pointer;
-        }
+      .redirect-to-user-panel-button {
+        width: 200px;
+        height: 49px;
+        border-radius: 6px;
+        border: solid 1px #444584;
+        margin-left: 30px;
+
+        font-size: 18px;
+        color: #444584;
       }
-      .myLink2 {
-        text-decoration: none;
-        padding: 10px 10px;
-        // margin-right: 40px;
-        color: #273152;
-        font-size: 20px;
-        &:hover {
-          color: #1890ff;
-          cursor: pointer;
-        }
-      }
-      .myLink3 {
-        text-decoration: none;
-        padding: 10px 10px;
-        // margin-right: 40px;
-        color: #273152;
-        font-size: 20px;
-        &:hover {
-          color: #1890ff;
-          cursor: pointer;
-        }
-      }
-      .myLink4 {
-        text-decoration: none;
-        padding: 10px 10px;
-        // margin-right: 40px;
-        color: #273152;
-        font-size: 20px;
-        &:hover {
-          color: #1890ff;
-          cursor: pointer;
-        }
-      }
-      .header__button1 {
-        font-size: 1.25em;
-        padding: 0px 30px;
-        height: 40px;
-        border: solid 1px #252eb7;
-        background-color: #252eb7;
+
+      .register-button {
+        width: 200px;
+        height: 49px;
+        border-radius: 6px;
+        background-color: #444584;
+        margin-left: 30px;
+
+
+        font-size: 18px;
         color: #fff;
-        margin-left: 12px;
+      }
+
+      .login-button {
+        width: 200px;
+        height: 49px;
+        border-radius: 6px;
+        background-color: #38bdba;
+        margin-left: 30px;
+
+
+        font-size: 18px;
+        color: #fff;
       }
     }
 

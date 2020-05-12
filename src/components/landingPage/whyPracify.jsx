@@ -6,6 +6,11 @@ import WPRealTimeIcon from "../../assets/img/landingPage/WPRealTimeIcon.svg";
 import WPEndToEndIcon from "../../assets/img/landingPage/WPEndToEndIcon.svg";
 import WPPanIndiaIcon from "../../assets/img/landingPage/WPPanIndiaIcon.svg";
 
+import chipYellowTriangle from "../../assets/img/landingPage/chipYellowTriangle.svg";
+import chipRedTriangle from "../../assets/img/landingPage/chipRedTriangle.svg";
+import chipCyanCircle from "../../assets/img/landingPage/chipCyanCircle.svg";
+import chipBlueSquare from "../../assets/img/landingPage/chipBlueSquare.svg";
+
 const whyPracifyData = [
   {
     image: WPOutcomeIcon,
@@ -41,10 +46,16 @@ export default function WhyPracify() {
     <div className="why-pracify-block">
       <div className="why-pracify-header-block">
         <h1 className="why-pracify-header">
-          WHY PRACIFY?
-          <img src={circle16} alt="" className="header-img-one" />
+          Achieve your business goals on Pracify. The whole process is simple,
+          easy & safe.
+          {/* <img src={circle16} alt="" className="header-img-one" />
           <img src={circle38} alt="" className="header-img-two" />
+      */}{" "}
         </h1>
+        <img src={chipRedTriangle} alt="" className="chipOne" />
+        <img src={chipYellowTriangle} alt="" className="chipTwo" />
+        <img src={chipBlueSquare} alt="" className="chipThree" />
+        <img src={chipCyanCircle} alt="" className="chipFour" />
       </div>
       <div className="why-pracify-disc-main-block">
         {whyPracifyData.map((whyPracifyData, index) => (

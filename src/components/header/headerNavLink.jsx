@@ -4,8 +4,6 @@ import {} from "react-router-dom";
 import { useHistory, Link } from "react-router-dom";
 import cookie from "js-cookie";
 
-import { Link as ScrollLink } from "react-scroll";
-
 export default function HeaderNavLink() {
   const history = useHistory();
   const handleDummyLogin = () => {
@@ -14,46 +12,19 @@ export default function HeaderNavLink() {
   };
   return (
     <>
-      <ScrollLink
-        activeClass="active"
-        to="howItWork"
-        smooth={true}
-        duration={500}
-        offset={-60}
-        className="myLink1"
-      >
-        How it Works
-      </ScrollLink>
-      <ScrollLink
-        activeClass="active"
-        to="whyPracify"
-        smooth={true}
-        duration={500}
-        offset={-60}
-        className="myLink2"
-      >
-        Why Pracify
-      </ScrollLink>
-      <ScrollLink
-        activeClass="active"
-        to="ourService"
-        smooth={true}
-        duration={500}
-        offset={-100}
-        className="myLink3"
-      >
-        Our Services
-      </ScrollLink>
-
-      {/* <RouteLink to="/internship" className="myLink4">
-        Internship
-      </RouteLink> */}
-      <Link to="/login">
-        <Button className="header__button1">Login</Button>
+      <Link to="/">
+        <Button className="redirect-to-user-panel-button">
+          For Gig Workers
+        </Button>
       </Link>
-
-      <Button onClick={handleDummyLogin} className="header__button1">
-        {"-- Login --"}
+      <Link to="/register">
+        <Button className="register-button">Register</Button>
+      </Link>
+      <Link to="/login">
+        <Button className="login-button">Login</Button>
+      </Link>
+       <Button onClick={handleDummyLogin} className="login-button">
+        Direct Login
       </Button>
     </>
   );
