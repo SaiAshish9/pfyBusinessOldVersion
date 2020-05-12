@@ -53,7 +53,7 @@ export default function Page3(props) {
                                 <div>
                                     <h2>Stipend Type</h2>
                                 <Form.Item
-                                name="stipend-type"
+                                name="stipendType"
                                 rules={[{ required: true,message: 'Required',},]}
                             >
                                 <Select onChange={stipendTypeHandler} >

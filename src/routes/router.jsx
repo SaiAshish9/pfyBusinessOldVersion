@@ -89,7 +89,7 @@ export default function AppRouter() {
           exact={true}
         />
         <PrivateRoute
-          path="/specific-gig/:id"
+          path="/gigs/:id"
           component={NewAppliedGig}
           exact={true}
         />

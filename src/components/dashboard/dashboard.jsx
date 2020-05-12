@@ -1,9 +1,11 @@
-import React from "react";
-import { Button, Tabs, Table } from "antd";
+import React, {useState, useEffect} from "react";
+import { Button, Tabs, Table, Skeleton } from "antd";
 import { MoreOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
 import GigTable from "../gigTable";
 import InternshipTable from "../internshipTable";
+import axios from 'axios'
+
 const { TabPane } = Tabs;
 
 const campusHiringContent = [
@@ -28,6 +30,8 @@ const campusHiringContent = [
 ];
 
 export default function Dashboard() {
+  const [gigs, setGigs] = useState(null);
+
   const history = useHistory();
   console.log("run!");
 
@@ -90,6 +94,16 @@ export default function Dashboard() {
   });
   console.log(gigData);
 
+  useEffect(() => {
+    const url = `mission/get_company_missions`;
+    axios.get(url)
+      .then(res => {
+        const {data} = res
+        console.log('GIGS ARE ',data)
+        setGigs(data)
+      })
+  }, [])
+
   return (
     <div className="dashboard-main-block">
       <div className="campus-hiring-main-block">
@@ -106,7 +120,7 @@ export default function Dashboard() {
         ))}
       </div>
 
-      <GigTable />
+      {gigs ? <GigTable gigs={gigs} /> : <Skeleton active /> }
       <InternshipTable />
     </div>
   );

@@ -1,9 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import {Modal, Progress, Button} from 'antd';
-
+import moment from 'moment'
 
 export default function workerDetailsCard(props) {
     const user = props.user ? props.user : null;
+
+    function calculateAge(birthday) { // birthday is a date
+        var ageDifMs = Date.now() - new Date(birthday).getTime();
+        var ageDate = new Date(ageDifMs); // miliseconds from epoch
+        return Math.abs(ageDate.getUTCFullYear() - 1970);
+    }
 
     return (
         <section className="gig-card">
@@ -15,7 +21,7 @@ export default function workerDetailsCard(props) {
                         <div className="univ-name">Netaji Subhash Institute Of Technology</div>
                         <div className="other-details">
                             <div className="gender">
-                                Male,22
+                                {user.gender === 'M' ? 'Male' : 'Female'},{calculateAge(user.dob)}
                             </div>
                             <div className="city">
                                 {user.city}

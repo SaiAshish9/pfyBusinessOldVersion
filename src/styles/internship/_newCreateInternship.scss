@@ -134,6 +134,27 @@
     .ant-select-selector{
         width: 14.5rem; 
     }
+    .all-india-checkbox{
+        .ant-checkbox{
+            display: none;
+        }
+        .ant-checkbox-wrapper {
+            width: 100%;
+            // background: #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 44px;
+            border-radius: 22px;
+            border: solid 1px #444584;
+            padding: 0.5rem 2rem;
+            color: #444584;
+        }
+        .ant-checkbox-wrapper-checked{
+            background-color: #ccc;
+        }
+        }
+    
 }
 .page2{
     .ant-select-selector{
