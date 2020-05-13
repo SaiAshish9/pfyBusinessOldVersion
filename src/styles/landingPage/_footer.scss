@@ -1,119 +1,159 @@
 .footer-main-block {
-  display: flex;
   background-color: #444584;
-  padding: 70px 70px 40px 70px;
-  .pracify-section {
-    flex: 1.4;
-    .pracify__header {
-      font-family: Klavika;
-      margin: 0 0 0 16px;
-      font-size: 49px;
-      font-weight: 500;
-      line-height: 1;
-      letter-spacing: 2.45px;
-      color: #ffffff;
+  // padding: 70px 70px 40px 70px;
+  .border-block {
+    display: flex;
+    border-bottom: 2px solid #ffffffa4;
+    padding: 70px 0px 20px 0px;
+    margin: 0 70px;
+    .pracify-section {
+      flex: 1.76;
+      .logo-block {
+        position: relative;
+        bottom: 16px;
+        .logoImg {
+        }
+      }
+
+      .pracify__para {
+        padding: 16px;
+        border-radius: 14px;
+        background-color: #696a9d;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #ffffff;
+      }
+
+      .address__para {
+        font-size: 16px;
+        line-height: 1.5;
+        color: #ffffff;
+      }
+
+      .copyright__para {
+        font-size: 12px;
+        line-height: 1.5;
+        color: #ffffff;
+        .copyright__icon {
+        }
+      }
+
+      .love__para {
+        font-size: 12px;
+        line-height: 1.5;
+        color: #ffffff;
+        .love-icon {
+        }
+      }
+
+      .download-pracify-block {
+        .google-playStore-icon {
+          width: 162px;
+        }
+
+        .apple-playStore-icon {
+          margin-left: 12px;
+        }
+      }
     }
 
-    .pracify__para {
-      padding: 16px;
-      border-radius: 14px;
-      background-color: #696a9d;
-      font-size: 12px;
+    %header {
+      margin-bottom: 32px;
+      font-size: 20px;
+      font-weight: bold;
       line-height: 1.5;
+      letter-spacing: 1px;
       color: #ffffff;
     }
-
-    .address__para {
-      font-size: 12px;
-      line-height: 1.5;
+    %link {
+      opacity: 0.7;
+      font-size: 18px;
+      line-height: 1.67;
       color: #ffffff;
+      cursor: pointer;
+    }
+    .company-block {
+      flex: 1;
+      margin-left: 108px;
+
+      .footer__header {
+        @extend%header;
+      }
+
+      .footer__link {
+        @extend%link;
+      }
     }
 
-    .copyright__para {
-      font-size: 12px;
-      line-height: 1.5;
-      color: #ffffff;
-      .copyright__icon {
+    .legal-block {
+      flex: 1;
+      .footer__header {
+        @extend%header;
+      }
+
+      .footer__link {
+        @extend%link;
+      }
+    }
+
+    .get-in-touch-block {
+      flex: 1;
+
+      .footer__header {
+        @extend%header;
+      }
+
+      .footer__link {
+        @extend%link;
+      }
+    }
+  }
+
+  .sub-footer {
+    margin: 16px 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .social-block {
+      display: flex;
+      .footer__link {
+        margin-right: 16px;
+      }
+      .footer__link:nth-child(1) {
+        margin-right: 8px;
       }
     }
 
     .love__para {
-      font-size: 12px;
-      line-height: 1.5;
+      font-size: 18px;
       color: #ffffff;
+      margin: 0;
       .love-icon {
       }
     }
 
     .download-pracify-block {
       .google-playStore-icon {
-        width: 162px;
+        width: 150px;
+        height: 50px;
       }
 
       .apple-playStore-icon {
+        width: 150px;
+        height: 50px;
+        margin-left: 12px;
       }
     }
   }
-
-  %header {
-    margin-bottom: 32px;
-    font-size: 20px;
-    font-weight: bold;
-    line-height: 1.5;
-    letter-spacing: 1px;
-    color: #ffffff;
-  }
-  %link {
-    opacity: 0.7;
-    font-size: 18px;
-    line-height: 1.67;
-    color: #ffffff;
-    cursor: pointer;
-  }
-  .company-block {
-    flex: 1;
-    margin-left: 108px;
-
-    .footer__header {
-      @extend%header;
-    }
-
-    .footer__link {
-      @extend%link;
-    }
-  }
-
-  .legal-block {
-    flex: 1;
-    .footer__header {
-      @extend%header;
-    }
-
-    .footer__link {
-      @extend%link;
-    }
-  }
-
-  .get-in-touch-block {
-    flex: 1;
-
-    .footer__header {
-      @extend%header;
-    }
-
-    .footer__link {
-      @extend%link;
-    }
-  }
-
-  .social-block {
-    flex: 0.5;
-    .footer__header {
-      @extend%header;
-    }
-
-    .footer__link {
-      @extend%link;
+  .copyright-block {
+    height: 43px;
+    background-color: #f0f0fb;
+    display: flex;
+    align-items: center;
+    .copyright__para {
+      margin: 0 70px;
+      .copyright__icon {
+      }
     }
   }
 }

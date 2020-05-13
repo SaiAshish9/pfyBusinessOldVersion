@@ -10,6 +10,7 @@ import userIcon from "../../assets/img/loginOrSignUp/userIcon.svg";
 import mailIcon from "../../assets/img/loginOrSignUp/mailIcon.svg";
 import phoneNumberIcon from "../../assets/img/loginOrSignUp/phoneNumberIcon.svg";
 import passwordIcon from "../../assets/img/loginOrSignUp/passwordIcon.svg";
+import logo from "../../assets/img/logoDark.png";
 
 const userDetail = [
   {
@@ -150,11 +151,19 @@ export default function SignUp() {
 
   return (
     <div className="login-main-block">
+      <img
+        src={logo}
+        alt=""
+        onClick={() => {
+          history.push("/");
+        }}
+        className="pracify-logo"
+      />
       <ShowCaseCarousel />
       <div className="login-form-block">
-        <h4 className="goBackToPracify" onClick={() => history.push("/")}>
+        {/* <h4 className="goBackToPracify" onClick={() => history.push("/")}>
           <img src={arrowLeft} alt="" className="goBackArrow" /> Pracify
-        </h4>
+        </h4> */}
         <h1 className="login__header">Sign Up</h1>
         {isRegister && !isFinalRegister && (
           <p className="OTP__para">
@@ -194,7 +203,9 @@ export default function SignUp() {
           >
             <div className="email-otp">
               <Controller
-                as={<Input placeholder="Enter OTP" className="email-otp__input" />}
+                as={
+                  <Input placeholder="Enter OTP" className="email-otp__input" />
+                }
                 name="otp"
                 control={control}
                 rules={{ required: true, minLength: 3 }}

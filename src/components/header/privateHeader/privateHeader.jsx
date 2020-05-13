@@ -61,7 +61,7 @@ export default function PrivateHeader({ component: Component, ...rest }) {
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed} width={240}>
         <div className="logo">
-          <img src={logo} alt="" className="" style={{ width: "154px" }} />
+          <img src={logo} alt="" className="" />
         </div>
         {!collapsed && (
           <div className="company-avatar-block">

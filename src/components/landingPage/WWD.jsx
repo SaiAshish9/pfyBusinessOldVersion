@@ -15,8 +15,8 @@ export default function WWD() {
       <div className="wwd-header-block">
         <h1 className="wwd-header">
           THE WORK WE DO
-          <img src={circle16} alt="" className="header-img-one" />
-          <img src={circle38} alt="" className="header-img-two" />
+          {/* <img src={circle16} alt="" className="header-img-one" />
+          <img src={circle38} alt="" className="header-img-two" /> */}
         </h1>
       </div>
       <Tabs defaultActiveKey="1">
@@ -38,12 +38,12 @@ export default function WWD() {
       </Tabs>
       <div className="outSourcing-block">
         <h1 className="outSourcing__header">
-          OUTSOURCING DOESN'T HAVE TO BE HARD. WE MAKE IT EASY.
+          OUTSOURCING DOESN'T HAVE TO BE HARD.WE MAKE IT EASY.
         </h1>
         <p className="outSourcing__para">
-          Built from the ground up to save your company money. Save time & money
-          with Pracify, a tech platform built to help companies scale using our
-          network of on demand workers.
+          Built from the ground up to save your company money.Save time & money
+          with Pracify,a tech platform built to help companies scale using our
+          network of on-demand workers.
         </p>
         <Button className="outSourcing__button">CONTACT US</Button>
       </div>
