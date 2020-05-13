@@ -12,20 +12,28 @@ export default function HeaderNavLink() {
   };
   return (
     <>
-      <Link to="/">
+      <a
+        href="https://pracify.com/"
+        target="_blank"
+        className="header__button2__a"
+      >
         <Button className="redirect-to-user-panel-button">
           For Gig Workers
         </Button>
-      </Link>
-      <Link to="/register">
+      </a>
+      <Link
+      // to="/register"
+      >
         <Button className="register-button">Register</Button>
       </Link>
-      <Link to="/login">
+      <Link
+      // to="/login"
+      >
         <Button className="login-button">Login</Button>
       </Link>
-       <Button onClick={handleDummyLogin} className="login-button">
+      {/* <Button onClick={handleDummyLogin} className="login-button">
         Direct Login
-      </Button>
+      </Button> */}
     </>
   );
 }
