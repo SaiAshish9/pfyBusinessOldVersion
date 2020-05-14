@@ -1,11 +1,11 @@
 import React, {Fragment, useEffect, useState} from 'react'
-import {Modal, Button, Form, Radio, InputNumber, Select, DatePicker, Input} from 'antd';
+import {Modal, Button, Form, Radio, InputNumber, Select, DatePicker, Input, Checkbox, Row,Col} from 'antd';
 import { MinusCircleOutlined, PlusOutlined, RightOutlined, LeftOutlined } from "@ant-design/icons";
 
 const { Option } = Select;
 export default function Page3(props) {
 
-    const [stipentType, setStipentType] = useState("paid")
+    const [stipendType, setStipendType] = useState("paid")
 
     const initVal = props.initVal3;
 
@@ -13,6 +13,7 @@ export default function Page3(props) {
         console.log('Received values of form: ', values);
         // props.isSuccess();
         props.data3(values);
+        props.submitHandler()
     };
     
     const onFinishFailed = errorInfo => {
@@ -25,14 +26,14 @@ export default function Page3(props) {
         if(!initVal){
             document.querySelector('.add-btn-additional-benefits').click();
         } else{
-            setStipentType(initVal["stipend-type"])
+            setStipendType(initVal["stipendType"])
         }
        
     },[])
 
     const stipendTypeHandler = (value) => {
         console.log('stipend type is ', value)
-        setStipentType(value);
+        setStipendType(value);
     }
 
     return (
@@ -43,7 +44,7 @@ export default function Page3(props) {
                 onFinish={onFinish}
                 onFinishFailed={onFinishFailed}
                 initialValues={{
-                    "stipend-type": "paid",
+                    "stipendType": stipendType,
                         ...initVal
                     }}
                 >
@@ -63,7 +64,7 @@ export default function Page3(props) {
                                 </Select>
                             </Form.Item>
                                 </div>
-                                { stipentType === "negotiable" ? 
+                                { stipendType === "negotiable" ? 
                                     <Fragment>
                                     <div style={{marginLeft: "2rem"}}>
                                         <h2>Minimun</h2>
@@ -78,10 +79,10 @@ export default function Page3(props) {
                                         </Form.Item>
                                     </div>
                                     </Fragment>
-                                : stipentType === "paid" ?
+                                : stipendType === "paid" ?
                                 <div style={{marginLeft: "4rem"}}>
                                     <h2>Amount</h2>
-                                    <Form.Item name="amount" rules={[{required: true, message: 'Required'}]}>
+                                    <Form.Item name="stipend" rules={[{required: true, message: 'Required'}]}>
                                         <InputNumber style={{width: "11.2rem"}} placeholder="type amount" />
                                     </Form.Item>
                                 </div> : null }
@@ -108,6 +109,7 @@ export default function Page3(props) {
                         <div>
                         <h2>Additional Benefits</h2>
                                 <Form.List  name="additional-benefits">
+                                    
                                     {(fields, { add, remove }) => {
                                     /**
                                      * `fields` internal fill with `name`, `key`, `fieldKey` props.
@@ -117,20 +119,36 @@ export default function Page3(props) {
                                         <section className="additional-benefits">
                                         {fields.map((field, index) => (
                                             <Fragment>
-                                            <div style={{ display: "flex", width: "100%" }}>
-                                                <Form.Item
-                                                name={[field.name]}
-                                                fieldKey={[field.fieldKey, "additional-benefits"]}
-                                                rules={rules}
+                                            <div style={{ display: "block", width: "100%" }}>
+                                                <div style={{ display: "flex", width: "100%" }}>
+                                                    <Form.Item
+                                                    name={[field.name, "additional-benefits-1"]}
+                                                    fieldKey={[field.fieldKey, "additional-benefits-1"]}
+                                                    rules={rules}
+                                                    >
+                                                    <Input  prefix={ index + 1 + "." } placeholder={''} />
+                                                    
+                                                    </Form.Item>
+                                                    {index > 0 ? <MinusCircleOutlined
+                                                    className="dynamic-delete-button"
+                                                    onClick={() => {
+                                                        remove(field.name);
+                                                    }}
+                                                    /> : null}
+                                                </div>
+                
+                                                {/* <Form.Item
+                                                    name={[field.name, "additional-benefits-2"]}
+                                                    fieldKey={[field.fieldKey, "additional-benefits-2"]}
+                                                    rules={rules}
+                                                    label="Answer Type:"
                                                 >
-                                                <Input  prefix={ index + 1 + "." } placeholder={''} />
-                                                </Form.Item>
-                                                {index > 0 ? <MinusCircleOutlined
-                                                className="dynamic-delete-button"
-                                                onClick={() => {
-                                                    remove(field.name);
-                                                }}
-                                                /> : null}
+                                                    <Radio.Group >
+                                                        <Radio value="1">Long</Radio>
+                                                        <Radio value="0">Short</Radio>
+                                                    </Radio.Group>
+                                                </Form.Item> */}
+                                                
                                             </div>
                                             </Fragment>
                                         ))}
@@ -148,7 +166,7 @@ export default function Page3(props) {
                     <Button onClick={() => props.back(2)}  className="go-back-btn" >
                         <LeftOutlined /> Go Back 
                     </Button>
-                    <Button className="continue-btn" type="primary" htmlType="submit">
+                    <Button  className="continue-btn" type="primary" htmlType="submit">
                         Continue <RightOutlined />
                     </Button>
                     

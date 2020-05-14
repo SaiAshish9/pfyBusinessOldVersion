@@ -1,5 +1,5 @@
 import { Modal, Select } from "antd";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Page1 from "./page1";
 import Page2 from "./page2";
 import Page3 from "./page3";
@@ -54,11 +54,40 @@ export default function NewCreateInternship(props) {
 
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
+    
   };
 
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
+
+  const submitHandler = () => {
+    // console.log('FINAL SUBMISSION');
+    // const data = {...page1data, ...page2data, ...page3data}
+    // console.log(data)
+  }
+
+  useEffect(() => {
+    if(page3data){
+    console.log('FINAL SUBMISSION');
+    let benifitsArr = []
+    let locationArr = []
+    const data = {...page1data, ...page2data, ...page3data}
+
+    if(data.isCertificate) benifitsArr.push('Certificate')
+    if(data.isPPO) benifitsArr.push('PPO')
+    data.benifits = benifitsArr
+
+    if(data.location) locationArr.push('all-india') 
+    else locationArr = data.cities
+    data.location = locationArr
+
+    data.applyBefore = data.applyBefore.format("DD MMM YYYY")
+    data.startingOfInternship = data.startingOfInternship.format("DD MMM YYYY")
+
+    console.log('FINAL DATA ', data) 
+    }
+  }, [page3data]);
 
   return (
     <div>
@@ -78,6 +107,7 @@ export default function NewCreateInternship(props) {
               initVal3={page3data}
               data3={(values) => page3datafun(values)}
               back={() => setPage2Complete(false)}
+              submitHandler={submitHandler}
             />
           ) : page1Complete ? (
             <Page2

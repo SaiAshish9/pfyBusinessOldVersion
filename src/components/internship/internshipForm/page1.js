@@ -6,7 +6,7 @@ import { RightOutlined } from '@ant-design/icons';
 const { Option } = Select;
 export default function Page1(props) {
     const [showInput, setShowInput] = useState(false)
-    const [isSelected, setIsSelected] = useState(false)
+    const [isSelected, setIsSelected] = useState(true)
     const [otherProfileName, setOtherProfileName] = useState(null)
 
     const initVal = props.initVal1;
@@ -17,6 +17,7 @@ export default function Page1(props) {
         console.log('Received values of form: ', values);
         values['location'] = isSelected;
         props.isSuccess1();
+        
         props.data1(values);
 
     };
@@ -58,6 +59,7 @@ export default function Page1(props) {
         if(value.length) setIsSelected(false)
         else setIsSelected(true)
     }
+    const dateFormatList = ['DD/MM/YYYY', 'DD/MM/YY']
     return (
         <div>
             <Form   className="page1"
@@ -65,7 +67,8 @@ export default function Page1(props) {
                     onFinish={onFinish}
                     onFinishFailed={onFinishFailed}
                     initialValues={{
-                        'month-or-year': "month",
+                        'duration-2': "month",
+                        'location': true,
                         ...initVal
                       }}
                     >
@@ -95,7 +98,7 @@ export default function Page1(props) {
                         
                         <div>
                             <h2>Select Internship Type</h2>
-                            <Form.Item name="internship-type"  rules={[{required: true, message: 'Required'}]}>
+                            <Form.Item name="internshipType"  rules={[{required: true, message: 'Required'}]}>
                                 <Radio.Group>
                                     <Radio.Button style={{marginTop: "0"}}  value="in-office">In Office</Radio.Button>
                                     <Radio.Button style={{marginTop: "0"}} value="work-from-home">Work From Home</Radio.Button>
@@ -117,7 +120,6 @@ export default function Page1(props) {
                             </Form.Item>
                             <Form.Item
                                 name="duration-2"
-                                // label="Select"
                                 rules={[{ required: true, message: 'Required'},]}
                             >
                                 <Select >
@@ -134,13 +136,13 @@ export default function Page1(props) {
                             <div>
                                 <h2>Internship Start Date</h2>
                                 <Form.Item name="startingOfInternship" rules={[{ required: true,message: 'Required',},]}>
-                                    <DatePicker />
+                                    <DatePicker  />
                                 </Form.Item>
                             </div>
                             <div>
                                 <h2>Last Date To Apply</h2>
                                 <Form.Item name="applyBefore" rules={[{ required: true,message: 'Required',},]}>
-                                    <DatePicker />
+                                    <DatePicker/>
                                 </Form.Item>
                             </div>
                         
@@ -148,7 +150,7 @@ export default function Page1(props) {
 
                             <div style={{marginLeft: "3rem"}}>
                                 <h2>Internship Location</h2>
-                                <Form.Item  className="location" name="location"  rules={[{required: true, message: 'Required'}]}>
+                                <Form.Item  className="location" name="location"  rules={[{required: isSelected, message: 'Required'}]}>
                                     <Radio.Group>
                                         <Radio.Button onClick={allIndiaHandler} style={{width: "11rem",textAlign:"center", background: isSelected ? "#ccc" : "#fff"}}  value="all-india">All India</Radio.Button>
                                     </Radio.Group>
@@ -159,7 +161,7 @@ export default function Page1(props) {
                                 <h2 style={{color: "#f7f7f7"}}>  "  "</h2>
                             <Form.Item
                                     name="cities"
-                                    rules={[{ required: !isSelected, message: 'Required',  type: 'array'} ]}
+                                    rules={[{ required: false, message: 'Required',  type: 'array'} ]}
                                     validateTrigger={['onChange']}
                                 >
                                     <Select onChange={citiesHandler} mode="multiple" placeholder="Type Cities" >

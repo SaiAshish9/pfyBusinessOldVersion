@@ -185,13 +185,15 @@ export default function Page2(props) {
                  * You can extends this into sub field to support multiple dynamic fields.
                  */
                 return (
-                  <section className="interview-questions">
+                  <section className="questions">
                     {fields.map((field, index) => (
                       <Fragment>
-                        <div style={{ display: "flex", width: "100%" }}>
+                        <div style={{ display: "block", width: "100%" }}>
+                          <div style={{ display: "flex", width: "100%" }}>
+                          
                           <Form.Item
-                            name={[field.name]}
-                            fieldKey={[field.fieldKey, "interview-questions"]}
+                            name={[field.name, "question"]}
+                            fieldKey={[field.fieldKey, "question"]}
                             rules={rules}
                           >
                             <Input prefix={index + 1 + "."} placeholder={""} />
@@ -204,11 +206,24 @@ export default function Page2(props) {
                               }}
                             />
                           ) : null}
+                          </div>
+                          <Form.Item
+                              name={[field.name, "type"]}
+                              fieldKey={[field.fieldKey, "type"]}
+                              rules={rules}
+                              label="Answer Type: "
+                          >
+                              <Radio.Group >
+                                  <Radio value="1">Long</Radio>
+                                  <Radio value="0">Short</Radio>
+                              </Radio.Group>
+                          </Form.Item>
                         </div>
                       </Fragment>
                     ))}
                     <Form.Item>
                       <div
+                        style={{marginTop: "-3.2rem"}}
                         className="add-btn add-btn-interview-ques"
                         onClick={() => {
                           add();
