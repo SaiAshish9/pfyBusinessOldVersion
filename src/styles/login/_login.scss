@@ -1,21 +1,22 @@
 @import "./showcaseCarousel";
 
 .login-main-block {
+  overflow: auto;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   height: 100%;
-
-  .goBackToPracify {
-    color: #00bfa6;
+  background-image: url("../../assets/img/loginOrSignUp/loginBackgroundOne.png"),
+    url("../../assets/img/loginOrSignUp/loginBackgroundTwo.png");
+  background-repeat: no-repeat;
+  background-position: top -140px right -140px, bottom -100px left -100px;
+  .pracify-logo {
     cursor: pointer;
     position: absolute;
     top: 20px;
     left: 40px;
-    .goBackArrow {
-      color: #00bfa6;
-      margin: 0 2px 4px 0;
-    }
+    color: #00bfa6;
+    margin: 0 2px 4px 0;
   }
 
   %label {
@@ -46,7 +47,6 @@
       line-height: 1.2;
       margin-right: 12px;
     }
-    
   }
   %textarea {
     border-radius: 0px;

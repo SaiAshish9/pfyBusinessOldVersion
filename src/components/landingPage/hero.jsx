@@ -12,8 +12,9 @@ export default function Hero() {
     <div className="hero-main-block">
       <div className="hero-content">
         <h1 className="hero-content-heading">
-          Grow your business rapidly, anytime & anywhere with our network of
-          on-demand workers
+          Grow your business rapidly,
+          <br /> anytime & anywhere with our
+          <br /> network of on-demand workers
         </h1>
         <p className="hero-content-para">
           Streamlined Recruiting. Easy Management. Killer Savings.

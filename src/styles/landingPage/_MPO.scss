@@ -12,27 +12,26 @@
       font-weight: 500;
       line-height: 1;
       letter-spacing: 1.8px;
-      color: #444584;
-      .header-img-one {
-        position: absolute;
-        left: -36px;
-        top: -22px;
-      }
+      color: #333e49;
+      // .header-img-one {
+      //   position: absolute;
+      //   left: -36px;
+      //   top: -22px;
+      // }
 
-      .header-img-two {
-        position: absolute;
-        left: -20px;
-        top: -16px;
-      }
+      // .header-img-two {
+      //   position: absolute;
+      //   left: -20px;
+      //   top: -16px;
+      // }
       &:before {
         content: "";
         position: absolute;
-        left: 25%;
         bottom: 0;
         height: 3px;
-        width: 50%;
-        background: #444584;
-        border-bottom: 3px solid #444584;
+        width: 100%;
+        background: #333e49;
+        border-bottom: 3px solid #333e49;
         border-radius: 70px;
       }
     }

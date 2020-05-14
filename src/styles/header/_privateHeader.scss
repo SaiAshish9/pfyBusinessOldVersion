@@ -6,12 +6,15 @@
     height: 100vh;
     .ant-layout-sider-children {
       position: fixed;
+      overflow: auto;
       width: inherit;
       background-color: #444584;
       .logo {
         background-color: #444584;
         height: 64px;
+        text-align: center;
         img {
+          width: 154px;
         }
       }
 

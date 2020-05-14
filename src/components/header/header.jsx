@@ -3,7 +3,7 @@ import { Scroll } from "react-fns";
 import { useHistory } from "react-router-dom";
 // import DesktopNav from "./desktopNav";
 import HeaderNavLink from "./headerNavLink";
-import pracifyLogo from "./logo.png";
+import pracifyLogo from "../../assets/img/logoDark.png";
 import MobileNavIcon from "./mobileNavIcon";
 
 const Header = () => {

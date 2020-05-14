@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import randomImg from '../../assets/img/logo.png';
+import randomImg from '../../assets/img/logo.svg';
 import { Progress, Tabs, Checkbox, Select, Skeleton } from 'antd';
 import { useHistory } from 'react-router-dom';
 import GigProfile from './gigProfile';

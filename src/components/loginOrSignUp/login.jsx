@@ -6,6 +6,7 @@ import ShowCaseCarousel from "./showCaseCarousel";
 import arrowLeft from "../../assets/img/goBackLeftArrow.svg";
 import mailIcon from "../../assets/img/loginOrSignUp/mailIcon.svg";
 import passwordIcon from "../../assets/img/loginOrSignUp/passwordIcon.svg";
+import logo from "../../assets/img/logoDark.png";
 
 export default function Login() {
   const history = useHistory();
@@ -32,14 +33,17 @@ export default function Login() {
 
   return (
     <div className="login-main-block">
-      <h4
-        className="goBackToPracify"
+      {/* <div className="outer-circle">
+        <div className="inner-circle"></div>
+      </div> */}
+      <img
+        src={logo}
+        alt=""
         onClick={() => {
           history.push("/");
         }}
-      >
-        <img src={arrowLeft} alt="" className="goBackArrow" /> Pracify
-      </h4>
+        className="pracify-logo"
+      />
       <ShowCaseCarousel />
       {!forgetPass ? (
         <div className="login-form-block">
@@ -98,7 +102,8 @@ export default function Login() {
             <div className="newUser__span">
               <span>
                 <img src={arrowLeft} alt="" className="" />
-              </span>{"  "}
+              </span>
+              {"  "}
               Back To{" "}
               <span
                 className="register__span"

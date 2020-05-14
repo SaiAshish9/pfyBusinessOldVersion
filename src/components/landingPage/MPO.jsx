@@ -13,8 +13,8 @@ export default function MPO() {
       <div className="mpo-header-block">
         <h1 className="mpo__header">
           MORE PARTNERSHIP OPPORTUNITIES
-          <img src={circle16} alt="" className="header-img-one" />
-          <img src={circle38} alt="" className="header-img-two" />
+          {/* <img src={circle16} alt="" className="header-img-one" />
+          <img src={circle38} alt="" className="header-img-two" /> */}
         </h1>
       </div>
 

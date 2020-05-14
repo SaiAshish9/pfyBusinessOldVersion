@@ -1,11 +1,9 @@
 /* eslint-disable jsx-a11y/alt-text */
+import { HeartFilled } from "@ant-design/icons";
 import React from "react";
 import { Link } from "react-router-dom";
-
-import { Icon } from "antd";
+import logo from "../../assets/img/logo.svg";
 import { FooterStyled } from "./homeStyled";
-import logo from "./images/logo.png";
-import { HeartFilled } from '@ant-design/icons';
 
 
 const Footer = () => {
@@ -58,11 +56,10 @@ const Footer = () => {
         style={{
           fontSize: "16px",
           textAlign: "center",
-          marginBottom: "0px"
+          marginBottom: "0px",
         }}
       >
-        Made with <HeartFilled style={{color: "#ff0000"}} />{" "}
-        in India
+        Made with <HeartFilled style={{ color: "#ff0000" }} /> in India
         <br />
       </p>
     </FooterStyled>
