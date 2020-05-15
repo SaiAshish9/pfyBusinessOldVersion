@@ -9,7 +9,7 @@ export default function PrivateRoute({ component, ...rest }) {
 
   return (
     <>
-      {token === "123" ? (
+      {!!token ? (
         <PrivateHeader component={component} {...rest} />
       ) : (
         <Redirect to="/" />

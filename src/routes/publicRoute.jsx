@@ -16,7 +16,7 @@ export default function PublicRoute({ component: Component, ...rest }) {
       {...rest}
       component={(props) => (
         <>
-          {token === "123" ? (
+          {!!token ? (
             <Redirect to="/dashboard" />
           ) : (
             <>

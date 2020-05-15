@@ -31,10 +31,8 @@
     border-radius: 0px;
     border-width: 0 0 2px 0;
     border-style: solid;
-    margin-bottom: 25px;
     border-color: #d3d3d3;
     font-size: 15px;
-    // line-height: 1.43;
     &:focus,
     &:hover,
     &:focus-within {
@@ -52,7 +50,7 @@
     border-radius: 0px;
     border-width: 0 0 2px 0;
     border-style: solid;
-    margin-bottom: 25px;
+    // margin-bottom: 25px;
     border-color: #d3d3d3;
     font-size: 15px;
     &:focus,
@@ -67,7 +65,7 @@
   %select {
     width: 100%;
     font-size: 15px;
-    margin-bottom: 25px;
+    // margin-bottom: 25px;
     .ant-select-selector {
       border-radius: 0px;
       border-width: 0 0 2px 0;
@@ -114,6 +112,8 @@
       margin: 0 0 30px 0;
     }
 
+    .OTP__para {
+    }
     .form-block {
       .email__input {
         @extend%input;
@@ -181,9 +181,12 @@
     "mobile"
     "email"
     "password"
-    "otp"
-    "aboutCompany"
-    "button";
+    "otp";
+    // "companyName"
+    // "companyWebsite"
+    // "companyType"
+    // "aboutCompany"
+    // "button";
   .firstName {
     grid-area: firstName;
     .firstName__input {
@@ -227,29 +230,32 @@
   }
 
   .companyName {
+    // grid-area: companyName;
     .companyName__input {
       @extend%input;
     }
   }
   .companyWebsite {
+    // grid-area: companyWebsite;
     .companyWebsite__input {
       @extend%input;
     }
   }
   .companyType {
+    // grid-area: companyType;
     .companyType__input {
       @extend%select;
     }
   }
   .aboutCompany {
-    grid-area: aboutCompany;
+    // grid-area: aboutCompany;
     .aboutCompany__input {
       @extend%textarea;
     }
   }
 
   .register__button {
-    grid-area: button;
+    // grid-area: button;
     @extend%button;
   }
 }
