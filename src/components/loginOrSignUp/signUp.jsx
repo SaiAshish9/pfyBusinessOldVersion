@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { Input, Button, Select, Upload, message } from "antd";
+import { Input, Button, Select, Upload, message, Form } from "antd";
 import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
@@ -11,40 +11,107 @@ import mailIcon from "../../assets/img/loginOrSignUp/mailIcon.svg";
 import phoneNumberIcon from "../../assets/img/loginOrSignUp/phoneNumberIcon.svg";
 import passwordIcon from "../../assets/img/loginOrSignUp/passwordIcon.svg";
 import logo from "../../assets/img/logoDark.png";
+import Axios from "axios";
+import { objectValidation } from "../validation/validation";
 
 const userDetail = [
   {
-    name: "First Name",
-    formName: "firstName",
+    placeHolder: "First Name",
+    name: "firstName",
     icon: userIcon,
+    rule: [{ required: true, message: "please enter your first name!" }],
   },
   {
-    name: "Last Name",
-    formName: "lastName",
+    placeHolder: "Last Name",
+    name: "lastName",
     icon: userIcon,
+    rule: [
+      {
+        required: true,
+        message: "please enter your last name!",
+      },
+    ],
   },
   {
-    name: "Mobile Number",
-    formName: "mobile",
+    placeHolder: "Mobile Number",
+    name: "mobile",
     icon: phoneNumberIcon,
+    rule: [
+      {
+        required: true,
+        message: "please enter your mobile number!",
+      },
+    ],
   },
   {
-    name: "Email Address",
-    formName: "email",
+    placeHolder: "Email Address",
+    name: "email",
     icon: mailIcon,
+    rule: [
+      {
+        required: true,
+        message: "please enter your email address!",
+      },
+    ],
   },
   {
-    name: "Password",
-    formName: "password",
+    placeHolder: "Password",
+    name: "password",
     icon: passwordIcon,
+    rule: [
+      {
+        required: true,
+        message: "please enter your password!",
+      },
+    ],
   },
 ];
 
 const companyDetail = [
-  { name: "Company Name", formName: "companyName", type: "input" },
-  { name: "Company Website", formName: "companyWebsite", type: "input" },
-  { name: "Company Type", formName: "companyType", type: "select" },
-  { name: "About Company", formName: "aboutCompany", type: "textArea" },
+  {
+    placeHolder: "Company Name",
+    name: "companyName",
+    type: "input",
+    rule: [
+      {
+        required: true,
+        message: "please enter your company name!",
+      },
+    ],
+  },
+  {
+    placeHolder: "Company Website",
+    name: "companyWebsite",
+    type: "input",
+    rule: [
+      {
+        required: true,
+        message: "please enter your company website!",
+      },
+    ],
+  },
+  {
+    placeHolder: "Company Type",
+    name: "companyType",
+    type: "select",
+    rule: [
+      {
+        required: true,
+        message: "please select company type!",
+      },
+    ],
+  },
+  {
+    placeHolder: "About Company",
+    name: "aboutCompany",
+    type: "textArea",
+    rule: [
+      {
+        required: true,
+        message: "please tell us about your company!",
+      },
+    ],
+  },
 ];
 
 const { Option } = Select;
@@ -70,6 +137,10 @@ const beforeUpload = (file) => {
 
 export default function SignUp() {
   const history = useHistory();
+  const isVerify =
+    !!history.location.state && history.location.state.isEmailVerify;
+  const token = !!history.location.state && history.location.state.token;
+  console.log(token);
   const { control, handleSubmit, watch, reset, errors } = useForm({
     defaultValues: {},
   });
@@ -85,7 +156,6 @@ export default function SignUp() {
       email: "",
       password: "",
     });
-    setIsRegister(true);
   };
 
   const onSubmitOtp = (data) => {
@@ -95,39 +165,39 @@ export default function SignUp() {
 
   const onSubmitFinalRegister = (data) => {
     console.log(data);
-    cookie.set("token", "123");
+    cookie.set("token", token);
     history.push("/dashboard");
   };
 
-  const [isRegister, setIsRegister] = useState(false);
-  const [isFinalRegister, setIsFinalRegister] = useState(false);
+  const [isRegister, setIsRegister] = useState(isVerify);
+  const [isFinalRegister, setIsFinalRegister] = useState(isVerify);
+
   const [loading, setLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState();
+  console.log("imageUrl", imageUrl);
 
-  const whichInputField = (inputType, inputName, formName) => {
+  const whichInputField = (inputType, inputName, name) => {
     switch (inputType) {
       case "input": {
-        return (
-          <Input placeholder={inputName} className={`${formName}__input`} />
-        );
+        return <Input placeholder={inputName} className={`${name}__input`} />;
       }
       case "select": {
         return (
           <Select
-            className={`${formName}__input`}
+            className={`${name}__input`}
             listItemHeight={10}
             listHeight={200}
             placeholder={inputName}
           >
             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((data, index) => (
-              <Option key={index}> {data}</Option>
+              <Option key={index}>{data}</Option>
             ))}
           </Select>
         );
       }
       case "textArea": {
         return (
-          <TextArea className={`${formName}__input`} placeholder={inputName} />
+          <TextArea className={`${name}__input`} placeholder={inputName} />
         );
       }
       default: {
@@ -137,18 +207,71 @@ export default function SignUp() {
   };
 
   const handleUpload = (info) => {
-    if (info.file.status === "uploading") {
-      setLoading({ loading: true });
-      return;
+    switch (info.file.status) {
+      case "uploading":
+        setLoading({ loading: true });
+        return;
+
+      case "done":
+        getBase64(info.file.originFileObj, (imageUrl) => {
+          setLoading(false);
+          setImageUrl(imageUrl);
+        });
+        return;
+      default:
+        
     }
-    if (info.file.status === "done") {
-      getBase64(info.file.originFileObj, (imageUrl) => {
-        setLoading(false);
-        setImageUrl(imageUrl);
-      });
-    }
+    // if (info.file.status === "uploading") {
+    // }
+    // if (info.file.status === "done") {
+    // }
   };
 
+  const onRegisterFinish = (value) => {
+    console.log(value);
+    Axios.post("company/register", value)
+      .then((res) => {
+        console.log(res);
+        setIsRegister(true);
+      })
+      .catch((e) => {
+        console.log(e.response);
+      });
+  };
+
+  const imgProps = {
+    name: "avatar",
+    listType: "picture-card",
+    className: "avatar-uploader",
+    showUploadList: false,
+    action: "https://pracify.com/testing/user/check_image",
+    headers: { token },
+    beforeUpload: beforeUpload,
+    onChange: handleUpload,
+  };
+
+  const onRegisterFinishFailed = (errorInfo) => {
+    console.log(errorInfo);
+  };
+  const onMailVerificationFinish = (value) => {
+    Axios.post("company/verify_email", value)
+      .then((res) => {
+        console.log(res);
+        setIsRegister(true);
+      })
+      .catch((e) => {
+        console.log(e.response);
+      });
+  };
+  const onMailVerificationFailed = (errorInfo) => {
+    console.log(errorInfo);
+  };
+  const onCompanyDetailFinish = (value) => {
+    const companyDetail = { ...value, logoUrl: imageUrl };
+    console.log(companyDetail);
+    // Axios.post("company/add_details");
+  };
+  const onCompanyDetailFinishFailed = () => {};
   return (
     <div className="login-main-block">
       <img
@@ -161,81 +284,89 @@ export default function SignUp() {
       />
       <ShowCaseCarousel />
       <div className="login-form-block">
-        {/* <h4 className="goBackToPracify" onClick={() => history.push("/")}>
-          <img src={arrowLeft} alt="" className="goBackArrow" /> Pracify
-        </h4> */}
         <h1 className="login__header">Sign Up</h1>
         {isRegister && !isFinalRegister && (
-          <p className="OTP__para">
-            "We've sent you One Time Password (OTP) to verify your email
-            address. Please enter it to continue."
-          </p>
+          <>
+            {/* <img src={arrowLeft} alt="" className="back-to-register"></img> */}
+            <p className="OTP__para">
+              "We've sent you One Time Password (OTP) to verify your email
+              address. Please enter it to continue."
+            </p>
+          </>
         )}
         {!isRegister ? (
-          <form onSubmit={handleSubmit(onSubmit)} className="signUp-form-block">
+          <Form
+            name="registrationForm"
+            // initialValues={{ remember: true }}
+            onFinish={onRegisterFinish}
+            onFinishFailed={onRegisterFinishFailed}
+            className="signUp-form-block"
+          >
             {userDetail.map((userDetail, index) => {
               return (
-                <div className={`${userDetail.formName}`} key={index}>
-                  <Controller
-                    as={
+                <div className={`${userDetail.name}`} key={index}>
+                  <Form.Item
+                    name={`${userDetail.name}`}
+                    rules={userDetail.rule}
+                  >
+                    {userDetail.name === "password" ? (
+                      <Input.Password
+                        prefix={
+                          <img src={userDetail.icon} alt="" className="" />
+                        }
+                        placeholder={userDetail.placeHolder}
+                        className={`${userDetail.name}__input`}
+                      />
+                    ) : (
                       <Input
                         prefix={
                           <img src={userDetail.icon} alt="" className="" />
                         }
-                        placeholder={userDetail.name}
-                        className={`${userDetail.formName}__input`}
+                        placeholder={userDetail.placeHolder}
+                        className={`${userDetail.name}__input`}
                       />
-                    }
-                    name={`${userDetail.formName}`}
-                    control={control}
-                  />
+                    )}
+                  </Form.Item>
                 </div>
               );
             })}
-            <Button htmlType="submit" className="register__button">
-              NEXT
-            </Button>
-          </form>
+            <Form.Item>
+              <Button htmlType="submit" className="register__button">
+                NEXT
+              </Button>
+            </Form.Item>
+          </Form>
         ) : !isFinalRegister ? (
-          <form
-            onSubmit={handleSubmit(onSubmitOtp)}
+          <Form
+            name="vForm"
+            // initialValues={{ remember: true }}
+            onFinish={onMailVerificationFinish}
+            onFinishFailed={onMailVerificationFailed}
             className="signUp-form-block"
           >
             <div className="email-otp">
-              <Controller
-                as={
-                  <Input placeholder="Enter OTP" className="email-otp__input" />
-                }
-                name="otp"
-                control={control}
-                rules={{ required: true, minLength: 3 }}
-              />
-              {errors.otp && errors.otp.type === "required" && (
-                <span>This is required</span>
-              )}
-              {errors.otp && errors.otp.type === "minLength" && (
-                <span>should have 3 character</span>
-              )}
+              <Form.Item
+                name="email"
+                rules={[
+                  { required: true, message: "Please input your email!" },
+                ]}
+              >
+                <Input placeholder="Enter OTP" className="email-otp__input" />
+              </Form.Item>
             </div>
             <Button htmlType="submit" className="register__button">
               VERIFY OTP
             </Button>
-          </form>
+          </Form>
         ) : (
           <>
-            <form
-              onSubmit={handleSubmit(onSubmitFinalRegister)}
+            <Form
+              name="companyDetailForm"
+              onFinish={onCompanyDetailFinish}
+              onFinishFailed={onCompanyDetailFinishFailed}
               className="signUp-form-block"
             >
-              <Upload
-                name="avatar"
-                listType="picture-card"
-                className="avatar-uploader"
-                showUploadList={false}
-                action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-                beforeUpload={beforeUpload}
-                onChange={handleUpload}
-              >
+              <Upload {...imgProps}>
                 {imageUrl ? (
                   <img src={imageUrl} alt="avatar" style={{ width: "100%" }} />
                 ) : (
@@ -247,23 +378,25 @@ export default function SignUp() {
               </Upload>
 
               {companyDetail.map((companyDetail, index) => (
-                <div className={`${companyDetail.formName}`} key={index}>
-                  <Controller
-                    as={whichInputField(
+                <div className={`${companyDetail.name}`} key={index}>
+                  <Form.Item
+                    name={companyDetail.name}
+                    rules={companyDetail.rule}
+                  >
+                    {whichInputField(
                       companyDetail.type,
-                      companyDetail.name,
-                      companyDetail.formName
+                      companyDetail.placeHolder,
+                      companyDetail.name
                     )}
-                    name={`${companyDetail.formName}`}
-                    control={control}
-                    // onFocus={() => inputRef.current.focus()}
-                  />
+                  </Form.Item>
                 </div>
               ))}
-              <Button htmlType="submit" className="register__button">
-                SUBMIT
-              </Button>
-            </form>
+              <Form.Item>
+                <Button htmlType="submit" className="register__button">
+                  SUBMIT
+                </Button>
+              </Form.Item>
+            </Form>
           </>
         )}
         {!isRegister && (
