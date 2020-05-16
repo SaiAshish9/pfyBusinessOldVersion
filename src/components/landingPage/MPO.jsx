@@ -11,11 +11,7 @@ export default function MPO() {
   return (
     <div className="mpo-main-block">
       <div className="mpo-header-block">
-        <h1 className="mpo__header">
-          MORE PARTNERSHIP OPPORTUNITIES
-          {/* <img src={circle16} alt="" className="header-img-one" />
-          <img src={circle38} alt="" className="header-img-two" /> */}
-        </h1>
+        <h1 className="mpo__header">MORE PARTNERSHIP OPPORTUNITIES</h1>
       </div>
 
       <div className="mpo-main-block-two">
