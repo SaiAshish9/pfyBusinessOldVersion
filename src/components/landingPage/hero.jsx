@@ -26,7 +26,9 @@ export default function Hero() {
         <img src={chipNaviBlueSquare} alt="" className="chipFour" />
         <img src={chipBlueCircle} alt="" className="chipFive" />
       </div>
-      <img src={heroImg} alt="" className="hero-img" />
+      <div className="hero-img-block">
+        <img src={heroImg} alt="" className="hero-img" />
+      </div>
     </div>
   );
 }

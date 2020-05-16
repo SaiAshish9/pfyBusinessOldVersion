@@ -1,6 +1,7 @@
 .hero-main-block {
   padding: 0 50px 0 50px;
   display: flex;
+
   .hero-content {
     position: relative;
     padding: 100px 50px 0 0px;
@@ -57,8 +58,77 @@
     }
   }
 
-  .hero-img {
+  .hero-img-block {
     margin-top: 20px;
     width: 670px;
+    .hero-img {
+      width: 100%;
+    }
+  }
+
+  @media (min-width: $smallTableScreen) and (max-width: $bigTabletScreen) {
+    // background-color: red;
+    .hero-content {
+      width: 70%;
+      padding: 40px 10px 0 0px;
+      .hero-content-heading {
+        font-size: 26px;
+      }
+      .hero-content-para {
+        font-size: 18px;
+      }
+    }
+  }
+  @media (min-width: $mobileScreen) and (max-width: $smallTableScreen) {
+    // background-color: lightblue;
+    .hero-content {
+      width: 100%;
+      padding: 40px 10px 0 0px;
+      .hero-content-heading {
+        word-spacing: -4px;
+        font-size: 18px;
+      }
+      .hero-content-para {
+        font-size: 12px;
+        word-spacing: -4px;
+      }
+      .hero-content-button {
+        width: 132px;
+        height: 30px;
+        border-radius: 15px;
+        padding: 0;
+        font-size: initial;
+      }
+    }
+  }
+  @media (max-width: $smallTableScreen) {
+    flex-direction: column;
+    padding: 0 20px 0 20px;
+    .hero-content {
+      width: 100%;
+      padding: 40px 10px 0 0px;
+      .hero-content-heading {
+        word-spacing: -4px;
+        font-size: 18px;
+      }
+      .hero-content-para {
+        font-size: 12px;
+        word-spacing: -4px;
+      }
+      .hero-content-button {
+        width: 132px;
+        height: 30px;
+        border-radius: 15px;
+        padding: 0;
+        font-size: initial;
+      }
+    }
+    .hero-img-block {
+      margin-top: 20px;
+      width: 100%;
+      .hero-img {
+        width: 100%;
+      }
+    }
   }
 }

@@ -15,18 +15,9 @@ export default function LandingPage() {
       <Hero />
       {/* <OurPromise></OurPromise> */}
       <KeepSimple />
-      <Element name="whyPracify">
-        <WhyPracify></WhyPracify>
-      </Element>
-
-      <Element name="howItWork">
-        {/* <HIW /> */}
-      </Element>
-
-      <Element name="ourService">
-        <WWD />
-      </Element>
-
+      <WhyPracify></WhyPracify>
+      {/* <HIW /> */}
+      <WWD />
       <MPO />
       <Footer />
     </div>

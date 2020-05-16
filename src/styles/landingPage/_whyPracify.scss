@@ -1,5 +1,5 @@
-div.why-pracify-block {
-  padding: 40px 0px;
+.why-pracify-block {
+  padding: 40px 0px 20px;
   text-align: center;
   .why-pracify-header-block {
     width: 100%;
@@ -7,7 +7,7 @@ div.why-pracify-block {
     justify-content: center;
     position: relative;
 
-    h1.why-pracify-header {
+    .why-pracify-header {
       margin-bottom: 60px;
       width: 53%;
       word-spacing: -12px;
@@ -17,28 +17,6 @@ div.why-pracify-block {
       line-height: 1.36;
       font-weight: 600;
       color: #333e49;
-      // letter-spacing: 1.8px;
-      // .header-img-one {
-      //   position: absolute;
-      //   left: -36px;
-      //   top: -22px;
-      // }
-      // .header-img-two {
-      //   position: absolute;
-      //   left: -20px;
-      //   top: -16px;
-      // }
-      // &:before {
-      //   content: "";
-      //   position: absolute;
-      //   left: 25%;
-      //   bottom: 0;
-      //   height: 3px;
-      //   width: 50%;
-      //   background: #444584;
-      //   border-bottom: 3px solid #444584;
-      //   border-radius: 70px;
-      // }
     }
     .chipOne {
       position: absolute;
@@ -64,16 +42,17 @@ div.why-pracify-block {
 
   .why-pracify-disc-main-block {
     display: flex;
-    padding: 0 46px 0 70px;
-
-    div.whyPracify-desc-block {
+    flex-wrap: wrap;
+    padding: 0 58px 0 58px;
+    .whyPracify-desc-block {
       flex: 1;
       border-radius: 10px;
       box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.12);
       background-color: #ffffff;
       text-align: center;
-      margin-right: 24px;
+      margin: 0 12px 20px 12px;
       padding: 24px 32px 24px 32px;
+
       div.whyPracify-desc-img-block {
         margin-bottom: 20px;
         height: 108px;
@@ -112,6 +91,41 @@ div.why-pracify-block {
         line-height: 1.88;
         color: #333e49;
         margin-top: 24px;
+      }
+    }
+  }
+  @media (min-width: $smallTableScreen) and (max-width: $bigTabletScreen) {
+    // background: lightpink;
+    .why-pracify-header-block {
+      .why-pracify-header {
+        font-size: 22px;
+        word-spacing: -4px;
+      }
+    }
+  }
+  @media (min-width: $mobileScreen) and (max-width: $smallTableScreen) {
+    // background: lightyellow;
+    .why-pracify-header-block {
+      .why-pracify-header {
+        font-size: 22px;
+        word-spacing: -4px;
+      }
+    }
+  }
+  @media (max-width: $mobileScreen) {
+    // background: lightgreen;
+    .why-pracify-header-block {
+      .why-pracify-header {
+        font-size: 18px;
+        word-spacing: -4px;
+        width: 100%;
+        margin: 0 20px 40px;
+      }
+    }
+    .why-pracify-disc-main-block {
+      padding: 0 8px 0 8px;
+      .whyPracify-desc-block {
+        margin: 0 12px 20px 12px;
       }
     }
   }

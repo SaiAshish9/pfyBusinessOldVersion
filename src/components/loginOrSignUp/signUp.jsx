@@ -173,6 +173,7 @@ export default function SignUp() {
   const [isFinalRegister, setIsFinalRegister] = useState(isVerify);
 
   const [loading, setLoading] = useState(false);
+  // const [error, setError] = useState(false);
   const [imageUrl, setImageUrl] = useState();
   console.log("imageUrl", imageUrl);
 
@@ -219,12 +220,8 @@ export default function SignUp() {
         });
         return;
       default:
-        
+        return;
     }
-    // if (info.file.status === "uploading") {
-    // }
-    // if (info.file.status === "done") {
-    // }
   };
 
   const onRegisterFinish = (value) => {
@@ -369,10 +366,15 @@ export default function SignUp() {
               <Upload {...imgProps}>
                 {imageUrl ? (
                   <img src={imageUrl} alt="avatar" style={{ width: "100%" }} />
-                ) : (
+                ) : loading ? (
                   <div>
                     {loading ? <LoadingOutlined /> : <PlusOutlined />}
                     <div className="ant-upload-text">Upload</div>
+                  </div>
+                ) : (
+                  <div>
+                    {/* {loading ? <LoadingOutlined /> : <PlusOutlined />} */}
+                    <div className="ant-upload-text">their is some error</div>
                   </div>
                 )}
               </Upload>

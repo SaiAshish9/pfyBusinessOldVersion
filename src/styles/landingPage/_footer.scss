@@ -75,6 +75,7 @@
     .company-block {
       flex: 1;
       margin-left: 108px;
+      padding: 0 20px;
 
       .footer__header {
         @extend%header;
@@ -87,6 +88,8 @@
 
     .legal-block {
       flex: 1;
+      padding: 0 20px;
+
       .footer__header {
         @extend%header;
       }
@@ -98,6 +101,7 @@
 
     .get-in-touch-block {
       flex: 1;
+      padding: 0 20px;
 
       .footer__header {
         @extend%header;
@@ -153,6 +157,142 @@
     .copyright__para {
       margin: 0 70px;
       .copyright__icon {
+      }
+    }
+  }
+  // footer
+  @media (min-width: $smallTableScreen) and (max-width: $bigTabletScreen) {
+    .border-block {
+      margin: 0 20px;
+
+      .company-block {
+        margin-left: 36px;
+      }
+    }
+    .sub-footer {
+      margin: 16px 20px;
+    }
+    .copyright__para {
+      margin: 0 20px;
+    }
+  }
+  @media (min-width: $mobileScreen) and (max-width: $smallTableScreen) {
+    .border-block {
+      margin: 0 20px;
+      .pracify-section {
+        .pracify__para {
+          font-size: 12px;
+        }
+        .address__para {
+          font-size: 12px;
+        }
+      }
+      .company-block {
+        margin-left: 12px;
+        padding: 0 10px;
+        .footer__header {
+          font-size: 14px;
+        }
+        .footer__link {
+          font-size: 12px;
+        }
+      }
+      .legal-block {
+        padding: 0 10px;
+        .footer__header {
+          font-size: 14px;
+        }
+        .footer__link {
+          font-size: 12px;
+        }
+      }
+      .get-in-touch-block {
+        padding: 0 10px;
+        .footer__header {
+          font-size: 14px;
+        }
+        .footer__link {
+          font-size: 12px;
+        }
+      }
+    }
+    .sub-footer {
+      flex-direction: column;
+      margin: 16px 20px;
+      .social-block {
+        margin-bottom: 20px;
+      }
+    }
+    .copyright-block {
+      display: flex;
+      justify-content: center;
+      .copyright__para {
+        margin: 0 20px;
+      }
+    }
+  }
+  @media (max-width: $mobileScreen) {
+    .border-block {
+      margin: 0 20px;
+      flex-direction: column;
+
+      .pracify-section {
+        margin-right: 12px;
+        .pracify__para {
+          font-size: 12px;
+        }
+        .address__para {
+          font-size: 12px;
+        }
+      }
+      .company-block {
+        margin: 0 0 20px 0;
+        padding: 0 10px;
+        .footer__header {
+          font-size: 14px;
+          margin-bottom: 4px;
+        }
+        .footer__link {
+          font-size: 12px;
+        }
+      }
+      .legal-block {
+        padding: 0 10px;
+        margin: 0 0 20px 0;
+
+        .footer__header {
+          font-size: 14px;
+          margin-bottom: 4px;
+        }
+        .footer__link {
+          font-size: 12px;
+        }
+      }
+      .get-in-touch-block {
+        padding: 0 10px;
+        margin: 0 0 20px 0;
+
+        .footer__header {
+          font-size: 14px;
+          margin-bottom: 4px;
+        }
+        .footer__link {
+          font-size: 12px;
+        }
+      }
+    }
+    .sub-footer {
+      flex-direction: column;
+      margin: 16px 20px;
+      .social-block {
+        margin-bottom: 20px;
+      }
+    }
+    .copyright-block {
+      display: flex;
+      justify-content: center;
+      .copyright__para {
+        margin: 0 20px;
       }
     }
   }
