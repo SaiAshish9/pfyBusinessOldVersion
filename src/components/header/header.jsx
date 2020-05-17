@@ -1,10 +1,11 @@
+import { CloseOutlined } from "@ant-design/icons";
 import React, { useState } from "react";
 import { Scroll } from "react-fns";
 import { useHistory } from "react-router-dom";
+import menuIcon from "../../assets/img/header/menuIcon.svg";
+import pracifyLogo from "../../assets/img/logoDark.png";
 // import DesktopNav from "./desktopNav";
 import HeaderNavLink from "./headerNavLink";
-import pracifyLogo from "../../assets/img/logoDark.png";
-import MobileNavIcon from "./mobileNavIcon";
 
 const Header = () => {
   const history = useHistory();
@@ -25,7 +26,7 @@ const Header = () => {
   console.log(isNavOpen);
 
   const myMobileNav = {
-    transition: "transform 1s ease-in-out",
+    transition: "transform .3s ease-in-out",
     transform: isNavOpen ? "translate(0%,0px)" : "translate(100%,0px)",
   };
 
@@ -51,12 +52,20 @@ const Header = () => {
                   <HeaderNavLink></HeaderNavLink>
                 </div>
 
-                <div onClick={handleNavIconClick} className="mobile-nav-menu">
-                  <MobileNavIcon />
-                </div>
+                {!isNavOpen && (
+                  <div onClick={handleNavIconClick} className="mobile-nav-menu">
+                    <img src={menuIcon} alt="" className="menu-icon" />
+                  </div>
+                )}
               </div>
               <div className="mobile-nav" style={myMobileNav}>
                 <div className="mobile-nav-link">
+                  {isNavOpen && (
+                    <CloseOutlined
+                      className="nav-close-icon"
+                      onClick={handleNavIconClick}
+                    />
+                  )}
                   <HeaderNavLink></HeaderNavLink>
                 </div>
               </div>

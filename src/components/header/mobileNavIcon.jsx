@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+//TODO need of removing this component and style related to this component
+import React from "react";
 // import { Fade } from "react-reveal";
 
 export default function MobileNavIcon() {
-
   return (
     <div className="mobile-nav-container">
       <div className="navbar-icon">

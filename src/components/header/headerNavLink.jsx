@@ -12,11 +12,7 @@ export default function HeaderNavLink() {
   };
   return (
     <>
-      <a
-        href="https://pracify.com/"
-        target="_blank"
-        className="header__button2__a"
-      >
+      <a href="https://pracify.com/" target="_blank" className="">
         <Button className="redirect-to-user-panel-button">
           For Gig Workers
         </Button>

@@ -27,9 +27,9 @@ import StudentOffers from "../components/campasMarketing/marketing/studentOffers
 import EditProfile from "../components/editProfile/editProfile";
 import Login from "../components/loginOrSignUp/login";
 import SignUp from "../components/loginOrSignUp/signUp";
-import NewCreateInternship from '../components/internship/internshipForm/newCreateInternship';
-import Internship2 from '../components/internship/internship/internship2';
-import NewAppliedGig from '../components/gig/newAppliedGig';
+import NewCreateInternship from "../components/internship/internshipForm/newCreateInternship";
+import Internship2 from "../components/internship/internship/internship2";
+import NewAppliedGig from "../components/gig/newAppliedGig";
 
 const history = createBrowserHistory();
 
@@ -38,13 +38,13 @@ export default function AppRouter() {
     <Router history={history}>
       <Switch>
         {/*//! ----------------Public Route----------------- */}
-        <PublicRoute
+        {/* <PublicRoute
           path="/"
           component={OldLandingPage}
           exact={true}
-        ></PublicRoute>
+        ></PublicRoute> */}
         <PublicRoute
-          path="/landingPage"
+          path="/"
           component={LandingPage}
           exact={true}
         ></PublicRoute>
@@ -55,11 +55,7 @@ export default function AppRouter() {
         />
         <PublicRoute path="/marketing" component={Marketing} exact={true} />
         {/* <PrivateRoute path="/campus-marketing" component={CampusMarketing} exact={true} /> */}
-        <Route
-          path="/testing"
-          component={NewCreateInternship}
-          exact={true}
-        />
+        <Route path="/testing" component={NewCreateInternship} exact={true} />
         <PublicRoute path="/login" component={Login} exact={true} />
         <PublicRoute path="/register" component={SignUp} exact={true} />
 
@@ -88,11 +84,7 @@ export default function AppRouter() {
           component={NewCampusMarketing}
           exact={true}
         />
-        <PrivateRoute
-          path="/gigs/:id"
-          component={NewAppliedGig}
-          exact={true}
-        />
+        <PrivateRoute path="/gigs/:id" component={NewAppliedGig} exact={true} />
         <PrivateRoute
           path="/student-offer"
           component={StudentOffers}

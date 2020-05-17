@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
+//TODO need to be deleted and its style file as well
 import "aos/dist/aos.css";
 import React from "react";
 import { Element } from "react-scroll";
