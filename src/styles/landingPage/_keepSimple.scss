@@ -7,34 +7,39 @@
     .keepSimple-message {
       position: relative;
       margin: 0 80px;
-      word-spacing: -12px;
+      // word-spacing: -12px;
       font-size: 36px;
       line-height: 1.36;
       text-align: center;
       color: #333e49;
-      font-weight: 600;
+      font-weight: 500;
     }
     .chipOne {
+      z-index: -1;
       position: absolute;
       top: -50px;
       left: 440px;
     }
     .chipTwo {
+      z-index: -1;
       position: absolute;
       right: 70px;
       top: 50px;
     }
     .chipThree {
+      z-index: -1;
       position: absolute;
       bottom: -40px;
       left: 210px;
     }
     .chipFour {
+      z-index: -1;
       position: absolute;
       right: 330px;
       top: -30px;
     }
     .chipFive {
+      z-index: -1;
       position: absolute;
       bottom: -20px;
       right: 40%;
@@ -60,8 +65,8 @@
 
       .content-subHeading {
         font-size: 32px;
-        word-spacing: -8px;
-        font-weight: bold;
+        // word-spacing: -8px;
+        font-weight: 500;
         color: #333e49;
         margin: 0 0px 8px 0px;
       }
@@ -85,7 +90,7 @@
         color: #4385e0;
       }
       .content-para {
-        margin: 0 85px;
+        margin: 0 70px;
       }
     }
     .content-block:nth-child(3) {
@@ -98,12 +103,39 @@
       }
     }
   }
+  @media (min-width: $bigTabletScreen) and (max-width: $smallLaptopScreen) {
+    .content-main-block {
+      .content-block {
+        .content-subHeading {
+          font-size: 30px;
+        }
+        .content-para {
+          margin: 0 20px;
+        }
+      }
+      .content-block:nth-child(1) {
+        .content-para {
+          margin: 0;
+        }
+      }
+      .content-block:nth-child(2) {
+        .content-para {
+          margin: 0;
+        }
+      }
+      .content-block:nth-child(3) {
+        .content-para {
+          margin: 0;
+        }
+      }
+    }
+  }
   @media (min-width: $smallTableScreen) and (max-width: $bigTabletScreen) {
     // background: lightpink;
     .keepSimple-message-block {
       .keepSimple-message {
         font-size: 22px;
-        word-spacing: -4px;
+        // word-spacing: -4px;
       }
     }
     .content-main-block {
@@ -140,12 +172,13 @@
       }
     }
   }
+
   @media (min-width: $mobileScreen) and (max-width: $smallTableScreen) {
     // background: lightyellow;
     .keepSimple-message-block {
       .keepSimple-message {
         font-size: 22px;
-        word-spacing: -4px;
+        // word-spacing: -4px;
       }
     }
     .content-main-block {
@@ -187,7 +220,7 @@
     .keepSimple-message-block {
       .keepSimple-message {
         font-size: 18px;
-        word-spacing: -4px;
+        // word-spacing: -4px;
         margin: 0 20px;
       }
     }

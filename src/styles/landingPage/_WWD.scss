@@ -44,6 +44,7 @@
       .ant-tabs-tab {
         margin: 16px 60px;
         padding: 0;
+        font-size: 16px;
         &:hover {
           color: #333e49;
         }
@@ -102,6 +103,26 @@
       color: #ffffff;
     }
   }
+
+  @media (min-width: $bigTabletScreen) and (max-width: $smallLaptopScreen) {
+    .ant-tabs-nav-scroll {
+      .ant-tabs-nav.ant-tabs-nav-animated {
+        .ant-tabs-tab {
+          margin: 14px 40px;
+        }
+      }
+    }
+    .outSourcing-block {
+      padding: 54px 80px 40px 80px;
+
+      .outSourcing__header {
+        font-size: 26px;
+      }
+      .outSourcing__button {
+        height: 56px;
+      }
+    }
+  }
   @media (min-width: $smallTableScreen) and (max-width: $bigTabletScreen) {
     // background: lightpink;
     .wwd-header-block {
@@ -109,11 +130,20 @@
         font-size: 22px;
       }
     }
+
     .ant-tabs-tabpane {
       min-height: 400px;
       .wwd-img {
         width: 90%;
         margin-left: 84px;
+      }
+    }
+    .ant-tabs-nav-scroll {
+      .ant-tabs-nav.ant-tabs-nav-animated {
+        .ant-tabs-tab {
+          margin: 14px 40px;
+          font-size: 14px;
+        }
       }
     }
     .outSourcing-block {
@@ -151,6 +181,7 @@
       .ant-tabs-nav.ant-tabs-nav-animated {
         padding: 0px;
         .ant-tabs-tab {
+          font-size: 13px;
           margin: auto;
           padding: 12px;
         }
@@ -184,6 +215,7 @@
     .wwd-header-block {
       .wwd-header {
         font-size: 18px;
+        letter-spacing: initial;
       }
     }
     .ant-tabs-tabpane {
@@ -199,6 +231,7 @@
         padding: 0px;
         .ant-tabs-tab {
           margin: auto;
+          font-size: 13px;
           padding: 12px;
         }
         .ant-tabs-tab-active.ant-tabs-tab {

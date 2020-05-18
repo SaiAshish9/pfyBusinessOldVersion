@@ -10,30 +10,34 @@
     .why-pracify-header {
       margin-bottom: 60px;
       width: 53%;
-      word-spacing: -12px;
+      // word-spacing: -12px;
       position: relative;
       padding-bottom: 12px;
       font-size: 36px;
       line-height: 1.36;
-      font-weight: 600;
+      font-weight: 500;
       color: #333e49;
     }
     .chipOne {
+      z-index: -1;
       position: absolute;
       top: -30px;
       right: 12%;
     }
     .chipTwo {
+      z-index: -1;
       position: absolute;
       left: 40px;
       top: 30px;
     }
     .chipThree {
+      z-index: -1;
       position: absolute;
       bottom: 20px;
       left: 20%;
     }
     .chipFour {
+      z-index: -1;
       position: absolute;
       bottom: 36px;
       right: 42%;
@@ -94,12 +98,20 @@
       }
     }
   }
+  @media (min-width: $bigTabletScreen) and (max-width: $smallLaptopScreen) {
+    .why-pracify-header-block {
+      .why-pracify-header {
+        width: 60%;
+      }
+    }
+  }
+
   @media (min-width: $smallTableScreen) and (max-width: $bigTabletScreen) {
     // background: lightpink;
     .why-pracify-header-block {
       .why-pracify-header {
         font-size: 22px;
-        word-spacing: -4px;
+        // word-spacing: -4px;
       }
     }
   }
@@ -108,7 +120,7 @@
     .why-pracify-header-block {
       .why-pracify-header {
         font-size: 22px;
-        word-spacing: -4px;
+        // word-spacing: -4px;
       }
     }
   }
@@ -117,7 +129,7 @@
     .why-pracify-header-block {
       .why-pracify-header {
         font-size: 18px;
-        word-spacing: -4px;
+        // word-spacing: -4px;
         width: 100%;
         margin: 0 20px 40px;
       }

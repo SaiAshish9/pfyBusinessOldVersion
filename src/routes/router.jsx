@@ -6,6 +6,7 @@ import Dashboard from "../components/dashboard/dashboard";
 import PageNotFound from "../components/error/pageNotFound";
 import Gig from "../components/gig/gig";
 import OldLandingPage from "../components/home/home";
+import ContactUs from "../components/contactUs";
 import LandingPage from "../components/landingPage/landingPage";
 import UserResume from "../components/independentComponent/userResume";
 import Internship from "../components/internship/internship/internship";
@@ -38,11 +39,11 @@ export default function AppRouter() {
     <Router history={history}>
       <Switch>
         {/*//! ----------------Public Route----------------- */}
-        {/* <PublicRoute
-          path="/"
-          component={OldLandingPage}
+        <PublicRoute
+          path="/contact_us"
+          component={ContactUs}
           exact={true}
-        ></PublicRoute> */}
+        ></PublicRoute>
         <PublicRoute
           path="/"
           component={LandingPage}

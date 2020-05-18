@@ -2,7 +2,7 @@
 @import "./base/setting";
 
 @import "./landingPage/landingPage";
-
+@import "./contactUs";
 @import "./header/header";
 @import "./header/mobileNav";
 @import "./header/privateHeader";
@@ -37,12 +37,12 @@
 
 @import "./profile//personalProfileModal";
 @import "./login/login";
-@import './marketing/newMarketing';
-@import './marketing/newMarketing2';
-@import './internshipBooster/internshipBooster';
-@import './internship/internship/newInternshipDetails';
+@import "./marketing/newMarketing";
+@import "./marketing/newMarketing2";
+@import "./internshipBooster/internshipBooster";
+@import "./internship/internship/newInternshipDetails";
 
-@import './internship/newCreateInternship';
+@import "./internship/newCreateInternship";
 
-@import './internship/internship/internship2';
-@import './gig/newAppliedGig';
+@import "./internship/internship/internship2";
+@import "./gig/newAppliedGig";

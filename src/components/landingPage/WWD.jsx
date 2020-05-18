@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import circle16 from "../../assets/img/landingPage/circle16.svg";
 import circle38 from "../../assets/img/landingPage/circle38.svg";
 import WWDBusinessDevelopment from "../../assets/img/landingPage/WWDBusinessDevelopment.gif";
@@ -10,11 +11,12 @@ import { Tabs, Button } from "antd";
 const { TabPane } = Tabs;
 
 export default function WWD() {
+  const history = useHistory();
   return (
     <div className="wwd-block">
       <div className="wwd-header-block">
         <h1 className="wwd-header">
-          THE WORK WE DO
+          The Work We Do
           {/* <img src={circle16} alt="" className="header-img-one" />
           <img src={circle38} alt="" className="header-img-two" /> */}
         </h1>
@@ -38,14 +40,19 @@ export default function WWD() {
       </Tabs>
       <div className="outSourcing-block">
         <h1 className="outSourcing__header">
-          OUTSOURCING DOESN'T HAVE TO BE HARD.WE MAKE IT EASY.
+          OUTSOURCING DOESN'T HAVE TO BE HARD. WE MAKE IT EASY.
         </h1>
         <p className="outSourcing__para">
-          Built from the ground up to save your company money.Save time & money
-          with Pracify,a tech platform built to help companies scale using our
+          Built from the ground up to save your company money. Save time & money
+          with Pracify, a tech platform built to help companies scale using our
           network of on-demand workers.
         </p>
-        <Button className="outSourcing__button">CONTACT US</Button>
+        <Button
+          className="outSourcing__button"
+          onClick={() => history.push("/contact_us")}
+        >
+          CONTACT US
+        </Button>
       </div>
     </div>
   );

@@ -36,6 +36,7 @@ export default function KeepSimple() {
       <div className="keepSimple-message-block">
         <h1 className="keepSimple-message">
           Introducing the simplest outsourcing solution for companies.
+          <br />
           Everything in one place for all your outsourcing needs.{" "}
         </h1>
         <img src={chipCyanCircle} alt="" className="chipOne" />

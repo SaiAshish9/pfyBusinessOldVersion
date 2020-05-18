@@ -7,7 +7,7 @@
     padding: 70px 0px 20px 0px;
     margin: 0 70px;
     .pracify-section {
-      flex: 1.76;
+      flex: 3;
       .logo-block {
         position: relative;
         bottom: 16px;
@@ -16,6 +16,7 @@
       }
 
       .pracify__para {
+        width: 400px;
         padding: 16px;
         border-radius: 14px;
         background-color: #696a9d;
@@ -25,6 +26,7 @@
       }
 
       .address__para {
+        width: 400px;
         font-size: 16px;
         line-height: 1.5;
         color: #ffffff;
@@ -73,10 +75,7 @@
       cursor: pointer;
     }
     .company-block {
-      flex: 1;
-      margin-left: 108px;
-      padding: 0 20px;
-
+      padding-left: 100px;
       .footer__header {
         @extend%header;
       }
@@ -87,8 +86,7 @@
     }
 
     .legal-block {
-      flex: 1;
-      padding: 0 20px;
+      padding-left: 100px;
 
       .footer__header {
         @extend%header;
@@ -100,8 +98,7 @@
     }
 
     .get-in-touch-block {
-      flex: 1;
-      padding: 0 20px;
+      padding-left: 100px;
 
       .footer__header {
         @extend%header;
@@ -161,19 +158,48 @@
     }
   }
   // footer
+  @media (min-width: $bigTabletScreen) and (max-width: $smallLaptopScreen) {
+    .border-block {
+      .company-block {
+        padding-left: 60px;
+      }
+      .legal-block {
+        padding-left: 60px;
+      }
+      .get-in-touch-block {
+        padding-left: 60px;
+      }
+    }
+  }
   @media (min-width: $smallTableScreen) and (max-width: $bigTabletScreen) {
     .border-block {
       margin: 0 20px;
-
+      .pracify-section {
+        flex: 1;
+        .pracify__para {
+          width: initial;
+        }
+        .address__para {
+          width: initial;
+        }
+      }
       .company-block {
-        margin-left: 36px;
+        padding-left: 40px;
+      }
+      .legal-block {
+        padding-left: 40px;
+      }
+      .get-in-touch-block {
+        padding-left: 40px;
       }
     }
     .sub-footer {
       margin: 16px 20px;
     }
-    .copyright__para {
-      margin: 0 20px;
+    .copyright-block {
+      .copyright__para {
+        margin: 0 20px;
+      }
     }
   }
   @media (min-width: $mobileScreen) and (max-width: $smallTableScreen) {
@@ -181,9 +207,11 @@
       margin: 0 20px;
       .pracify-section {
         .pracify__para {
+          width: initial;
           font-size: 12px;
         }
         .address__para {
+          width: initial;
           font-size: 12px;
         }
       }
@@ -217,15 +245,29 @@
       }
     }
     .sub-footer {
-      flex-direction: column;
       margin: 16px 20px;
       .social-block {
-        margin-bottom: 20px;
+        img {
+          width: 18px;
+        }
+      }
+      .love__para {
+        font-size: 16px;
+        margin: 0;
+      }
+      .download-pracify-block {
+        .google-playStore-icon {
+          width: 75px;
+          height: 25px;
+        }
+        .apple-playStore-icon {
+          width: 75px;
+          height: 25px;
+        }
       }
     }
+
     .copyright-block {
-      display: flex;
-      justify-content: center;
       .copyright__para {
         margin: 0 20px;
       }
@@ -239,9 +281,11 @@
       .pracify-section {
         margin-right: 12px;
         .pracify__para {
+          width: initial;
           font-size: 12px;
         }
         .address__para {
+          width: initial;
           font-size: 12px;
         }
       }
@@ -285,7 +329,24 @@
       flex-direction: column;
       margin: 16px 20px;
       .social-block {
-        margin-bottom: 20px;
+        img {
+          width: 18px;
+        }
+        margin-bottom: 18px;
+      }
+      .love__para {
+        font-size: 16px;
+        margin-bottom: 12px;
+      }
+      .download-pracify-block {
+        .google-playStore-icon {
+          width: 75px;
+          height: 25px;
+        }
+        .apple-playStore-icon {
+          width: 75px;
+          height: 25px;
+        }
       }
     }
     .copyright-block {

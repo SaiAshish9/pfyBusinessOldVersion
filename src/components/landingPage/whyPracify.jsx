@@ -47,7 +47,7 @@ export default function WhyPracify() {
       <div className="why-pracify-header-block">
         <h1 className="why-pracify-header">
           Achieve your business goals on Pracify.
-          <br /> The whole process is simple,easy & safe.
+          <br /> The whole process is simple, easy & safe.
           {/* <img src={circle16} alt="" className="header-img-one" />
           <img src={circle38} alt="" className="header-img-two" />
       */}{" "}
