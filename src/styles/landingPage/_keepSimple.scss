@@ -95,7 +95,6 @@
     }
     .content-block:nth-child(3) {
       .content-heading {
-        // margin-top: 7px;
         color: #4d52d1;
       }
       .content-para {
@@ -172,7 +171,6 @@
       }
     }
   }
-
   @media (min-width: $mobileScreen) and (max-width: $smallTableScreen) {
     // background: lightyellow;
     .keepSimple-message-block {

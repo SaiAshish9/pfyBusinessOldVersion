@@ -90,9 +90,11 @@
     }
   }
   @media (min-width: $bigTabletScreen) and (max-width: $smallLaptopScreen) {
-    .mpo-header-block {
-      .mpo__header {
-        font-size: 18px;
+    .mpo-main-block-two {
+      .mpo-block {
+        .mpo__header {
+          font-size: 18px;
+        }
       }
     }
   }

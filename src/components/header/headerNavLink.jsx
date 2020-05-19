@@ -22,15 +22,19 @@ export default function HeaderNavLink() {
           For Gig Workers
         </Button>
       </a>
-      <Link to="/register">
+      <Link
+      // to="/register"
+      >
         <Button className="register-button">Register</Button>
       </Link>
-      <Link to="/login">
+      <Link
+      // to="/login"
+      >
         <Button className="login-button">Login</Button>
       </Link>
-      <Button onClick={handleDummyLogin} className="login-button">
+      {/* <Button onClick={handleDummyLogin} className="login-button">
         Direct Login
-      </Button>
+      </Button> */}
     </>
   );
 }
