@@ -13,7 +13,7 @@ import passwordIcon from "../../assets/img/loginOrSignUp/passwordIcon.svg";
 import logo from "../../assets/img/logoDark.png";
 import Axios from "axios";
 import { objectValidation } from "../validation/validation";
-
+import { apiURL, s3URL } from "../constant/userToken";
 const userDetail = [
   {
     placeHolder: "First Name",
@@ -81,7 +81,7 @@ const companyDetail = [
   },
   {
     placeHolder: "Company Website",
-    name: "companyWebsite",
+    name: "websiteLink",
     type: "input",
     rule: [
       {
@@ -123,21 +123,11 @@ const getBase64 = (img, callback) => {
   reader.readAsDataURL(img);
 };
 
-const beforeUpload = (file) => {
-  const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
-  if (!isJpgOrPng) {
-    message.error("You can only upload JPG/PNG file!");
-  }
-  const isLt2M = file.size / 1024 / 1024 < 2;
-  if (!isLt2M) {
-    message.error("Image must smaller than 2MB!");
-  }
-  return isJpgOrPng && isLt2M;
-};
+
 
 export default function SignUp() {
   const history = useHistory();
-  const isVerify =
+  const isVerify = 
     !!history.location.state && history.location.state.isEmailVerify;
   const token = !!history.location.state && history.location.state.token;
   console.log(token);
@@ -175,6 +165,7 @@ export default function SignUp() {
   const [loading, setLoading] = useState(false);
   // const [error, setError] = useState(false);
   const [imageUrl, setImageUrl] = useState();
+  const [imageUploadUrl,setImageUploadUrl] = useState();
   console.log("imageUrl", imageUrl);
 
   const whichInputField = (inputType, inputName, name) => {
@@ -207,19 +198,38 @@ export default function SignUp() {
     }
   };
 
-  const handleUpload = (info) => {
+  const beforeUpload = async (file) => {
+    const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
+    if (!isJpgOrPng) {
+      message.error("You can only upload JPG/PNG file!");
+    }
+    const isLt2M = file.size / 1024 / 1024 < 2;
+    if (!isLt2M) {
+      message.error("Image must smaller than 2MB!");
+    }
+  
+    const response = await Axios.get(`${apiURL}company/upload_dp_url?fileType=${file.type}`);
+    const {key,url} = response.data;
+    setImageUploadUrl(url);
+    setImageUrl(key);
+    return isJpgOrPng && isLt2M;
+  };
+  const handleUpload = async (info) => {
+    console.log(info.file.originFileObj);
+   
     switch (info.file.status) {
       case "uploading":
         setLoading({ loading: true });
         return;
 
       case "done":
-        getBase64(info.file.originFileObj, (imageUrl) => {
-          setLoading(false);
-          setImageUrl(imageUrl);
-        });
+        console.log(info.file.originFileObj)
+
         return;
       default:
+                // if(info.file){
+        //   await Axios.put(imageUploadUrl,info.file);
+        // }
         return;
     }
   };
@@ -237,11 +247,12 @@ export default function SignUp() {
   };
 
   const imgProps = {
-    name: "avatar",
+    // name: "avatar",
     listType: "picture-card",
     className: "avatar-uploader",
     showUploadList: false,
-    action: "https://pracify.com/testing/user/check_image",
+    method:'put',
+    customRequest:async (data) => await Axios.put(imageUploadUrl,data.file),
     headers: { token },
     beforeUpload: beforeUpload,
     onChange: handleUpload,
@@ -263,10 +274,10 @@ export default function SignUp() {
   const onMailVerificationFailed = (errorInfo) => {
     console.log(errorInfo);
   };
-  const onCompanyDetailFinish = (value) => {
+  const onCompanyDetailFinish = async (value) => {
     const companyDetail = { ...value, logoUrl: imageUrl };
     console.log(companyDetail);
-    // Axios.post("company/add_details");
+    Axios.post("company/add_details",companyDetail);
   };
   const onCompanyDetailFinishFailed = () => {};
   return (
@@ -365,7 +376,7 @@ export default function SignUp() {
             >
               <Upload {...imgProps}>
                 {imageUrl ? (
-                  <img src={imageUrl} alt="avatar" style={{ width: "100%" }} />
+                  <img src={s3URL + imageUrl} alt="avatar" style={{ width: "100%" }} />
                 ) : loading ? (
                   <div>
                     {loading ? <LoadingOutlined /> : <PlusOutlined />}

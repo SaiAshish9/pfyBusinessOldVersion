@@ -11,7 +11,7 @@ import "moment";
 // TODO API Config
 // is_api_endpoint_valid
 axios.defaults.baseURL = "https://pracify.com/testing/";
-axios.defaults.headers.common["companytoken"] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTZmMjdkNzhlZTNjNzZkZDlkNzQ1NjUiLCJpYXQiOjE1ODQzNDMxMDAsImV4cCI6MTU5Mjk4MzEwMH0.ccdnV5YPtFYcz_Q4zRJfCRzu9xhloN3f3ENK4JtdC_Q"
+axios.defaults.headers.common["companytoken"] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWNhNTkzYjI1YWEwMDY4Y2IxYjkxNWIiLCJpYXQiOjE1OTAzMjA3MTYsImV4cCI6MTU5ODk2MDcxNn0.5YTjTTmH6UixTCxhgf1SS6TFGgoP_VnyTefzqV-vrKA"
 ReactDOM.render(<App />, document.getElementById("root"));
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
