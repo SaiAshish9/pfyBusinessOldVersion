@@ -132,14 +132,14 @@
   border-radius: 4px;
   height: 46px;
   border: solid 1px #c6c6c6;
-  margin-bottom: 16px;
+  // margin-bottom: 16px;
   width: 100%;
   // background-color: #ffffff;
 }
 
 %custom-campaign-select {
   width: 100%;
-  margin-bottom: 16px;
+  // margin-bottom: 16px;
   .ant-select-selector {
     height: 46px;
     border-radius: 4px;
@@ -238,13 +238,25 @@
       .interviewQues-label {
         @extend%custom-campaign-label;
       }
-
-      .interviewQues-input {
-        @extend%custom-campaign-input;
+      .interviewQues-ques-main-block {
+        .interviewQues-ques-block {
+          display: flex;
+          .ant-form-item {
+            width: 100%;
+            .interviewQues-ques {
+              margin-bottom: 0;
+              @extend%custom-campaign-input;
+            }
+          }
+          .ques-deleteIcon {
+            margin: 16px 0 0 8px;
+          }
+        }
       }
+
       .customCampaign-next-button {
         position: absolute;
-        margin-bottom: 16px;
+        // margin-bottom: 16px;
         bottom: 0;
         right: 0;
 

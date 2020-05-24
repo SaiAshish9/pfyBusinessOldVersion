@@ -123,11 +123,9 @@ const getBase64 = (img, callback) => {
   reader.readAsDataURL(img);
 };
 
-
-
 export default function SignUp() {
   const history = useHistory();
-  const isVerify = 
+  const isVerify =
     !!history.location.state && history.location.state.isEmailVerify;
   const token = !!history.location.state && history.location.state.token;
   console.log(token);
@@ -165,7 +163,7 @@ export default function SignUp() {
   const [loading, setLoading] = useState(false);
   // const [error, setError] = useState(false);
   const [imageUrl, setImageUrl] = useState();
-  const [imageUploadUrl,setImageUploadUrl] = useState();
+  const [imageUploadUrl, setImageUploadUrl] = useState();
   console.log("imageUrl", imageUrl);
 
   const whichInputField = (inputType, inputName, name) => {
@@ -207,27 +205,29 @@ export default function SignUp() {
     if (!isLt2M) {
       message.error("Image must smaller than 2MB!");
     }
-  
-    const response = await Axios.get(`${apiURL}company/upload_dp_url?fileType=${file.type}`);
-    const {key,url} = response.data;
+
+    const response = await Axios.get(
+      `${apiURL}company/upload_dp_url?fileType=${file.type}`
+    );
+    const { key, url } = response.data;
     setImageUploadUrl(url);
     setImageUrl(key);
     return isJpgOrPng && isLt2M;
   };
   const handleUpload = async (info) => {
     console.log(info.file.originFileObj);
-   
+
     switch (info.file.status) {
       case "uploading":
         setLoading({ loading: true });
         return;
 
       case "done":
-        console.log(info.file.originFileObj)
+        console.log(info.file.originFileObj);
 
         return;
       default:
-                // if(info.file){
+        // if(info.file){
         //   await Axios.put(imageUploadUrl,info.file);
         // }
         return;
@@ -251,8 +251,8 @@ export default function SignUp() {
     listType: "picture-card",
     className: "avatar-uploader",
     showUploadList: false,
-    method:'put',
-    customRequest:async (data) => await Axios.put(imageUploadUrl,data.file),
+    method: "put",
+    customRequest: async (data) => await Axios.put(imageUploadUrl, data.file),
     headers: { token },
     beforeUpload: beforeUpload,
     onChange: handleUpload,
@@ -262,14 +262,15 @@ export default function SignUp() {
     console.log(errorInfo);
   };
   const onMailVerificationFinish = (value) => {
-    Axios.post("company/verify_email", value)
-      .then((res) => {
-        console.log(res);
-        setIsRegister(true);
-      })
-      .catch((e) => {
-        console.log(e.response);
-      });
+    console.log(value);
+    // Axios.post("company/verify_email", { email: value.OTP })
+    //   .then((res) => {
+    //     console.log(res);
+    //     setIsRegister(true);
+    //   })
+    //   .catch((e) => {
+    //     console.log(e.response);
+    //   });
   };
   const onMailVerificationFailed = (errorInfo) => {
     console.log(errorInfo);
@@ -277,7 +278,13 @@ export default function SignUp() {
   const onCompanyDetailFinish = async (value) => {
     const companyDetail = { ...value, logoUrl: imageUrl };
     console.log(companyDetail);
-    Axios.post("company/add_details",companyDetail);
+    Axios.post("company/add_details", companyDetail)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((e) => {
+        console.log(e.response);
+      });
   };
   const onCompanyDetailFinishFailed = () => {};
   return (
@@ -354,10 +361,8 @@ export default function SignUp() {
           >
             <div className="email-otp">
               <Form.Item
-                name="email"
-                rules={[
-                  { required: true, message: "Please input your email!" },
-                ]}
+                name="OTP"
+                rules={[{ required: true, message: "Please input your OTP!" }]}
               >
                 <Input placeholder="Enter OTP" className="email-otp__input" />
               </Form.Item>
@@ -376,7 +381,11 @@ export default function SignUp() {
             >
               <Upload {...imgProps}>
                 {imageUrl ? (
-                  <img src={s3URL + imageUrl} alt="avatar" style={{ width: "100%" }} />
+                  <img
+                    src={s3URL + imageUrl}
+                    alt="avatar"
+                    style={{ width: "100%" }}
+                  />
                 ) : loading ? (
                   <div>
                     {loading ? <LoadingOutlined /> : <PlusOutlined />}

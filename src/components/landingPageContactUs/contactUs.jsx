@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "antd";
-import findPracifyImg from "../assets/img/findPracifyImg.svg";
-import Footer from "./landingPage/footer";
+import findPracifyImg from "../../assets/img/findPracifyImg.svg";
+import Footer from "../landingPage/footer";
+import FillDetail from "./fillDetail";
+
 export default function ContactUs() {
+  const [contactUsVisible, setContactUsVisible] = useState(false);
+  const [contactTo, setContactTo] = useState();
+  console.log(contactTo);
+
+  const handleContactUs = (contactName) => {
+    setContactUsVisible(true);
+    setContactTo(contactName);
+  };
+  const handleCancelModal = () => {
+    setContactUsVisible(false);
+  };
   return (
     <>
       <div className="contactUs-main-block">
@@ -20,7 +33,12 @@ export default function ContactUs() {
               A bit stuck? Sorry to hear that. There's an easy way to contact us
               via the button below:
             </p>
-            <Button className="contactUs-button">Get in Touch</Button>
+            <Button
+              className="contactUs-button"
+              onClick={() => handleContactUs("user")}
+            >
+              Get in Touch
+            </Button>
           </div>
           <div className="our-contactUs-support-block">
             <h4 className="find-pracify-content-head">For Business</h4>
@@ -33,7 +51,12 @@ export default function ContactUs() {
             <p className="find-pracify-content-para">
               or you can fill this form below and we'll get back to you:
             </p>
-            <Button className="contactUs-button">Get in Touch</Button>
+            <Button
+              className="contactUs-button"
+              onClick={() => handleContactUs("business")}
+            >
+              Get in Touch
+            </Button>
           </div>
           <div className="our-contactUs-support-block">
             <h4 className="find-pracify-content-head">Partner with Us</h4>
@@ -42,7 +65,12 @@ export default function ContactUs() {
               Partner with us for various brand campaigns and secure cash
               sponsorship for your event.
             </p>
-            <Button className="contactUs-button">Get in Touch</Button>
+            <Button
+              className="contactUs-button"
+              onClick={() => handleContactUs("partner")}
+            >
+              Get in Touch
+            </Button>
           </div>
         </div>
         <div className="find-pracify-block">
@@ -62,6 +90,11 @@ export default function ContactUs() {
           </div>
         </div>
       </div>
+      <FillDetail
+        contactName={contactTo}
+        modalVisible={contactUsVisible}
+        handleCancelModal={handleCancelModal}
+      ></FillDetail>
       <Footer></Footer>
     </>
   );

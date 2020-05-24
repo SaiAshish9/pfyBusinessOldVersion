@@ -5,7 +5,7 @@
         justify-content: space-between;
         flex-wrap: wrap;
         .summary-block{
-            flex: 1 1 550px;
+            width: 72.5%;
             margin-top: 1rem;
             background-color: #fff;
             .heading{
@@ -59,7 +59,7 @@
             }
         }
         .overview-block{
-            flex: 1 1 300px;
+            width: 25.5%;
             margin-top: 1rem;
             background-color: #fff;
             // width: 25.5%;

@@ -1,11 +1,11 @@
 import { MoreOutlined } from "@ant-design/icons";
 import { Table, Tabs } from "antd";
 import React from "react";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 const { TabPane } = Tabs;
 
 export default function InternshipTable({ isDataSource }) {
-  const internshipId = '5e6f2c5d3422b56f87738726'
+  const internshipId = "5e6f2c5d3422b56f87738726";
 
   const columns = [
     {
@@ -17,7 +17,9 @@ export default function InternshipTable({ isDataSource }) {
       title: "Job Title",
       dataIndex: "jobTitle",
       key: "jobTitle",
-      render: (jobTitle) => <Link to={`/internship/${internshipId}`}>{jobTitle}</Link>,
+      render: (jobTitle) => (
+        <Link to={`/internship/${internshipId}`}>{jobTitle}</Link>
+      ),
     },
     {
       title: "Location",
@@ -73,26 +75,39 @@ export default function InternshipTable({ isDataSource }) {
             columns={columns}
             dataSource={internshipData}
             pagination={false}
+            // scroll={{ y: 240 }}
           />
         </TabPane>
         <TabPane tab="Active" key="2" className="">
-          <Table columns={columns} dataSource={null} pagination={false} />
+          <Table
+            columns={columns}
+            dataSource={null}
+            pagination={false}
+            // scroll={{ y: 240 }}
+          />
         </TabPane>
         <TabPane tab="Under Review" key="3" className="">
           <Table
             columns={columns}
             dataSource={internshipData}
             pagination={false}
+            // scroll={{ y: 240 }}
           />
         </TabPane>
         <TabPane tab="Closed" key="4" className="">
-          <Table columns={columns} dataSource={null} pagination={false} />
+          <Table
+            columns={columns}
+            dataSource={null}
+            pagination={false}
+            // scroll={{ y: 240 }}
+          />
         </TabPane>
         <TabPane tab="Draft" key="5" className="">
           <Table
             columns={columns}
             dataSource={internshipData}
             pagination={false}
+            // scroll={{ y: 240 }}
           />
         </TabPane>
       </Tabs>

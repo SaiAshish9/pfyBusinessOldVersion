@@ -1,17 +1,19 @@
+@import "./fillDetail";
+
 .contactUs-main-block {
   padding: 120px 55px 0;
   .contactUs-msg-block {
+    display: flex;
+    flex-direction: column;
     .contactUs-heading {
+      margin: 0;
       font-size: 60px;
       font-weight: 500;
       color: #333e49;
     }
 
     .contactUs-para {
-      @extend%para;
-
       font-size: 20px;
-      //   line-height: 2;
       color: #333e49;
     }
   }
@@ -24,6 +26,8 @@
 
     .our-contactUs-support-block {
       flex: 1;
+      display: flex;
+      flex-direction: column;
       border-right: 1px solid #d3d3d3;
       .find-pracify-content-head {
         font-size: 18px;
@@ -33,12 +37,14 @@
       }
 
       .find-pracify-content-para {
+        flex: 1;
         font-size: 18px;
         line-height: 1.22;
         color: #333e49;
       }
 
       .contactUs-button {
+        width: fit-content;
         border-radius: 2px;
         border: solid 1px #38bdba;
         font-size: 18px;
@@ -59,21 +65,36 @@
   }
 
   .find-pracify-block {
+    margin: 120px 0px;
+    display: flex;
+    align-items: center;
     .find-pracify-img-block {
+      flex: 1;
       img {
       }
     }
 
     .find-pracify-content {
+      flex: 1;
       .find-pracify-head {
-        // @extend%header;
+        font-size: 60px;
+        font-weight: 500;
+        line-height: 0.67;
+        color: #333e49;
       }
 
       .find-pracify-para {
-        // @extend%para;
+        width: 97%;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333e49;
       }
 
       .find-pracify-address {
+        width: 89%;
+        font-size: 20px;
+        line-height: 1.7;
+        color: #333e49;
       }
     }
   }

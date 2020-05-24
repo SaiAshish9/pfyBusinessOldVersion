@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
+//TODO need to delete this component
 import React from "react";
 import AOS from "aos";
 import {
