@@ -9,6 +9,7 @@ import BoostInternship from "../../newComp/boostYourInternship/boostYourInternsh
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import moment from "moment";
+import { arrayValidation } from "../../validation/validation";
 
 const { TabPane } = Tabs;
 
@@ -98,13 +99,15 @@ export default function Internship2() {
     axios.get(url).then((res) => {
       const data = res.data;
       console.log("internships ", res.data);
-      const totalViews = data
-        .map((el) => el.views)
-        .reduce((acc, curr) => acc + curr);
+      const totalViews =
+        arrayValidation(data) &&
+        data.map((el) => el.views).reduce((acc, curr) => acc + curr);
       const totalInternships = data.length;
-      const totalApplicationReceived = data
-        .map((el) => el.totalApplications)
-        .reduce((acc, curr) => acc + curr);
+      const totalApplicationReceived =
+        arrayValidation(data) &&
+        data
+          .map((el) => el.totalApplications)
+          .reduce((acc, curr) => acc + curr);
       console.log(
         "TOTAL VIEWS " +
           totalViews +
