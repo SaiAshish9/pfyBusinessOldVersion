@@ -6,7 +6,7 @@ import Header from "../components/header/header";
 // const history = createBrowserHistory();
 export default function PublicRoute({ component: Component, ...rest }) {
   const location = useLocation();
-  const token = cookie.get("token");
+  const token = cookie.get("companytoken");
   console.log("location.pathname", location.pathname);
   const pathWithoutHeader =
     location.pathname === "/register" || location.pathname === "/login";

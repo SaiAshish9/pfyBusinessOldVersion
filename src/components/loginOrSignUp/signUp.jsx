@@ -153,7 +153,7 @@ export default function SignUp() {
 
   const onSubmitFinalRegister = (data) => {
     console.log(data);
-    cookie.set("token", token);
+    cookie.set("companytoken", token);
     history.push("/dashboard");
   };
 

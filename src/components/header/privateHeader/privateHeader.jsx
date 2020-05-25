@@ -26,7 +26,7 @@ export default function PrivateHeader({ component: Component, ...rest }) {
   };
 
   const handleLogout = () => {
-    cookie.remove("token");
+    cookie.remove("companytoken");
     history.push("/");
   };
 

@@ -12,7 +12,7 @@ import "moment";
 
 // TODO API Config
 // is_api_endpoint_valid
-const myCookies = cookie.get("token");
+const myCookies = cookie.get("companytoken");
 console.log(myCookies);
 axios.defaults.baseURL = "https://pracify.com/testing/";
 axios.defaults.headers.common["companytoken"] = myCookies;

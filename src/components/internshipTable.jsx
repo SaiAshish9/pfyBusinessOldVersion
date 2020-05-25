@@ -1,12 +1,16 @@
 import { MoreOutlined } from "@ant-design/icons";
 import { Table, Tabs } from "antd";
-import React from "react";
+import React, { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
+import { getHeaders } from "../helpers/getHeaders";
+import Axios from "axios";
+
 const { TabPane } = Tabs;
 
 export default function InternshipTable({ isDataSource }) {
   const internshipId = "5e6f2c5d3422b56f87738726";
-
+  const [internships,setInternships] = useState([]);
+  const [internshipsLoader,setInternshipsLoader] = useState(true);
   const columns = [
     {
       title: "S.No",
@@ -54,7 +58,7 @@ export default function InternshipTable({ isDataSource }) {
     },
   ];
 
-  const internshipData = [1, 2, 3].map((data, index) => {
+  const internshipData = internships.map((data, index) => {
     return {
       key: index + 1,
       serialNumber: index + 1,
@@ -66,6 +70,17 @@ export default function InternshipTable({ isDataSource }) {
       status: "Under Review",
     };
   });
+
+  useEffect(() => {
+    const fetchInternships = async () => {
+    const url = `internship/fetch_internship_as_company`;
+    const response = await Axios.get(url,getHeaders());
+      const data = response.data;
+      setInternships(data);
+      setInternshipsLoader(false)
+    }
+    fetchInternships();
+  },[])
   return (
     <div className="internship-list-main-block">
       <h2 className="internship-heading">MY INTERNSHIPS</h2>

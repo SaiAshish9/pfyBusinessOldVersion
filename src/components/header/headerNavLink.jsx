@@ -7,7 +7,7 @@ export default function HeaderNavLink() {
   const history = useHistory();
   const handleDummyLogin = () => {
     cookie.set(
-      "token",
+      "companytoken",
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTZmMjdkNzhlZTNjNzZkZDlkNzQ1NjUiLCJpYXQiOjE1ODQzNDMxMDAsImV4cCI6MTU5Mjk4MzEwMH0.ccdnV5YPtFYcz_Q4zRJfCRzu9xhloN3f3ENK4JtdC_Q"
     );
     history.push("/dashboard");
