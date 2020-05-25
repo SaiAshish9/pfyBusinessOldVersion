@@ -1,10 +1,11 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Tabs, Table, Skeleton } from "antd";
 import { MoreOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
 import GigTable from "../gigTable";
 import InternshipTable from "../internshipTable";
-import axios from 'axios'
+import axios from "axios";
+import cookie from "js-cookie";
 
 const { TabPane } = Tabs;
 
@@ -31,6 +32,7 @@ const campusHiringContent = [
 
 export default function Dashboard() {
   const [gigs, setGigs] = useState(null);
+  console.log(cookie.get("token"));
 
   const history = useHistory();
   console.log("run!");
@@ -96,13 +98,17 @@ export default function Dashboard() {
 
   useEffect(() => {
     const url = `mission/get_company_missions`;
-    axios.get(url)
-      .then(res => {
-        const {data} = res
-        console.log('GIGS ARE ',data)
-        setGigs(data)
+    axios
+      .get(url)
+      .then((res) => {
+        const { data } = res;
+        console.log("GIGS ARE ", data);
+        setGigs(data);
       })
-  }, [])
+      .catch((e) => {
+        console.log(e.response);
+      });
+  }, []);
 
   return (
     <div className="dashboard-main-block">
@@ -120,7 +126,7 @@ export default function Dashboard() {
         ))}
       </div>
 
-      {gigs ? <GigTable gigs={gigs} /> : <Skeleton active /> }
+      {gigs ? <GigTable gigs={gigs} /> : <Skeleton active />}
       <InternshipTable />
     </div>
   );

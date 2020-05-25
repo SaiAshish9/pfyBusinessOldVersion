@@ -42,7 +42,7 @@ export default function AppRouter() {
         <PublicRoute
           path="/contact_us"
           component={ContactUs}
-          exact={true}
+          exact={true}  
         ></PublicRoute>
         <PublicRoute
           path="/"

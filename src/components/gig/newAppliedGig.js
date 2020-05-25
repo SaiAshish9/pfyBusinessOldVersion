@@ -376,7 +376,7 @@ export default function NewInternshipDetails(props) {
                 columns={columns}
                 dataSource={appliedTable}
                 pagination={false}
-                scroll={{ y: 240 }}
+                // scroll={{ y: 240 }}
               />
             </TabPane>
             <TabPane tab="Waitlisted" key="2" className="">
@@ -385,7 +385,7 @@ export default function NewInternshipDetails(props) {
                 columns={columns}
                 dataSource={waitlistedTable}
                 pagination={false}
-                scroll={{ y: 240 }}
+                // scroll={{ y: 240 }}
               />
             </TabPane>
             <TabPane tab="Rejected" key="3" className="">
@@ -394,7 +394,7 @@ export default function NewInternshipDetails(props) {
                 columns={columns}
                 dataSource={rejectedTable}
                 pagination={false}
-                scroll={{ y: 240 }}
+                // scroll={{ y: 240 }}
               />
             </TabPane>
             <TabPane tab="Selected" key="4" className="">
@@ -403,7 +403,7 @@ export default function NewInternshipDetails(props) {
                 columns={columnsSelected}
                 dataSource={selectedTable}
                 pagination={false}
-                scroll={{ y: 240 }}
+                // scroll={{ y: 240 }}
               />
             </TabPane>
             <TabPane tab="Completed" key="5" className="">
@@ -412,7 +412,7 @@ export default function NewInternshipDetails(props) {
                 columns={columnsCompleted}
                 dataSource={completedTable}
                 pagination={false}
-                scroll={{ y: 240 }}
+                // scroll={{ y: 240 }}
               />
             </TabPane>
           </Tabs>

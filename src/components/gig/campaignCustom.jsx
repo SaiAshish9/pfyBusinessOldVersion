@@ -38,6 +38,7 @@ export default function CampaignCustom() {
 
   const onFormSubmit = (value) => {
     console.log(value);
+    
   };
 
   return (

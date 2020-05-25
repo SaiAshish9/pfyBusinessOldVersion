@@ -15,8 +15,8 @@ export default function DefaultCampaign({
     form
       .validateFields()
       .then((values) => {
-        form.resetFields();
         onCreate(values);
+        form.resetFields();
       })
       .catch((info) => {
         console.log("Validate Failed:", info);
@@ -33,7 +33,7 @@ export default function DefaultCampaign({
         console.log(res);
       })
       .catch((e) => {
-        console.log(e);
+        console.log(e.response);
       });
     handleCancel();
   };
