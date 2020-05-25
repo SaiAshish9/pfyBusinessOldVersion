@@ -10,12 +10,14 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import moment from "moment";
 import { arrayValidation } from "../../validation/validation";
+import { getHeaders } from "../../../helpers/getHeaders";
 
 const { TabPane } = Tabs;
 
 export default function Internship2() {
   const history = useHistory();
   const [Internships, setInternships] = useState(null);
+  const [internshipsLoader,setInternshipsLoader] = useState(true);
   const [collectiveData, setCollectiveData] = useState(null);
   const [isShow, setIsShow] = useState(false);
   const [isShowBoost, SetIsShowBoost] = useState(false);
@@ -96,18 +98,18 @@ export default function Internship2() {
 
   useEffect(() => {
     const url = "internship/fetch_internship_as_company";
-    axios.get(url).then((res) => {
+    axios.get(url,getHeaders()).then((res) => {
       const data = res.data;
       console.log("internships ", res.data);
       const totalViews =
-        arrayValidation(data) &&
-        data.map((el) => el.views).reduce((acc, curr) => acc + curr);
+        (arrayValidation(data) &&
+        data.map((el) => el.views).reduce((acc, curr) => acc + curr)) || 0
       const totalInternships = data.length;
       const totalApplicationReceived =
-        arrayValidation(data) &&
+        (arrayValidation(data) &&
         data
           .map((el) => el.totalApplications)
-          .reduce((acc, curr) => acc + curr);
+          .reduce((acc, curr) => acc + curr)) || 0;
       console.log(
         "TOTAL VIEWS " +
           totalViews +
@@ -123,6 +125,7 @@ export default function Internship2() {
       };
       setCollectiveData(collectiveData);
       setInternships(data);
+      setInternshipsLoader(false)
     });
   }, []);
 
@@ -152,7 +155,7 @@ export default function Internship2() {
     );
   };
 
-  const gigData = Internships ? tableData(Internships) : null;
+  const gigData = !internshipsLoader ? tableData(Internships) : null;
   const active = Internships
     ? tableData(Internships.filter((el) => el.status === 1001))
     : null;

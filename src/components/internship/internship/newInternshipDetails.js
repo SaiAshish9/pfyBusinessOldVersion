@@ -12,6 +12,7 @@ import ShareInternship from "../../newComp/shareInternship/shareInternship";
 import axios from "axios";
 import InternshipStatus from "../../newComp/internshipStatus/internshipStatus";
 import WorkerDetails from "./WorkerDetails";
+import { getHeaders } from "../../../helpers/getHeaders";
 
 const { TabPane } = Tabs;
 const { Option } = Select;
@@ -39,7 +40,7 @@ export default function NewInternshipDetails(props) {
   useEffect(() => {
     const url1 = `internship/company_fetchone/${internshipId}`;
     const url2 = `internship/get_applications/${internshipId}`;
-    axios.get(url1).then((res) => {
+    axios.get(url1,getHeaders()).then((res) => {
       const data = res.data;
       // console.log(data)
 
@@ -52,7 +53,7 @@ export default function NewInternshipDetails(props) {
       setInternship(data);
     });
 
-    axios.get(url2).then((res) => {
+    axios.get(url2,getHeaders()).then((res) => {
       const {
         data: { applications },
       } = res;

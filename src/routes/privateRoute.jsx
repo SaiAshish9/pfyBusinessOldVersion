@@ -5,7 +5,7 @@ import cookie from "js-cookie";
 // import PrivateRoute from './publicRoute';
 
 export default function PrivateRoute({ component, ...rest }) {
-  const token = cookie.get("token");
+  const token = cookie.get("companytoken");
 
   return (
     <>

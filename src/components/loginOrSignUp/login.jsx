@@ -38,13 +38,15 @@ export default function Login() {
         const isCompanyDetailsExist = res.data.isCompanyDataExist;
         console.log("isCompanyDetailsExist", isCompanyDetailsExist);
         if (isCompanyDetailsExist === 1400) {
+          cookie.set("companytoken", res.data.token);
+
           history.push("/register", {
             isEmailVerify: true,
             token: res.data.token,
           });
           console.log("isCompanyDetailsExist", isCompanyDetailsExist);
         } else {
-          cookie.set("token", res.data.token);
+          cookie.set("companytoken", res.data.token);
           history.push("/dashboard");
         }
       })

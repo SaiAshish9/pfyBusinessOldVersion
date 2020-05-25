@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import GigTable from "../gigTable";
 import InternshipTable from "../internshipTable";
 import axios from 'axios'
+import { getHeaders } from "../../helpers/getHeaders";
 
 const { TabPane } = Tabs;
 
@@ -31,7 +32,7 @@ const campusHiringContent = [
 
 export default function Dashboard() {
   const [gigs, setGigs] = useState(null);
-
+  const [gigsLoader,setGigsLoader] = useState(true);
   const history = useHistory();
   console.log("run!");
 
@@ -96,11 +97,13 @@ export default function Dashboard() {
 
   useEffect(() => {
     const url = `mission/get_company_missions`;
-    axios.get(url)
+    setGigsLoader(true);
+    axios.get(url,getHeaders())
       .then(res => {
         const {data} = res
         console.log('GIGS ARE ',data)
         setGigs(data)
+        setGigsLoader(false);
       })
   }, [])
 
@@ -120,7 +123,7 @@ export default function Dashboard() {
         ))}
       </div>
 
-      {gigs ? <GigTable gigs={gigs} /> : <Skeleton active /> }
+      {!gigsLoader ? <GigTable gigs={gigs} /> : <Skeleton active /> }
       <InternshipTable />
     </div>
   );

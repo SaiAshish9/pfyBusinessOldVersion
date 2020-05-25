@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import Page1 from "./page1";
 import Page2 from "./page2";
 import Page3 from "./page3";
+import Axios from "axios";
+import { getHeaders } from "../../../helpers/getHeaders";
 
 const { Option } = Select;
 export default function NewCreateInternship(props) {
@@ -54,7 +56,6 @@ export default function NewCreateInternship(props) {
 
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
-    
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -65,29 +66,56 @@ export default function NewCreateInternship(props) {
     // console.log('FINAL SUBMISSION');
     // const data = {...page1data, ...page2data, ...page3data}
     // console.log(data)
-  }
+  };
 
   useEffect(() => {
-    if(page3data){
-    console.log('FINAL SUBMISSION');
-    let benifitsArr = []
-    let locationArr = []
-    const data = {...page1data, ...page2data, ...page3data}
+    if (page3data) {
+      console.log("FINAL SUBMISSION");
+      let benifitsArr = [];
+      let locationArr = [];
+      const data = { ...page1data, ...page2data, ...page3data };
 
-    if(data.isCertificate) benifitsArr.push('Certificate')
-    if(data.isPPO) benifitsArr.push('PPO')
-    data.benifits = benifitsArr
+      if (data.isCertificate) benifitsArr.push("Certificate");
+      if (data.isPPO) benifitsArr.push("PPO");
+      data.benifits = benifitsArr;
 
-    if(data.location) locationArr.push('all-india') 
-    else locationArr = data.cities
-    data.location = locationArr
+      if (data.location) locationArr.push("all-india");
+      else locationArr = data.cities;
+      data.location = locationArr;
 
-    data.applyBefore = data.applyBefore.format("DD MMM YYYY")
-    data.startingOfInternship = data.startingOfInternship.format("DD MMM YYYY")
+      data.applyBefore = data.applyBefore.format("DD MMM YYYY");
+      data.startingOfInternship = data.startingOfInternship.format(
+        "DD MMM YYYY"
+      );
 
-    console.log('FINAL DATA ', data) 
-    }
-  }, [page3data]);
+      console.log(JSON.stringify(data));
+
+      const body = {
+        internshipCategory: data.internshipCategory,
+        designation: data.internshipCategory === "others" ? data['internship-profile-other'] : data.internshipCategory,
+        noOfPosition: data.noOfPosition,
+        duration: `${data['duration-1']} ${data['duration-2']}`,
+        applyBefore: data.applyBefore,
+        startingOfInternship: data.startingOfInternship,
+        skillsRequired: data.skillsRequired.map(val => ({skillName:val})),
+        location: data.location,
+        stipend: data.stipend.toString(),
+        benefits: data.benefits,
+        otherRequirements: data.otherRequirements,
+        questions: data.questions,
+        responsibilities: data.responsibilities,
+        stipendType: data.stipendType,
+        internshipType: data.internshipType,
+        additionalBenifits: data['additional-benefits'].map((val) => val['additional-benefits-1']),
+      };
+      Axios
+      .post('internship/add',body,getHeaders())
+      .then((res) =>{
+        setVisible(false);
+      });
+
+  }
+}, [page3data]);
 
   return (
     <div>
