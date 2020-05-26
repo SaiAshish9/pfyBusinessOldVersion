@@ -37,7 +37,8 @@ export default function CompanyProfileModal({isShow, isClose,user,editDetails}){
         }
     
         const response = await Axios.get(
-          `company/upload_dp_url?fileType=${file.type}`
+          `company/upload_dp_url?fileType=${file.type}`,
+          getHeaders()
         );
 
       setImgUploadUrl(response.data.url);
