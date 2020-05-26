@@ -41,8 +41,12 @@
             display: inline-flex;
             justify-content: space-between;
             width: 100%;
+            .ant-upload-picture-card-wrapper{
+                width: fit-content;
+                
+            }
             .fullname-input, .mobile-input{
-                width: 47%;
+                // width: 47%;
             }
     
         }

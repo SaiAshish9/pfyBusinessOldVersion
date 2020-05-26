@@ -15,6 +15,7 @@ import suitcase from '../../../assets/img/internship/workerDetails/suitcase.svg'
 import trophy from '../../../assets/img/internship/workerDetails/trophy.svg'
 import report from '../../../assets/img/internship/workerDetails/report.svg'
 import star from '../../../assets/img/internship/workerDetails/star.svg'
+import { getHeaders } from '../../../helpers/getHeaders';
 
 
 export default function WorkerDetails({isShow, isClose, userId, internshipId}) {
@@ -45,11 +46,11 @@ export default function WorkerDetails({isShow, isClose, userId, internshipId}) {
 
         const data = {
             internshipId: internshipId,
-	        userId: resume._id,
+	        userId: userId,
         }
 
         console.log('IDs ', data)
-        axios.put(url,data)
+        axios.put(url,data,getHeaders())
             .then(res => {
                 console.log(res)
                 message.info("done")

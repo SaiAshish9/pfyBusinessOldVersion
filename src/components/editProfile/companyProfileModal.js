@@ -1,14 +1,19 @@
 import React, {useState, useEffect} from 'react';
 import {Modal, Form, Input, Button, Upload, message, Select} from 'antd';
-import { UploadOutlined } from '@ant-design/icons';
+import { UploadOutlined,LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import randomImg from '../../assets/randomImg.jpg'
+import { s3URL } from '../constant/userToken';
+import Axios from 'axios';
+import { getHeaders } from '../../helpers/getHeaders';
 
 const { TextArea } = Input;
 const { Option } = Select;
 
 
-export default function CompanyProfileModal({isShow, isClose}){
-    
+export default function CompanyProfileModal({isShow, isClose,user,editDetails}){
+    const [imgUploadUrl,setImgUploadUrl] = useState();
+    const [newImage,setNewImage] = useState()
+    const [loading,setLoader] = useState(false);
     const handleCancel = () => {
         isClose()
     }
@@ -18,28 +23,44 @@ export default function CompanyProfileModal({isShow, isClose}){
 
     const onFinish = values => {
         console.log('Success:', values);
+        editDetails({...values,logoUrl:(newImage || user.logoUrl)})
       };
+    const beforeUpload = async (file) => {
+      try{
+        const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
+        if (!isJpgOrPng) {
+          message.error("You can only upload JPG/PNG file!");
+        }
+        const isLt2M = file.size / 1024 / 1024 < 2;
+        if (!isLt2M) {
+          message.error("Image must smaller than 2MB!");
+        }
     
+        const response = await Axios.get(
+          `company/upload_dp_url?fileType=${file.type}`
+        );
+
+      setImgUploadUrl(response.data.url);
+      setNewImage(response.data.key);
+      setLoader(true);
+      }catch(err){
+        message.error("Something went wrong");
+      }
+    }
       const onFinishFailed = errorInfo => {
         console.log('Failed:', errorInfo);
       };
 
       const props = {
-        name: 'file',
-        action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
-        headers: {
-          authorization: 'authorization-text',
+        listType: "picture-card",
+        className: "avatar-uploader",
+        showUploadList: false,
+        customRequest: async (data) => {
+          await Axios.put(imgUploadUrl, data.file)
+          setLoader(false);
         },
-        onChange(info) {
-          if (info.file.status !== 'uploading') {
-            console.log(info.file, info.fileList);
-          }
-          if (info.file.status === 'done') {
-            message.success(`${info.file.name} file uploaded successfully`);
-          } else if (info.file.status === 'error') {
-            message.error(`${info.file.name} file upload failed.`);
-          }
-        },
+        beforeUpload: beforeUpload,
+        
       };
 
 return(
@@ -55,7 +76,7 @@ return(
     <Form
         className="form"
         layout={"vertical"}
-        initialValues={{companyName: "Team Car Delight", companyWebsite: "www.teamcardelight.com", aboutCompany: "Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has been the standard dummy text ever since the 1500s, "}}
+        initialValues={{companyName: user.companyName, websiteLink: user.websiteLink, aboutCompany: user.aboutCompany}}
         hideRequiredMark={true}
         name="company-profile"
         onFinish={onFinish}
@@ -63,16 +84,28 @@ return(
         >
 
     <div className="inline-form">
-        <div className="company-logo">
-            {/* <div> */}
-                <img src={randomImg} alt="" />
-            {/* </div> */}
-            <Upload {...props}>
-                <Button>
-                <UploadOutlined /> Click to Upload
-                </Button>
-            </Upload>
-        </div>
+
+            <Upload {...props} className="company-logo">
+                { user.logoUrl ? (
+                  <img
+                    src={s3URL +  (newImage || user.logoUrl)}
+                    alt="avatar"
+                    style={{ width: "100%" }}
+                  />
+                ) : loading ? (
+                  <div>
+                    {loading ? <LoadingOutlined /> : <PlusOutlined />}
+                    <div className="ant-upload-text">Upload</div>
+                  </div>
+                ) : (
+                  <div>
+                    {/* {loading ? <LoadingOutlined /> : <PlusOutlined />} */}
+                    <div className="ant-upload-text">their is some error</div>
+                  </div>
+                )}
+              </Upload>
+
+        
       <Form.Item
         label="Company Name"
         className="width"
@@ -109,7 +142,7 @@ return(
       
       <Form.Item
         label="Company Website"
-        name="companyWebsite"
+        name="websiteLink"
         className="width"
         rules={[
           {

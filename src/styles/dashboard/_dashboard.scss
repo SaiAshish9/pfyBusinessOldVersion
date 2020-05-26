@@ -1,7 +1,15 @@
 .dashboard-main-block {
   .campus-hiring-main-block {
-    display: flex;
+    // display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1rem;
+
     margin-bottom: 24px;
+
+    @media (max-width:$smallTableScreen) {
+    grid-template-columns: 1fr;
+    }
     .campus-hiring-block {
       position: relative;
       border-radius: 6px;
@@ -9,7 +17,7 @@
       background-color: #ffffff;
       padding: 28px 20px 16px;
       .campus-hiring-header {
-        font-size: 16px;
+        font-size: 1.2rem;
         font-weight: 500;
         line-height: 1.38;
         color: #000;
@@ -17,18 +25,17 @@
 
       .campus-hiring-para {
         opacity: 0.8;
-        font-size: 14px;
+        font-size: 1rem;
         line-height: 1.43;
         color: #000;
       }
 
       .campus-hiring-button {
-        border-radius: 12px;
+        border-radius: 6px;
         box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.16);
         background-color: #38bdba;
         border: 1px solid #38bdba;
-
-        font-size: 10px;
+        font-size: 0.8rem;
         font-weight: bold;
         line-height: 1.4;
         color: #ffffff;

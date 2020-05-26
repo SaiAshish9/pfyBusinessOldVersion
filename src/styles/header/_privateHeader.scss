@@ -27,6 +27,16 @@
           background-color: #fff;
           margin: 20px auto;
           border-radius: 50px;
+          overflow: hidden;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          img{
+            display: block;
+            flex:1;
+            max-height: 100%;
+
+          }
         }
 
         .company-name {
@@ -106,10 +116,14 @@
           font-weight: 500;
           line-height: 1.38;
           color: #ffffff;
+          margin: 0 1rem;
         }
         .header-avatar-block {
           display: flex;
           align-items: center;
+          @media (max-width:$smallTableScreen) {
+            display: none;
+          }
           .avatar-on-header {
             width: 40px;
             height: 40px;
@@ -129,6 +143,7 @@
             line-height: 1.44;
             color: #000000;
             margin-left: 12px;
+            text-transform: capitalize;
           }
         }
 
@@ -141,10 +156,21 @@
         }
       }
     }
-    .site-layout-background.ant-layout-content {
+    .ant-layout-content{
+      position: relative;
+      .ant-layout-header{
+        position: absolute ;
+      }
+    }
+   .site-content {
       background-color: #f7f7f7;
       padding: 5rem 3rem 3rem;
       min-height: 280px;
+
+      @media (max-width:$smallTableScreen) {
+        padding: 5rem 1rem;
+        
+      }
     }
   }
 }

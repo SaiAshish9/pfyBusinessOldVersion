@@ -2,8 +2,8 @@ import React, {useState, useEffect} from 'react';
 import {Modal, Form, Input, Button} from 'antd';
 
 
-export default function PersonalProfileModal({isShow, isClose, isShowChangePasswordModal}){
-    
+export default function PersonalProfileModal({isShow, isClose, isShowChangePasswordModal,user, editDetails}){
+
     const handleCancel = () => {
         isClose()
     }
@@ -13,6 +13,7 @@ export default function PersonalProfileModal({isShow, isClose, isShowChangePassw
 
     const onFinish = values => {
         console.log('Success:', values);
+        editDetails(values)
       };
     
       const onFinishFailed = errorInfo => {
@@ -35,7 +36,7 @@ return(
             <Form
                 className="form"
                 layout={"vertical"}
-                initialValues={{firstname: "Mayank", lastname: "Muppal", email: "mayank114@gmail.com", mobile: 9743518746, password: "**********"}}
+                initialValues={{firstName: user.firstName, lastName: user.lastName, email: user.email, mobile: user.mobile, password: "**********"}}
                 hideRequiredMark={true}
                 name="personal-profile"
                 onFinish={onFinish}
@@ -45,7 +46,7 @@ return(
       <Form.Item
         label="First Name"
         className="firstname-input"
-        name="firstname"
+        name="firstName"
         rules={[
           {
             required: true,
@@ -58,7 +59,7 @@ return(
       <Form.Item
         label="Last Name"
         className="lastname-input"
-        name="lastname"
+        name="lastName"
         rules={[
           {
             required: true,

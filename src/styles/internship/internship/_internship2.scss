@@ -1,12 +1,15 @@
 .internship-block{
     .internship-cards{
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 1rem;
         margin: 1rem 0 1.8rem 0;
-
+        @media (max-width:$smallTableScreen) {
+            grid-template-columns: 1fr;
+            
+        }
         .card{
             background-color: #fff;
-            width: 31%;
             height: 11.5rem;        
             border-radius: 6px;
             box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
@@ -27,24 +30,29 @@
     }
 
     .boost-and-create-internship{
-        display: flex;
-        justify-content: space-between;
+       display: grid;
+       grid-template-columns: 2fr 1fr;
         align-items: center;
+        justify-content: space-between;
         margin: 2rem 0;
+        grid-gap: 1rem;
+        @media (max-width:$smallTableScreen) {
+       grid-template-columns:1fr;
+            
+        }
         .boost{
             background-color: #fff;
-            width: 664px;
-            height: 77px;
+            width: fit-content;
+            height: 100%;
             border-radius: 6px;
             border: solid 2px #444584;
             padding: 1.25rem 2rem;
             font-size: 1rem;
             align-items: center;
-            display: flex;
-            justify-content: center;
+          
             font-weight: 500;
             color: black;
-            
+            word-break: break-word;
         }
         .new-internship-btn{
             width: 15.5rem;
@@ -59,7 +67,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-
+            justify-self: end;
         }
     }
     img.rocket-img{

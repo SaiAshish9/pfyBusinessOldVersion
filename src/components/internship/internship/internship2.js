@@ -194,12 +194,12 @@ export default function Internship2() {
         )}
         <div className="boost-and-create-internship">
           <div className="boost">
-            <span>
+           
               {" "}
               Not receiving enough applications? Click on{" "}
               <img className="rocket-img" src={rocket} alt="" /> to boost your
               Internship now!
-            </span>
+           
           </div>
           <Button
             onClick={handleCreateInternship}

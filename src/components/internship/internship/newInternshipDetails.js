@@ -45,8 +45,8 @@ export default function NewInternshipDetails(props) {
       // console.log(data)
 
       const pending = totalStats(data.appliedUsers, 300);
-      const shortlisted = totalStats(data.appliedUsers, 302);
-      const selected = totalStats(data.appliedUsers, 301);
+      const shortlisted = totalStats(data.appliedUsers, 301);
+      const selected = totalStats(data.appliedUsers, 302);
 
       // console.log('PENDING '+ pending+ ' shortlisted ' + shortlisted + ' selected ')
       setApplicationStats({ pending, shortlisted, selected });
@@ -67,14 +67,14 @@ export default function NewInternshipDetails(props) {
             new Date(a.lastUpdatedAt).getTime()
         );
       const selected = applications
-        .filter((el) => el.status === 301)
+        .filter((el) => el.status === 302)
         .sort(
           (a, b) =>
             new Date(b.lastUpdatedAt).getTime() -
             new Date(a.lastUpdatedAt).getTime()
         );
       const shortlisted = applications
-        .filter((el) => el.status === 302)
+        .filter((el) => el.status === 301)
         .sort(
           (a, b) =>
             new Date(b.lastUpdatedAt).getTime() -

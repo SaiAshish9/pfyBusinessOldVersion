@@ -118,7 +118,7 @@ export default function Dashboard() {
           <div
             className="campus-hiring-block"
             key={index}
-            style={{ margin: index === 1 ? "0px 30px" : "0px 0px" }}
+           // style={{ margin: index === 1 ? "0px 30px" : "0px 0px" }}
           >
             <h3 className="campus-hiring-header">{content.header}</h3>
             <p className="campus-hiring-para">{content.para}</p>

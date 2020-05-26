@@ -1,5 +1,5 @@
 %common-design{
-    width: 48%;
+
         // height: 100vh;
         background-color: #fff;
         border-radius: 12px;
@@ -49,8 +49,15 @@
 }
 .campus-marketing-2{
     // height: 100vh;
-    display: flex;
-    justify-content: space-between;
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+
+    @media (max-width:$smallTableScreen) {
+    grid-template-columns: 1fr;
+        
+    }
     .block-1{
         @extend %common-design;
     }

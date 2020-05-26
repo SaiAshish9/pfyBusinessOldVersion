@@ -1,7 +1,7 @@
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
-import { Layout, Menu, Button } from "antd";
+import { Layout, Menu, Button, message } from "antd";
 import cookie from "js-cookie";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, Route, useHistory, useLocation } from "react-router-dom";
 /* -------------------------------- ******** -------------------------------- */
 import HowPracifyWork from "../../howPracifyWork";
@@ -13,14 +13,28 @@ import homeIcon from "../../../assets/img/sideBarIcon/homeIcon.svg";
 import internshipIcon from "../../../assets/img/sideBarIcon/internshipIcon.svg";
 import logoutIcon from "../../../assets/img/sideBarIcon/logoutIcon.svg";
 import studentOffersIcon from "../../../assets/img/sideBarIcon/studentOffersIcon.svg";
+import Axios from "axios";
+import { getHeaders } from "../../../helpers/getHeaders";
+import { s3URL } from "../../constant/userToken";
+import useWindowDimensions from "../../../Hooks/WindowDimensions";
 
 const { Header, Sider, Content } = Layout;
 export default function PrivateHeader({ component: Component, ...rest }) {
   const history = useHistory();
   const location = useLocation();
+  const {width,height} = useWindowDimensions();
 
-  const [collapsed, setCollapsed] = useState(false);
-
+  const [headerLoader,setHeaderLoader] = useState(true);
+  const [headerData,setHeaderData] = useState({})
+  const [collapsed, setCollapsed] = useState(width > 768 ? false : true);
+  useEffect(() => {
+    Axios
+    .get("company/fetch_my_details",getHeaders())
+    .then((res) => {
+      setHeaderData(res.data);
+      setHeaderLoader(false)
+    });
+  },[])
   const handleToggle = () => {
     setCollapsed(!collapsed);
   };
@@ -29,6 +43,17 @@ export default function PrivateHeader({ component: Component, ...rest }) {
     cookie.remove("companytoken");
     history.push("/");
   };
+
+  const editDetails = (body) => {
+    Axios
+    .put("/company/edit_details",body,getHeaders())
+    .then((res) => {
+      setHeaderData(res.data);
+    }).catch((err) => {
+      console.log(err);
+      message.error("Something Went Wrong")
+    });
+  }
 
   const selectedKey = () => {
     switch (location.pathname) {
@@ -56,18 +81,22 @@ export default function PrivateHeader({ component: Component, ...rest }) {
       }
     }
   };
-
+  if(headerLoader){
+    return "Loading...";
+  }
   return (
     <Layout>
-      <Sider trigger={null} collapsible collapsed={collapsed} width={240}>
+      <Sider trigger={null} collapsible collapsed={collapsed} collapsedWidth={width < 768 ? 0 : 80} width={240}>
         <div className="logo">
           <img src={logo} alt="" className="" />
         </div>
         {!collapsed && (
           <div className="company-avatar-block">
-            <div className="company-avatar"></div>
-            <h3 className="company-name">TEAM CAR DELIGHT</h3>
-            <h5 className="company-mail-address">contact@teamcardelight.com</h5>
+            <div className="company-avatar">
+              <img src={s3URL + headerData.logoUrl} alt="logo" />
+            </div>
+            <h3 className="company-name">{headerData.companyName}</h3>
+        <h5 className="company-mail-address">{headerData.email}</h5>
           </div>
         )}
 
@@ -141,9 +170,11 @@ export default function PrivateHeader({ component: Component, ...rest }) {
       </Sider>
 
       <Layout className="site-layout">
+        
+        <Content style={{}}>
         <Header
           className="site-layout-background"
-          style={{ width: collapsed ? "94.14%" : "82.43%" }}
+          style={{ width: "100%" }}
         >
           <>
             {collapsed ? (
@@ -155,22 +186,24 @@ export default function PrivateHeader({ component: Component, ...rest }) {
               <HowPracifyWork />
 
               <div className="header-avatar-block">
-                <div className="avatar-on-header">{"S"}</div>
-                <span className="avatar-name">{"Shivam Malhotra"}</span>
+                <div className="avatar-on-header">{headerData.firstName[0].toUpperCase()}</div>
+                <span className="avatar-name">{`${headerData.firstName} ${headerData.lastName}`}</span>
               </div>
               <span className="needHelp-button">Help</span>
             </div>
           </>
         </Header>
-        <Content className="site-layout-background" style={{}}>
+          <div  className="site-layout-background site-content">
           <Route
             {...rest}
             component={(props) => (
               <>
-                <Component {...props} />
+                <Component {...props} user={headerData} editDetails={editDetails} />
               </>
             )}
-          />
+          /> 
+          </div>  
+         
         </Content>
       </Layout>
     </Layout>
