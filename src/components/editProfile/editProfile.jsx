@@ -100,7 +100,7 @@ export default function EditProfile(props) {
                   <div className="detail">{user.companyName}</div>
                 </div>
                 <div className="details">
-                  <div className="title">Company Websitr</div>
+                  <div className="title">Company Website</div>
                   <div className="detail">{user.websiteLink}</div>
                 </div>
               </div>
