@@ -7,12 +7,18 @@ import arrowIcon from "../../assets/img/arrowIcon.svg";
 
 const css = "font-size:30px";
 
+const builders = [
+  "WhatsApp Marketing",
+  "Facebook Amplification",
+  "Instagram Amplification",
+  "Snapchat Amplification"
+]
 export default function Campaign({ campaignTitle }) {
   const history = useHistory();
   const [modalVisible, setModalVisible] = useState(false);
 
   const handleCreateCampaign = () => {
-    campaignTitle === "WhatsApp Marketing"
+    builders.includes(campaignTitle) 
       ? history.push(`/create-campaign/${campaignTitle}`)
       : setModalVisible(true);
   };

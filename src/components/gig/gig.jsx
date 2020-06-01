@@ -107,7 +107,7 @@ export default function Gig() {
 
   const [key, setKey] = useState(0);
   const [gigs, setGigs] = useState(null);
-
+  const [gigsLoader,setGigsLoader] = useState(true)
   const campaign = (title) => (
     <>
       {title.map((data, index) => (
@@ -116,21 +116,9 @@ export default function Gig() {
     </>
   );
 
-  useEffect(() => {
-    const url = `mission/get_company_missions`;
-    axios.get(url)
-      .then(res => {
-        const {data} = res
-        console.log('GIGS ARE ',data)
-        setGigs(data)
-      })
-  }, [])
-
-
-
   return (
     <div className="gig-main-block">
-      {gigs ?  <GigTable gigs={gigs} /> : <Skeleton active /> }
+      <GigTable  />
       <h2 className="create-campaign-heading">Creat New Gig</h2>
       <Tabs
         activeKey={`${key}`}

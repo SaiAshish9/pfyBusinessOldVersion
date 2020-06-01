@@ -32,84 +32,7 @@ const campusHiringContent = [
 ];
 
 export default function Dashboard() {
-  const [gigs, setGigs] = useState(null);
-  const [gigsLoader,setGigsLoader] = useState(true);
-  const history = useHistory();
-  console.log("run!");
 
-  const columns = [
-    {
-      title: "S.No",
-      dataIndex: "serialNumber",
-      key: "serialNumber",
-    },
-    {
-      title: "Job Title",
-      dataIndex: "jobTitle",
-      key: "jobTitle",
-      // ellipsis: true,
-    },
-    {
-      title: "Location",
-      dataIndex: "location",
-      key: "location",
-    },
-    {
-      title: "Application",
-      dataIndex: "application",
-      key: "application",
-    },
-    {
-      title: "Created",
-      dataIndex: "created",
-      key: "created",
-    },
-    {
-      title: "Deadline",
-      dataIndex: "deadline",
-      key: "deadline",
-    },
-    {
-      title: "Status",
-      dataIndex: "status",
-      key: "status",
-    },
-    {
-      title: "Action",
-      dataIndex: "action",
-      key: "action",
-      render: (text, record) => <MoreOutlined />,
-    },
-  ];
-
-  const gigData = [1, 2, 3].map((data, index) => {
-    return {
-      key: index + 1,
-      serialNumber: index + 1,
-      jobTitle: "Business Development",
-      location: "Multiple",
-      application: 23,
-      created: "23/10/2020",
-      deadline: "25/10/2020",
-      status: "Under Review",
-    };
-  });
-  console.log(gigData);
-
-  useEffect(() => {
-    const url = `mission/get_company_missions`;
-    setGigsLoader(true);
-    axios.get(url,getHeaders())
-      .then(res => {
-        const {data} = res
-        console.log('GIGS ARE ',data)
-        setGigs(data)
-        setGigsLoader(false);
-      })
-      .catch((e) => {
-        console.log(e.response);
-      });
-  }, []);
 
   return (
     <div className="dashboard-main-block">
@@ -127,7 +50,7 @@ export default function Dashboard() {
         ))}
       </div>
 
-      {!gigsLoader ? <GigTable gigs={gigs} /> : <Skeleton active /> }
+      <GigTable count={3} />
       <InternshipTable />
     </div>
   );

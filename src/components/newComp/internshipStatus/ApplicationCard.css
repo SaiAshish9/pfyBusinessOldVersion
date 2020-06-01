@@ -1,0 +1,155 @@
+.applicationCard .select-all {
+  background-color: #ccc;
+}
+
+.applicationCard__customPanel {
+  background: #fff;
+  margin-bottom: 24;
+  border-radius: 43px !important;
+  border: 0;
+  overflow: hidden;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  margin-bottom: 1rem;
+}
+
+.applicationCard__customPanel .sub-head--1 {
+  color: #78869A;
+  font-size: 1.1rem;
+}
+
+.applicationCard__customPanel .sub-head--2 {
+  font-size: 1.1rem;
+  color: #333743;
+}
+
+.applicationCard__ProgressBar {
+  border-radius: 4px;
+  border: solid 1px #d7d7d7;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 15rem;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.applicationCard__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 1.5rem;
+}
+
+.applicationCard__header .header__image {
+  width: 10%;
+}
+
+.applicationCard__header .header__name {
+  width: 20%;
+  text-transform: capitalize;
+}
+
+.applicationCard__header .header__college {
+  width: 25%;
+}
+
+.applicationCard__header .header__city {
+  width: 20%;
+}
+
+.applicationCard__header .header__progress {
+  width: 25%;
+}
+
+.applicationCard__image {
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+}
+
+.applicationCard__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.applicationCard__content .q_and_head {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(169, 171, 178, 0.54);
+}
+
+.applicationCard__content .question {
+  font-size: 1rem;
+  color: #78869A;
+}
+
+.applicationCard__content .answer {
+  font-size: 1rem;
+  color: #333743;
+}
+
+.applicationCard__btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 2rem 5rem 0;
+}
+
+.applicationCard__btns button {
+  margin: 0 1rem 0 0;
+}
+
+.applicationCard__btn--grey {
+  background: rgba(45, 23, 110, 0.2);
+  text-transform: uppercase;
+  color: #2D176E;
+  border: none;
+}
+
+.applicationCard__btn--green {
+  background: #2ACF18;
+  text-transform: uppercase;
+  color: #fff;
+  border: none;
+}
+
+.applicationCard__btn--red {
+  background: rgba(255, 0, 0, 0.16);
+  text-transform: uppercase;
+  color: #FF0000;
+  border: none;
+}
+
+.applicationCard__btn--blue {
+  background: #137EFC;
+  text-transform: uppercase;
+}
+
+.applicationCard__warning {
+  color: #ff0000;
+  text-transform: uppercase;
+  padding: 1rem 5rem 0;
+}
+
+.ant-collapse-content-box .row-items {
+  padding: 20px 0;
+}
+
+.ant-collapse-content-box .row-items .row-items-heading {
+  color: #78869A;
+}
+/*# sourceMappingURL=ApplicationCard.css.map */

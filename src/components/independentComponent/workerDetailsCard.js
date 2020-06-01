@@ -18,7 +18,7 @@ export default function workerDetailsCard(props) {
                         <p className="name">{user.firstName} <br/> <span className="email">{user.email}</span> </p>
                     </div>
                     <div className="university-details">
-                        <div className="univ-name">Netaji Subhash Institute Of Technology</div>
+                        <div className="univ-name">{user.college ? user.college : "College Not Specified"}</div>
                         <div className="other-details">
                             <div className="gender">
                                 {user.gender === 'M' ? 'Male' : 'Female'},{calculateAge(user.dob)}
@@ -32,8 +32,8 @@ export default function workerDetailsCard(props) {
                         </div>
                     </div>
                     <div className="gig-scores">
-                    <Progress className="progress-bar" percent={user.profileScore} showInfo={false} />
-                    <div className="percentage">Gig Score: {user.profileScore}%</div>
+                    <Progress className="progress-bar" percent={user.resumeScore} showInfo={false} />
+                    <div className="percentage">Gig Score: {user.resumeScore}%</div>
                     </div>
                 </section>
     )

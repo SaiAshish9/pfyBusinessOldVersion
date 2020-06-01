@@ -1,15 +1,34 @@
 import { MoreOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-import { Table, Tabs } from "antd";
+import { Table, Tabs, Skeleton } from "antd";
 import React, { useState, useEffect } from "react";
 import moment from "moment";
+import Axios from "axios";
+import { getHeaders } from "../helpers/getHeaders";
 
 const { TabPane } = Tabs;
 
-export default function GigTable({ gigs }) {
-  // const internshipId = '5e6f2c5d3422b56f87738726';
+export default function GigTable(props) {
+  const {count} = props;
+  const [gigs, setGigs] = useState([]);
+  const [gigsLoader, setGigsLoader] = useState(true);
   const [filteredGigs, setfilteredGigs] = useState(null);
-
+  useEffect(() => {
+    const query = count ? `?pageSize=${count}` : ``
+    const url = `mission/get_company_missions${query}`;
+    setGigsLoader(true);
+    Axios.get(url, getHeaders
+    ())
+      .then((res) => {
+        const { data } = res;
+        console.log("GIGS ARE ", data);
+        setGigs(data);
+        setGigsLoader(false);
+      })
+      .catch((e) => {
+        console.log(e.response);
+      });
+  }, []);
   const columns = [
     {
       title: "S.No",
@@ -18,11 +37,12 @@ export default function GigTable({ gigs }) {
     },
     {
       title: "Job Title",
-      // dataIndex: "jobTitle",
       key: "jobTitle",
-      render: (record) => (
+      render: (record) => {
+        console.log(record);
+        return(
         <Link to={`/gigs/${record.id}`}>{record.jobTitle}</Link>
-      ),
+      )},
     },
     {
       title: "Location",
@@ -71,11 +91,11 @@ export default function GigTable({ gigs }) {
             key: index + 1,
             id: data._id,
             serialNumber: index + 1,
-            jobTitle: data.title,
+            jobTitle:data.title,
             location: data.location,
             application: 23,
-            created: moment(data.createdAt).format("DD/MM/YYYY"),
-            deadline: moment(data.missionEndDate).format("DD/MM/YYYY"),
+            created: moment(data.createdAt).format("DD MMM YYYY"),
+            deadline: moment(data.missionEndDate).format("DD MMM YYYY"),
             status:
               data.status === 1100
                 ? "Under Review"
@@ -96,7 +116,11 @@ export default function GigTable({ gigs }) {
   const rejectedGigData = filteredGigs
     ? getTable(filteredGigs.rejectedGigs)
     : null;
-
+  if(gigsLoader){
+    return (
+      <Skeleton active />
+    )
+  }
   return (
     <div className="gig-list-main-block">
       <h2 className="myGig-heading">MY GIGS</h2>

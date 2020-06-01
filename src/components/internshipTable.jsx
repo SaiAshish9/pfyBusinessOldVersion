@@ -1,14 +1,19 @@
 import { MoreOutlined } from "@ant-design/icons";
-import { Table, Tabs } from "antd";
+import { Table, Tabs, Skeleton } from "antd";
 import React, { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getHeaders } from "../helpers/getHeaders";
 import Axios from "axios";
+import moment from "moment";
 
 const { TabPane } = Tabs;
-
+const statusCodes = {
+  1000:"Under Review",
+  1001:"Accepted",
+  1002:"Rejected",
+}
 export default function InternshipTable({ isDataSource }) {
-  const internshipId = "5e6f2c5d3422b56f87738726";
+
   const [internships,setInternships] = useState([]);
   const [internshipsLoader,setInternshipsLoader] = useState(true);
   const columns = [
@@ -21,8 +26,8 @@ export default function InternshipTable({ isDataSource }) {
       title: "Job Title",
       dataIndex: "jobTitle",
       key: "jobTitle",
-      render: (jobTitle) => (
-        <Link to={`/internship/${internshipId}`}>{jobTitle}</Link>
+      render: (record) => (
+        <Link to={`/internship/${record._id}`}>{record.title}</Link>
       ),
     },
     {
@@ -60,20 +65,20 @@ export default function InternshipTable({ isDataSource }) {
 
   const internshipData = internships.map((data, index) => {
     return {
-      key: index + 1,
+      key: data._id,
       serialNumber: index + 1,
-      jobTitle: "Business Development",
-      location: "Multiple",
-      application: 23,
-      created: "23/10/2020",
-      deadline: "25/10/2020",
-      status: "Under Review",
+      jobTitle: {_id:data._id,  title:data.designation},
+      location: data.location.slice(0,1).join(","),
+      application: data.totalApplications,
+      created: moment(data.createdAt).format("DD MMM YYYY"),
+      deadline: moment(data.applyBefore).format("DD MMM YYYY"),
+      status: statusCodes[data.status],
     };
   });
 
   useEffect(() => {
     const fetchInternships = async () => {
-    const url = `internship/fetch_internship_as_company`;
+    const url = `internship/fetch_internship_as_company?pageSize=3`;
     const response = await Axios.get(url,getHeaders());
       const data = response.data;
       setInternships(data);
@@ -81,6 +86,11 @@ export default function InternshipTable({ isDataSource }) {
     }
     fetchInternships();
   },[])
+  if(internshipsLoader){
+    return (
+      <Skeleton active />
+    )
+  }
   return (
     <div className="internship-list-main-block">
       <h2 className="internship-heading">MY INTERNSHIPS</h2>

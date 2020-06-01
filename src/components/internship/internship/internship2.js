@@ -132,30 +132,31 @@ export default function Internship2() {
   const tableData = (array) => {
     return array.map(
       (
-        { _id, internshipCategory, totalApplications, createdAt, status },
+        { _id, designation, totalApplications, createdAt, status,location, applyBefore },
         index
       ) => {
         return {
           key: index + 1,
           serialNumber: index + 1,
           id: _id,
-          jobTitle: internshipCategory,
-          location: "Multiple",
+          jobTitle: designation,
+          location: location,
           application: totalApplications,
-          created: moment(createdAt).format("DD/MM/YYYY"),
-          deadline: "25/10/2020",
+          created: moment(createdAt).format("DD MMM YYYY"),
+          deadline: moment(applyBefore).format("DD MMM YYYY"),
           status:
             status === 1000
               ? "Under View"
               : status === 1001
               ? "Approved"
               : "Rejected",
+            
         };
       }
     );
   };
 
-  const gigData = !internshipsLoader ? tableData(Internships) : null;
+  const internshipData = !internshipsLoader ? tableData(Internships) : null;
   const active = Internships
     ? tableData(Internships.filter((el) => el.status === 1001))
     : null;
@@ -216,7 +217,7 @@ export default function Internship2() {
             <TabPane tab="All" key="1" className="">
               <Table
                 columns={columns}
-                dataSource={gigData}
+                dataSource={internshipData}
                 pagination={false}
                 scroll={{ y: 240 }}
                 // tableLayout="auto"
@@ -250,7 +251,7 @@ export default function Internship2() {
             <TabPane tab="Draft" key="5" className="">
               <Table
                 columns={columns}
-                dataSource={gigData}
+                dataSource={internshipData}
                 pagination={false}
                 scroll={{ y: 240 }}
               />

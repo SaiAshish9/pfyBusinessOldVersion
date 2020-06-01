@@ -139,6 +139,7 @@
 
 %custom-campaign-select {
   width: 100%;
+
   // margin-bottom: 16px;
   .ant-select-selector {
     height: 46px;
@@ -164,7 +165,11 @@
     line-height: 1.43;
     color: #000000;
   }
-
+  .ant-input-prefix {
+    margin-right: 4px;
+    display: flex;
+    align-items: center;
+}
   .stepOne-customCampaign-block {
     display: flex;
     justify-content: space-between;
@@ -179,8 +184,23 @@
 
       .select-option-select {
         @extend%custom-campaign-select;
-      }
 
+        .ant-select-selection-search{
+          display: flex;
+          align-items: center;
+          .ant-select-single.ant-select-show-arrow .ant-select-selection-item, .ant-select-single.ant-select-show-arrow .ant-select-selection-placeholder {
+            padding-right: 18px;
+            display: flex;
+            align-items: center;
+        }
+       
+        }
+       
+      }
+      .ant-select-single.ant-select-show-arrow .ant-select-selection-item, .ant-select-single.ant-select-show-arrow .ant-select-selection-placeholder{
+        display: flex !important;
+        align-items: center !important;
+      }
       .lastDateToApply-label {
         @extend%custom-campaign-label;
       }
@@ -203,6 +223,7 @@
 
       .chargesPerWorker-input {
         @extend%custom-campaign-input;
+        
       }
 
       .numOfWorker-label {

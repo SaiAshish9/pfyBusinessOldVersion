@@ -30,7 +30,7 @@
             border-left: 3px solid #5468d1 ;
             span{
                 opacity: 0.5;
-                font-size: 0.8rem;
+                font-size: 1.2rem;
             }
             
         }
@@ -85,9 +85,9 @@
         }
         .resume-details{
             // color: black;
-            height: 82vh;
-            overflow: scroll;
-            width: 70%;
+            // height: 82vh;
+            // overflow: scroll;
+            width: 100%;
             padding: 1rem 0;
             .about-block, .achievement-block{
                 @extend %scroll-div;
@@ -123,7 +123,7 @@
                         }
                     }
                     .desc{
-                        font-size: 0.8rem;
+                        font-size: 1.2rem;
                     }
                     .city{
                         font-size: 0.8rem;

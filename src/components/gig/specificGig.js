@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import randomImg from '../../assets/img/logo.svg';
 import { Progress, Tabs, Checkbox, Select, Skeleton } from 'antd';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import GigProfile from './gigProfile';
 import axios from 'axios';
 import Internship from '../internship/internship/internship';
@@ -22,9 +22,9 @@ export default function SpecificGig(props) {
     const [filterApplication, setFilterApplication] = useState(null)
 
     // const InternshipId = props.match.params.id;
-    const InternshipId = "5e6f2c5d3422b56f87738726";
+    const {id} = useParams();
     useEffect(() => {
-        const url = `internship/get_applications/${InternshipId}`
+        const url = `internship/get_applications/${id}`
         axios.get(url)
             .then(res => {
                 const data = res.data;

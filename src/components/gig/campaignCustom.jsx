@@ -3,13 +3,37 @@ import {
   CloseOutlined,
   MinusCircleOutlined,
 } from "@ant-design/icons";
-import { Button, DatePicker, Form, Input, Select, Radio } from "antd";
+import { Button, DatePicker, Form, Input, Select, Radio, message } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import React, { useState, Fragment, useEffect } from "react";
-import { useHistory, useParams } from "react-router-dom";
-
+import { useHistory, useParams, Link } from "react-router-dom";
+import cities from '../constant/cities.json';
+import Axios from "axios";
+import { getHeaders } from "../../helpers/getHeaders";
+import moment from "moment";
 const css = "font-size:30px";
 const { Option } = Select;
+
+const titles = {
+
+    "WhatsApp Marketing":[
+      "Send WhatsApp Message",
+      "Upload WhatsApp Story",
+    ],
+    "Facebook Amplification":[
+      "Upload a Poster on Facebook",
+      "Share a Facebook Post",
+      "Upload a Facebook Story",
+    ],
+    "Instagram Amplification":[
+      "Post on Instagram",
+      "Post an Instagram Story",
+    ],
+    "Snapchat Amplification":[
+      "Upload a Snapchat Story",
+    ]
+  
+}
 export default function CampaignCustom() {
   const [form] = Form.useForm();
 
@@ -19,7 +43,8 @@ export default function CampaignCustom() {
   console.log(campaignTitle);
 
   const [campaignStep, setCampaignStep] = useState(0);
-
+  const [noOfWorkers,setNoOfWorkers] = useState(0);
+  const [charges,setCharges] = useState(0);
   const handleCustomCampaignClose = () => {
     history.goBack();
   };
@@ -31,14 +56,29 @@ export default function CampaignCustom() {
   const handleCampaignBack = () => {
     setCampaignStep(campaignStep - 1);
   };
-
+  const onCityChange = value => {
+    Form.current.setFieldsValue({
+      location: value,
+    });
+  };
   useEffect(() => {
     document.querySelector(".add-btn-interview-ques").click();
   }, []);
 
-  const onFormSubmit = (value) => {
+  const onFormSubmit = async (value) => {
     console.log(value);
-    
+    try{
+      
+      value.applyBefore = value.applyBefore.format("DD MMM YYYY");
+    const {data} = await Axios.post("mission/add",value,getHeaders());
+    setNoOfWorkers(data.noOfWorkers);
+    setCharges(data.chargesPerWorker);
+    setCampaignStep(campaignStep + 1);
+
+    // message.success("Gig Request Added Successfully")
+    }catch(err){
+      message.error("Something Went Wrong")
+    }
   };
 
   return (
@@ -51,17 +91,17 @@ export default function CampaignCustom() {
       >
         {campaignStep === 0 && (
           <>
-            <CloseOutlined
+            {/* <CloseOutlined
               className="customCampaign-close-button"
               onClick={handleCustomCampaignClose}
-            />
+            /> */}
             <h1 className="campaignTitle-heading">{campaignTitle}</h1>
             <div className="stepOne-customCampaign-block">
               <div className="customCampaign-block-one">
                 <p className="selectOption-label">Select an Option</p>
-                <Form.Item name="option">
-                  <Select className="select-option-select">
-                    {[1, 2, 3, 4, 5, 6].map((option, index) => (
+                <Form.Item name="title">
+                  <Select placeholder="Select an Option" className="select-option-select">
+                    {titles[campaignTitle].map((option, index) => (
                       <Option key={index} value={option}>
                         {option}
                       </Option>
@@ -70,7 +110,7 @@ export default function CampaignCustom() {
                 </Form.Item>
 
                 <p className="lastDateToApply-label">Last Date to Apply</p>
-                <Form.Item name="lastDate">
+                <Form.Item name="applyBefore">
                   <DatePicker
                     className="lastDateToApply-datePicker"
                     format="DD-MMM-YYYY"
@@ -80,40 +120,52 @@ export default function CampaignCustom() {
 
                 <p className="gender-label">Gender</p>
                 <Form.Item name="gender">
-                  <Select className="gender-select">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">other</option>
+                  <Select placeholder="Gender" className="gender-select">
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                    <option value="A">Any</option>
                   </Select>
                 </Form.Item>
 
                 <p className="chargesPerWorker-label">Charges Per Worker</p>
                 <Form.Item name="charge">
-                  <Input className="chargesPerWorker-input"></Input>
+                  <Input placeholder="Charges Per Worker" className="chargesPerWorker-input"></Input>
                 </Form.Item>
 
                 <p className="numOfWorker-label">No Of Workers</p>
-                <Form.Item name="noOfWorker">
-                  <Input className="numOfWorker-input"></Input>
+                <Form.Item name="noOfWorkers">
+                  <Input placeholder="No Of Workers" className="numOfWorker-input"></Input>
                 </Form.Item>
               </div>
 
               <div className="customCampaign-block-two">
                 <p className="cities-label">Cities</p>
-                <Form.Item name="city">
-                  <Select className="cities-select">
-                    {["Delhi", "Mumbai", "Kolkata", "Bangalore", "Pune"].map(
+                <Form.Item name="location">
+                <Select
+                  mode="multiple"
+                  className="cities-select"
+                  style={{ width: '100%' }}
+                  placeholder="Select Cities"
+                  defaultValue={['All']}
+                  // onChange={onCityChange}
+                  optionLabelProp="label"
+                >
+
+                    {cities.map(
                       (city, index) => (
+                        
                         <Option value={city} key={index}>
                           {city}
                         </Option>
                       )
                     )}
-                  </Select>
+                 
+                </Select>
+                 
                 </Form.Item>
 
                 <p className="taskDescription-label">Task Description</p>
-                <Form.Item name="taskDescription">
+                <Form.Item name="about">
                   <TextArea className="taskDescription-textarea"></TextArea>
                 </Form.Item>
 
@@ -208,18 +260,18 @@ export default function CampaignCustom() {
                   <h5 className="amount-before-tax-header">
                     Amount Before Tax
                   </h5>
-                  <h2 className="total-gig-workers">4000</h2>
+                  <h2 className="total-gig-workers">{noOfWorkers}</h2>
                   <h2 className="multiple-symbol">x</h2>
-                  <h2 className="task-fees">50</h2>
+                  <h2 className="task-fees">{charges}</h2>
                   <h2 className="equalTo-symbol">=</h2>
-                  <h2 className="amount-before-tax">200000</h2>
-                  <h5 className="total-gst">+36000 (18%GST)</h5>
+                  <h2 className="amount-before-tax">{noOfWorkers * charges}</h2>
+                  <h5 className="total-gst">+{(noOfWorkers * charges) * 18 / 100} (18%GST)</h5>
                 </div>
                 <h5 className="campaign-payment-gst-guide">
                   Note : GST invoice will be mailed to you after payment
                 </h5>
                 <div className="campaign-payment-button-block">
-                  <Button className="campaign-payment-later">PAY LATER</Button>
+                  <Link to="/gigs"><Button className="campaign-payment-later">PAY LATER</Button></Link>
                   <Button className="campaign-payment-now">PAY NOW</Button>
                 </div>
               </div>

@@ -18,23 +18,24 @@ import star from '../../../assets/img/internship/workerDetails/star.svg'
 import { getHeaders } from '../../../helpers/getHeaders';
 
 
-export default function WorkerDetails({isShow, isClose, userId, internshipId}) {
+export default function WorkerDetails({children, className, userId, internshipId,user}) {
     console.log("USER ID ", userId)
-    const [user, setUser] = useState(null)
-    const [resume, setResume] = useState(null)
-
+    const resume = user.resume;
+    // const [user, setUser] = useState(null)
+    // const [resume, setResume] = useState(null)
+    const [visible,setVisible] = useState(false);
     useEffect(() => {
-        const url = `resume/user/${userId}`
-        axios.get(url)
-            .then(res => {
-                const data = res.data;
-                console.log('RESUME ', data);
-                setUser(data.user)
-                setResume(data.resume)
-            })
-            .catch(err => {
-                console.log(err)
-            })
+        // const url = `resume/user/${userId}`
+        // axios.get(url)
+        //     .then(res => {
+        //         const data = res.data;
+        //         console.log('RESUME ', data);
+        //         setUser(data.user)
+        //         setResume(data.resume)
+        //     })
+        //     .catch(err => {
+        //         console.log(err)
+        //     })
     },[])
 
     const buttonHandler = (action) => {
@@ -46,7 +47,7 @@ export default function WorkerDetails({isShow, isClose, userId, internshipId}) {
 
         const data = {
             internshipId: internshipId,
-	        userId: userId,
+	        userId: userId,resume
         }
 
         console.log('IDs ', data)
@@ -64,18 +65,22 @@ export default function WorkerDetails({isShow, isClose, userId, internshipId}) {
     }
 
     const handleOk = () =>{
-        isClose();
+        setVisible(false);
     }
 
     const handleCancel = () => {
-        isClose()
+        setVisible(false)
     }
 
     
-    // const {education, digitalProfiles, achievements, workExperience, skills, POR, trainings,projects } = resume
+  
     return (
+        <div>
+            <div className={className} onClick={() => setVisible(true)}>
+                {children}
+            </div>
         <Modal
-          visible={isShow}
+          visible={visible}
           style={{ top: 20 }}
           className="worker-details-modal"
           width="75%"
@@ -85,7 +90,7 @@ export default function WorkerDetails({isShow, isClose, userId, internshipId}) {
         >
         {user ? <WorkerDetailsCard user={user} /> : <Skeleton width="14rem" active />}
         <div className="main-block">
-            <section className="interview-questions">
+            {/* <section className="interview-questions">
                 <div className="title">Interview Questions</div>
                 <div className="qna">
                     <p className="question">1 . Interview Questions dummy text for an interview question this big?</p>
@@ -93,20 +98,17 @@ export default function WorkerDetails({isShow, isClose, userId, internshipId}) {
                     <p className="question">1 . Interview Questions dummy text for an interview question this big?</p>
                     <p className="answer">A. Interview Questions dummy text for an interview answer this big or a much bigger length?</p>
                 </div>
-            </section>
+            </section> */}
             { resume ? <section className="resume-details">
                 <div className="about-block">
                     <div className="title">
                         <img src={personAdd} alt="" />
-                        <span>About</span>
+                        <span>Objectives</span>
                     </div>
                     <div className="outer-block">
                         <div className="details">
                             <span>
-                                Energetic individual looking to showcase excellent presentation skills and
-                                transform theoretical knowledge of banking principles into practical 
-                                applications of current and saving Account Opening, Wealth Management,
-                                and Forex Transactions.
+                                {resume.careerObjectives}
                             </span>
                             
                         </div>
@@ -291,5 +293,6 @@ export default function WorkerDetails({isShow, isClose, userId, internshipId}) {
             </div>
           
         </Modal>
+        </div>
     )
 }

@@ -128,13 +128,15 @@ export default function NewInternshipDetails(props) {
       //   dataIndex: "name",
       key: "name",
       render: (record) => (
-        <div
-          onClick={() => openResumeModal(record.id)}
-          className="name-and-img"
-        >
+        // <div
+        //   onClick={() => openResumeModal(record.id)}
+        //   className="name-and-img"
+        // >
+          <WorkerDetails userId={record.id} className="name-and-img" user={record.user} internshipId={internshipId}>
           <img src={record.img} alt="" />
           <span className="name">{record.name}</span>
-        </div>
+          </WorkerDetails>
+   
       ),
     },
     {
@@ -169,15 +171,16 @@ export default function NewInternshipDetails(props) {
   const tableData = (array) => {
     return array
       ? array.map(
-          ({ user: { firstName, city, resumeScore, imgUrl, _id } }, index) => {
+          ({ user }, index) => {
             return {
               key: index + 1,
-              name: firstName,
-              institute: "Netaji Subhash Institute of Technology",
-              city: city,
-              score: resumeScore,
-              img: imgUrl,
-              id: _id,
+              name: user.firstName,
+              institute: user.college,
+              city: user.city,
+              score: user.resumeScore,
+              img: user.imgUrl,
+              id: user._id,
+              user:user
             };
           }
         )

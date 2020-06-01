@@ -7,6 +7,7 @@ import WorkerDetails from "../internship/internship/WorkerDetails";
 import GigProfile from "./gigProfile";
 import axios from "axios";
 import moment from "moment";
+import { s3URL } from "../constant/userToken";
 
 const { TabPane } = Tabs;
 const { Option } = Select;
@@ -29,15 +30,16 @@ export default function NewInternshipDetails(props) {
       title: "Name",
       dataIndex: "name",
       key: "name",
-      render: (name) => (
-        <div
-          onClick={(InternshipId) => openModel(InternshipId)}
-          className="name-and-img"
-        >
-          <img src={randomImg} alt="" />
+      render: (name,record) => {
+        console.log(record)
+        return (
+ 
+           <GigProfile userId={record.userId} isUpdate={isUpdate}  details={record.profile} answers={record.answers} gig={gig} className="name-and-img">
+          <img src={record.img} alt="" />
           <span className="name">{name}</span>
-        </div>
-      ),
+          </GigProfile>
+         
+      )},
     },
     {
       title: "Institute",
@@ -71,15 +73,15 @@ export default function NewInternshipDetails(props) {
       title: "Name",
       dataIndex: "name",
       key: "name",
-      render: (name) => (
-        <div
-          onClick={(InternshipId) => openModel(InternshipId)}
-          className="name-and-img"
-        >
-          <img src={randomImg} alt="" />
+      render: (name,record) => {
+        console.log(record)
+        return (
+           <GigProfile userId={record.userId} isUpdate={isUpdate}  details={record.profile} answers={record.answers} gig={gig} className="name-and-img">
+          <img src={record.img} alt="" />
           <span className="name">{name}</span>
-        </div>
-      ),
+          </GigProfile>
+         
+      )},
     },
     {
       title: "City",
@@ -123,15 +125,16 @@ export default function NewInternshipDetails(props) {
       title: "Name",
       dataIndex: "name",
       key: "name",
-      render: (name) => (
-        <div
-          onClick={(InternshipId) => openModel(InternshipId)}
-          className="name-and-img"
-        >
-          <img src={randomImg} alt="" />
+      render: (name,record) => {
+        console.log(record)
+        return (
+ 
+           <GigProfile userId={record.userId} isUpdate={isUpdate}  details={record.profile} answers={record.answers} gig={gig} className="name-and-img">
+          <img src={record.img} alt="" />
           <span className="name">{name}</span>
-        </div>
-      ),
+          </GigProfile>
+         
+      )},
     },
     {
       title: "City",
@@ -171,16 +174,19 @@ export default function NewInternshipDetails(props) {
   ];
 
   const getTable = (array) => {
-    return array.map(({ userId }, index) => {
+    return array.map(({ userId,answers }, index) => {
       return {
         key: index + 1,
         name: userId.firstName,
-        institute: "Netaji Subhash Institute of Technology",
+        userId: userId._id,
+        institute: userId.college ? userId.college : "College Not Verified",
         city: userId.city,
-        gigScore: "70",
-        img: userId.imgUrl,
+        gigScore: userId.profileScore,
+        img: userId.imgUrl.includes(s3URL) ? userId.imgUrl: s3URL + userId.imgUrl,
         taskStatus: "Task Submitted", // only for selectedTable and completedTable
         isCompleted: "Completed Gig Successfully", // only for selectedTable and completedTable
+        profile:userId,
+        answers
       };
     });
   };
@@ -194,32 +200,7 @@ export default function NewInternshipDetails(props) {
   const selectedTable = appliedUsers ? getTable(appliedUsers.selected) : null;
   const completedTable = appliedUsers ? getTable(appliedUsers.completed) : null;
 
-  // const getTable2 = (array) => {
-  //    return array.map((data, index) => {
-  //       return {
-  //         key: index + 1,
-  //         name: 'Mayank Muppal',
-  //         institute: 'Netaji Subhash Institute of Technology',
-  //         city: 'Delhi',
-  //         gigScore: '70',
-  //         taskStatus: "Task Submitted",
-  //         isCompleted: 'Completed Gig Successfully',
-  //         img: userId.imgUrl,
-  //       };
-  //     });
-  // }
 
-  const gigData = [1, 2, 3].map((data, index) => {
-    return {
-      key: index + 1,
-      name: "Mayank Muppal",
-      institute: "Netaji Subhash Institute of Technology",
-      city: "Delhi",
-      gigScore: "70",
-      taskStatus: "Task Submitted",
-      isCompleted: "Completed Gig Successfully",
-    };
-  });
 
   const openModel = (UserId) => {
     // setUserId(UserId);
@@ -281,7 +262,7 @@ export default function NewInternshipDetails(props) {
     let now = moment(startDate); //todays date
     let end = moment(endDate); // another date
     let duration = moment.duration(end.diff(now));
-    const months = duration.asMonths().toFixed(2) + " Months";
+    const months = duration.asDays() + " Days";
     return months;
   };
 
@@ -290,12 +271,12 @@ export default function NewInternshipDetails(props) {
       {/* <WorkerDetails internshipId={internshipId} isShow={isShow} isClose={isClose} 
             userId={userId} 
             /> */}
-      <GigProfile
+      {/* <GigProfile
         isUpdate={isUpdate}
         isShow={isShow}
         isClose={isClose}
         userId={userId}
-      />
+      /> */}
       <div className="gig-details-block">
         {gig && appliedUsers ? (
           <div className="gig-summary-and-overview-block">
