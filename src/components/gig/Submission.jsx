@@ -90,10 +90,17 @@ function Submission(props) {
     const tabs = tasks.map((task, index) =>{
       const body = {
         taskId:task._id,
-        submissionId: submissions[index]._id,
+        submissionId: submissions[index] ? submissions[index]._id : null,
         userId,
         missionId
       } 
+      if(!submissions[index]){
+        return (
+          <TabPane tab={`Task ${index + 1}`} key={index}>
+            <div>Task Not Submitted Yet!</div>
+          </TabPane>
+        )
+      }
       return (
         <TabPane tab={`Task ${index + 1}`} key={index}>
           <div className="submission__tab">
