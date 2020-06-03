@@ -35,10 +35,10 @@ export default function workerDetailsCard(props) {
       <div className="gig-scores">
         <Progress
           className="progress-bar"
-          percent={user.resumeScore}
+          percent={user.resumeScore || user.profileScore}
           showInfo={false}
         />
-        <div className="percentage">Gig Score: {user.resumeScore}%</div>
+        <div className="percentage">Gig Score: {user.resumeScore || user.profileScore}%</div>
       </div>
     </section>
   );

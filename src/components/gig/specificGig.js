@@ -5,6 +5,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import GigProfile from './gigProfile';
 import axios from 'axios';
 import Internship from '../internship/internship/internship';
+import { getImageUrl } from '../../helpers/getImageUrl';
 
 
 const { Option } = Select;
@@ -183,7 +184,7 @@ export default function SpecificGig(props) {
                     <div className="applied-workers-panel" key={index} onClick={() => openWorkerModal(application.user._id)}>
                        
                     <div className="image">
-                        <img src={application.user.imgUrl} alt=""></img>
+                        <img src={getImageUrl(application.user.imgUrl)} alt=""></img>
                     </div>
                     <div className="worker-name">
                         <div className="name">{application.user.firstName} <br/> <span className="last-update">{application.user.lastUpdatedAt}</span>  </div>

@@ -9,6 +9,7 @@ import axios from "axios";
 import moment from "moment";
 import { s3URL } from "../constant/userToken";
 import { getHeaders } from "../../helpers/getHeaders";
+import { getImageUrl } from "../../helpers/getImageUrl";
 
 const { TabPane } = Tabs;
 const { Option } = Select;
@@ -36,7 +37,7 @@ export default function NewInternshipDetails(props) {
         return (
  
            <GigProfile userId={record.userId} isUpdate={isUpdate} status={record.status} details={record.profile} answers={record.answers} gig={gig} className="name-and-img">
-          <img src={record.img} alt="" />
+          <img src={getImageUrl(record.img)} alt="" />
           <span className="name">{name}</span>
           </GigProfile>
          
@@ -78,7 +79,7 @@ export default function NewInternshipDetails(props) {
         console.log(record)
         return (
            <GigProfile userId={record.userId} isUpdate={isUpdate} status={record.status}  details={record.profile} answers={record.answers} gig={gig} className="name-and-img">
-          <img src={record.img} alt="" />
+          <img src={getImageUrl(record.img)} alt="" />
           <span className="name">{name}</span>
           </GigProfile>
          
@@ -131,7 +132,7 @@ export default function NewInternshipDetails(props) {
         return (
  
            <GigProfile userId={record.userId} isUpdate={isUpdate}  details={record.profile} status={record.status} answers={record.answers} gig={gig} className="name-and-img">
-          <img src={record.img} alt="" />
+          <img src={getImageUrl(record.img)} alt="" />
           <span className="name">{name}</span>
           </GigProfile>
          
