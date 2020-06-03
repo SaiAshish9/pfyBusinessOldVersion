@@ -87,13 +87,14 @@ export default function GigTable(props) {
   const getTable = (array) => {
     return array
       ? array.map((data, index) => {
+        console.log(data)
           return {
             key: index + 1,
             id: data._id,
             serialNumber: index + 1,
             jobTitle:data.title,
             location: data.location,
-            application: 23,
+            application: data.appliedUsers.length,
             created: moment(data.createdAt).format("DD MMM YYYY"),
             deadline: moment(data.missionEndDate).format("DD MMM YYYY"),
             status:

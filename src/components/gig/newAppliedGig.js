@@ -8,6 +8,7 @@ import GigProfile from "./gigProfile";
 import axios from "axios";
 import moment from "moment";
 import { s3URL } from "../constant/userToken";
+import { getHeaders } from "../../helpers/getHeaders";
 
 const { TabPane } = Tabs;
 const { Option } = Select;
@@ -34,7 +35,7 @@ export default function NewInternshipDetails(props) {
         console.log(record)
         return (
  
-           <GigProfile userId={record.userId} isUpdate={isUpdate}  details={record.profile} answers={record.answers} gig={gig} className="name-and-img">
+           <GigProfile userId={record.userId} isUpdate={isUpdate} status={record.status} details={record.profile} answers={record.answers} gig={gig} className="name-and-img">
           <img src={record.img} alt="" />
           <span className="name">{name}</span>
           </GigProfile>
@@ -76,7 +77,7 @@ export default function NewInternshipDetails(props) {
       render: (name,record) => {
         console.log(record)
         return (
-           <GigProfile userId={record.userId} isUpdate={isUpdate}  details={record.profile} answers={record.answers} gig={gig} className="name-and-img">
+           <GigProfile userId={record.userId} isUpdate={isUpdate} status={record.status}  details={record.profile} answers={record.answers} gig={gig} className="name-and-img">
           <img src={record.img} alt="" />
           <span className="name">{name}</span>
           </GigProfile>
@@ -129,7 +130,7 @@ export default function NewInternshipDetails(props) {
         console.log(record)
         return (
  
-           <GigProfile userId={record.userId} isUpdate={isUpdate}  details={record.profile} answers={record.answers} gig={gig} className="name-and-img">
+           <GigProfile userId={record.userId} isUpdate={isUpdate}  details={record.profile} status={record.status} answers={record.answers} gig={gig} className="name-and-img">
           <img src={record.img} alt="" />
           <span className="name">{name}</span>
           </GigProfile>
@@ -174,7 +175,7 @@ export default function NewInternshipDetails(props) {
   ];
 
   const getTable = (array) => {
-    return array.map(({ userId,answers }, index) => {
+    return array.map(({ userId,answers, status }, index) => {
       return {
         key: index + 1,
         name: userId.firstName,
@@ -186,6 +187,7 @@ export default function NewInternshipDetails(props) {
         taskStatus: "Task Submitted", // only for selectedTable and completedTable
         isCompleted: "Completed Gig Successfully", // only for selectedTable and completedTable
         profile:userId,
+        status,
         answers
       };
     });
@@ -218,7 +220,7 @@ export default function NewInternshipDetails(props) {
   useEffect(() => {
     const url1 = `mission/company/fetchone/${missionId}`;
     const url2 = `mission/get_mission_applications/${missionId}`;
-    axios.get(url1).then((res) => {
+    axios.get(url1,getHeaders()).then((res) => {
       const data = res.data;
       console.log("SINGLE GIG ", data);
       setGig(data);

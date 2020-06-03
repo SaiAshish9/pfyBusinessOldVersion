@@ -31,10 +31,10 @@ export default function SpecificGig(props) {
                 const applications = data.applications;
                 console.log(res.data)
                 setWorkerAppl(data.applications)
-                const pendingAppl =  applications.filter(el => el.status == 300);
-                const selectedAppl =  applications.filter(el => el.status == 301);
-                const shortlistedAppl =  applications.filter(el => el.status == 302);
-                const rejectedAppl =  applications.filter(el => el.status == 303);
+                const pendingAppl =  applications.filter(el => el.status === 300);
+                const selectedAppl =  applications.filter(el => el.status === 301);
+                const shortlistedAppl =  applications.filter(el => el.status === 302);
+                const rejectedAppl =  applications.filter(el => el.status === 303);
 
                 setFilterApplication({pendingAppl,selectedAppl,shortlistedAppl,rejectedAppl})
             })

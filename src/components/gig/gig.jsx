@@ -106,8 +106,6 @@ export default function Gig() {
 
 
   const [key, setKey] = useState(0);
-  const [gigs, setGigs] = useState(null);
-  const [gigsLoader,setGigsLoader] = useState(true)
   const campaign = (title) => (
     <>
       {title.map((data, index) => (

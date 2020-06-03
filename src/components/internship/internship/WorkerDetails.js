@@ -90,15 +90,7 @@ export default function WorkerDetails({children, className, userId, internshipId
         >
         {user ? <WorkerDetailsCard user={user} /> : <Skeleton width="14rem" active />}
         <div className="main-block">
-            {/* <section className="interview-questions">
-                <div className="title">Interview Questions</div>
-                <div className="qna">
-                    <p className="question">1 . Interview Questions dummy text for an interview question this big?</p>
-                    <p className="answer">A. Interview Questions dummy text for an interview answer this big or a much bigger length?</p>
-                    <p className="question">1 . Interview Questions dummy text for an interview question this big?</p>
-                    <p className="answer">A. Interview Questions dummy text for an interview answer this big or a much bigger length?</p>
-                </div>
-            </section> */}
+            
             { resume ? <section className="resume-details">
                 <div className="about-block">
                     <div className="title">

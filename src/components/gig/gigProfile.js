@@ -8,24 +8,23 @@ import tiktok from "../../assets/img/gigProfile/tiktok.svg";
 import report from "../../assets/img/gigProfile/report.svg";
 import axios from "axios";
 import WorkerCardDetails from "../independentComponent/workerDetailsCard";
-import { RightOutlined, LeftOutlined } from "@ant-design/icons";
+import { RightOutlined, LeftOutlined, GithubFilled } from "@ant-design/icons";
+import {
+  MISSION_APPLIED,
+  MISSION_WAITLIST,
+  MISSION_SELECTED,
+  MISSION_REJECTED,
+  MISSION_COMPLETED,
+  MISSION_FAILED,
+} from "../constant/statusCodes";
+import Submission from "./Submission";
 
 export default function GigProfile(props) {
-  const { userId, gig, answers, details } = props;
-  const {questions} = gig
+  const { status, gig, answers, details } = props;
+  const { questions } = gig;
   const carousel = useRef();
-  const randomArr = [1, 2];
-  console.log(props.isShow);
   const [visible, setVisible] = useState(false);
-  // const [, setDetails] = useState(null);
-
-  // useEffect(() => {
-  //   if (!details) {
-  //     const url = `resume/user/${missionId}/${userId}`;
-  //     axios.get(url).then((res) => setDetails(res.data));
-  //   }
-  // }, [visible]);
-
+  console.log(status);
   const actionData = {
     missionId: gig._id,
     userId: details ? details._id : null,
@@ -34,6 +33,7 @@ export default function GigProfile(props) {
     const url = "mission/select ";
     axios.post(url, actionData).then((res) => {
       console.log(res.data);
+      setVisible(false);
       props.isUpdate();
     });
   };
@@ -42,6 +42,7 @@ export default function GigProfile(props) {
     const url = "mission/shortlist";
     axios.post(url, actionData).then((res) => {
       console.log(res.data);
+      setVisible(false);
       props.isUpdate();
     });
   };
@@ -50,11 +51,11 @@ export default function GigProfile(props) {
     const url = "mission/reject";
     axios.post(url, actionData).then((res) => {
       console.log(res.data);
+      setVisible(false);
       props.isUpdate();
     });
   };
 
- 
   const showModal = () => {
     setVisible(true);
   };
@@ -74,25 +75,161 @@ export default function GigProfile(props) {
     carousel.current.prev();
   };
 
+  const renderButtons = () => {
+    console.log(gig.status);
+    const reject = (
+      <Button onClick={rejectCandidateHandler} className="reject">
+        Reject
+      </Button>
+    );
+    const shortlist = (
+      <Button onClick={shortlistCandidateHandler} className="shortlist">
+        Shortlist
+      </Button>
+    );
+    const select = (
+      <Button onClick={selectCandidateHandler} className="select">
+        Select
+      </Button>
+    );
+    switch (status) {
+      case MISSION_APPLIED:
+        return [reject, shortlist, select];
+      case MISSION_WAITLIST:
+        return [reject, select];
+      default:
+        return [];
+    }
+  };
   const renderDigitalProfileLinks = (profile) => {
-      const icons = {
-          facebook:facebook,
-          instagram:instagram,
-          tiktok:tiktok,
+    const icons = {
+      facebook: facebook,
+      instagram: instagram,
+      tiktok: tiktok,
+    };
+
+    return Object.keys(profile).map((key) => {
+      if (profile[key]) {
+        return (
+          <div className="single-icon">
+            <a href={profile[key]}>
+              <img src={icons[key]} alt=""></img>
+            </a>
+          </div>
+        );
       }
+    });
+  };
 
-      return Object.keys(profile).map((key) =>{
-          if(profile[key]){
-              return (
-                <div className="single-icon">
-                   <a href={profile[key]}><img src={icons[facebook]} alt=""></img></a> 
-                </div>
-            )
-          }
-      })
+  const renderQuestions = () => {
+    if (questions && questions.length > 0) {
+      return (
+        <div className="interview-ques">
+          <div className="title">Interview Questions</div>
+          {questions.map((el, index) => (
+            <div key={index} className="qna">
+              <p className="question">{el.question}</p>
+              <p className="answer">{answers[index]}</p>
+            </div>
+          ))}
+        </div>
+      );
+    }
+  };
 
-  }
+  const renderSkills = () => {
+    if (details.skills && details.skills.length > 0) {
+      return (
+        <div style={{ marginBottom: "1.5rem" }}>
+          <div className="title1">Skills</div>
+          <div className="details">{details.skills.join(", ")}</div>
+        </div>
+      );
+    }
+  };
+  const renderLanguages = () => {
+    if (details.languages && details.languages.length > 0) {
+      return (
+        <div style={{ marginBottom: "1.5rem" }}>
+          <div className="title2">Languages</div>
+          <div className="details">{details.languages.join(", ")}</div>
+        </div>
+      );
+    }
+  };
   const randomArray = [1, 2];
+  console.log(gig.status);
+
+  const renderContent = () => {
+    if (status === MISSION_SELECTED) {
+      return (
+        <div className="submission__container">
+          <Submission tasks={gig.tasks} submissions={details.submissions} missionId={gig._id} userId={details._id}/>
+          <section className="gig-details">
+          <div className="verification-status">
+            <div className="veri-stauts ">
+              <span className="title">Verification Status</span> <br />
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <img className="img" src={remove} alt=""></img>{" "}
+                <span className="details">Not Verified</span>
+              </div>
+            </div>
+            <div className="digital-profile">
+              <p>Digital Profiles</p>
+              <div className="icons">
+                {renderDigitalProfileLinks(details.digitalProfile)}
+              </div>
+            </div>
+            {/* <div className="offline-gigs">
+              <p>Offline Gigs</p>
+              <div className="details">
+                {!details.offlineGigs.isWillingToTravel ? "Not " : ""}
+                Willing To Travel
+              </div>
+            </div>
+           */}
+            {renderSkills()}
+            {renderLanguages()}
+          
+              </div>
+          </section>
+        </div>
+      );
+    } else {
+      return (
+        <section className="gig-details">
+          <div className="verification-status">
+            <div className="veri-stauts">
+              <span className="title">Verification Status</span> <br />
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <img className="img" src={remove} alt=""></img>{" "}
+                <span className="details">Not Verified</span>
+              </div>
+            </div>
+            <div className="digital-profile">
+              <p>Digital Profiles</p>
+              <div className="icons">
+                {renderDigitalProfileLinks(details.digitalProfile)}
+              </div>
+            </div>
+            <div className="offline-gigs">
+              <p>Offline Gigs</p>
+              <div className="details">
+                {!details.offlineGigs.isWillingToTravel ? "Not " : ""}
+                Willing To Travel
+              </div>
+            </div>
+          </div>
+          {renderQuestions()}
+          <div className="skills-and-lang">
+            {renderSkills()}
+            {renderLanguages()}
+          </div>
+        </section>
+      );
+    }
+  };
+
   return (
     <div className={props.className}>
       <div onClick={showModal}>{props.children}</div>
@@ -126,81 +263,12 @@ export default function GigProfile(props) {
           {randomArray.map((el, i) => (
             <div key={i} className="ant-modal-contnet">
               {details ? <WorkerCardDetails user={details} /> : null}
-              {details ? (
-                <section className="gig-details">
-                  <div className="verification-status">
-                    <div className="veri-stauts">
-                      <span className="title">Verification Status</span> <br />
-                      <div style={{ display: "flex", alignItems: "center" }}>
-                        <img className="img" src={remove} alt=""></img>{" "}
-                        <span className="details">Not Verified</span>
-                      </div>
-                    </div>
-                    <div className="digital-profile">
-                      <p>Digital Profiles</p>
-                      <div className="icons">
-                       {renderDigitalProfileLinks(details.digitalProfile)}
-                      </div>
-                    </div>
-                    <div className="offline-gigs">
-                      <p>Offline Gigs</p>
-                      <div className="details">
-                        {!details.offlineGigs.isWillingToTravel
-                          ? "Not "
-                          : ""}
-                        Willing To Travel
-                      </div>
-                    </div>
-                  </div>
-                  <div className="interview-ques">
-                    <div className="title">Interview Questions</div>
-                    {questions.map((el, index) => (
-                      <div key={index} className="qna">
-                        <p className="question">
-                          {el.question}
-                        </p>
-                        <p className="answer">
-                         {answers[index]}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="skills-and-lang">
-                    <div style={{ marginBottom: "1.5rem" }}>
-                      <div className="title1">Skills</div>
-                      <div className="details">
-                      {details.skills.join(",")}
-                        {/* {details.resume.skills.map((skill) => skill.name)}{" "} */}
-                      </div>
-                    </div>
-
-                    <div style={{ marginBottom: "1.5rem" }}>
-                      <div className="title2">Languages</div>
-                      <div className="details">
-                          {details.languages.join(",")}
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              ) : null}
+              {renderContent()}
               <section className="buttons">
                 <div className="report">
                   <img src={report} alt=""></img> REPORT THIS APPLICATION
                 </div>
-                <div className="">
-                  <Button onClick={rejectCandidateHandler} className="reject">
-                    Reject
-                  </Button>
-                  <Button
-                    onClick={shortlistCandidateHandler}
-                    className="shortlist"
-                  >
-                    Shortlist
-                  </Button>
-                  <Button onClick={selectCandidateHandler} className="select">
-                    Select
-                  </Button>
-                </div>
+                <div>{renderButtons()}</div>
               </section>
             </div>
           ))}

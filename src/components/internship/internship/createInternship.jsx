@@ -1,15 +1,17 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Modal, Button } from "antd";
 import axios from "axios";
-import { token, companyId, apiURL } from "../../constant/userToken";
+import { apiURL } from "../../constant/userToken";
+
 import { ModalVisibleContext } from "./newInternship";
 import modalSvg from "../../../assets/img/modalSvg.svg";
 import FormInternshipDetail from "../internshipForm/formInternshipDetail";
 import FormResponsibility from "../internshipForm/formResponsibility";
 import FormStipend from "../internshipForm/formStipend";
 import FormInterviewQuestion from "../internshipForm/formInterviewQuestion";
+import { getHeaders } from "../../../helpers/getHeaders";
 
-const internshipForm = { companyId };
+const internshipForm = {};
 
 localStorage.setItem("internshipFormData", JSON.stringify(internshipForm));
 
@@ -32,7 +34,7 @@ export default function CreateInternship() {
   const handleSubmit = () => {
     console.log("submit!");
     axios
-      .post(`${apiURL}internship/add`, formData, token)
+      .post(`${apiURL}internship/add`, formData, getHeaders())
       .then((res) => {
         console.log(res);
         localStorage.clear();
