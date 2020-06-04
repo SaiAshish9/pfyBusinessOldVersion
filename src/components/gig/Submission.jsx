@@ -14,11 +14,12 @@ import { getHeaders } from "../../helpers/getHeaders";
 const { TabPane } = Tabs;
 
 function Submission(props) {
-  const { submissions, tasks, userId, missionId } = props;
+  const { submissions, tasks, userId, missionId,changeTaskStatus } = props;
   const [approvalLoader,setApprovalLoader] = useState(false)
-  const approveTask = (body) => {
-    setApprovalLoader(true)
+  const approveTask = (body,index) => {
+   setApprovalLoader(true)
     Axios.post(`${apiURL}task/approve`,body,getHeaders()).then(() =>{
+      changeTaskStatus(userId,index)
       setApprovalLoader(false)
     }).catch(() => {
       setApprovalLoader(false);
@@ -78,7 +79,7 @@ function Submission(props) {
           className="submission__btn submission__btn--approve"
           icon={<CheckOutlined />}
           loading={approvalLoader}
-          onClick={() => approveTask(body)}
+          onClick={() => approveTask(body,index)}
         >
           Approve Task
         </Button>
@@ -90,11 +91,11 @@ function Submission(props) {
     const tabs = tasks.map((task, index) =>{
       const body = {
         taskId:task._id,
-        submissionId: submissions[index] ? submissions[index]._id : null,
+        submissionId: (submissions && submissions[index]) ? submissions[index]._id : null,
         userId,
         missionId
       } 
-      if(!submissions[index]){
+      if(!(submissions && submissions[index])){
         return (
           <TabPane tab={`Task ${index + 1}`} key={index}>
             <div>Task Not Submitted Yet!</div>

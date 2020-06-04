@@ -10,6 +10,7 @@ import moment from "moment";
 import { s3URL } from "../constant/userToken";
 import { getHeaders } from "../../helpers/getHeaders";
 import { getImageUrl } from "../../helpers/getImageUrl";
+import { TASK_APPROVED } from "../constant/statusCodes";
 
 const { TabPane } = Tabs;
 const { Option } = Select;
@@ -20,28 +21,49 @@ export default function NewInternshipDetails(props) {
   const missionId = props.match.params.id;
   console.log("MISSION ID " + missionId);
 
-  const [isShow, setIsShow] = useState(false);
-  const [isRefresh, setIsRefresh] = useState(null);
+  // const [isShow, setIsShow] = useState(false);
+  // const [isRefresh, setIsRefresh] = useState(null);
   const [gig, setGig] = useState(null);
   const [appliedUsers, setAppliedUsers] = useState(null);
+  const [allApplications,setAllApplications] = useState([])
   // const [userId, setUserId] = useState(null)
+  const changeTaskStatus = (userId,index) => {
+    const selectedUsers = appliedUsers.selected.map(application => {
+      if(application.userId._id === userId){
+        console.log(application)
+        application.userId.submissions[index].status = TASK_APPROVED;
+      }
+      return application;
+    });
+    setAppliedUsers((app) => ({
+      ...app,
+      selected:selectedUsers
+    }));
 
+  }
   let i = 1;
   const columns = [
     {
       title: "Name",
       dataIndex: "name",
       key: "name",
-      render: (name,record) => {
-        console.log(record)
+      render: (name, record) => {
+        console.log(record);
         return (
- 
-           <GigProfile userId={record.userId} isUpdate={isUpdate} status={record.status} details={record.profile} answers={record.answers} gig={gig} className="name-and-img">
-          <img src={getImageUrl(record.img)} alt="" />
-          <span className="name">{name}</span>
+          <GigProfile
+            userId={record.userId}
+            isUpdate={isUpdate}
+            gig={gig}
+            array={record.array}
+            index={record.key - 1}
+            changeApplicationStatus={changeApplicationStatus}
+            className="name-and-img"
+          >
+            <img src={getImageUrl(record.img)} alt="" />
+            <span className="name">{name}</span>
           </GigProfile>
-         
-      )},
+        );
+      },
     },
     {
       title: "Institute",
@@ -75,15 +97,24 @@ export default function NewInternshipDetails(props) {
       title: "Name",
       dataIndex: "name",
       key: "name",
-      render: (name,record) => {
-        console.log(record)
+      render: (name, record) => {
+        console.log(record);
         return (
-           <GigProfile userId={record.userId} isUpdate={isUpdate} status={record.status}  details={record.profile} answers={record.answers} gig={gig} className="name-and-img">
-          <img src={getImageUrl(record.img)} alt="" />
-          <span className="name">{name}</span>
+          <GigProfile
+            userId={record.userId}
+            isUpdate={isUpdate}
+            array={record.array}
+            index={record.key - 1}
+            changeTaskStatus={changeTaskStatus}
+            changeApplicationStatus={changeApplicationStatus}
+            gig={gig}
+            className="name-and-img"
+          >
+            <img src={getImageUrl(record.img)} alt="" />
+            <span className="name">{name}</span>
           </GigProfile>
-         
-      )},
+        );
+      },
     },
     {
       title: "City",
@@ -127,16 +158,23 @@ export default function NewInternshipDetails(props) {
       title: "Name",
       dataIndex: "name",
       key: "name",
-      render: (name,record) => {
-        console.log(record)
+      render: (name, record) => {
+        console.log(record);
         return (
- 
-           <GigProfile userId={record.userId} isUpdate={isUpdate}  details={record.profile} status={record.status} answers={record.answers} gig={gig} className="name-and-img">
-          <img src={getImageUrl(record.img)} alt="" />
-          <span className="name">{name}</span>
+          <GigProfile
+            userId={record.userId}
+            isUpdate={isUpdate}
+            array={record.array}
+            index={record.key - 1}
+            changeApplicationStatus={changeApplicationStatus}
+            gig={gig}
+            className="name-and-img"
+          >
+            <img src={getImageUrl(record.img)} alt="" />
+            <span className="name">{name}</span>
           </GigProfile>
-         
-      )},
+        );
+      },
     },
     {
       title: "City",
@@ -176,7 +214,7 @@ export default function NewInternshipDetails(props) {
   ];
 
   const getTable = (array) => {
-    return array.map(({ userId,answers, status }, index) => {
+    return array.map(({ userId, answers, status }, index) => {
       return {
         key: index + 1,
         name: userId.firstName,
@@ -184,12 +222,15 @@ export default function NewInternshipDetails(props) {
         institute: userId.college ? userId.college : "College Not Verified",
         city: userId.city,
         gigScore: userId.profileScore,
-        img: userId.imgUrl.includes(s3URL) ? userId.imgUrl: s3URL + userId.imgUrl,
+        img: userId.imgUrl.includes(s3URL)
+          ? userId.imgUrl
+          : s3URL + userId.imgUrl,
         taskStatus: "Task Submitted", // only for selectedTable and completedTable
         isCompleted: "Completed Gig Successfully", // only for selectedTable and completedTable
-        profile:userId,
+        profile: userId,
         status,
-        answers
+        answers,
+        array,
       };
     });
   };
@@ -204,24 +245,34 @@ export default function NewInternshipDetails(props) {
   const completedTable = appliedUsers ? getTable(appliedUsers.completed) : null;
 
 
-
-  const openModel = (UserId) => {
-    // setUserId(UserId);
-    setIsShow(true);
-    console.log("open");
-  };
-
-  const isClose = () => {
-    setIsShow(false);
-  };
   const isUpdate = () => {
-    setIsRefresh(Math.random());
+  //  setIsRefresh(Math.random());
   };
-
+  const setApplications = (data) => {
+    const applied = data.filter((el) => el.status === 601);
+    const waitlisted = data.filter((el) => el.status === 602);
+    const selected = data.filter((el) => el.status === 603);
+    const rejected = data.filter((el) => el.status === 604);
+    const completed = data.filter((el) => el.status === 605);
+    const failed = data.filter((el) => el.status === 606);
+    const total = data.length;
+    return {applied,waitlisted,selected,rejected,completed,failed,total}
+  } 
+  const changeApplicationStatus = (applicationId,status) => {
+    const applications = allApplications.map((app) => {
+      if(app._id === applicationId){
+        app.status = status;
+      }
+      return app
+    })
+    setAllApplications(applications);
+    setAppliedUsers(setApplications(applications))
+  }
+  
   useEffect(() => {
     const url1 = `mission/company/fetchone/${missionId}`;
     const url2 = `mission/get_mission_applications/${missionId}`;
-    axios.get(url1,getHeaders()).then((res) => {
+    axios.get(url1, getHeaders()).then((res) => {
       const data = res.data;
       console.log("SINGLE GIG ", data);
       setGig(data);
@@ -230,34 +281,8 @@ export default function NewInternshipDetails(props) {
     // applied users
     axios.get(url2).then((res) => {
       const { data } = res;
-      console.log("APPLIED USERS ", data);
-      const applied = data.filter((el) => el.status === 601);
-      const waitlisted = data.filter((el) => el.status === 602);
-      const selected = data.filter((el) => el.status === 603);
-      const rejected = data.filter((el) => el.status === 604);
-      const completed = data.filter((el) => el.status === 605);
-      const failed = data.filter((el) => el.status === 606);
-      const total = data.length;
-      console.log("APP USER");
-      console.log(
-        applied,
-        waitlisted,
-        selected,
-        rejected,
-        completed,
-        failed,
-        total
-      );
-
-      setAppliedUsers({
-        applied,
-        waitlisted,
-        selected,
-        rejected,
-        completed,
-        failed,
-        total,
-      });
+      setAllApplications(data);
+      setAppliedUsers(setApplications(data));
     });
   }, []);
 

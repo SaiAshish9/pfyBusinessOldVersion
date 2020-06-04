@@ -20,7 +20,21 @@ import {
 import Submission from "./Submission";
 
 export default function GigProfile(props) {
-  const { status, gig, answers, details } = props;
+  const {
+    gig,
+    index,
+    changeTaskStatus,
+    array,
+    changeApplicationStatus,
+  } = props;
+  const [details, setDetails] = useState(array[index].userId);
+  const [status, setStatus] = useState(array[index].status);
+  const [answers, setAnswers] = useState(array[index].answers);
+  const [curIndex, setCurIndex] = useState(index);
+  const [selectLoader, setSelectLoader] = useState(false);
+  const [shortlistLoader, setShortlistLoader] = useState(false);
+  const [rejectLoader, setRejectLoader] = useState(false);
+
   const { questions } = gig;
   const carousel = useRef();
   const [visible, setVisible] = useState(false);
@@ -30,33 +44,56 @@ export default function GigProfile(props) {
     userId: details ? details._id : null,
   };
   const selectCandidateHandler = () => {
+    setSelectLoader(true);
     const url = "mission/select ";
-    axios.post(url, actionData).then((res) => {
-      console.log(res.data);
-      setVisible(false);
-      props.isUpdate();
-    });
+    axios
+      .post(url, actionData)
+      .then((res) => {
+        setSelectLoader(false);
+        changeApplicationStatus(array[curIndex]._id, MISSION_SELECTED);
+        next();
+      })
+      .catch(() => {
+        setSelectLoader(false);
+      });
   };
 
   const shortlistCandidateHandler = () => {
+    setShortlistLoader(true);
     const url = "mission/shortlist";
-    axios.post(url, actionData).then((res) => {
-      console.log(res.data);
-      setVisible(false);
-      props.isUpdate();
-    });
+    axios
+      .post(url, actionData)
+      .then((res) => {
+        setShortlistLoader(false);
+        changeApplicationStatus(array[curIndex]._id, MISSION_WAITLIST);
+        next();
+      })
+      .catch((err) => {
+        setShortlistLoader(false);
+      });
   };
 
   const rejectCandidateHandler = () => {
+    setRejectLoader(true);
     const url = "mission/reject";
-    axios.post(url, actionData).then((res) => {
-      console.log(res.data);
-      setVisible(false);
-      props.isUpdate();
-    });
+    axios
+      .post(url, actionData)
+      .then((res) => {
+        setRejectLoader(false);
+
+        changeApplicationStatus(array[curIndex]._id, MISSION_REJECTED);
+        next();
+      })
+      .catch((err) => {
+        setRejectLoader(false);
+      });
   };
 
   const showModal = () => {
+    setDetails(array[index].userId);
+    setAnswers(array[index].answers);
+    setStatus(array[index].status);
+    setCurIndex(index);
     setVisible(true);
   };
 
@@ -69,26 +106,44 @@ export default function GigProfile(props) {
   };
 
   const next = () => {
+    if (array.length === 0) {
+      setVisible(false);
+      return;
+    }
     carousel.current.next();
+    const newIndex = (curIndex + 1) % array.length;
+    setDetails(array[newIndex].userId);
+    setAnswers(array[newIndex].answers);
+    setStatus(array[newIndex].status);
+    setCurIndex(newIndex);
   };
   const previous = () => {
+    if (array.length === 0) {
+      setVisible(false);
+      return;
+    }
     carousel.current.prev();
+    const newIndex = curIndex - 1 < 0 ? array.length - 1 : curIndex - 1;
+    setDetails(array[newIndex].userId);
+    setAnswers(array[newIndex].answers);
+    setStatus(array[newIndex].status);
+    setCurIndex(newIndex);
   };
 
   const renderButtons = () => {
     console.log(gig.status);
     const reject = (
-      <Button onClick={rejectCandidateHandler} className="reject">
+      <Button onClick={rejectCandidateHandler} loading={rejectLoader} className="reject">
         Reject
       </Button>
     );
     const shortlist = (
-      <Button onClick={shortlistCandidateHandler} className="shortlist">
+      <Button onClick={shortlistCandidateHandler} loading={shortlistLoader} className="shortlist">
         Shortlist
       </Button>
     );
     const select = (
-      <Button onClick={selectCandidateHandler} className="select">
+      <Button onClick={selectCandidateHandler} loading={selectLoader} className="select">
         Select
       </Button>
     );
@@ -157,30 +212,34 @@ export default function GigProfile(props) {
       );
     }
   };
-  const randomArray = [1, 2];
-  console.log(gig.status);
 
   const renderContent = () => {
     if (status === MISSION_SELECTED) {
       return (
         <div className="submission__container">
-          <Submission tasks={gig.tasks} submissions={details.submissions} missionId={gig._id} userId={details._id}/>
+          <Submission
+            tasks={gig.tasks}
+            changeTaskStatus={changeTaskStatus}
+            submissions={details.submissions}
+            missionId={gig._id}
+            userId={details._id}
+          />
           <section className="gig-details">
-          <div className="verification-status">
-            <div className="veri-stauts ">
-              <span className="title">Verification Status</span> <br />
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <img className="img" src={remove} alt=""></img>{" "}
-                <span className="details">Not Verified</span>
+            <div className="verification-status">
+              <div className="veri-stauts ">
+                <span className="title">Verification Status</span> <br />
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <img className="img" src={remove} alt=""></img>{" "}
+                  <span className="details">Not Verified</span>
+                </div>
               </div>
-            </div>
-            <div className="digital-profile">
-              <p>Digital Profiles</p>
-              <div className="icons">
-                {renderDigitalProfileLinks(details.digitalProfile)}
+              <div className="digital-profile">
+                <p>Digital Profiles</p>
+                <div className="icons">
+                  {renderDigitalProfileLinks(details.digitalProfile)}
+                </div>
               </div>
-            </div>
-            {/* <div className="offline-gigs">
+              {/* <div className="offline-gigs">
               <p>Offline Gigs</p>
               <div className="details">
                 {!details.offlineGigs.isWillingToTravel ? "Not " : ""}
@@ -188,10 +247,9 @@ export default function GigProfile(props) {
               </div>
             </div>
            */}
-            {renderSkills()}
-            {renderLanguages()}
-          
-              </div>
+              {renderSkills()}
+              {renderLanguages()}
+            </div>
           </section>
         </div>
       );
@@ -260,7 +318,7 @@ export default function GigProfile(props) {
             carousel.current = ref;
           }}
         >
-          {randomArray.map((el, i) => (
+          {array.map((el, i) => (
             <div key={i} className="ant-modal-contnet">
               {details ? <WorkerCardDetails user={details} /> : null}
               {renderContent()}
