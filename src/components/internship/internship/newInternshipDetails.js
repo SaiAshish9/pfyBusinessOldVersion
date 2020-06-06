@@ -1,5 +1,14 @@
 import React, { Fragment, useState, useEffect } from "react";
-import { Button, Tabs, Select, Table, Skeleton } from "antd";
+import {
+  Button,
+  Tabs,
+  Select,
+  Table,
+  Skeleton,
+  message,
+  Popconfirm,
+  DatePicker,
+} from "antd";
 import randomImg from "../../../assets/randomImg.jpg";
 import view from "../../../assets/img/internship/internshipDetails/view.svg";
 import edit from "../../../assets/img/internship/internshipDetails/edit.svg";
@@ -13,6 +22,8 @@ import axios from "axios";
 import InternshipStatus from "../../newComp/internshipStatus/internshipStatus";
 import WorkerDetails from "./WorkerDetails";
 import { getHeaders } from "../../../helpers/getHeaders";
+import moment from "moment";
+import { CalendarOutlined } from "@ant-design/icons";
 
 const { TabPane } = Tabs;
 const { Option } = Select;
@@ -28,67 +39,66 @@ export default function NewInternshipDetails(props) {
 
   const [internship, setInternship] = useState(false);
   const [applicationStats, setApplicationStats] = useState(null);
-  const [appliedApplicationsData, setAppliedApplicationsData] = useState(null);
+  const [appliedApplicationsData, setAppliedApplicationsData] = useState({});
+  const [allApplications, setAllApplications] = useState([]);
   const [currentTab, setCurrentTab] = useState("pending");
   const [selectDefault, setSelectDefault] = useState("most-recent");
+  const [newDeadline, setNewDeadLine] = useState(null);
+  const updateStatus = (applicationId, status) => {
+    const applications = allApplications.map((application) => {
+      if (application._id === applicationId) {
+        console.log(application);
+        application.status = status;
+        console.log(application);
 
+        return application;
+      }
+      return application;
+    });
+    const stats = setStats(applications);
+    const filteredApplication = filterApplications(applications);
+    setAllApplications(applications);
+    setAppliedApplicationsData(filteredApplication);
+    setApplicationStats(stats);
+  };
   const totalStats = (array, status) =>
     array.length ? array.filter((el) => el.status === status * 1).length : 0;
 
-  // const appliedApplicationsWithStatus = (array, status) => array.length ?  array.filter(el => el.status === status*1 ) : []
-
+  const filterApplications = (applications) => {
+    const pending = applications.filter((el) => el.status === 300);
+    const selected = applications.filter((el) => el.status === 302);
+    const shortlisted = applications.filter((el) => el.status === 301);
+    const rejected = applications.filter((el) => el.status === 303);
+    return { pending, selected, shortlisted, rejected };
+  };
+  const setStats = (applications) => {
+    const pending = totalStats(applications, 300);
+    const shortlisted = totalStats(applications, 301);
+    const selected = totalStats(applications, 302);
+    return { pending, shortlisted, selected };
+  };
   useEffect(() => {
     const url1 = `internship/company_fetchone/${internshipId}`;
     const url2 = `internship/get_applications/${internshipId}`;
-    axios.get(url1,getHeaders()).then((res) => {
+    axios.get(url1, getHeaders()).then((res) => {
       const data = res.data;
-      // console.log(data)
-
-      const pending = totalStats(data.appliedUsers, 300);
-      const shortlisted = totalStats(data.appliedUsers, 301);
-      const selected = totalStats(data.appliedUsers, 302);
-
-      // console.log('PENDING '+ pending+ ' shortlisted ' + shortlisted + ' selected ')
-      setApplicationStats({ pending, shortlisted, selected });
+      const stats = setStats(data.appliedUsers);
+      setApplicationStats(stats);
       setInternship(data);
     });
 
-    axios.get(url2,getHeaders()).then((res) => {
-      const {
+    axios.get(url2, getHeaders()).then((res) => {
+      let {
         data: { applications },
       } = res;
-      console.log("APPLIED APPLICATIONS DATA ", res.data);
-      // setAppliedApplicationsData(data.applications)
-      const pending = applications
-        .filter((el) => el.status === 300)
-        .sort(
-          (a, b) =>
-            new Date(b.lastUpdatedAt).getTime() -
-            new Date(a.lastUpdatedAt).getTime()
-        );
-      const selected = applications
-        .filter((el) => el.status === 302)
-        .sort(
-          (a, b) =>
-            new Date(b.lastUpdatedAt).getTime() -
-            new Date(a.lastUpdatedAt).getTime()
-        );
-      const shortlisted = applications
-        .filter((el) => el.status === 301)
-        .sort(
-          (a, b) =>
-            new Date(b.lastUpdatedAt).getTime() -
-            new Date(a.lastUpdatedAt).getTime()
-        );
-      const rejected = applications
-        .filter((el) => el.status === 303)
-        .sort(
-          (a, b) =>
-            new Date(b.lastUpdatedAt).getTime() -
-            new Date(a.lastUpdatedAt).getTime()
-        );
-      // console.log(pending,selected,shortlisted,rejected)
-      setAppliedApplicationsData({ pending, selected, shortlisted, rejected });
+      applications = applications.sort(
+        (a, b) =>
+          new Date(b.lastUpdatedAt).getTime() -
+          new Date(a.lastUpdatedAt).getTime()
+      );
+      setAllApplications(applications);
+      const filter = filterApplications(applications);
+      setAppliedApplicationsData(filter);
     });
   }, []);
 
@@ -108,35 +118,45 @@ export default function NewInternshipDetails(props) {
   const isCloseShare = () => {
     setIsShowShareInternship(false);
   };
-  const openResumeModal = (userId) => {
-    setClickedUserId(userId);
-    setIsShowResume(true);
+  const changeDeadline = (applyBefore) => {
+    axios
+      .put(
+        `/internship/change_deadline/${internship._id}`,
+        { applyBefore },
+        getHeaders()
+      )
+      .then(() => {
+        message.success("Internship Deadline Changed");
+        // const curInternship = internship;
+        internship.applyBefore = moment(applyBefore).format("DD MMM YYYY");
+        setInternship({...internship});
+      });
   };
-  const isCloseResume = () => {
-    setIsShowResume(false);
-    setClickedUserId(null);
+  const closeHiring = () => {
+    changeDeadline(new Date().toISOString());
   };
+  const extendDeadline = () => {
+    changeDeadline(newDeadline.toISOString())
+  }
+  const getDatePicker = () => <DatePicker defaultValue={moment(internship.applyBefore)} onChange={setNewDeadLine} />
 
-  // useEffect(() => {
-  //     setIsShowResume(true)
-  // }, [clickedUserId])
-
-  // onClick={(InternshipId) => openModel(InternshipId)}
   const columns = [
     {
       title: "Name",
       //   dataIndex: "name",
       key: "name",
       render: (record) => (
-        // <div
-        //   onClick={() => openResumeModal(record.id)}
-        //   className="name-and-img"
-        // >
-          <WorkerDetails userId={record.id} className="name-and-img" user={record.user} internshipId={internshipId}>
+        <WorkerDetails
+          updateStatus={updateStatus}
+          userId={record.id}
+          className="name-and-img"
+          application={record.application}
+          internshipId={internshipId}
+          questions={internship.questions}
+        >
           <img src={record.img} alt="" />
           <span className="name">{record.name}</span>
-          </WorkerDetails>
-   
+        </WorkerDetails>
       ),
     },
     {
@@ -170,20 +190,19 @@ export default function NewInternshipDetails(props) {
 
   const tableData = (array) => {
     return array
-      ? array.map(
-          ({ user }, index) => {
-            return {
-              key: index + 1,
-              name: user.firstName,
-              institute: user.college,
-              city: user.city,
-              score: user.resumeScore,
-              img: user.imgUrl,
-              id: user._id,
-              user:user
-            };
-          }
-        )
+      ? array.map((application, index) => {
+          const { user } = application;
+          return {
+            key: index + 1,
+            name: user.firstName,
+            institute: user.college,
+            city: user.city,
+            score: user.resumeScore,
+            img: user.imgUrl,
+            id: user._id,
+            application,
+          };
+        })
       : null;
   };
 
@@ -236,19 +255,11 @@ export default function NewInternshipDetails(props) {
   };
   return (
     <Fragment>
-      {clickedUserId ? (
-        <WorkerDetails
-          isShow={isShowResume}
-          isClose={isCloseResume}
-          internshipId={internshipId}
-          userId={clickedUserId}
-        />
-      ) : null}
       <div className="internship-details-block">
         {internship ? (
           <div className="internship-summary-and-overview-block">
             <div className="summary-block">
-              <h1 className="heading">Business Development Internship</h1>
+              <h1 className="heading">{internship.designation}</h1>
               <div className="suumary-details">
                 <div>
                   Stipend <br />{" "}
@@ -273,18 +284,39 @@ export default function NewInternshipDetails(props) {
                 </Button>
               </div>
               <div className="action-buttons">
-                <Button className="view-btn">
-                  <img src={view} alt="" /> View Internship
-                </Button>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={internship.dynamicLink}
+                >
+                  <Button className="view-btn">
+                    <img src={view} alt="" /> View Internship
+                  </Button>{" "}
+                </a>
                 <Button className="edit-btn">
                   <img src={edit} alt="" /> Edit Internship
                 </Button>
-                <Button className="close-btn">
-                  <img src={close} alt="" /> Close Hiring
-                </Button>
+                <Popconfirm
+                  onConfirm={closeHiring}
+                  title="Are you sure close this Internship?"
+                  okText="Yes"
+                  cancelText="No"
+                >
+                  <Button className="close-btn">
+                    <img src={close} alt="" /> Close Hiring
+                  </Button>
+                </Popconfirm>
+                <Popconfirm
+                  icon={<CalendarOutlined />}
+                  onConfirm={extendDeadline}
+                  title={getDatePicker()}
+                  okText="Yes"
+                  cancelText="No"
+                >
                 <Button className="extend-btn">
                   <img src={calendar} alt="" /> Extend Deadline
                 </Button>
+                </Popconfirm>
                 <Button onClick={isShowShare} className="share-btn">
                   <img src={share} alt="" /> Share Internship
                 </Button>

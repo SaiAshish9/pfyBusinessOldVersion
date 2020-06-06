@@ -239,14 +239,7 @@ export default function GigProfile(props) {
                   {renderDigitalProfileLinks(details.digitalProfile)}
                 </div>
               </div>
-              {/* <div className="offline-gigs">
-              <p>Offline Gigs</p>
-              <div className="details">
-                {!details.offlineGigs.isWillingToTravel ? "Not " : ""}
-                Willing To Travel
-              </div>
-            </div>
-           */}
+           
               {renderSkills()}
               {renderLanguages()}
             </div>

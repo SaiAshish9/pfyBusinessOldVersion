@@ -16,8 +16,7 @@ const { TabPane } = Tabs;
 const { Option } = Select;
 
 export default function NewInternshipDetails(props) {
-  // let internshipId = '5e6f2c5d3422b56f87738726';
-  let userId = "5e6f6c763422b56f8773878c";
+
   const missionId = props.match.params.id;
   console.log("MISSION ID " + missionId);
 
@@ -139,16 +138,16 @@ export default function NewInternshipDetails(props) {
     },
     {
       title: "Task Submission Status",
-      dataIndex: "taskStatus",
-      key: "taskStatus",
+      dataIndex: "completedTasks",
+      key: "completedTasks",
       className: "task-submission-col",
-      render: (taskStatus) => (
-        <div className="submitted">
+      render: (completedTasks) => (
+        <div className="is-completed">
           <div
-            style={{ backgroundColor: i++ % 2 != 0 ? "#00d12f" : "#ff8000" }}
+            style={{ backgroundColor: completedTasks === gig.tasks.length ? "#00d12f" : "#ff8000" }}
             className="dot"
           ></div>
-          Task Submitted
+          {completedTasks === gig.tasks.length ? "All Tasks Submitted":`${completedTasks} Tasks Submitted`}
         </div>
       ),
     },
@@ -204,7 +203,7 @@ export default function NewInternshipDetails(props) {
       render: (isCompleted) => (
         <div className="is-completed">
           <div
-            style={{ backgroundColor: i++ % 2 != 0 ? "#00d12f" : "#ff8000" }}
+            style={{ backgroundColor: "#00d12f" }}
             className="dot"
           ></div>
           Completed Gig Successfully
@@ -226,7 +225,7 @@ export default function NewInternshipDetails(props) {
           ? userId.imgUrl
           : s3URL + userId.imgUrl,
         taskStatus: "Task Submitted", // only for selectedTable and completedTable
-        isCompleted: "Completed Gig Successfully", // only for selectedTable and completedTable
+        completedTasks: userId.submissions ? Object.keys(userId.submissions).length : 0, // only for selectedTable and completedTable
         profile: userId,
         status,
         answers,
@@ -279,7 +278,7 @@ export default function NewInternshipDetails(props) {
     });
 
     // applied users
-    axios.get(url2).then((res) => {
+    axios.get(url2,getHeaders()).then((res) => {
       const { data } = res;
       setAllApplications(data);
       setAppliedUsers(setApplications(data));

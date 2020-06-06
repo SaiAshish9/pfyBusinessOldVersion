@@ -17,6 +17,7 @@ import Axios from "axios";
 import { getHeaders } from "../../../helpers/getHeaders";
 import { s3URL } from "../../constant/userToken";
 import useWindowDimensions from "../../../Hooks/WindowDimensions";
+import Loader from "../../Loader/Loader";
 
 const { Header, Sider, Content } = Layout;
 export default function PrivateHeader({ component: Component, ...rest }) {
@@ -56,23 +57,24 @@ export default function PrivateHeader({ component: Component, ...rest }) {
   }
 
   const selectedKey = () => {
-    switch (location.pathname) {
-      case "/gigs": {
+    console.log(location.pathname.toString().split("/")[1])
+    switch (location.pathname.toString().split("/")[1]) {
+      case "gigs": {
         return ["2"];
       }
-      case "/internship": {
+      case "internship": {
         return ["3"];
       }
 
-      case "/campus-marketing": {
+      case "campus-marketing": {
         return ["4"];
       }
 
-      case "/student-offer": {
+      case "student-offer": {
         return ["5"];
       }
 
-      case "/edit-profile": {
+      case "edit-profile": {
         return ["6"];
       }
 
@@ -82,7 +84,7 @@ export default function PrivateHeader({ component: Component, ...rest }) {
     }
   };
   if(headerLoader){
-    return "Loading...";
+    return <Loader/>;
   }
   return (
     <Layout>
@@ -103,7 +105,7 @@ export default function PrivateHeader({ component: Component, ...rest }) {
         <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={["1"]}
+          // defaultSelectedKeys={["1"]}
           selectedKeys={selectedKey()}
         >
           <Menu.Item key="1">

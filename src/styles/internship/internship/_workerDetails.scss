@@ -7,7 +7,7 @@
 }
 
 %scroll-div{
-    width: 98%;
+    width: 100%;
     margin: auto;
     margin-bottom: 1rem;
 }
@@ -55,39 +55,54 @@
         padding: 1.75rem;
         display: flex;
         justify-content: space-between;
-        .interview-questions{
-            width: 28%;
-            height: 100%;
-            border-radius: 9px;
-            border: solid 1px #b7b7b7;
-            padding: 1rem;
-            .title{
-                font-size: 1.25rem;
-                font-weight: 500;
-                padding-bottom: 0.5rem;
-                border-bottom: 1px solid #ccc;
-            }
-            .qna{
-                padding: 1rem 0;
-                .question{
-                    margin-bottom: 0.1rem;
-                    color: black;
-                    opacity: 0.9;
-                    font-size: 13px;
-                }
-                .answer{
-                    opacity: 0.6;
-                    color: black;
-                    font-size: 12px;
-                }
-            }
+        // .interview-questions{
+        //     width: 28%;
+        //     height: 100%;
+        //     border-radius: 9px;
+        //     border: solid 1px #b7b7b7;
+        //     padding: 1rem;
+        //     .title{
+        //         font-size: 1.25rem;
+        //         font-weight: 500;
+        //         padding-bottom: 0.5rem;
+        //         border-bottom: 1px solid #ccc;
+        //     }
+        //     .qna{
+        //         padding: 1rem 0;
+        //         .question{
+        //             margin-bottom: 0.1rem;
+        //             color: black;
+        //             opacity: 0.9;
+        //             font-size: 13px;
+        //         }
+        //         .answer{
+        //             opacity: 0.6;
+        //             color: black;
+        //             font-size: 12px;
+        //         }
+        //     }
             
+        // }
+        .interview-questions{
+            border: 1px solid #b7b7b7;
+            border-radius: 9px;
+             padding: 1rem;
+            height: 100%;
+            margin: 1rem;
+            flex: 1;
+            &__header{
+                text-align: left;
+                color: rgba(0, 0, 0, 0.5);
+                padding: 0.5rem 0;
+                border-bottom: 1px solid #b7b7b7;
+            }
         }
         .resume-details{
             // color: black;
             // height: 82vh;
             // overflow: scroll;
             width: 100%;
+            flex:3;
             padding: 1rem 0;
             .about-block, .achievement-block{
                 @extend %scroll-div;
