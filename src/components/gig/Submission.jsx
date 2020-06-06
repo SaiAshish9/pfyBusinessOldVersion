@@ -1,5 +1,5 @@
 import React from "react";
-import { Tabs, Button } from "antd";
+import { Tabs, Button, Alert } from "antd";
 import { RedoOutlined, CheckOutlined } from "@ant-design/icons";
 import {
   TASK_TYPE_TEXT,
@@ -98,7 +98,7 @@ function Submission(props) {
       if(!(submissions && submissions[index])){
         return (
           <TabPane tab={`Task ${index + 1}`} key={index}>
-            <div>Task Not Submitted Yet!</div>
+            <Alert message="Task Not Submitted Yet!" type="info" showIcon/>
           </TabPane>
         )
       }
