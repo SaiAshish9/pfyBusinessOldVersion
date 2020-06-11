@@ -150,8 +150,10 @@ export default function NewInternshipDetails(props) {
           updateStatus={updateStatus}
           userId={record.id}
           className="name-and-img"
-          application={record.application}
+          applications={record.applications}
+          // applications = {allApplications}
           internshipId={internshipId}
+          index={record.key - 1}
           questions={internship.questions}
         >
           <img src={record.img} alt="" />
@@ -200,7 +202,7 @@ export default function NewInternshipDetails(props) {
             score: user.resumeScore,
             img: user.imgUrl,
             id: user._id,
-            application,
+            applications:array,
           };
         })
       : null;
@@ -293,9 +295,9 @@ export default function NewInternshipDetails(props) {
                     <img src={view} alt="" /> View Internship
                   </Button>{" "}
                 </a>
-                <Button className="edit-btn">
+                {/* <Button className="edit-btn">
                   <img src={edit} alt="" /> Edit Internship
-                </Button>
+                </Button> */}
                 <Popconfirm
                   onConfirm={closeHiring}
                   title="Are you sure close this Internship?"
@@ -369,10 +371,12 @@ export default function NewInternshipDetails(props) {
           >
             <TabPane tab="Pending" key="pending" className="">
               <Table
+
                 className="applied-gigs"
                 columns={columns}
                 dataSource={pendingApplicationData}
                 pagination={false}
+                
                 // scroll={{ y: 240 }}
               />
             </TabPane>

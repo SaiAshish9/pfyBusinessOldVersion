@@ -31,7 +31,13 @@
 }
 
 .personal-profile-edit, .company-profile-edit {
+    
     .ant-modal-content{
+        background-color: #f7f7f7;
+        .ant-modal-header{
+        background-color: #f7f7f7;
+
+        }
         .ant-modal-title{
             font-size: 1.5rem;
         }
@@ -120,7 +126,15 @@
             display: flex;
             align-items: center;
             // justify-content: space-between;
-            img{
+            .ant-upload.ant-upload-select-picture-card{
+                width: 9.5rem;
+                height: 3.5rem;
+                border-radius: 0.5rem;
+                border: dashed 2px rgba(#000000,0.5);
+                background: initial;
+
+            }
+            &__img{
                 width: 6rem;
                 height: 6rem;
                 border-radius: 50%;

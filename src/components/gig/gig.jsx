@@ -87,11 +87,13 @@ const RandA = [
 ];
 
 const freelance = [
-  "Design",
-  "Mobile Development",
+  "Graphic Design",
+  "Mobile App Development",
   "Web Development",
-  "Writing",
-  "Translation Services",
+  "Content Writing",
+  "Logo Design",
+  "Language Translation",
+  "UI/UX Design"
 ];
 
 const gigTab = gigTabTitle.map((data, index) => (

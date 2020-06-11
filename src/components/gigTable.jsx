@@ -34,12 +34,16 @@ export default function GigTable(props) {
       title: "S.No",
       dataIndex: "serialNumber",
       key: "serialNumber",
+      width:80
     },
     {
       title: "Job Title",
       key: "jobTitle",
+      ellipsis: {
+        showTitle: false,
+      },
+      width:200,
       render: (record) => {
-        console.log(record);
         return(
         <Link to={`/gigs/${record.id}`}>{record.jobTitle}</Link>
       )},
@@ -131,7 +135,8 @@ export default function GigTable(props) {
             columns={columns}
             dataSource={gigData}
             pagination={false}
-            scroll={{ y: 240 }}
+            yScroll={true}
+           scroll={{ y: 180}}
           />
         </TabPane>
         <TabPane tab="Active" key="2" className="">
@@ -140,7 +145,9 @@ export default function GigTable(props) {
               columns={columns}
               dataSource={acceptedGigData}
               pagination={false}
-              scroll={{ y: 240 }}
+           scroll={{ y: 180}}
+
+             // scroll={{ y: 240 }}
             />
           ) : null}
         </TabPane>
@@ -150,7 +157,7 @@ export default function GigTable(props) {
               columns={columns}
               dataSource={underReviewGigData}
               pagination={false}
-              scroll={{ y: 240 }}
+            //  scroll={{ y: 240 }}
             />
           ) : null}
         </TabPane>
@@ -160,7 +167,9 @@ export default function GigTable(props) {
               columns={columns}
               dataSource={rejectedGigData}
               pagination={false}
-              scroll={{ y: 240 }}
+           scroll={{ y: 180}}
+              
+            //  scroll={{ y: 240 }}
             />
           ) : null}
         </TabPane>
@@ -169,7 +178,9 @@ export default function GigTable(props) {
             columns={columns}
             dataSource={gigData}
             pagination={false}
-            scroll={{ y: 240 }}
+           scroll={{ y: 180}}
+
+            //scroll={{ y: 240 }}
           />
         </TabPane>
       </Tabs>

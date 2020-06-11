@@ -51,10 +51,12 @@
                 margin-top: 2.2rem;
                 display: flex;
                 justify-content: flex-end;
+                padding: 0 2rem;
                 .view-btn{
                     @extend %action-btn;
                     border: 1px solid #444584;
                     color: #444584;
+                    width: 8.5rem !important;
                 }
             }
         }

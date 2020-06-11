@@ -21,11 +21,15 @@ export default function InternshipTable({ isDataSource }) {
       title: "S.No",
       dataIndex: "serialNumber",
       key: "serialNumber",
+      width:80,
+
     },
     {
       title: "Job Title",
       dataIndex: "jobTitle",
       key: "jobTitle",
+      width:200,
+
       render: (record) => (
         <Link to={`/internship/${record._id}`}>{record.title}</Link>
       ),
@@ -100,6 +104,8 @@ export default function InternshipTable({ isDataSource }) {
             columns={columns}
             dataSource={internshipData}
             pagination={false}
+           scroll={{ y: 180}}
+
             // scroll={{ y: 240 }}
           />
         </TabPane>
@@ -108,6 +114,8 @@ export default function InternshipTable({ isDataSource }) {
             columns={columns}
             dataSource={null}
             pagination={false}
+           scroll={{ y: 180}}
+
             // scroll={{ y: 240 }}
           />
         </TabPane>
@@ -116,6 +124,8 @@ export default function InternshipTable({ isDataSource }) {
             columns={columns}
             dataSource={internshipData}
             pagination={false}
+           scroll={{ y: 180}}
+
             // scroll={{ y: 240 }}
           />
         </TabPane>
@@ -124,6 +134,8 @@ export default function InternshipTable({ isDataSource }) {
             columns={columns}
             dataSource={null}
             pagination={false}
+           scroll={{ y: 180}}
+
             // scroll={{ y: 240 }}
           />
         </TabPane>
@@ -132,6 +144,8 @@ export default function InternshipTable({ isDataSource }) {
             columns={columns}
             dataSource={internshipData}
             pagination={false}
+           scroll={{ y: 180}}
+
             // scroll={{ y: 240 }}
           />
         </TabPane>

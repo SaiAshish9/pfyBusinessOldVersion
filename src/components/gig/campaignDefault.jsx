@@ -3,7 +3,142 @@ import axios from "axios";
 
 import { Modal, Button, Input, Form, InputNumber } from "antd";
 import modalSvg from "../../assets/img/modalSvg.svg";
-
+const commonQuestions = [
+  "Explain your requirement",
+  "Tell us your budget",
+  "Required number of gig workers"
+]
+const freelanceQuestions = [
+  "Explain your requirement",
+  "Tell us your budget"
+]
+const questions = {
+  "Instagram Content Creation": [
+    "Explain your requirement",
+    "Tell us your budget",
+    "Required number of content creators",
+  ],
+  "Facebook Content Creation": [
+    "Explain your requirement",
+    "Tell us your budget",
+    "Required number of content creators",
+  ],
+  "TikTok Content Creation": [
+    "Explain your requirement",
+    "Tell us your budget",
+    "Required number of content creators",
+  ],
+  "Snapchat Content Creation": [
+    "Explain your requirement",
+    "Tell us your budget",
+    "Required number of content creators",
+  ],
+  "Facebook & Instagram Live": [
+    "Explain your requirement",
+    "Tell us your budget",
+    "Required number of live users",
+  ],
+  "Facebook & Instagram Polls": [
+    "Explain your requirement",
+    "Tell us your budget",
+    "Required number of users ",
+  ],
+  "Mobile App Installs": [
+    "Name of App",
+    "Tell us your budget",
+    "Required number of downloads",
+  ],
+  "Online Reviews": [
+    "Where do you need the reviews",
+    "Tell us your budget",
+    "Required number of reviews",
+  ],
+  "Play Store Reviews": [
+    "Name of app",
+    "Tell us your budget",
+    "Required number of reviews",
+  ],
+  "App Store Reviews": [
+    "Name of app",
+    "Tell us your budget",
+    "Required number of reviews",
+  ],
+  "Website Signups": [
+    "Registration page link",
+    "Tell us your budget",
+    "Required number of signups",
+  ],
+  "Flyer Distribution (Campus)": [
+    "Explain the requirement",
+    "Tell us your budget",
+    "Cities in which flyers have to be distributed",
+  ],
+  "Comment Engagement": [
+    "Post link",
+    "Tell us your budget",
+    "Number of required comments",
+  ],
+  "Sampling Activity": [
+    "Explain the requirement",
+    "Tell us your budget",
+    "Total number of samples",
+  ],
+  "Pasting Posters (Campus)": [
+    "Explain the requirement",
+    "Tell us your budget",
+    "Cities in which posters have to be pasted",
+  ],
+  "Increase Social Media Followers": [
+    "Social media page link",
+    "Tell us your budget",
+    "Number of required followers",
+  ],
+  "Vendor Acquisition":commonQuestions,
+  "Address Verification":commonQuestions,
+  "Lead Generation":commonQuestions,
+  "Social Sales":commonQuestions,
+  "Customer Onboarding":commonQuestions,
+  "Field Sales":commonQuestions,  
+  "Telecallers":commonQuestions,  
+  "Data Entry":commonQuestions,
+  "Data Digitization":commonQuestions,
+  "Data Curation": commonQuestions,
+  "Data Transcription": commonQuestions,
+  "Mystery Audit":commonQuestions,
+  "Non Mystery Audit":commonQuestions,
+  "Online Survey":[
+    "Explain your requirement",
+    "Tell us your budget",
+    "Required number of respondents"
+  ],
+  "Customer Experience Survey":[
+    "Explain your requirement",
+    "Tell us your budget",
+    "Required number of respondents"
+  ],
+  "Beta Testing":[
+    "Explain your requirement",
+    "Tell us your budget",
+    "Required number of testers"
+  ],
+  "Personal Interviews":[
+    "Explain your requirement",
+    "Tell us your budget",
+    "Required number of testers"
+  ],
+  "Product Reviews":[
+    "Explain your requirement",
+    "Tell us your budget",
+    "Required number of testers"
+  ],
+  "Graphic Design":freelanceQuestions,
+  "Web Development":freelanceQuestions,
+  "Mobile App Development":freelanceQuestions,
+  "Content Writing":freelanceQuestions,
+  "Logo Design":freelanceQuestions,
+  "Language Translation":freelanceQuestions,
+  "UI/UX Design": freelanceQuestions
+};
 export default function DefaultCampaign({
   campaignTitle,
   modalVisible,
@@ -65,7 +200,24 @@ export default function DefaultCampaign({
         hideRequiredMark={true}
         name="defaultGigCampaign"
       >
-        <p className="requirement__p">Please share your requirement</p>
+        {questions[campaignTitle] &&
+          questions[campaignTitle].map((question) => (
+            <>
+              <p className="requirement__p">{question}</p>
+              <Form.Item
+                name="description"
+                rules={[
+                  {
+                    required: true,
+                    message: "This question is required!",
+                  },
+                ]}
+              >
+                <Input className="requirement__input"></Input>
+              </Form.Item>
+            </>
+          ))}
+        {/* <p className="requirement__p">Please share your requirement</p>
         <Form.Item
           name="description"
           rules={[
@@ -106,13 +258,14 @@ export default function DefaultCampaign({
           ]}
         >
           <InputNumber className="budget__input"></InputNumber>
-        </Form.Item>
+        </Form.Item> */}
 
         <p className="quantity__p">Any additional information (optional)</p>
         <Input className="quantity__input"></Input>
       </Form>
     </Modal>
   );
+  
 }
 
 // {

@@ -50,7 +50,7 @@ export default function Dashboard() {
         ))}
       </div>
 
-      <GigTable count={3} />
+      <GigTable />
       <InternshipTable />
     </div>
   );

@@ -6,8 +6,13 @@
         padding: 2rem;
         text-align: center;
         h1{
-            font-size: 24px;
+            font-size: 1.5rem;
             margin-bottom: 1rem;
+            font-weight: 500;
+            line-height: 1.42;
+            letter-spacing: normal;
+        padding: 0 15%;
+
         }
     .fact-cards{
         position: relative;
@@ -41,6 +46,7 @@
         color: white;
         border-radius: 5rem;
         margin-top: 1rem;
+        box-shadow:0 8px 30px 0 rgba(0, 0, 0, 0.16);
        }
 }
 

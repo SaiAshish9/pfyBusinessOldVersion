@@ -91,7 +91,10 @@
                 .view-btn{
                     @extend %action-btn;
                     border: 1px solid #444584;
+                    border: none;
+
                     color: #444584;
+                    
                 }
                 .edit-btn{
                     @extend %action-btn;
@@ -100,17 +103,17 @@
                 }
                 .close-btn{
                     @extend %action-btn;
-                    border: 1px solid #da0000;
+                    border: none;
                     color: #da0000;
                 }
                 .extend-btn{
                     @extend %action-btn;
-                    border: 1px solid #448444;
+                    border: none;
                     color: #448444;
                 }
                 .share-btn{
                     @extend %action-btn;
-                    border: 1px solid #3b599b;
+                    border: none;
                     color: #3b599b;
                 }
             }

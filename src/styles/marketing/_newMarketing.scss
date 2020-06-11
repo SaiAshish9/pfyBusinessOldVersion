@@ -9,14 +9,14 @@ main .marketing-block{
       }
     .block-1{
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 155px));
-        grid-row-gap: 1rem;
-        grid-column-gap: 1rem;
-
-     
+        grid-template-columns: repeat(auto-fit, minmax(150px, 170px));
+        grid-gap: 2rem;
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
         .square-card{
-            height: 9.5rem;
-            width: 9rem;
+            height: 100%;
+            width: 100%;
             border-radius: 0.75rem;
             border-left: 15px solid #444584;
             box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
@@ -25,7 +25,7 @@ main .marketing-block{
             // display: flex;
             text-align: center;
             align-items: center;
-           
+            padding: 0 2rem;
             img{
                 // position: relative;
                 margin-top: 2rem;
@@ -55,11 +55,13 @@ main .marketing-block{
         font-size: 1.5rem;
         font-weight: 500;
         color: #444584;
+        padding: 0 15%;
        }
        .circular-cards{
-           display: flex;
-           justify-content: space-between;
-           flex-wrap: wrap;
+           display: grid;
+           grid-template-columns: repeat(3,1fr);
+           justify-items: center;
+        //    flex-wrap: wrap;
         .card{
             padding: 1rem;
             height: 7rem;

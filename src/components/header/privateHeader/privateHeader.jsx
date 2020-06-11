@@ -18,6 +18,7 @@ import { getHeaders } from "../../../helpers/getHeaders";
 import { s3URL } from "../../constant/userToken";
 import useWindowDimensions from "../../../Hooks/WindowDimensions";
 import Loader from "../../Loader/Loader";
+import Help from "../../newComp/help/help";
 
 const { Header, Sider, Content } = Layout;
 export default function PrivateHeader({ component: Component, ...rest }) {
@@ -191,7 +192,7 @@ export default function PrivateHeader({ component: Component, ...rest }) {
                 <div className="avatar-on-header">{headerData.firstName[0].toUpperCase()}</div>
                 <span className="avatar-name">{`${headerData.firstName} ${headerData.lastName}`}</span>
               </div>
-              <span className="needHelp-button">Help</span>
+              <span className="needHelp-button"><Help /></span>
             </div>
           </>
         </Header>

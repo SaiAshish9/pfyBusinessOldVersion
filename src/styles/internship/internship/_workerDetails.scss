@@ -49,6 +49,25 @@
         padding: 2.5rem;
         padding-bottom: 0;
     }
+    .left-icon{
+        color: white;
+        font-size: 3rem;
+        position: fixed;
+        top: 50%;
+        left: 8%;
+        z-index: 100;
+
+        cursor: pointer;
+    }
+    .right-icon{
+        color: white;
+        font-size: 3rem;
+        position: fixed;
+        top: 50%;
+        right: 8%;
+        z-index: 100;
+        cursor: pointer;
+    }
     .main-block{
         border-radius: 9px;
         border: solid 1px #b7b7b7;
