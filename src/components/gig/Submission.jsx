@@ -14,8 +14,10 @@ import { getHeaders } from "../../helpers/getHeaders";
 const { TabPane } = Tabs;
 
 function Submission(props) {
-  const { submissions, tasks, userId, missionId,changeTaskStatus } = props;
+  const { submissions, tasks, userId, missionId,redoTask,changeTaskStatus } = props;
   const [approvalLoader,setApprovalLoader] = useState(false)
+  const [redoLoader,setRedoLoader] = useState(false)
+
   const approveTask = (body,index) => {
    setApprovalLoader(true)
     Axios.post(`${apiURL}task/approve`,body,getHeaders()).then(() =>{
@@ -23,6 +25,15 @@ function Submission(props) {
       setApprovalLoader(false)
     }).catch(() => {
       setApprovalLoader(false);
+    })
+  }
+  const redo = (body,index) => {
+    setRedoLoader(true);
+    Axios.post(`${apiURL}task/redo`,body,getHeaders()).then(() =>{
+      redoTask(userId,index);
+      setRedoLoader(false);
+    }).catch(() => {
+      setRedoLoader(false);
     })
   }
   const renderSubmission = (index) => {
@@ -72,6 +83,8 @@ function Submission(props) {
         <Button
           className="submission__btn submission__btn--redo"
           icon={<RedoOutlined />}
+          loading={redoLoader}
+          onClick={() => redo(body,index)}
         >
           Redo
         </Button>

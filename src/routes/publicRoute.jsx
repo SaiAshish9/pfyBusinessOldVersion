@@ -10,13 +10,13 @@ export default function PublicRoute({ component: Component, ...rest }) {
   console.log("location.pathname", location.pathname);
   const pathWithoutHeader =
     location.pathname === "/register" || location.pathname === "/login";
-
+const isRegistrationPage = (location.pathname === "/register");
   return (
     <Route
       {...rest}
       component={(props) => (
         <>
-          {!!token ? (
+          {(!!token && !isRegistrationPage) ? (
             <Redirect to="/dashboard" />
           ) : (
             <>

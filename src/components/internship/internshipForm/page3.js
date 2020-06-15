@@ -166,7 +166,7 @@ export default function Page3(props) {
                     <Button onClick={() => props.back(2)}  className="go-back-btn" >
                         <LeftOutlined /> Go Back 
                     </Button>
-                    <Button  className="continue-btn" type="primary" htmlType="submit">
+                    <Button loading={props.internshipLoader}  className="continue-btn" type="primary" htmlType="submit">
                         Continue <RightOutlined />
                     </Button>
                     

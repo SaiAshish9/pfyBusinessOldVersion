@@ -138,7 +138,7 @@ export default function CompanyProfileModal({
         </Select>
       </Form.Item> */}
         {/* </Form.Item> */}
-        <div className="inline-form">
+        {/* <div className="inline-form">
           <Form.Item
             label="Company Type"
             style={{ flex: 1, padding: "0 1rem 0 0" }}
@@ -171,7 +171,7 @@ export default function CompanyProfileModal({
           >
             <Input className="input-style" />
           </Form.Item>
-        </div>
+        </div> */}
 
         <Form.Item
           label="Company Website"

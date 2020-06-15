@@ -16,6 +16,9 @@
       box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
       background-color: #ffffff;
       padding: 28px 20px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
       .campus-hiring-header {
         font-size: 1.2rem;
         font-weight: 500;
@@ -28,6 +31,7 @@
         font-size: 1rem;
         line-height: 1.43;
         color: #000;
+        flex: 1;
       }
 
       .campus-hiring-button {

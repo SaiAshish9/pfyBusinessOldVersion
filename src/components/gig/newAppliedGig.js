@@ -26,6 +26,20 @@ export default function NewInternshipDetails(props) {
   const [appliedUsers, setAppliedUsers] = useState(null);
   const [allApplications,setAllApplications] = useState([])
   // const [userId, setUserId] = useState(null)
+  const redoTask = (userId,index) => {
+    const selectedUsers = appliedUsers.selected.map(application => {
+      if(application.userId._id === userId){
+        console.log(application)
+        delete application.userId.submissions[index]
+      }
+      return application;
+    });
+    setAppliedUsers((app) => ({
+      ...app,
+      selected:selectedUsers
+    }));
+
+  }
   const changeTaskStatus = (userId,index) => {
     const selectedUsers = appliedUsers.selected.map(application => {
       if(application.userId._id === userId){
@@ -105,6 +119,7 @@ export default function NewInternshipDetails(props) {
             array={record.array}
             index={record.key - 1}
             changeTaskStatus={changeTaskStatus}
+            redoTask={redoTask}
             changeApplicationStatus={changeApplicationStatus}
             gig={gig}
             className="name-and-img"

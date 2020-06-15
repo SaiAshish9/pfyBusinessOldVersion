@@ -1,5 +1,13 @@
 import React, { useState, useRef } from "react";
-import { Input, Button, Select, Upload, message, Form } from "antd";
+import {
+  Input,
+  Button,
+  Select,
+  Upload,
+  message,
+  Form,
+  notification,
+} from "antd";
 import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
@@ -14,6 +22,8 @@ import logo from "../../assets/img/logoDark.png";
 import Axios from "axios";
 import { objectValidation } from "../validation/validation";
 import { apiURL, s3URL } from "../constant/userToken";
+import { getHeaders } from "../../helpers/getHeaders";
+
 const userDetail = [
   {
     placeHolder: "First Name",
@@ -117,50 +127,57 @@ const companyDetail = [
 const { Option } = Select;
 const { TextArea } = Input;
 
-const getBase64 = (img, callback) => {
-  const reader = new FileReader();
-  reader.addEventListener("load", () => callback(reader.result));
-  reader.readAsDataURL(img);
-};
+// const getBase64 = (img, callback) => {
+//   const reader = new FileReader();
+//   reader.addEventListener("load", () => callback(reader.result));
+//   reader.readAsDataURL(img);
+// };
 
 export default function SignUp() {
   const history = useHistory();
-  const isVerify =
-    !!history.location.state && history.location.state.isEmailVerify;
-  const token = !!history.location.state && history.location.state.token;
-  console.log(token);
+  
+  // const isVerify =
+  //   !!history.location.state && history.location.state.isEmailVerify;
+  // const token = !!history.location.state && history.location.state.token;
+  const token = cookie.get("companytoken");
+
   const { control, handleSubmit, watch, reset, errors } = useForm({
     defaultValues: {},
   });
 
   console.log("aboutCompany", watch("aboutCompany"));
 
-  const onSubmit = (data) => {
-    console.log(data);
-    reset({
-      firstName: "",
-      lastName: "",
-      mobile: "",
-      email: "",
-      password: "",
-    });
-  };
+  // const onSubmit = (data) => {
+  //   console.log(data);
+  //   reset({
+  //     firstName: "",
+  //     lastName: "",
+  //     mobile: "",
+  //     email: "",
+  //     password: "",
+  //   });
+  // };
 
-  const onSubmitOtp = (data) => {
-    console.log(data);
-    setIsFinalRegister(true);
-  };
+  // const onSubmitOtp = (data) => {
+  //   console.log(data);
+  //   setIsFinalRegister(true);
+  // };
 
-  const onSubmitFinalRegister = (data) => {
-    console.log(data);
-    cookie.set("companytoken", token);
-    history.push("/dashboard");
-  };
+  // const onSubmitFinalRegister = (data) => {
 
-  const [isRegister, setIsRegister] = useState(isVerify);
-  const [isFinalRegister, setIsFinalRegister] = useState(isVerify);
+  //   history.push("/dashboard");
+  // };
 
+  const [isRegister, setIsRegister] = useState(!!token);
+  const [isFinalRegister, setIsFinalRegister] = useState();
+  const [isOtpVerified, setOtpVerification] = useState(false);
+  const [userId, setUserId] = useState();
   const [loading, setLoading] = useState(false);
+
+  const [registerLoader,setRegisterLoader] = useState(false);
+  const [OTPLoader,setOTPLoader]= useState(false);
+  const [resendLoader,setResendLoader] = useState(false);
+  const [detailsLoader,setDetailsLoader] = useState(false);
   // const [error, setError] = useState(false);
   const [imageUrl, setImageUrl] = useState();
   const [imageUploadUrl, setImageUploadUrl] = useState();
@@ -214,6 +231,7 @@ export default function SignUp() {
     setImageUrl(key);
     return isJpgOrPng && isLt2M;
   };
+
   const handleUpload = async (info) => {
     console.log(info.file.originFileObj);
 
@@ -233,58 +251,103 @@ export default function SignUp() {
         return;
     }
   };
-
-  const onRegisterFinish = (value) => {
-    console.log(value);
-    Axios.post("company/register", value)
-      .then((res) => {
-        console.log(res);
-        setIsRegister(true);
-      })
-      .catch((e) => {
-        console.log(e.response);
-      });
-  };
-
   const imgProps = {
     // name: "avatar",
     listType: "picture-card",
     className: "avatar-uploader",
     showUploadList: false,
     method: "put",
-    customRequest: async (data) => await Axios.put(imageUploadUrl, data.file),
+    customRequest: async (data) =>
+      await Axios.put(imageUploadUrl, data.file).then(() => {
+        setImageUrl((imageUrl) => imageUrl.slice());
+      }),
     headers: { token },
     beforeUpload: beforeUpload,
     onChange: handleUpload,
+  };
+
+  const onRegisterFinish = (value) => {
+    // console.log(value);
+    setRegisterLoader(true)
+    Axios.post("company/register", value)
+      .then((res) => {
+        console.log(res);
+        setUserId(res.data.userId);
+        cookie.set("companytoken", res.data.token);
+        setIsRegister(true);
+        openNotification("Check Your Email for OTP",'info');
+        setRegisterLoader(false);
+      })
+      .catch((e) => {
+        console.log(e.response);
+        openNotification("Something Went Wrong",'error');
+        setRegisterLoader(false);
+
+      });
   };
 
   const onRegisterFinishFailed = (errorInfo) => {
     console.log(errorInfo);
   };
   const onMailVerificationFinish = (value) => {
-    console.log(value);
-    // Axios.post("company/verify_email", { email: value.OTP })
-    //   .then((res) => {
-    //     console.log(res);
-    //     setIsRegister(true);
-    //   })
-    //   .catch((e) => {
-    //     console.log(e.response);
-    //   });
+    setOTPLoader(true);
+    Axios.post("company/verify_email", { otp: value.OTP }, getHeaders())
+      .then((res) => {
+        setOTPLoader(false);
+        setOtpVerification(true);
+        openNotification("Email Verified Successfully", "success");
+      })
+      .catch((e) => {
+        if (e.response.status === 400) {
+          openNotification("Invalid OTP", "error");
+        } else {
+          openNotification("Something went wrong", "error");
+        }
+        setOTPLoader(false);
+
+      });
   };
   const onMailVerificationFailed = (errorInfo) => {
     console.log(errorInfo);
   };
   const onCompanyDetailFinish = async (value) => {
     const companyDetail = { ...value, logoUrl: imageUrl };
-    console.log(companyDetail);
+    setDetailsLoader(true);
     Axios.post("company/add_details", companyDetail)
       .then((res) => {
-        console.log(res);
+        openNotification("Account created successfully", "success");
+        setDetailsLoader(false);
+
+        history.push("/dashboard");
       })
       .catch((e) => {
-        console.log(e.response);
+        openNotification("Something Went Wrong", "error");
+    setDetailsLoader(false);
+
       });
+  };
+  const resendOTP = () => {
+    setResendLoader(true);
+    Axios.get("company/resend_otp", getHeaders())
+      .then(() => {
+        openNotification("OTP sent successfully to your email", "success");
+    setResendLoader(false);
+
+      })
+      .catch(() => {
+        console.log("false");
+        openNotification("Something Went Wrong", "error");
+    setResendLoader(false);
+
+      });
+  };
+
+  const openNotification = (message, type = "open") => {
+    notification[type]({
+      message: message,
+      placement: 'bottomLeft'
+    });
+
   };
   const onCompanyDetailFinishFailed = () => {};
   return (
@@ -300,13 +363,16 @@ export default function SignUp() {
       <ShowCaseCarousel />
       <div className="login-form-block">
         <h1 className="login__header">Sign Up</h1>
-        {isRegister && !isFinalRegister && (
+        {isRegister && !isFinalRegister && !isOtpVerified && (
           <>
             {/* <img src={arrowLeft} alt="" className="back-to-register"></img> */}
             <p className="OTP__para">
               "We've sent you One Time Password (OTP) to verify your email
               address. Please enter it to continue."
             </p>
+            <div style={{textAlign:"right"}}>
+              <Button loading={resendLoader} onClick={resendOTP}>Resend OTP</Button>
+            </div>
           </>
         )}
         {!isRegister ? (
@@ -346,12 +412,12 @@ export default function SignUp() {
               );
             })}
             <Form.Item>
-              <Button htmlType="submit" className="register__button">
+              <Button htmlType="submit" loading={registerLoader} className="register__button">
                 NEXT
               </Button>
             </Form.Item>
           </Form>
-        ) : !isFinalRegister ? (
+        ) : !isOtpVerified ? (
           <Form
             name="vForm"
             // initialValues={{ remember: true }}
@@ -367,7 +433,7 @@ export default function SignUp() {
                 <Input placeholder="Enter OTP" className="email-otp__input" />
               </Form.Item>
             </div>
-            <Button htmlType="submit" className="register__button">
+            <Button htmlType="submit" loading={OTPLoader} className="register__button">
               VERIFY OTP
             </Button>
           </Form>
@@ -393,8 +459,8 @@ export default function SignUp() {
                   </div>
                 ) : (
                   <div>
-                    {/* {loading ? <LoadingOutlined /> : <PlusOutlined />} */}
-                    <div className="ant-upload-text">their is some error</div>
+                    {loading ? <LoadingOutlined /> : <PlusOutlined />}
+                    {/* <div className="ant-upload-text">their is some error</div> */}
                   </div>
                 )}
               </Upload>
@@ -414,7 +480,7 @@ export default function SignUp() {
                 </div>
               ))}
               <Form.Item>
-                <Button htmlType="submit" className="register__button">
+                <Button htmlType="submit" loading={detailsLoader} className="register__button">
                   SUBMIT
                 </Button>
               </Form.Item>

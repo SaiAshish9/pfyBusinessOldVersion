@@ -7,27 +7,33 @@ import InternshipTable from "../internshipTable";
 import axios from "axios";
 import cookie from "js-cookie";
 import { getHeaders } from "../../helpers/getHeaders";
+import { Link } from "react-router-dom";
 
 const { TabPane } = Tabs;
 
 const campusHiringContent = [
   {
-    header: "Campus Hiring",
+    header: "Grow your Business",
     para:
-      "Hire directly from colleges and invite candidates to take AI-based assessments on Perspectico AI. Post your job, Set up your test and invite colleges. See the magic!",
-    button: "START HIRING",
+      "Achieve your business goals in a cost-efficient manner using on-demand workers comprising of college students and young adults.",
+    button: "Create a Gig",
+    link:"/gigs"
+
   },
   {
-    header: "Campus Hiring",
+    header: "Hire Interns",
     para:
-      "Hire directly from colleges and invite candidates to take AI-based assessments on Perspectico AI. Post your job, Set up your test and invite colleges. See the magic!",
-    button: "START HIRING",
+      "Hire talented students from top colleges across India for free. Post an Internship today, review applications, and start onboarding.",
+    button: "Post an Internship",
+    link:"/internship"
+
   },
   {
-    header: "Campus Hiring",
+    header: "Engage with Students",
     para:
-      "Hire directly from colleges and invite candidates to take AI-based assessments on Perspectico AI. Post your job, Set up your test and invite colleges. See the magic!",
-    button: "START HIRING",
+      "Engage with college students like never before both online & offline. Also, launch exclusive student offers using our database of verified students.",
+    button: "Go to Campus",
+    link:"/campus-marketing"
   },
 ];
 
@@ -45,7 +51,7 @@ export default function Dashboard() {
           >
             <h3 className="campus-hiring-header">{content.header}</h3>
             <p className="campus-hiring-para">{content.para}</p>
-            <Button className="campus-hiring-button">{content.button}</Button>
+            <Link to={content.link}><Button className="campus-hiring-button">{content.button}</Button></Link>
           </div>
         ))}
       </div>

@@ -1,4 +1,4 @@
-import { Modal, Select } from "antd";
+import { Modal, Select, notification } from "antd";
 import React, { useState, useEffect } from "react";
 import Page1 from "./page1";
 import Page2 from "./page2";
@@ -16,7 +16,7 @@ export default function NewCreateInternship(props) {
 
   const [page3Complete, setPage3Complete] = useState(false);
   const [page3data, setpage3data] = useState(null);
-
+  const [internshipLoader,setInternshipLoader] = useState(false);
   const [visible, setVisible] = useState(null);
 
   const page1datafun = (values) => {
@@ -67,7 +67,13 @@ export default function NewCreateInternship(props) {
     // const data = {...page1data, ...page2data, ...page3data}
     // console.log(data)
   };
-
+  const openNotification = () => {
+    const args = {
+      message: 'Internship Created Successfully',
+      placement:'bottomLeft'
+    };
+    notification.open(args);
+  };
   useEffect(() => {
     if (page3data) {
       console.log("FINAL SUBMISSION");
@@ -108,10 +114,17 @@ export default function NewCreateInternship(props) {
         internshipType: data.internshipType,
         additionalBenifits: data['additional-benefits'].map((val) => val['additional-benefits-1']),
       };
+      setInternshipLoader(true)
       Axios
       .post('internship/add',body,getHeaders())
       .then((res) =>{
-        setVisible(false);
+        //setVisible(false);
+        setInternshipLoader(false);
+        props.close();
+        props.setInternshipData()
+        openNotification()
+      }).catch((err) => {
+        setInternshipLoader(false);
       });
 
   }
@@ -132,6 +145,7 @@ export default function NewCreateInternship(props) {
         <div className="page-1">
           {page1Complete && page2Complete ? (
             <Page3
+            internshipLoader={internshipLoader}
               initVal3={page3data}
               data3={(values) => page3datafun(values)}
               back={() => setPage2Complete(false)}

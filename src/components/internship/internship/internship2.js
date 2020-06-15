@@ -95,8 +95,7 @@ export default function Internship2() {
       render: (text, record) => <MoreOutlined />,
     },
   ];
-
-  useEffect(() => {
+  const setInternshipData = async () => {
     const url = "internship/fetch_internship_as_company";
     axios.get(url,getHeaders()).then((res) => {
       const data = res.data;
@@ -127,6 +126,9 @@ export default function Internship2() {
       setInternships(data);
       setInternshipsLoader(false)
     });
+  }
+  useEffect(() => {
+    setInternshipData()
   }, []);
 
   const tableData = (array) => {
@@ -172,7 +174,7 @@ export default function Internship2() {
   };
   return (
     <Fragment>
-      <NewCreateInternship isShow={isShow} close={close} />
+      <NewCreateInternship isShow={isShow} setInternshipData={setInternshipData} close={close} />
       <BoostInternship isShowBoost={isShowBoost} isCloseBoost={isCloseBoost} />
       <div className="internship-block">
         {collectiveData ? (

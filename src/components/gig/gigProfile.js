@@ -24,6 +24,7 @@ export default function GigProfile(props) {
     gig,
     index,
     changeTaskStatus,
+    redoTask,
     array,
     changeApplicationStatus,
   } = props;
@@ -220,6 +221,7 @@ export default function GigProfile(props) {
           <Submission
             tasks={gig.tasks}
             changeTaskStatus={changeTaskStatus}
+            redoTask={redoTask}
             submissions={details.submissions}
             missionId={gig._id}
             userId={details._id}
