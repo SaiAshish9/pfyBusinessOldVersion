@@ -96,7 +96,7 @@ export default function InternshipTable({ isDataSource }) {
     )
   }
   return (
-    <div className="internship-list-main-block">
+    <div className="internship-list-main-block fadeIn">
       <h2 className="internship-heading">MY INTERNSHIPS</h2>
       <Tabs defaultActiveKey="1" className="myTab" type="card">
         <TabPane tab="All" key="1" className="">

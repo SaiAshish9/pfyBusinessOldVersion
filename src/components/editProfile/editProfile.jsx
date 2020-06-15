@@ -62,18 +62,24 @@ export default function EditProfile(props) {
       <CompanyProfileModal isShow={isShow2} isClose={isClose2} user={user} editDetails={editDetails} />
 
       <div className="edit-profile-block">
-        <h1 className="heading">Edit Profile</h1>
+        {/* <h1 className="heading">Edit Profile</h1> */}
         <div className="edit-profile-cards">
-          <div className="personal-details">
+          <div className="personal-details fadeIn">
             <h1 className="heading">
               Personal Details{" "}
               <span onClick={personalProfileHandler}>Edit</span>{" "}
             </h1>
             {/* <div>Full Name <br/> <span>Mayank Muppal</span> </div> */}
             <div className="details">
-              <div className="title">Full Name</div>
+              <div className="title">First Name</div>
               <div className="detail">
-                {user.firstName} {user.lastName}
+                {user.firstName}
+              </div>
+            </div>
+            <div className="details">
+              <div className="title">Last Name</div>
+              <div className="detail">
+                {user.lastName}
               </div>
             </div>
             <div className="details">
@@ -89,7 +95,7 @@ export default function EditProfile(props) {
             <div className="detail">************</div>
           </div> */}
           </div>
-          <div className="company-details">
+          <div className="company-details fadeIn">
             <h1 className="heading">
               Company Details <span onClick={companyProfileHandler}>Edit</span>{" "}
             </h1>

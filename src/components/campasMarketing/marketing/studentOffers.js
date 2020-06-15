@@ -5,7 +5,7 @@ import identification from '../../../assets/img/campusMarketing/identification.s
 
 export default function StudentOffers() {
     return (
-        <main className="campus-marketing-2">
+        <main className="campus-marketing-2 fadeIn">
             <div className="block-1">
                 <h1>Why your brand should run a discount offer for students?</h1>
                 <div className="fact-cards">
@@ -28,7 +28,7 @@ export default function StudentOffers() {
                     <Button className="enquire-btn">ENQUIRE </Button>
                 </div>
             </div>
-            <div className="block-2">
+            <div className="block-2 fadeIn">
                 <h1>Why you should run a student discount offer with us?</h1>
                 <div className="fact-cards">
                     <div className="card">

@@ -127,7 +127,7 @@ export default function GigTable(props) {
     )
   }
   return (
-    <div className="gig-list-main-block">
+    <div className="gig-list-main-block fadeIn">
       <h2 className="myGig-heading">MY GIGS</h2>
       <Tabs defaultActiveKey="1" className="myTab" type="card">
         <TabPane tab="All" key="1" className="">

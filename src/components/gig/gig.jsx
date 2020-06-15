@@ -119,10 +119,10 @@ export default function Gig() {
   return (
     <div className="gig-main-block">
       <GigTable  />
-      <h2 className="create-campaign-heading">Creat New Gig</h2>
+      <h2 className="create-campaign-heading">Create New Gig</h2>
       <Tabs
         activeKey={`${key}`}
-        className="createGigTab"
+        className="createGigTab fadeIn"
         animated={true}
         type="card"
         onTabClick={(key) => {

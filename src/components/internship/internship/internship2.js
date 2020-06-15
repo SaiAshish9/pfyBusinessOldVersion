@@ -178,7 +178,7 @@ export default function Internship2() {
       <BoostInternship isShowBoost={isShowBoost} isCloseBoost={isCloseBoost} />
       <div className="internship-block">
         {collectiveData ? (
-          <div className="internship-cards">
+          <div className="internship-cards fadeIn">
             <div className="card">
               <h2>Total Internship Views</h2>
               <span>{collectiveData.totalViews}</span>

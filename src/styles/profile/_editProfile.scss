@@ -8,6 +8,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-gap: 1rem;
+        margin-top: 1rem;
         @media (max-width:720px) {
         grid-template-columns: 1fr;
             
@@ -18,7 +19,7 @@
             align-items: center;
             font-size: 1.5rem;
             font-weight: 500;
-            border-bottom: 1px solid #ddd;
+            //border-bottom: 1px solid #ddd;
             padding-bottom: 0.75rem;
             span{
                 font-size: 1rem;
@@ -29,14 +30,20 @@
         .personal-details{
          //   width: 42%;
             border-radius: 9px;
-            border: solid 1px #c6c6c6;  
-            padding: 1rem 1.5rem;  
-             
+            //border: solid 1px #c6c6c6;  
+        background-color: #fff;
+
+            padding: 2rem;  
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
             .details{
                 font-size: 1.25rem;
                 color: black;
                 margin-bottom: 0.7rem;
+                font-size: 18px;
+                line-height: 1.44;
                 .title{
+                font-size: 20px;
+
                     opacity: 0.5;
                 }
             }
@@ -44,13 +51,17 @@
         .company-details{
          //   width: 52%;
             border-radius: 9px;
-            border: solid 1px #c6c6c6;  
-            padding: 1rem 1.5rem; 
+            background-color: #fff; 
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+            padding: 2rem; 
             .details{
                 font-size: 1.25rem;
                 color: black;
                 margin-bottom: 0.7rem;
+                font-size: 18px;
+                line-height: 1.44;
                 .title{
+                    font-size: 20px;
                     opacity: 0.5;
                 }
             }

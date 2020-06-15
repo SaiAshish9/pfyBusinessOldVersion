@@ -45,7 +45,7 @@ export default function Dashboard() {
       <div className="campus-hiring-main-block">
         {campusHiringContent.map((content, index) => (
           <div
-            className="campus-hiring-block"
+            className="campus-hiring-block fadeIn"
             key={index}
            // style={{ margin: index === 1 ? "0px 30px" : "0px 0px" }}
           >
