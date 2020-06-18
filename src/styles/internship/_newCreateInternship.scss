@@ -38,6 +38,9 @@
     .inline-form{
         display: flex;
         justify-content: space-between;
+        .last-date-input{
+            margin-left: 0.5rem;
+        }
     }
     .continue-btn{
         width: 16.5rem;

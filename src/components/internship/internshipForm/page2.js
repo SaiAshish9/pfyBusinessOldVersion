@@ -60,7 +60,7 @@ export default function Page2(props) {
       >
         <div className="inline-form">
           <div>
-            <h2>Select Internship Profile</h2>
+            <h2>Intern Responsibilities</h2>
             <Form.List name="responsibilities">
               {(fields, { add, remove }) => {
                 /**
@@ -144,7 +144,7 @@ export default function Page2(props) {
                           add();
                         }}
                       >
-                        +Add Responsibilities
+                        +Add Requirements
                       </div>
                     </Form.Item>
                   </section>
@@ -229,7 +229,7 @@ export default function Page2(props) {
                           add();
                         }}
                       >
-                        +Add Responsibilities
+                        +Add Question
                       </div>
                     </Form.Item>
                   </section>

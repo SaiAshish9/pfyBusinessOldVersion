@@ -86,7 +86,7 @@ export default function GigTable(props) {
     const underReviewGigs = gigs.filter((el) => el.status === 1100);
     const rejectedGigs = gigs.filter((el) => el.status === 1102);
     setfilteredGigs({ acceptedGigs, underReviewGigs, rejectedGigs });
-  }, []);
+  }, [gigs]);
 
   const getTable = (array) => {
     return array
@@ -97,7 +97,7 @@ export default function GigTable(props) {
             id: data._id,
             serialNumber: index + 1,
             jobTitle:data.title,
-            location: data.location,
+            location: (data.location && data.location.length > 1) ? "Multiple":data.location[0],
             application: data.appliedUsers.length,
             created: moment(data.createdAt).format("DD MMM YYYY"),
             deadline: moment(data.missionEndDate).format("DD MMM YYYY"),
@@ -105,7 +105,7 @@ export default function GigTable(props) {
               data.status === 1100
                 ? "Under Review"
                 : data.status === 1101
-                ? "Accepted"
+                ? "Active"
                 : "Rejected",
           };
         })
@@ -157,6 +157,8 @@ export default function GigTable(props) {
               columns={columns}
               dataSource={underReviewGigData}
               pagination={false}
+           scroll={{ y: 180}}
+
             //  scroll={{ y: 240 }}
             />
           ) : null}
@@ -176,7 +178,7 @@ export default function GigTable(props) {
         <TabPane tab="Draft" key="5" className="">
           <Table
             columns={columns}
-            dataSource={gigData}
+            dataSource={[]}
             pagination={false}
            scroll={{ y: 180}}
 

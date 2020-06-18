@@ -63,7 +63,7 @@ const questions = {
     "Tell us your budget",
     "Required number of reviews",
   ],
-  "Website Signups": [
+  "Website SignUp": [
     "Registration page link",
     "Tell us your budget",
     "Required number of signups",
@@ -201,11 +201,11 @@ export default function DefaultCampaign({
         name="defaultGigCampaign"
       >
         {questions[campaignTitle] &&
-          questions[campaignTitle].map((question) => (
+          questions[campaignTitle].map((question,index) => (
             <>
               <p className="requirement__p">{question}</p>
               <Form.Item
-                name="description"
+                name={index}
                 rules={[
                   {
                     required: true,
@@ -217,51 +217,8 @@ export default function DefaultCampaign({
               </Form.Item>
             </>
           ))}
-        {/* <p className="requirement__p">Please share your requirement</p>
-        <Form.Item
-          name="description"
-          rules={[
-            {
-              required: true,
-              message: "Please tell us about your requirement!",
-            },
-          ]}
-        >
-          <Input className="requirement__input"></Input>
-        </Form.Item>
-
-        <p className="budget__p">Please tell us your budget</p>
-        <Form.Item
-          name="budget"
-          rules={[
-            {
-              required: true,
-              message: "what is your estimated budget!",
-            },
-            {
-              type: "number",
-              message: "number only input!",
-            },
-          ]}
-        >
-          <InputNumber className="budget__input"></InputNumber>
-        </Form.Item>
-
-        <p className="budget__p">How many gig workers do you want to hire?</p>
-        <Form.Item
-          name="noOfWorkers"
-          rules={[
-            {
-              required: true,
-              message: "How many gig workers do you want to hire ?",
-            },
-          ]}
-        >
-          <InputNumber className="budget__input"></InputNumber>
-        </Form.Item> */}
-
-        <p className="quantity__p">Any additional information (optional)</p>
-        <Input className="quantity__input"></Input>
+        
+  
       </Form>
     </Modal>
   );

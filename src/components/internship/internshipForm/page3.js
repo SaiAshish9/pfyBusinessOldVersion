@@ -83,7 +83,7 @@ export default function Page3(props) {
                                 <div style={{marginLeft: "4rem"}}>
                                     <h2>Amount</h2>
                                     <Form.Item name="stipend" rules={[{required: true, message: 'Required'}]}>
-                                        <InputNumber style={{width: "11.2rem"}} placeholder="type amount" />
+                                        <InputNumber style={{width: "11.2rem"}} />
                                     </Form.Item>
                                 </div> : null }
                             </div>
@@ -153,7 +153,7 @@ export default function Page3(props) {
                                             </Fragment>
                                         ))}
                                         <Form.Item>
-                                            <div className="add-btn add-btn-additional-benefits" onClick={() => {add()}}>+Add Responsibilities</div>
+                                            <div className="add-btn add-btn-additional-benefits" onClick={() => {add()}}>+Add Benifit</div>
                                         </Form.Item>
                                         </section>
                                     );

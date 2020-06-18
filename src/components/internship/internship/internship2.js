@@ -47,7 +47,10 @@ export default function Internship2() {
     {
       title: "Job Title",
       dataIndex: "jobTitle",
-      width: 200,
+      width: 250,
+      ellipsis: {
+        showTitle: false,
+      },
       key: "jobTitle",
       render: (text, record) => (
         <div style={{ color: "blue", cursor: "pointer", display: "flex" }}>
@@ -148,7 +151,7 @@ export default function Internship2() {
           deadline: moment(applyBefore).format("DD MMM YYYY"),
           status:
             status === 1000
-              ? "Under View"
+              ? "Under Review"
               : status === 1001
               ? "Approved"
               : "Rejected",
@@ -253,7 +256,7 @@ export default function Internship2() {
             <TabPane tab="Draft" key="5" className="">
               <Table
                 columns={columns}
-                dataSource={internshipData}
+                dataSource={[]}
                 pagination={false}
                 scroll={{ y: 240 }}
               />

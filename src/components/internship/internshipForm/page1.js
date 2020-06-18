@@ -108,7 +108,7 @@ export default function Page1(props) {
                         <div>
                             <h2>Number of openings</h2>
                             <Form.Item name="noOfPosition" rules={[{required: true, message: 'Required'}]}>
-                                <InputNumber placeholder="type no of openings"  />
+                                <InputNumber  />
                             </Form.Item>
                         </div>
                         <div>
@@ -116,7 +116,7 @@ export default function Page1(props) {
                         <h2>Internship Duration</h2>
                             <div className="inline-form">
                             <Form.Item name="duration-1" rules={[{required: true, message: 'req'}]}>
-                                <InputNumber style={{width: "8rem"}} placeholder="type duration" />
+                                <InputNumber style={{width: "8rem"}} />
                             </Form.Item>
                             <Form.Item
                                 name="duration-2"
@@ -139,7 +139,7 @@ export default function Page1(props) {
                                     <DatePicker  />
                                 </Form.Item>
                             </div>
-                            <div>
+                            <div className="last-date-input">
                                 <h2>Last Date To Apply</h2>
                                 <Form.Item name="applyBefore" rules={[{ required: true,message: 'Required',},]}>
                                     <DatePicker/>
@@ -148,7 +148,7 @@ export default function Page1(props) {
                         
                         
 
-                            <div style={{marginLeft: "3rem"}}>
+                            <div style={{marginLeft: "2rem"}}>
                                 <h2>Internship Location</h2>
                                 <Form.Item  className="location" name="location"  rules={[{required: isSelected, message: 'Required'}]}>
                                     <Radio.Group>
@@ -157,7 +157,7 @@ export default function Page1(props) {
                                 </Form.Item>
                             </div>
                             <div style={{alignSelf:"center", marginTop: "1.5rem"}} >OR</div>
-                            <div style={{alignSelf:"center"}}>
+                            <div style={{alignSelf:"center",marginLeft:"1rem"}}>
                                 <h2 style={{color: "#f7f7f7"}}>  "  "</h2>
                             <Form.Item
                                     name="cities"

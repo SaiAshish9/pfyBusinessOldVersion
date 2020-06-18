@@ -57,19 +57,17 @@ export default function CampaignCustom() {
     setCampaignStep(campaignStep - 1);
   };
   const onCityChange = value => {
-    Form.current.setFieldsValue({
-      location: value,
-    });
+    return value[value.length - 1] === "All" ? ["All"]: value.filter(val => val !== "All")
+  //  console.log(value)
   };
   useEffect(() => {
     document.querySelector(".add-btn-interview-ques").click();
   }, []);
 
   const onFormSubmit = async (value) => {
-    console.log(value);
     try{
-      
-      value.applyBefore = value.applyBefore.format("DD MMM YYYY");
+      console.log(value)
+    value.applyBefore = value.applyBefore.format("DD MMM YYYY");
     const {data} = await Axios.post("mission/add",value,getHeaders());
     setNoOfWorkers(data.noOfWorkers);
     setCharges(data.chargesPerWorker);
@@ -80,6 +78,8 @@ export default function CampaignCustom() {
       message.error("Something Went Wrong")
     }
   };
+
+
 
   return (
     <div className="customCampaign-main-block">
@@ -123,7 +123,7 @@ export default function CampaignCustom() {
                   <Select placeholder="Gender" className="gender-select">
                     <option value="M">Male</option>
                     <option value="F">Female</option>
-                    <option value="A">Any</option>
+                    <option value="A">Both</option>
                   </Select>
                 </Form.Item>
 
@@ -140,14 +140,15 @@ export default function CampaignCustom() {
 
               <div className="customCampaign-block-two">
                 <p className="cities-label">Cities</p>
-                <Form.Item name="location">
+                <Form.Item name="location" getValueFromEvent={onCityChange}>
                 <Select
                   mode="multiple"
                   className="cities-select"
                   style={{ width: '100%' }}
                   placeholder="Select Cities"
-                  defaultValue={['All']}
+                  
                   // onChange={onCityChange}
+                  
                   optionLabelProp="label"
                 >
 
