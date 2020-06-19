@@ -125,7 +125,7 @@
   font-size: 18px;
   line-height: 1.44;
   color: #000000;
-  margin: 0;
+  margin: 0 0 0.5rem 0;
 }
 
 %custom-campaign-input {
@@ -264,23 +264,32 @@
           display: flex;
           .ant-form-item {
             width: 100%;
+              margin-bottom: 0 !important;
+
             .interviewQues-ques {
-              margin-bottom: 0;
+              margin-bottom: 0 !important;
               @extend%custom-campaign-input;
             }
+          
+           
           }
+         
           .ques-deleteIcon {
             margin: 16px 0 0 8px;
           }
+        }
+        .add-btn-interview-ques{
+          text-align: right !important;
+          color: #062f4f;
         }
       }
 
       .customCampaign-next-button {
         position: absolute;
         // margin-bottom: 16px;
-        bottom: 0;
+        bottom: -70px ;
         right: 0;
-
+        
         width: 50%;
         height: 48px;
         border-radius: 25px;

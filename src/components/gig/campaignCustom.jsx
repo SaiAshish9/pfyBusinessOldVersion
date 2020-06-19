@@ -66,8 +66,10 @@ export default function CampaignCustom() {
 
   const onFormSubmit = async (value) => {
     try{
-      console.log(value)
-    value.applyBefore = value.applyBefore.format("DD MMM YYYY");
+      value.applyBefore = value.applyBefore.format("DD MMM YYYY");
+      value.gender = (value.gender) ? value.gender : "A";
+     // console.log(value)
+
     const {data} = await Axios.post("mission/add",value,getHeaders());
     setNoOfWorkers(data.noOfWorkers);
     setCharges(data.chargesPerWorker);
@@ -91,15 +93,15 @@ export default function CampaignCustom() {
       >
         {campaignStep === 0 && (
           <>
-            {/* <CloseOutlined
+            <CloseOutlined
               className="customCampaign-close-button"
               onClick={handleCustomCampaignClose}
-            /> */}
+            />
             <h1 className="campaignTitle-heading">{campaignTitle}</h1>
             <div className="stepOne-customCampaign-block">
               <div className="customCampaign-block-one">
                 <p className="selectOption-label">Select an Option</p>
-                <Form.Item name="title">
+                <Form.Item rules={[{ required: true, message: "Required" }]} name="title">
                   <Select placeholder="Select an Option" className="select-option-select">
                     {titles[campaignTitle].map((option, index) => (
                       <Option key={index} value={option}>
@@ -110,37 +112,37 @@ export default function CampaignCustom() {
                 </Form.Item>
 
                 <p className="lastDateToApply-label">Last Date to Apply</p>
-                <Form.Item name="applyBefore">
+                <Form.Item rules={[{ required: true, message: "Required" }]} name="applyBefore">
                   <DatePicker
                     className="lastDateToApply-datePicker"
                     format="DD-MMM-YYYY"
-                    placeholder="last date to apply"
+                    placeholder=""
                   />
                 </Form.Item>
 
                 <p className="gender-label">Gender</p>
-                <Form.Item name="gender">
-                  <Select placeholder="Gender" className="gender-select">
+                <Form.Item initialValue={"A"} rules={[{ required: true, message: "Required" }]} name="gender">
+                  <Select placeholder="Gender" defaultValue={"A"} className="gender-select">
                     <option value="M">Male</option>
                     <option value="F">Female</option>
                     <option value="A">Both</option>
                   </Select>
                 </Form.Item>
 
-                <p className="chargesPerWorker-label">Charges Per Worker</p>
+                <p className="chargesPerWorker-label" >Charges Per Worker</p>
                 <Form.Item name="charge">
                   <Input placeholder="Charges Per Worker" className="chargesPerWorker-input"></Input>
                 </Form.Item>
 
                 <p className="numOfWorker-label">No Of Workers</p>
-                <Form.Item name="noOfWorkers">
+                <Form.Item name="noOfWorkers" rules={[{ required: true, message: "Required" }]}>
                   <Input placeholder="No Of Workers" className="numOfWorker-input"></Input>
                 </Form.Item>
               </div>
 
               <div className="customCampaign-block-two">
                 <p className="cities-label">Cities</p>
-                <Form.Item name="location" getValueFromEvent={onCityChange}>
+                <Form.Item name="location" getValueFromEvent={onCityChange} rules={[{ required: true, message: "Required" }]}>
                 <Select
                   mode="multiple"
                   className="cities-select"
@@ -182,7 +184,7 @@ export default function CampaignCustom() {
                             key={index}
                             name={[field.name, "question"]}
                             fieldKey={[field.fieldKey, "question"]}
-                            rules={[{ required: true, message: "Required" }]}
+                            //rules={[{ required: true, message: "Required" }]}
                           >
                             <Input
                               prefix={index + 1 + "."}
