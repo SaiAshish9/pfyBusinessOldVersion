@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import axios from "axios";
-
 import { Modal, Button, Input, Form, InputNumber } from "antd";
 import modalSvg from "../../assets/img/modalSvg.svg";
+import TextArea from "antd/lib/input/TextArea";
 const commonQuestions = [
   "Explain your requirement",
   "Tell us your budget",
@@ -124,7 +124,7 @@ const questions = {
   "Personal Interviews":[
     "Explain your requirement",
     "Tell us your budget",
-    "Required number of testers"
+    "Required number of respondents"
   ],
   "Product Reviews":[
     "Explain your requirement",
@@ -213,7 +213,7 @@ export default function DefaultCampaign({
                   },
                 ]}
               >
-                <Input className="requirement__input"></Input>
+                 <TextArea className="requirement__input" autoSize />
               </Form.Item>
             </>
           ))}

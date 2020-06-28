@@ -37,7 +37,11 @@
     }
     .inline-form{
         display: flex;
-        justify-content: space-between;
+         justify-content: space-between;
+        // & > div{
+        //     flex: 1;
+        //     margin: 0 3rem 0 0;
+        // }
         .last-date-input{
             margin-left: 0.5rem;
         }
@@ -162,6 +166,17 @@
 .page2{
     .ant-select-selector{
         width: 26.2rem; 
+    }
+    .inline-form{
+        display: flex;
+         //justify-content: space-between;
+        & > div{
+            flex: 1;
+            margin: 0 3rem 0 0;
+        }
+        .last-date-input{
+            margin-left: 0.5rem;
+        }
     }
 }
 

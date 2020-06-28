@@ -158,7 +158,7 @@ export default function NewCreateInternship(props) {
               isSuccess2={isPage2Com}
               back={() => setPage1Complete(false)}
             />
-          ) : (
+           ) : (
             <Page1
               initVal1={page1data}
               data1={(values) => page1datafun(values)}

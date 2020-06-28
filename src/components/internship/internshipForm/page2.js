@@ -15,13 +15,18 @@ import {
   RightOutlined,
   LeftOutlined,
 } from "@ant-design/icons";
+import CustomSelect from "./customSelect";
 
 const { Option } = Select;
 
 export default function Page2(props) {
   const initVal = props.initVal2;
-
+  const [skills,setSkills] = useState();
+  useEffect(() => {
+    console.log(skills)
+  },[skills])
   const onFinish = (values) => {
+    values.skillsRequired = skills
     console.log("Received values of form: ", values);
     props.isSuccess2();
     props.data2(values);
@@ -155,13 +160,17 @@ export default function Page2(props) {
             <Form.Item
               name="skillsRequired"
               // label="Type Cities"
-              rules={[{ required: true, message: "Required", type: "array" }]}
+              //rules={[{ required: true, message: "Required", type: "array" }]}
             >
-              <Select
+              <CustomSelect setSkills={setSkills}/>
+              {/* <Select
                 style={{ width: "25rem" }}
                 mode="multiple"
+                onFocus={() => console.log("focus")}
+                on
                 placeholder="Type skills"
               >
+                
                 <Option value="business-development">
                   Business Development (Sales)
                 </Option>
@@ -173,7 +182,7 @@ export default function Page2(props) {
                   Social Media Marketing
                 </Option>
                 <Option value="marketing">Marketing</Option>
-              </Select>
+              </Select> */}
             </Form.Item>
           </div>
           <div>
@@ -207,7 +216,7 @@ export default function Page2(props) {
                             />
                           ) : null}
                           </div>
-                          <Form.Item
+                          {/* <Form.Item
                               name={[field.name, "type"]}
                               fieldKey={[field.fieldKey, "type"]}
                               rules={rules}
@@ -217,13 +226,13 @@ export default function Page2(props) {
                                   <Radio value="1">Long</Radio>
                                   <Radio value="0">Short</Radio>
                               </Radio.Group>
-                          </Form.Item>
+                          </Form.Item> */}
                         </div>
                       </Fragment>
                     ))}
                     <Form.Item>
                       <div
-                        style={{marginTop: "-3.2rem"}}
+                        //style={{marginTop: "-3.2rem"}}
                         className="add-btn add-btn-interview-ques"
                         onClick={() => {
                           add();
