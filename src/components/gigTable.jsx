@@ -84,10 +84,15 @@ export default function GigTable(props) {
   useEffect(() => {
     const acceptedGigs = gigs.filter((el) => el.status === 1101);
     const underReviewGigs = gigs.filter((el) => el.status === 1100);
-    const rejectedGigs = gigs.filter((el) => el.status === 1102);
+    const rejectedGigs = gigs.filter((el) => el.status === 1102 || el.status === 1103);
     setfilteredGigs({ acceptedGigs, underReviewGigs, rejectedGigs });
   }, [gigs]);
-
+  const allStatus = {
+    1100: "Under Review",
+    1101: "Active",
+    1102: "Rejected",
+    1103: "Ended"
+  }
   const getTable = (array) => {
     return array
       ? array.map((data, index) => {
@@ -101,12 +106,8 @@ export default function GigTable(props) {
             application: data.appliedUsers.length,
             created: moment(data.createdAt).format("DD MMM YYYY"),
             deadline: moment(data.missionEndDate).format("DD MMM YYYY"),
-            status:
-              data.status === 1100
-                ? "Under Review"
-                : data.status === 1101
-                ? "Active"
-                : "Rejected",
+            status: allStatus[data.status]
+            
           };
         })
       : null;

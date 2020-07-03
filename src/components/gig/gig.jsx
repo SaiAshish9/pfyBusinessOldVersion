@@ -37,7 +37,8 @@ const gigTabTitle = [
   },
 ];
 
-const marketing = [
+const categories = {
+ marketing : [
   "WhatsApp Marketing",
   "Facebook Amplification",
   "Instagram Amplification",
@@ -58,25 +59,25 @@ const marketing = [
   "Sampling Activity",
   "Pasting Posters (Campus)",
   "Increase Social Media Followers",
-];
+],
 
-const BD = [
+ BD : [
   "Vendor Acquisition",
   "Address Verification",
   "Lead Generation",
   "Social Sales",
   "Customer Onboarding",
   "Field Sales",
-];
+],
 
-const dataModeration = [
+ dataModeration : [
   "Data Entry",
   "Data Digitization",
   "Data Curation",
   "Data Transcription",
-];
+],
 
-const RandA = [
+ RandA : [
   "Mystery Audit",
   "Non Mystery Audit",
   "Online Survey",
@@ -84,9 +85,9 @@ const RandA = [
   "Beta Testing",
   "Personal Interviews",
   "Product Reviews",
-];
+],
 
-const freelance = [
+ freelance : [
   "Graphic Design",
   "Mobile App Development",
   "Web Development",
@@ -94,8 +95,8 @@ const freelance = [
   "Logo Design",
   "Language Translation",
   "UI/UX Design"
-];
-
+],
+}
 const gigTab = gigTabTitle.map((data, index) => (
   <div className="title-block" key={index}>
     <img src={data.image} alt="" className="title-img" />
@@ -105,13 +106,11 @@ const gigTab = gigTabTitle.map((data, index) => (
 
 export default function Gig() {
   const css = "font-size:30px";
-
-
   const [key, setKey] = useState(0);
   const campaign = (title) => (
     <>
-      {title.map((data, index) => (
-        <Campaign campaignTitle={data} key={index} />
+      {categories[title].map((data, index) => (
+        <Campaign campaignTitle={data} title={title} key={index} />
       ))}
     </>
   );
@@ -131,23 +130,23 @@ export default function Gig() {
       >
         <TabPane tab={gigTab[0]} key="1" className="">
           <div className="create-campaign-main-block">
-            {campaign(marketing)}
+            {campaign("marketing")}
           </div>
         </TabPane>
         <TabPane tab={gigTab[1]} key="2" className="">
-          <div className="create-campaign-main-block">{campaign(BD)}</div>
+          <div className="create-campaign-main-block">{campaign("BD")}</div>
         </TabPane>
         <TabPane tab={gigTab[2]} key="3" className="">
           <div className="create-campaign-main-block">
-            {campaign(dataModeration)}
+            {campaign("dataModeration")}
           </div>
         </TabPane>
         <TabPane tab={gigTab[3]} key="4" className="">
-          <div className="create-campaign-main-block">{campaign(RandA)}</div>
+          <div className="create-campaign-main-block">{campaign("RandA")}</div>
         </TabPane>
         <TabPane tab={gigTab[4]} key="5" className="">
           <div className="create-campaign-main-block">
-            {campaign(freelance)}
+            {campaign("freelance")}
           </div>
         </TabPane>
       </Tabs>

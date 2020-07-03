@@ -37,7 +37,7 @@ const titles = {
 export default function CampaignCustom() {
   const [form] = Form.useForm();
 
-  const { campaignTitle } = useParams();
+  const { campaignTitle, category } = useParams();
   const history = useHistory();
   console.log("history", history);
   console.log(campaignTitle);
@@ -68,8 +68,7 @@ export default function CampaignCustom() {
     try{
       value.applyBefore = value.applyBefore.format("DD MMM YYYY");
       value.gender = (value.gender) ? value.gender : "A";
-     // console.log(value)
-
+      value.missionCategory = category;
     const {data} = await Axios.post("mission/add",value,getHeaders());
     setNoOfWorkers(data.noOfWorkers);
     setCharges(data.chargesPerWorker);
@@ -121,7 +120,7 @@ export default function CampaignCustom() {
                 </Form.Item>
 
                 <p className="gender-label">Gender</p>
-                <Form.Item initialValue={"A"} rules={[{ required: true, message: "Required" }]} name="gender">
+                <Form.Item initialValue={"A"} name="gender">
                   <Select placeholder="Gender" defaultValue={"A"} className="gender-select">
                     <option value="M">Male</option>
                     <option value="F">Female</option>

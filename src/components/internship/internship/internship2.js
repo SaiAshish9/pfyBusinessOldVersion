@@ -133,7 +133,12 @@ export default function Internship2() {
   useEffect(() => {
     setInternshipData()
   }, []);
-
+  const statusCode = {
+    1000: "Under Review",
+    1001: "Approved",
+    1002: "Rejected",
+    1003: "Ended"
+  }
   const tableData = (array) => {
     return array.map(
       (
@@ -149,12 +154,7 @@ export default function Internship2() {
           application: totalApplications,
           created: moment(createdAt).format("DD MMM YYYY"),
           deadline: moment(applyBefore).format("DD MMM YYYY"),
-          status:
-            status === 1000
-              ? "Under Review"
-              : status === 1001
-              ? "Approved"
-              : "Rejected",
+          status: statusCode[status],
             
         };
       }
@@ -169,7 +169,7 @@ export default function Internship2() {
     ? tableData(Internships.filter((el) => el.status === 1000))
     : null;
   const closed = Internships
-    ? tableData(Internships.filter((el) => el.status === 1002))
+    ? tableData(Internships.filter((el) => el.status === 1002 || el.status === 1003))
     : null;
 
   const handleInternship = (id) => {

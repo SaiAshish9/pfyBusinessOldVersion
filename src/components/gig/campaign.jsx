@@ -13,13 +13,13 @@ const builders = [
   "Instagram Amplification",
   "Snapchat Amplification"
 ]
-export default function Campaign({ campaignTitle }) {
+export default function Campaign({ campaignTitle,title }) {
   const history = useHistory();
   const [modalVisible, setModalVisible] = useState(false);
 
   const handleCreateCampaign = () => {
     builders.includes(campaignTitle) 
-      ? history.push(`/create-campaign/${campaignTitle}`)
+      ? history.push(`/create-campaign/${title}/${campaignTitle}`)
       : setModalVisible(true);
   };
 

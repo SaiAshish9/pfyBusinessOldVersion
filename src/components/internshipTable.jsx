@@ -3,14 +3,16 @@ import { Table, Tabs, Skeleton } from "antd";
 import React, { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getHeaders } from "../helpers/getHeaders";
-import Axios from "axios";
 import moment from "moment";
+import axios from "axios";
+
 
 const { TabPane } = Tabs;
 const statusCodes = {
   1000:"Under Review",
   1001:"Accepted",
   1002:"Rejected",
+  1003:"Ended"
 }
 export default function InternshipTable({ isDataSource }) {
 
@@ -66,8 +68,8 @@ export default function InternshipTable({ isDataSource }) {
       render: (text, record) => <MoreOutlined />,
     },
   ];
-
-  const internshipData = internships.map((data, index) => {
+  const tableData = (array) => {
+    return array.map((data, index) => {
     return {
       key: data._id,
       serialNumber: index + 1,
@@ -79,16 +81,26 @@ export default function InternshipTable({ isDataSource }) {
       status: statusCodes[data.status],
     };
   });
+  
+  };
+  const internshipData = tableData(internships)
+ 
 
-  useEffect(() => {
-    const fetchInternships = async () => {
-    const url = `internship/fetch_internship_as_company?pageSize=3`;
-    const response = await Axios.get(url,getHeaders());
-      const data = response.data;
+  //const internshipData = !internshipsLoader ? tableData(Internships) : null;
+  const active = tableData(internships.filter((el) => el.status === 1001))
+  const underReview = tableData(internships.filter((el) => el.status === 1000))
+  const closed = tableData(internships.filter((el) => el.status === 1002 || el.status === 1003))
+
+  const setInternshipData = async () => {
+    const url = "internship/fetch_internship_as_company";
+    axios.get(url,getHeaders()).then((res) => {
+      const data = res.data;
       setInternships(data);
       setInternshipsLoader(false)
-    }
-    fetchInternships();
+    });
+  }
+  useEffect(() => {
+    setInternshipData()
   },[])
   if(internshipsLoader){
     return (
@@ -104,7 +116,7 @@ export default function InternshipTable({ isDataSource }) {
             columns={columns}
             dataSource={internshipData}
             pagination={false}
-           scroll={{ y: 180}}
+            scroll={{ y: 180}}
 
             // scroll={{ y: 240 }}
           />
@@ -112,7 +124,7 @@ export default function InternshipTable({ isDataSource }) {
         <TabPane tab="Active" key="2" className="">
           <Table
             columns={columns}
-            dataSource={null}
+            dataSource={active}
             pagination={false}
            scroll={{ y: 180}}
 
@@ -122,7 +134,7 @@ export default function InternshipTable({ isDataSource }) {
         <TabPane tab="Under Review" key="3" className="">
           <Table
             columns={columns}
-            dataSource={internshipData}
+            dataSource={underReview}
             pagination={false}
            scroll={{ y: 180}}
 
@@ -132,7 +144,7 @@ export default function InternshipTable({ isDataSource }) {
         <TabPane tab="Closed" key="4" className="">
           <Table
             columns={columns}
-            dataSource={null}
+            dataSource={closed}
             pagination={false}
            scroll={{ y: 180}}
 
@@ -142,7 +154,7 @@ export default function InternshipTable({ isDataSource }) {
         <TabPane tab="Draft" key="5" className="">
           <Table
             columns={columns}
-            dataSource={internshipData}
+            dataSource={[]}
             pagination={false}
            scroll={{ y: 180}}
 

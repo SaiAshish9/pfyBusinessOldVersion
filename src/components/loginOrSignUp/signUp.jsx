@@ -139,7 +139,7 @@ export default function SignUp() {
   // const isVerify =
   //   !!history.location.state && history.location.state.isEmailVerify;
   // const token = !!history.location.state && history.location.state.token;
-  const token = cookie.get("companytoken");
+  const [token,setToken] = useState(cookie.get("companytoken"));
 
   const { control, handleSubmit, watch, reset, errors } = useForm({
     defaultValues: {},
@@ -196,7 +196,7 @@ export default function SignUp() {
             listHeight={200}
             placeholder={inputName}
           >
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((data, index) => (
+            {["Freelancer","Startup","Digital Agency", "Enterprise"].map((data, index) => (
               <Option key={index}>{data}</Option>
             ))}
           </Select>
@@ -224,7 +224,7 @@ export default function SignUp() {
     }
 
     const response = await Axios.get(
-      `${apiURL}company/upload_dp_url?fileType=${file.type}`
+      `${apiURL}company/upload_dp_url?fileType=${file.type}`,getHeaders()
     );
     const { key, url } = response.data;
     setImageUploadUrl(url);
@@ -259,7 +259,7 @@ export default function SignUp() {
     method: "put",
     customRequest: async (data) =>
       await Axios.put(imageUploadUrl, data.file).then(() => {
-        setImageUrl((imageUrl) => imageUrl.slice());
+        setImageUrl((imageUrl) => imageUrl+"?");
       }),
     headers: { token },
     beforeUpload: beforeUpload,
@@ -295,6 +295,8 @@ export default function SignUp() {
       .then((res) => {
         setOTPLoader(false);
         setOtpVerification(true);
+        cookie.set("companytoken", res.data.token);
+        setToken(res.data.token)
         openNotification("Email Verified Successfully", "success");
       })
       .catch((e) => {
@@ -313,7 +315,7 @@ export default function SignUp() {
   const onCompanyDetailFinish = async (value) => {
     const companyDetail = { ...value, logoUrl: imageUrl };
     setDetailsLoader(true);
-    Axios.post("company/add_details", companyDetail)
+    Axios.post("company/add_details", companyDetail,getHeaders())
       .then((res) => {
         openNotification("Account created successfully", "success");
         setDetailsLoader(false);

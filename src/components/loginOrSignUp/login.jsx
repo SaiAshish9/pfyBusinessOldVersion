@@ -52,6 +52,10 @@ export default function Login() {
       })
       .catch((e) => {
         console.log(e.response);
+        if(e.response.status === 403){
+          cookie.set('companytoken',e.response.data.token);
+          history.push("/register")
+        }
         setLoginFailMsg(e.response.data.message);
       });
   };

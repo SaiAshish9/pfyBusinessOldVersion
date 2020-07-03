@@ -70,7 +70,7 @@ export default function AppRouter() {
         />
         <PrivateRoute path="/gigs" component={Gig} exact={true} />
         <PrivateRoute
-          path="/create-campaign/:campaignTitle"
+          path="/create-campaign/:category/:campaignTitle"
           component={CampaignCustom}
           exact={true}
         />
