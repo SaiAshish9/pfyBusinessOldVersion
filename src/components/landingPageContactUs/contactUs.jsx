@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "antd";
 import findPracifyImg from "../../assets/img/findPracifyImg.svg";
-import Footer from "../landingPage/footer";
+import Footer from "../oldLandingPage/footer";
 import FillDetail from "./fillDetail";
 
 export default function ContactUs() {

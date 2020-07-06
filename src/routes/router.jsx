@@ -1,36 +1,24 @@
 import { createBrowserHistory } from "history";
 import React from "react";
-import { Router, Switch, Route } from "react-router-dom";
-// -------------------------------- ******** -------------------------------- */
-import Dashboard from "../components/dashboard/dashboard";
-import PageNotFound from "../components/error/pageNotFound";
-import Gig from "../components/gig/gig";
-import OldLandingPage from "../components/home/home";
-import ContactUs from "../components/landingPageContactUs/contactUs";
-import LandingPage from "../components/landingPage/landingPage";
-import UserResume from "../components/independentComponent/userResume";
-import Internship from "../components/internship/internship/internship";
-// import Internship2 from "../components/internship/oldDesign/internship/internship/internship";
-// import InternshipForm from "../components/internship/oldDesign/internshipForm/internshipForm";
-import InternshipStatus from "../components/newComp/internshipStatus/internshipStatus";
-import Marketing from "../components/newComp/marketing/marketing";
-import PrivateRoute from "./privateRoute";
-import PublicRoute from "./publicRoute";
-import SpecificGig from "../components/gig/specificGig";
-import CampaignCustom from "../components/gig/campaignCustom";
-import CampusMarketing from "../components/campasMarketing/marketing/marketing";
-import InternshipDetails from "../components/internship/internship/internshipDetails";
-import NewInternshipDetails from "../components/internship/internship/newInternshipDetails";
-// import SpecificGig from "../components/gig/specificGig";
+import { Route, Router, Switch } from "react-router-dom";
 import NewCampusMarketing from "../components/campasMarketing/marketing/newMarketing";
 import StudentOffers from "../components/campasMarketing/marketing/studentOffers";
-// import StudentOffer from "../components/studentOffer/studentOffer";
+// -------------------------------- ******** -------------------------------- */
+import Dashboard from "../components/dashboard/dashboard";
 import EditProfile from "../components/editProfile/editProfile";
+import PageNotFound from "../components/error/pageNotFound";
+import CampaignCustom from "../components/gig/campaignCustom";
+import Gig from "../components/gig/gig";
+import NewAppliedGig from "../components/gig/newAppliedGig";
+import Internship2 from "../components/internship/internship/internship2";
+import NewInternshipDetails from "../components/internship/internship/newInternshipDetails";
+import NewCreateInternship from "../components/internship/internshipForm/newCreateInternship";
+import LandingPage from "../components/oldLandingPage/landingPage";
+import ContactUs from "../components/landingPageContactUs/contactUs";
 import Login from "../components/loginOrSignUp/login";
 import SignUp from "../components/loginOrSignUp/signUp";
-import NewCreateInternship from "../components/internship/internshipForm/newCreateInternship";
-import Internship2 from "../components/internship/internship/internship2";
-import NewAppliedGig from "../components/gig/newAppliedGig";
+import PrivateRoute from "./privateRoute";
+import PublicRoute from "./publicRoute";
 
 const history = createBrowserHistory();
 
@@ -42,21 +30,19 @@ export default function AppRouter() {
         <PublicRoute
           path="/contact_us"
           component={ContactUs}
-          exact={true}  
+          exact={true}
         ></PublicRoute>
         <PublicRoute
           path="/"
           component={LandingPage}
           exact={true}
         ></PublicRoute>
-        <PublicRoute
+        {/* <PublicRoute
           path="/user-resume/:userId"
           component={UserResume}
           exact={true}
-        />
-        <PublicRoute path="/marketing" component={Marketing} exact={true} />
-        {/* <PrivateRoute path="/campus-marketing" component={CampusMarketing} exact={true} /> */}
-        <Route path="/testing" component={NewCreateInternship} exact={true} />
+        /> */}
+        {/* <Route path="/testing" component={NewCreateInternship} exact={true} /> */}
         <PublicRoute path="/login" component={Login} exact={true} />
         <PublicRoute path="/register" component={SignUp} exact={true} />
 
