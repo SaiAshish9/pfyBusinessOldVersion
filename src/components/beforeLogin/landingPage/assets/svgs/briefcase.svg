@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50.384" height="50.384" viewBox="0 0 50.384 50.384">
+    <defs>
+        <filter id="prefix__Ellipse_16" width="50.384" height="50.384" x="0" y="0" filterUnits="userSpaceOnUse">
+            <feOffset dy="3"/>
+            <feGaussianBlur result="blur" stdDeviation="3"/>
+            <feFlood flood-opacity=".161"/>
+            <feComposite in2="blur" operator="in"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <style>
+            .prefix__cls-2{fill:#324a5e}
+        </style>
+    </defs>
+    <g id="prefix__briefcase" transform="translate(9 6)">
+        <g filter="url(#prefix__Ellipse_16)" transform="translate(-9 -6)">
+            <circle id="prefix__Ellipse_16-2" cx="16.192" cy="16.192" r="16.192" fill="#ffd05b" data-name="Ellipse 16" transform="translate(9 6)"/>
+        </g>
+        <path id="prefix__Rectangle_7" d="M0 0H20.676V7.768H0z" class="prefix__cls-2" data-name="Rectangle 7" transform="translate(5.854 16.464)"/>
+        <path id="prefix__Rectangle_8" fill="#2b3b4e" d="M0 0H20.676V2.95H0z" data-name="Rectangle 8" transform="translate(5.854 15.485)"/>
+        <path id="prefix__Path_42" d="M85.8 139.6v6.145a.806.806 0 0 0 .406.7c8.973 5.031 18.46 1.031 20.618-.006a.8.8 0 0 0 .451-.721v-6.113H85.8z" class="prefix__cls-2" data-name="Path 42" transform="translate(-80.345 -130.608)"/>
+        <path id="prefix__Path_43" fill="#334a5e" d="M190.479 100.025h-1.32v-1.4h-6.539v1.4h-1.32v-1.443a1.281 1.281 0 0 1 1.282-1.282h6.609a1.281 1.281 0 0 1 1.282 1.282v1.443z" data-name="Path 43" transform="translate(-169.694 -91.033)"/>
+        <path id="prefix__Rectangle_9" fill="#4cdbc4" d="M0 0H3.671V2.634H0z" data-name="Rectangle 9" transform="translate(14.356 16.953)"/>
+    </g>
+</svg>

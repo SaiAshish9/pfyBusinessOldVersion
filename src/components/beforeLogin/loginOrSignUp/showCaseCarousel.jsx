@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import Carousel, { Dots } from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 
-import carouselAchieveOne from "../../assets/img/loginOrSignUp/carouselAchieveOne.svg";
-import carouselPayTwo from "../../assets/img/loginOrSignUp/carouselPayTwo.svg";
-import carouselRecruitThree from "../../assets/img/loginOrSignUp/carouselRecruitThree.svg";
-import carouselTrackFour from "../../assets/img/loginOrSignUp/carouselTrackFour.svg";
-import carouselEnjoyFive from "../../assets/img/loginOrSignUp/carouselEnjoyFive.svg";
-import arrowLeft from "../../assets/img/arrowLeft.svg";
-import arrowRight from "../../assets/img/arrowRight.svg";
+import carouselAchieveOne from "../../../assets/img/loginOrSignUp/carouselAchieveOne.svg";
+import carouselPayTwo from "../../../assets/img/loginOrSignUp/carouselPayTwo.svg";
+import carouselRecruitThree from "../../../assets/img/loginOrSignUp/carouselRecruitThree.svg";
+import carouselTrackFour from "../../../assets/img/loginOrSignUp/carouselTrackFour.svg";
+import carouselEnjoyFive from "../../../assets/img/loginOrSignUp/carouselEnjoyFive.svg";
+import arrowLeft from "../../../assets/img/arrowLeft.svg";
+import arrowRight from "../../../assets/img/arrowRight.svg";
 
 const carouselContent = [
   {

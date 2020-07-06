@@ -4,6 +4,7 @@ import { Route, Router, Switch } from "react-router-dom";
 import NewCampusMarketing from "../components/campasMarketing/marketing/newMarketing";
 import StudentOffers from "../components/campasMarketing/marketing/studentOffers";
 // -------------------------------- ******** -------------------------------- */
+import LandingPage from "../components/beforeLogin/landingPage/landingPage.js";
 import Dashboard from "../components/dashboard/dashboard";
 import EditProfile from "../components/editProfile/editProfile";
 import PageNotFound from "../components/error/pageNotFound";
@@ -13,10 +14,9 @@ import NewAppliedGig from "../components/gig/newAppliedGig";
 import Internship2 from "../components/internship/internship/internship2";
 import NewInternshipDetails from "../components/internship/internship/newInternshipDetails";
 import NewCreateInternship from "../components/internship/internshipForm/newCreateInternship";
-import LandingPage from "../components/oldLandingPage/landingPage";
-import ContactUs from "../components/landingPageContactUs/contactUs";
-import Login from "../components/loginOrSignUp/login";
-import SignUp from "../components/loginOrSignUp/signUp";
+// import ContactUs from "../components/landingPageContactUs/contactUs";
+import Login from "../components/beforeLogin/loginOrSignUp/login";
+import SignUp from "../components/beforeLogin/loginOrSignUp/signUp";
 import PrivateRoute from "./privateRoute";
 import PublicRoute from "./publicRoute";
 
@@ -28,21 +28,11 @@ export default function AppRouter() {
       <Switch>
         {/*//! ----------------Public Route----------------- */}
         <PublicRoute
-          path="/contact_us"
-          component={ContactUs}
-          exact={true}
-        ></PublicRoute>
-        <PublicRoute
           path="/"
           component={LandingPage}
           exact={true}
         ></PublicRoute>
-        {/* <PublicRoute
-          path="/user-resume/:userId"
-          component={UserResume}
-          exact={true}
-        /> */}
-        {/* <Route path="/testing" component={NewCreateInternship} exact={true} /> */}
+
         <PublicRoute path="/login" component={Login} exact={true} />
         <PublicRoute path="/register" component={SignUp} exact={true} />
 
@@ -60,11 +50,6 @@ export default function AppRouter() {
           component={CampaignCustom}
           exact={true}
         />
-        {/* <PrivateRoute
-          path="/application/:id"
-          component={GigApplication}
-          exact={true}
-        /> */}
 
         <PrivateRoute
           path="/campus-marketing"

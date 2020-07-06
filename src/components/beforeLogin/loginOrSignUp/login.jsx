@@ -5,10 +5,10 @@ import { Input, Button, Checkbox, Form } from "antd";
 import { useHistory } from "react-router-dom";
 /* ---------------------------------- ***** --------------------------------- */
 import ShowCaseCarousel from "./showCaseCarousel";
-import arrowLeft from "../../assets/img/goBackLeftArrow.svg";
-import mailIcon from "../../assets/img/loginOrSignUp/mailIcon.svg";
-import passwordIcon from "../../assets/img/loginOrSignUp/passwordIcon.svg";
-import logo from "../../assets/img/logoDark.png";
+import arrowLeft from "../../../assets/img/goBackLeftArrow.svg";
+import mailIcon from "../../../assets/img/loginOrSignUp/mailIcon.svg";
+import passwordIcon from "../../../assets/img/loginOrSignUp/passwordIcon.svg";
+import logo from "../../../assets/img/logoDark.png";
 
 export default function Login() {
   const history = useHistory();

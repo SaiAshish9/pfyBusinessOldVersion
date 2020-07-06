@@ -1,28 +1,26 @@
-import React, { useState, useRef } from "react";
+import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 import {
-  Input,
   Button,
+  Form,
+  Input,
+  message,
+  notification,
   Select,
   Upload,
-  message,
-  Form,
-  notification,
 } from "antd";
-import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
-import { useHistory } from "react-router-dom";
-import { useForm, Controller } from "react-hook-form";
-import cookie from "js-cookie";
-import ShowCaseCarousel from "./showCaseCarousel";
-import arrowLeft from "../../assets/img/goBackLeftArrow.svg";
-import userIcon from "../../assets/img/loginOrSignUp/userIcon.svg";
-import mailIcon from "../../assets/img/loginOrSignUp/mailIcon.svg";
-import phoneNumberIcon from "../../assets/img/loginOrSignUp/phoneNumberIcon.svg";
-import passwordIcon from "../../assets/img/loginOrSignUp/passwordIcon.svg";
-import logo from "../../assets/img/logoDark.png";
 import Axios from "axios";
-import { objectValidation } from "../validation/validation";
-import { apiURL, s3URL } from "../constant/userToken";
-import { getHeaders } from "../../helpers/getHeaders";
+import cookie from "js-cookie";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
+import mailIcon from "../../../assets/img/loginOrSignUp/mailIcon.svg";
+import passwordIcon from "../../../assets/img/loginOrSignUp/passwordIcon.svg";
+import phoneNumberIcon from "../../../assets/img/loginOrSignUp/phoneNumberIcon.svg";
+import userIcon from "../../../assets/img/loginOrSignUp/userIcon.svg";
+import logo from "../../../assets/img/logoDark.png";
+import { getHeaders } from "../../../helpers/getHeaders";
+import { apiURL, s3URL } from "../../constant/userToken";
+import ShowCaseCarousel from "./showCaseCarousel";
 
 const userDetail = [
   {
@@ -135,11 +133,11 @@ const { TextArea } = Input;
 
 export default function SignUp() {
   const history = useHistory();
-  
+
   // const isVerify =
   //   !!history.location.state && history.location.state.isEmailVerify;
   // const token = !!history.location.state && history.location.state.token;
-  const [token,setToken] = useState(cookie.get("companytoken"));
+  const [token, setToken] = useState(cookie.get("companytoken"));
 
   const { control, handleSubmit, watch, reset, errors } = useForm({
     defaultValues: {},
@@ -174,10 +172,10 @@ export default function SignUp() {
   const [userId, setUserId] = useState();
   const [loading, setLoading] = useState(false);
 
-  const [registerLoader,setRegisterLoader] = useState(false);
-  const [OTPLoader,setOTPLoader]= useState(false);
-  const [resendLoader,setResendLoader] = useState(false);
-  const [detailsLoader,setDetailsLoader] = useState(false);
+  const [registerLoader, setRegisterLoader] = useState(false);
+  const [OTPLoader, setOTPLoader] = useState(false);
+  const [resendLoader, setResendLoader] = useState(false);
+  const [detailsLoader, setDetailsLoader] = useState(false);
   // const [error, setError] = useState(false);
   const [imageUrl, setImageUrl] = useState();
   const [imageUploadUrl, setImageUploadUrl] = useState();
@@ -196,9 +194,11 @@ export default function SignUp() {
             listHeight={200}
             placeholder={inputName}
           >
-            {["Freelancer","Startup","Digital Agency", "Enterprise"].map((data, index) => (
-              <Option key={index}>{data}</Option>
-            ))}
+            {["Freelancer", "Startup", "Digital Agency", "Enterprise"].map(
+              (data, index) => (
+                <Option key={index}>{data}</Option>
+              )
+            )}
           </Select>
         );
       }
@@ -224,7 +224,8 @@ export default function SignUp() {
     }
 
     const response = await Axios.get(
-      `${apiURL}company/upload_dp_url?fileType=${file.type}`,getHeaders()
+      `${apiURL}company/upload_dp_url?fileType=${file.type}`,
+      getHeaders()
     );
     const { key, url } = response.data;
     setImageUploadUrl(url);
@@ -259,7 +260,7 @@ export default function SignUp() {
     method: "put",
     customRequest: async (data) =>
       await Axios.put(imageUploadUrl, data.file).then(() => {
-        setImageUrl((imageUrl) => imageUrl+"?");
+        setImageUrl((imageUrl) => imageUrl + "?");
       }),
     headers: { token },
     beforeUpload: beforeUpload,
@@ -268,21 +269,20 @@ export default function SignUp() {
 
   const onRegisterFinish = (value) => {
     // console.log(value);
-    setRegisterLoader(true)
+    setRegisterLoader(true);
     Axios.post("company/register", value)
       .then((res) => {
         console.log(res);
         setUserId(res.data.userId);
         cookie.set("companytoken", res.data.token);
         setIsRegister(true);
-        openNotification("Check Your Email for OTP",'info');
+        openNotification("Check Your Email for OTP", "info");
         setRegisterLoader(false);
       })
       .catch((e) => {
         console.log(e.response);
-        openNotification("Something Went Wrong",'error');
+        openNotification("Something Went Wrong", "error");
         setRegisterLoader(false);
-
       });
   };
 
@@ -296,7 +296,7 @@ export default function SignUp() {
         setOTPLoader(false);
         setOtpVerification(true);
         cookie.set("companytoken", res.data.token);
-        setToken(res.data.token)
+        setToken(res.data.token);
         openNotification("Email Verified Successfully", "success");
       })
       .catch((e) => {
@@ -306,7 +306,6 @@ export default function SignUp() {
           openNotification("Something went wrong", "error");
         }
         setOTPLoader(false);
-
       });
   };
   const onMailVerificationFailed = (errorInfo) => {
@@ -315,7 +314,7 @@ export default function SignUp() {
   const onCompanyDetailFinish = async (value) => {
     const companyDetail = { ...value, logoUrl: imageUrl };
     setDetailsLoader(true);
-    Axios.post("company/add_details", companyDetail,getHeaders())
+    Axios.post("company/add_details", companyDetail, getHeaders())
       .then((res) => {
         openNotification("Account created successfully", "success");
         setDetailsLoader(false);
@@ -324,8 +323,7 @@ export default function SignUp() {
       })
       .catch((e) => {
         openNotification("Something Went Wrong", "error");
-    setDetailsLoader(false);
-
+        setDetailsLoader(false);
       });
   };
   const resendOTP = () => {
@@ -333,23 +331,20 @@ export default function SignUp() {
     Axios.get("company/resend_otp", getHeaders())
       .then(() => {
         openNotification("OTP sent successfully to your email", "success");
-    setResendLoader(false);
-
+        setResendLoader(false);
       })
       .catch(() => {
         console.log("false");
         openNotification("Something Went Wrong", "error");
-    setResendLoader(false);
-
+        setResendLoader(false);
       });
   };
 
   const openNotification = (message, type = "open") => {
     notification[type]({
       message: message,
-      placement: 'bottomLeft'
+      placement: "bottomLeft",
     });
-
   };
   const onCompanyDetailFinishFailed = () => {};
   return (
@@ -372,8 +367,10 @@ export default function SignUp() {
               "We've sent you One Time Password (OTP) to verify your email
               address. Please enter it to continue."
             </p>
-            <div style={{textAlign:"right"}}>
-              <Button loading={resendLoader} onClick={resendOTP}>Resend OTP</Button>
+            <div style={{ textAlign: "right" }}>
+              <Button loading={resendLoader} onClick={resendOTP}>
+                Resend OTP
+              </Button>
             </div>
           </>
         )}
@@ -414,7 +411,11 @@ export default function SignUp() {
               );
             })}
             <Form.Item>
-              <Button htmlType="submit" loading={registerLoader} className="register__button">
+              <Button
+                htmlType="submit"
+                loading={registerLoader}
+                className="register__button"
+              >
                 NEXT
               </Button>
             </Form.Item>
@@ -435,7 +436,11 @@ export default function SignUp() {
                 <Input placeholder="Enter OTP" className="email-otp__input" />
               </Form.Item>
             </div>
-            <Button htmlType="submit" loading={OTPLoader} className="register__button">
+            <Button
+              htmlType="submit"
+              loading={OTPLoader}
+              className="register__button"
+            >
               VERIFY OTP
             </Button>
           </Form>
@@ -482,7 +487,11 @@ export default function SignUp() {
                 </div>
               ))}
               <Form.Item>
-                <Button htmlType="submit" loading={detailsLoader} className="register__button">
+                <Button
+                  htmlType="submit"
+                  loading={detailsLoader}
+                  className="register__button"
+                >
                   SUBMIT
                 </Button>
               </Form.Item>
