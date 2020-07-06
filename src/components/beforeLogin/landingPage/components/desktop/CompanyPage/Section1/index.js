@@ -32,9 +32,7 @@ const Section3 = () => {
         width: "100vw",
         display: "flex",
         marginTop: "10vh",
-        // height: "90vh",
         marginBottom: "30vh",
-        // flexWrap: "wrap",
       }}
     >
       <div
@@ -149,7 +147,7 @@ const Section3 = () => {
           <div style={{ width: "50%" }}>
             <p
               data-aos="fade"
-              className="animate__animated animate__fadeIn"
+              // className="animate__animated animate__fadeIn"
               style={{
                 fontFamily: "Inter-SemiBold",
                 fontSize: 34,
@@ -176,7 +174,7 @@ const Section3 = () => {
           <div style={{ width: "50%" }}>
             <p
               data-aos="fade"
-              className="animate__animated animate__fadeIn"
+              // className="animate__animated animate__fadeIn"
               style={{
                 fontFamily: "Inter-SemiBold",
                 fontSize: 34,
@@ -203,7 +201,7 @@ const Section3 = () => {
           <div style={{ width: "50%" }}>
             <p
               data-aos="fade"
-              className="animate__animated animate__fadeIn"
+              // className="animate__animated animate__fadeIn"
               style={{
                 fontFamily: "Inter-SemiBold",
                 fontSize: 34,
@@ -251,7 +249,7 @@ const Section3 = () => {
         >
           {selected === 0 ? (
             <img
-              className="animate__animated animate__fadeIn"
+              // className="animate__animated animate__fadeIn"
               src={images[selected]}
               alt="section3"
               style={{
@@ -261,7 +259,7 @@ const Section3 = () => {
             />
           ) : selected === 1 ? (
             <img
-              className="animate__animated animate__fadeIn"
+              // className="animate__animated animate__fadeIn"
               src={images[selected]}
               alt="section3"
               style={{
@@ -275,7 +273,7 @@ const Section3 = () => {
           ) : (
             <img
               src={images[selected]}
-              className="animate__animated animate__fadeIn"
+              // className="animate__animated animate__fadeIn"
               alt="section3"
               style={{
                 position: "relative",

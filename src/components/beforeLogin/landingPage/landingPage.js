@@ -19,7 +19,7 @@ function LandingPage() {
   });
 
   return (
-    <Suspense fallback={<div style={{ height: "1000px" }}></div>}>
+    <Suspense fallback={<div></div>}>
       {mediaSIze ? <Desktop /> : <Mobile />}
     </Suspense>
   );
