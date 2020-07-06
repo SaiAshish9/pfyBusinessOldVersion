@@ -1,0 +1,205 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="511.205" height="337" viewBox="0 0 511.205 337">
+  <defs>
+    <filter id="Rectangle_1441" x="43" y="5" width="431" height="288" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_388" x="288.543" y="17.167" width="222.662" height="211.229" filterUnits="userSpaceOnUse">
+      <feOffset dy="31" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="25.5" result="blur-2"/>
+      <feFlood flood-opacity="0.078"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_1908" x="0" y="171" width="202" height="166" filterUnits="userSpaceOnUse">
+      <feOffset dy="12" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="14" result="blur-3"/>
+      <feFlood flood-opacity="0.078"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <pattern id="pattern" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 90 90">
+      <image width="90" height="90" xlink:href="data:image/jpeg;base64,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"/>
+    </pattern>
+    <pattern id="pattern-2" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 90 90">
+      <image width="90" height="90" xlink:href="data:image/jpeg;base64,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"/>
+    </pattern>
+    <linearGradient id="linear-gradient" x1="1" y1="0.5" x2="0" y2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#00bfa6"/>
+      <stop offset="1" stop-color="#444584"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_814" data-name="Group 814" transform="translate(-10 -865)">
+    <circle id="Ellipse_809" data-name="Ellipse 809" cx="146" cy="146" r="146" transform="translate(71 865)" fill="#ea907a" opacity="0.2"/>
+    <g transform="matrix(1, 0, 0, 1, 10, 865)" filter="url(#Rectangle_1441)">
+      <rect id="Rectangle_1441-2" data-name="Rectangle 1441" width="371" height="228" rx="3" transform="translate(73 32)" fill="#fff"/>
+    </g>
+    <path id="Rectangle_1451" data-name="Rectangle 1451" d="M0,0H283a3,3,0,0,1,3,3V25a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" transform="translate(168 897)" fill="#f5f5f5"/>
+    <rect id="Rectangle_1452" data-name="Rectangle 1452" width="43" height="9" rx="4.5" transform="translate(300 905)" fill="#ec3f78" opacity="0.3"/>
+    <ellipse id="Ellipse_626" data-name="Ellipse 626" cx="5.5" cy="5" rx="5.5" ry="5" transform="translate(349 905)" fill="#fff"/>
+    <rect id="Rectangle_1453" data-name="Rectangle 1453" width="39" height="2" rx="1" transform="translate(365 909)" fill="#e2e2e2"/>
+    <rect id="Rectangle_1454" data-name="Rectangle 1454" width="34" height="2" rx="1" transform="translate(410 909)" fill="#e2e2e2"/>
+    <rect id="Rectangle_384" data-name="Rectangle 384" width="194.008" height="57.031" rx="9" transform="translate(174.386 928.075)" fill="#fcfcfc"/>
+    <path id="Rectangle_1229" data-name="Rectangle 1229" d="M4.427,0H189.581a4.427,4.427,0,0,1,4.427,4.427v0a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0v0A4.427,4.427,0,0,1,4.427,0Z" transform="translate(174.386 928.075)" fill="#444584"/>
+    <g id="Rectangle_1234" data-name="Rectangle 1234" transform="translate(325.813 970.726)" fill="#fff" stroke="#444584" stroke-width="0.5">
+      <rect width="35.416" height="9.375" rx="2" stroke="none"/>
+      <rect x="0.25" y="0.25" width="34.916" height="8.875" rx="1.75" fill="none"/>
+    </g>
+    <text id="View_Gig" data-name="View Gig" transform="translate(340 976)" fill="#444584" font-size="2" font-family="CircularStd-Book, Circular Std Book">
+      <tspan x="0" y="0">View Gig</tspan>
+    </text>
+    <path id="Icon_ionic-md-document" data-name="Icon ionic-md-document" d="M8.338,3.375H7.081a.331.331,0,0,0-.331.331v2.78a.331.331,0,0,0,.331.331H9.066A.331.331,0,0,0,9.4,6.485V4.434ZM8.206,4.566V3.64l.927.927Z" transform="translate(327.022 970.573)" fill="#444584"/>
+    <rect id="Rectangle_1455" data-name="Rectangle 1455" width="38" height="4" rx="2" transform="translate(184 952)" fill="#e1e1e1"/>
+    <rect id="Rectangle_1456" data-name="Rectangle 1456" width="26" height="4" rx="2" transform="translate(229 952)" fill="#e1e1e1"/>
+    <rect id="Rectangle_1457" data-name="Rectangle 1457" width="29" height="4" rx="2" transform="translate(264 952)" fill="#e1e1e1"/>
+    <rect id="Rectangle_1458" data-name="Rectangle 1458" width="36" height="4" rx="2" transform="translate(301 952)" fill="#e1e1e1"/>
+    <rect id="Rectangle_1459" data-name="Rectangle 1459" width="27" height="4" rx="2" transform="translate(184 960)" fill="#f1f1f1"/>
+    <rect id="Rectangle_1460" data-name="Rectangle 1460" width="22" height="4" rx="2" transform="translate(229 960)" fill="#f1f1f1"/>
+    <rect id="Rectangle_1461" data-name="Rectangle 1461" width="25" height="4" rx="2" transform="translate(264 960)" fill="#f1f1f1"/>
+    <rect id="Rectangle_1462" data-name="Rectangle 1462" width="17" height="4" rx="2" transform="translate(301 960)" fill="#f1f1f1"/>
+    <rect id="Rectangle_1481" data-name="Rectangle 1481" width="57" height="5" rx="2.5" transform="translate(184 939)" fill="#c2c2c2"/>
+    <path id="Path_359" data-name="Path 359" d="M2.344,0H266.4a2.423,2.423,0,0,1,2.344,2.5V126.159a2.423,2.423,0,0,1-2.344,2.5H2.344A2.423,2.423,0,0,1,0,126.159V2.5A2.423,2.423,0,0,1,2.344,0Z" transform="translate(177.213 991.3)" fill="#fafafa"/>
+    <g id="Rectangle_1264" data-name="Rectangle 1264" transform="translate(179.296 1033.227)" fill="none" stroke="#cdcdcd" stroke-width="0.3">
+      <rect width="264.58" height="19.271" rx="2" stroke="none"/>
+      <rect x="0.15" y="0.15" width="264.28" height="18.971" rx="1.85" fill="none"/>
+    </g>
+    <rect id="Rectangle_374" data-name="Rectangle 374" width="11.719" height="11.719" rx="5.859" transform="translate(185.025 1036.873)" fill="url(#pattern)"/>
+    <rect id="Rectangle_374-2" data-name="Rectangle 374" width="11.719" height="11.719" rx="5.859" transform="translate(185.025 1058.747)" fill="url(#pattern-2)"/>
+    <rect id="Rectangle_374-3" data-name="Rectangle 374" width="11.719" height="11.719" rx="5.859" transform="translate(185.025 1080.362)" fill="url(#pattern)"/>
+    <rect id="Rectangle_374-4" data-name="Rectangle 374" width="11.719" height="11.719" rx="5.859" transform="translate(185.025 1102.236)" fill="url(#pattern-2)"/>
+    <text id="Most_Recent" data-name="Most Recent" transform="translate(413.146 1023.289)" font-size="1" font-family="CircularStd-Book, Circular Std Book" opacity="0.6">
+      <tspan x="0" y="0">Most Recent</tspan>
+    </text>
+    <path id="Icon_ionic-md-arrow-dropdown" data-name="Icon ionic-md-arrow-dropdown" d="M9,13.5l1.042,1.042L11.083,13.5Z" transform="translate(427.014 1010.352)" opacity="0.6"/>
+    <text id="Sort_by_:_" data-name="Sort by : " transform="translate(398.043 1023.289)" font-size="1" font-family="CircularStd-Book, Circular Std Book" opacity="0.3">
+      <tspan x="0" y="0">Sort by :</tspan>
+    </text>
+    <path id="Rectangle_1156" data-name="Rectangle 1156" d="M3,0H266.036a3,3,0,0,1,3,3V13.389a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V3A3,3,0,0,1,3,0Z" transform="translate(177.203 991.295)" fill="rgba(0,194,205,0.2)"/>
+    <text id="APPLICATIONS" transform="translate(184.244 998.248)" font-size="3" font-family="CircularStd-Bold, Circular Std Bold" font-weight="700" opacity="0.8">
+      <tspan x="0" y="0">APPLICATIONS</tspan>
+    </text>
+    <rect id="Rectangle_1166" data-name="Rectangle 1166" width="268.226" height="13.802" transform="translate(177.733 1016.821)" fill="#fafafa"/>
+    <text id="Name" transform="translate(203.515 1022.923)" font-size="1" font-family="CircularStd-Book, Circular Std Book">
+      <tspan x="0" y="0">Name</tspan>
+    </text>
+    <text id="Institute" transform="translate(260.545 1022.923)" font-size="1" font-family="CircularStd-Book, Circular Std Book">
+      <tspan x="0" y="0">Institute</tspan>
+    </text>
+    <text id="City" transform="translate(350.388 1022.923)" font-size="1" font-family="CircularStd-Book, Circular Std Book">
+      <tspan x="0" y="0">City</tspan>
+    </text>
+    <text id="Gig_Profile_Score" data-name="Gig Profile Score" transform="translate(376.429 1022.923)" font-size="1" font-family="CircularStd-Book, Circular Std Book">
+      <tspan x="0" y="0">Gig Profile Score</tspan>
+    </text>
+    <line id="Line_76" data-name="Line 76" x2="268.226" transform="translate(177.604 1030.753)" fill="none" stroke="#707070" stroke-width="0.5" opacity="0.3"/>
+    <text id="Sort_By_:_Most_Recent" data-name="Sort By : Most Recent" transform="translate(395.347 997.248)" font-size="1" font-family="CircularStd-Book, Circular Std Book" opacity="0.8">
+      <tspan x="0" y="0">Sort By : Most Recent</tspan>
+    </text>
+    <path id="Icon_ionic-ios-arrow-down" data-name="Icon ionic-ios-arrow-down" d="M7.554,12.338,8.588,11.3a.194.194,0,0,1,.276,0,.2.2,0,0,1,0,.277L7.693,12.752a.2.2,0,0,1-.269.006L6.244,11.581A.2.2,0,0,1,6.52,11.3Z" transform="translate(426.846 985.978)" opacity="0.8"/>
+    <rect id="Rectangle_1237" data-name="Rectangle 1237" width="61.718" height="8.854" rx="4.427" transform="translate(376.429 1038.695)" fill="#efefef" opacity="0.4"/>
+    <path id="Rectangle_1238" data-name="Rectangle 1238" d="M4.427,0H46.093a0,0,0,0,1,0,0V8.854a0,0,0,0,1,0,0H4.427A4.427,4.427,0,0,1,0,4.427v0A4.427,4.427,0,0,1,4.427,0Z" transform="translate(376.429 1038.695)" opacity="0.4" fill="url(#linear-gradient)"/>
+    <text id="_70_" data-name="70%" transform="translate(395.96 1041.611)" fill="#fff" font-size="1" font-family="CircularStd-Bold, Circular Std Bold" font-weight="700" opacity="0.4">
+      <tspan x="0" y="0">70%</tspan>
+    </text>
+    <rect id="Rectangle_1239" data-name="Rectangle 1239" width="61.718" height="8.854" rx="4.427" transform="translate(376.429 1060.31)" fill="#efefef" opacity="0.6"/>
+    <path id="Rectangle_1240" data-name="Rectangle 1240" d="M4.427,0H46.093a0,0,0,0,1,0,0V8.854a0,0,0,0,1,0,0H4.427A4.427,4.427,0,0,1,0,4.427v0A4.427,4.427,0,0,1,4.427,0Z" transform="translate(376.429 1060.31)" opacity="0.6" fill="url(#linear-gradient)"/>
+    <text id="_70_2" data-name="70%" transform="translate(395.96 1063.226)" fill="#fff" font-size="1" font-family="CircularStd-Bold, Circular Std Bold" font-weight="700" opacity="0.6">
+      <tspan x="0" y="0">70%</tspan>
+    </text>
+    <rect id="Rectangle_1241" data-name="Rectangle 1241" width="61.718" height="8.854" rx="4.427" transform="translate(376.429 1081.924)" fill="#efefef" opacity="0.8"/>
+    <path id="Rectangle_1242" data-name="Rectangle 1242" d="M4.427,0H30.989a0,0,0,0,1,0,0V8.854a0,0,0,0,1,0,0H4.427A4.427,4.427,0,0,1,0,4.427v0A4.427,4.427,0,0,1,4.427,0Z" transform="translate(376.429 1081.924)" opacity="0.8" fill="url(#linear-gradient)"/>
+    <text id="_50_" data-name="50%" transform="translate(388.408 1084.84)" fill="#fff" font-size="1" font-family="CircularStd-Bold, Circular Std Bold" font-weight="700" opacity="0.8">
+      <tspan x="0" y="0">50%</tspan>
+    </text>
+    <rect id="Rectangle_1243" data-name="Rectangle 1243" width="61.718" height="8.854" rx="4.427" transform="translate(376.429 1103.799)" fill="#efefef"/>
+    <path id="Rectangle_1244" data-name="Rectangle 1244" d="M4.427,0H46.093a0,0,0,0,1,0,0V8.854a0,0,0,0,1,0,0H4.427A4.427,4.427,0,0,1,0,4.427v0A4.427,4.427,0,0,1,4.427,0Z" transform="translate(376.429 1103.799)" fill="url(#linear-gradient)"/>
+    <text id="_70_3" data-name="70%" transform="translate(395.96 1106.715)" fill="#fff" font-size="1" font-family="CircularStd-Bold, Circular Std Bold" font-weight="700">
+      <tspan x="0" y="0">70%</tspan>
+    </text>
+    <g id="Rectangle_1265" data-name="Rectangle 1265" transform="translate(179.296 1055.102)" fill="none" stroke="#cdcdcd" stroke-width="0.3">
+      <rect width="264.58" height="19.271" rx="2" stroke="none"/>
+      <rect x="0.15" y="0.15" width="264.28" height="18.971" rx="1.85" fill="none"/>
+    </g>
+    <g id="Rectangle_1266" data-name="Rectangle 1266" transform="translate(179.296 1076.976)" fill="none" stroke="#cdcdcd" stroke-width="0.3">
+      <rect width="264.58" height="19.271" rx="2" stroke="none"/>
+      <rect x="0.15" y="0.15" width="264.28" height="18.971" rx="1.85" fill="none"/>
+    </g>
+    <g id="Rectangle_1267" data-name="Rectangle 1267" transform="translate(179.296 1098.591)" fill="none" stroke="#cdcdcd" stroke-width="0.3">
+      <rect width="264.58" height="19.271" rx="2" stroke="none"/>
+      <rect x="0.15" y="0.15" width="264.28" height="18.971" rx="1.85" fill="none"/>
+    </g>
+    <rect id="Rectangle_1161" data-name="Rectangle 1161" width="52.604" height="9.375" transform="translate(177.473 1004.321)" fill="#fff"/>
+    <rect id="Rectangle_1162" data-name="Rectangle 1162" width="268.226" height="12.5" transform="translate(177.473 1004.321)" fill="#38bdba" opacity="0.5"/>
+    <rect id="Rectangle_1163" data-name="Rectangle 1163" width="52.604" height="12.5" transform="translate(177.473 1004.321)" fill="#fff"/>
+    <text id="Pending" transform="translate(195.702 1010.01)" fill="#38bdba" font-size="1" font-family="CircularStd-Black, Circular Std Black" font-weight="800">
+      <tspan x="0" y="0">Pending</tspan>
+    </text>
+    <text id="Waitlisted" transform="translate(252.473 1010.01)" font-size="1" font-family="CircularStd-Bold, Circular Std Bold" font-weight="700" opacity="0.8">
+      <tspan x="0" y="0">Waitlisted</tspan>
+    </text>
+    <text id="Rejected" transform="translate(303.253 1010.01)" font-size="1" font-family="CircularStd-Bold, Circular Std Bold" font-weight="700" opacity="0.8">
+      <tspan x="0" y="0">Rejected</tspan>
+    </text>
+    <text id="Selected" transform="translate(356.898 1010.01)" font-size="1" font-family="CircularStd-Bold, Circular Std Bold" font-weight="700" opacity="0.8">
+      <tspan x="0" y="0">Selected</tspan>
+    </text>
+    <text id="Completed" transform="translate(408.46 1010.01)" font-size="1" font-family="CircularStd-Bold, Circular Std Bold" font-weight="700" opacity="0.8">
+      <tspan x="0" y="0">Completed</tspan>
+    </text>
+    <rect id="Rectangle_1164" data-name="Rectangle 1164" width="52.604" height="0.781" transform="translate(177.473 1016.039)" fill="#38bdba"/>
+    <rect id="Rectangle_1469" data-name="Rectangle 1469" width="32" height="6" rx="3" transform="translate(203 1040)" fill="#eaeaea" opacity="0.4"/>
+    <rect id="Rectangle_1470" data-name="Rectangle 1470" width="44" height="5" rx="2.5" transform="translate(203 1062)" fill="#eaeaea" opacity="0.6"/>
+    <rect id="Rectangle_1471" data-name="Rectangle 1471" width="32" height="5" rx="2.5" transform="translate(203 1084)" fill="#eaeaea" opacity="0.8"/>
+    <rect id="Rectangle_1472" data-name="Rectangle 1472" width="46" height="5" rx="2.5" transform="translate(203 1105)" fill="#eaeaea"/>
+    <rect id="Rectangle_1473" data-name="Rectangle 1473" width="74" height="6" rx="3" transform="translate(262 1040)" fill="#eaeaea" opacity="0.4"/>
+    <rect id="Rectangle_1474" data-name="Rectangle 1474" width="69" height="5" rx="2.5" transform="translate(262 1062)" fill="#eaeaea" opacity="0.6"/>
+    <rect id="Rectangle_1475" data-name="Rectangle 1475" width="60" height="5" rx="2.5" transform="translate(262 1084)" fill="#eaeaea" opacity="0.8"/>
+    <rect id="Rectangle_1476" data-name="Rectangle 1476" width="70" height="5" rx="2.5" transform="translate(262 1105)" fill="#eaeaea"/>
+    <rect id="Rectangle_1477" data-name="Rectangle 1477" width="20" height="6" rx="3" transform="translate(349 1040)" fill="#eaeaea" opacity="0.4"/>
+    <rect id="Rectangle_1478" data-name="Rectangle 1478" width="16" height="5" rx="2.5" transform="translate(349 1062)" fill="#eaeaea" opacity="0.6"/>
+    <rect id="Rectangle_1479" data-name="Rectangle 1479" width="20" height="5" rx="2.5" transform="translate(349 1084)" fill="#eaeaea" opacity="0.8"/>
+    <rect id="Rectangle_1480" data-name="Rectangle 1480" width="15" height="5" rx="2.5" transform="translate(349 1105)" fill="#eaeaea"/>
+    <path id="Rectangle_1442" data-name="Rectangle 1442" d="M10,0H85a0,0,0,0,1,0,0V228a0,0,0,0,1,0,0H10A10,10,0,0,1,0,218V10A10,10,0,0,1,10,0Z" transform="translate(83 897)" fill="#fff"/>
+    <circle id="Ellipse_625" data-name="Ellipse 625" cx="18" cy="18" r="18" transform="translate(108 945)" fill="#f9f9f9"/>
+    <text id="pracify" transform="translate(103 925)" fill="#444584" font-size="12" font-family="ProximaNovaA-Bold, Proxima Nova Alt" font-weight="700">
+      <tspan x="0" y="0">pracify</tspan>
+    </text>
+    <rect id="Rectangle_1443" data-name="Rectangle 1443" width="36" height="4" rx="2" transform="translate(108 989)" fill="#f5f5f5"/>
+    <rect id="Rectangle_1444" data-name="Rectangle 1444" width="70" height="4" rx="2" transform="translate(90 998)" fill="#f5f5f5" opacity="0.5"/>
+    <rect id="Rectangle_1445" data-name="Rectangle 1445" width="56" height="4" rx="2" transform="translate(94 1026)" fill="#f5f5f5"/>
+    <rect id="Rectangle_1446" data-name="Rectangle 1446" width="64" height="5" rx="2.5" transform="translate(94 1039)" fill="#f5f5f5" opacity="0.7"/>
+    <rect id="Rectangle_1447" data-name="Rectangle 1447" width="49" height="3" rx="1.5" transform="translate(94 1053)" fill="#f5f5f5" opacity="0.7"/>
+    <rect id="Rectangle_1448" data-name="Rectangle 1448" width="56" height="6" rx="3" transform="translate(94 1065)" fill="#f5f5f5" opacity="0.7"/>
+    <rect id="Rectangle_1449" data-name="Rectangle 1449" width="33" height="2" rx="1" transform="translate(94 1078)" fill="#f5f5f5" opacity="0.7"/>
+    <rect id="Rectangle_1450" data-name="Rectangle 1450" width="43" height="5" rx="2.5" transform="translate(94 1091)" fill="#f5f5f5" opacity="0.7"/>
+    <g transform="matrix(1, 0, 0, 1, 10, 865)" filter="url(#Rectangle_388)">
+      <rect id="Rectangle_388-2" data-name="Rectangle 388" width="69.662" height="58.229" rx="9" transform="translate(365.04 62.67)" fill="#fff"/>
+    </g>
+    <text id="Application_Overview" data-name="Application Overview" transform="translate(382.678 939.589)" font-size="3" font-family="CircularStd-Book, Circular Std Book">
+      <tspan x="0" y="0">Application Overview</tspan>
+    </text>
+    <path id="Rectangle_1230" data-name="Rectangle 1230" d="M4.52,0H65.142a4.52,4.52,0,0,1,4.52,4.52v0a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0v0A4.52,4.52,0,0,1,4.52,0Z" transform="translate(375.043 927.667)" fill="#444584"/>
+    <rect id="Rectangle_1463" data-name="Rectangle 1463" width="24" height="3" rx="1.5" transform="translate(385 953)" fill="#e1e1e1"/>
+    <rect id="Rectangle_1464" data-name="Rectangle 1464" width="20" height="3" rx="1.5" transform="translate(385 962)" fill="#e1e1e1"/>
+    <rect id="Rectangle_1465" data-name="Rectangle 1465" width="26" height="3" rx="1.5" transform="translate(385 973)" fill="#e1e1e1"/>
+    <rect id="Rectangle_1466" data-name="Rectangle 1466" width="10" height="3" rx="1.5" transform="translate(424 953)" fill="#f1f1f1"/>
+    <rect id="Rectangle_1467" data-name="Rectangle 1467" width="11" height="3" rx="1.5" transform="translate(424 962)" fill="#f1f1f1"/>
+    <rect id="Rectangle_1468" data-name="Rectangle 1468" width="11" height="3" rx="1.5" transform="translate(424 973)" fill="#f1f1f1"/>
+    <g transform="matrix(1, 0, 0, 1, 10, 865)" filter="url(#Rectangle_1908)">
+      <rect id="Rectangle_1908-2" data-name="Rectangle 1908" width="118" height="82" rx="6" transform="translate(42 201)" fill="#fff"/>
+    </g>
+    <rect id="Rectangle_1909" data-name="Rectangle 1909" width="110" height="74" rx="6" transform="translate(56 1070)" fill="#4069f1" opacity="0.2"/>
+    <circle id="Ellipse_804" data-name="Ellipse 804" cx="23.811" cy="23.811" r="23.811" transform="translate(87.065 1084)" fill="#3b5fd8"/>
+    <circle id="Ellipse_805" data-name="Ellipse 805" cx="19.616" cy="19.616" r="19.616" transform="translate(91.261 1088.195)" fill="#4069f1"/>
+    <path id="Path_4434" data-name="Path 4434" d="M50.374,64.665a2.322,2.322,0,0,1-1.667-.706l-7.55-7.779a2.323,2.323,0,1,1,3.334-3.236l5.825,6L60.852,47.32A2.324,2.324,0,1,1,64.3,50.44L52.1,63.9a2.326,2.326,0,0,1-1.685.761Z" transform="translate(58.18 1052.201)" fill="#fff"/>
+    <path id="Polygon_4" data-name="Polygon 4" d="M2.5,0,5,5H0Z" transform="translate(86.969 1084.315) rotate(-42)" fill="#fff"/>
+    <path id="Polygon_5" data-name="Polygon 5" d="M2.5,0,5,5H0Z" transform="matrix(-0.208, 0.978, -0.978, -0.208, 146.465, 1114.574)" fill="#fff"/>
+    <circle id="Ellipse_806" data-name="Ellipse 806" cx="1.5" cy="1.5" r="1.5" transform="translate(141 1093)" fill="#fd977f"/>
+    <circle id="Ellipse_807" data-name="Ellipse 807" cx="1.5" cy="1.5" r="1.5" transform="translate(81 1099)" fill="#fd977f"/>
+    <circle id="Ellipse_808" data-name="Ellipse 808" cx="1.5" cy="1.5" r="1.5" transform="translate(94 1133)" fill="#fd977f"/>
+    <path id="Polygon_6" data-name="Polygon 6" d="M2.5,0,5,5H0Z" transform="translate(106.32 1139.531) rotate(-166)" fill="#fff"/>
+  </g>
+</svg>

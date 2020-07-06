@@ -1,0 +1,210 @@
+.business-hiw-with-props {
+    position: relative;
+    margin: 0 100px;
+    .business-prop-one {
+        z-index: -1;
+        position: absolute;
+        top: 19.25rem;
+        left: 18.75rem;
+        width: 48%;
+    }
+    .business-prop-two {
+        z-index: -1;
+        position: absolute;
+        bottom: 20.313rem;
+        left: 19.125rem;
+        width: 48%;
+    }
+    .business-hiw-main-block {
+        .business-hiw-block {
+            margin-bottom: 120px;
+            display: grid;
+            align-items: center;
+            grid-template:
+                "number head anim"
+                "number para anim";
+            .business-hiw-img-block {
+                grid-area: number;
+                background: #fff;
+                height: max-content;
+                margin-right: 54px;
+                .business-hiw-img {
+                }
+            }
+
+            .business-hiw-head-block {
+                grid-area: head;
+                align-self: flex-end;
+                margin-bottom: 30px;
+                .business-hiw-head-spanOne,
+                .business-hiw-head-spanTwo {
+                    font-size: 36px;
+                    font-weight: 700;
+                    line-height: 1.22;
+                    color: #333e49;
+                }
+
+                .business-hiw-head-spanTwo {
+                    color: #38bdba;
+                    margin-left: 12px;
+                }
+            }
+
+            .business-hiw-para-block {
+                grid-area: para;
+                align-self: flex-start;
+                .business-hiw-para-one,
+                .business-hiw-para-two {
+                    font-size: 17px;
+                    line-height: 1.78;
+                    color: #333e49;
+                }
+            }
+            .business-hiw-animation-block {
+                grid-area: anim;
+                .business-hiw-animation {
+                }
+            }
+        }
+        .business-hiw-block:nth-child(3) {
+            .business-hiw-head-block {
+                .business-hiw-head-spanTwo {
+                    color: #7a81ea;
+                }
+            }
+        }
+        .business-hiw-block:nth-child(2) {
+            grid-template:
+                "anim number head"
+                "anim number para";
+
+            .business-hiw-head-block {
+                .business-hiw-head-spanTwo {
+                    color: #ea907a;
+                }
+            }
+        }
+    }
+    @media (min-width: $bigTabletScreen) and (max-width: 1320px) {
+        .business-prop-one {
+            display: none;
+        }
+        .business-prop-two {
+            display: none;
+        }
+    }
+    @media (min-width: $smallTableScreen) and (max-width: $bigTabletScreen) {
+        .business-prop-one {
+            display: none;
+        }
+        .business-prop-two {
+            display: none;
+        }
+        .business-prop-one {
+            display: none;
+        }
+        .business-prop-two {
+            display: none;
+        }
+        .business-hiw-main-block {
+            .business-hiw-block,
+            .business-hiw-block:nth-child(2) {
+                grid-template:
+                    "number head head"
+                    "number anim anim"
+                    "number para para";
+            }
+            .business-hiw-block:nth-child(1),
+            .business-hiw-block:nth-child(2),
+            .business-hiw-block:nth-child(3) {
+                margin-bottom: 80px;
+                .business-hiw-animation-block {
+                    bottom: initial;
+                }
+            }
+        }
+    }
+    @media (min-width: $mobileScreen) and (max-width: $smallTableScreen) {
+        margin: 0 40px;
+        .business-prop-one {
+            display: none;
+        }
+        .business-prop-two {
+            display: none;
+        }
+        .business-hiw-main-block {
+            .business-hiw-block,
+            .business-hiw-block:nth-child(2) {
+                grid-template:
+                    "number head head"
+                    "number anim anim"
+                    "number para para";
+            }
+            .business-hiw-block:nth-child(1),
+            .business-hiw-block:nth-child(2),
+            .business-hiw-block:nth-child(3) {
+                margin-bottom: 80px;
+                .business-hiw-para-block {
+                    margin-right: initial;
+                }
+                .business-hiw-head-spanOne,
+                .business-hiw-head-spanTwo {
+                    font-size: 32px;
+                }
+                .business-hiw-animation-block {
+                    bottom: initial;
+                    width: 100%;
+                    min-width: initial;
+                    max-width: initial;
+                    min-height: initial;
+                    max-height: initial;
+                }
+            }
+        }
+    }
+    @media (max-width: $mobileScreen) {
+        margin: 0 20px;
+        .business-prop-one {
+            display: none;
+        }
+        .business-prop-two {
+            display: none;
+        }
+        .business-hiw-main-block {
+            .business-hiw-block,
+            .business-hiw-block:nth-child(2) {
+                grid-template:
+                    "number head head"
+                    "number anim anim"
+                    "number para para";
+            }
+            .business-hiw-block:nth-child(1),
+            .business-hiw-block:nth-child(2),
+            .business-hiw-block:nth-child(3) {
+                margin-bottom: 80px;
+                .business-hiw-para-block {
+                    margin-right: initial;
+                }
+                .business-hiw-img-block {
+                    margin-right: 8px;
+                }
+
+                .business-hiw-head-spanOne,
+                .business-hiw-head-spanTwo {
+                    font-size: 26px;
+                }
+                .business-hiw-head-spanTwo {
+                    margin-left: 8px;
+                }
+                .business-hiw-animation-block {
+                    bottom: initial;
+                    width: 100%;
+                    min-width: initial;
+                    max-width: initial;
+                    min-height: initial;
+                    max-height: initial;
+                }
+            }
+        }
+    }
+}
