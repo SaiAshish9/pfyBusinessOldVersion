@@ -1,29 +1,72 @@
 import React, { useState } from "react";
 import { Button, Modal, Tabs } from "antd";
-import howItWorkIcon from "../assets/img/howItWorkIcon.svg";
+import numberOneIcon from "../assets/img/numberOneIcon.svg";
+import numberTwoIcon from "../assets/img/numberTwoIcon.svg";
+import numberThreeIcon from "../assets/img/numberThreeIcon.svg";
+import separatorIcon from "../assets/img/separatorIcon.svg";
 
 const { TabPane } = Tabs;
 
 const howGigWork = [
-  "Create a Gig",
-  "Review applications & hire gig workers",
-  "Review performance & approve work",
+  {
+    head: "Create a Gig",
+    para:
+      "Achieve your business goals by creating a Gig on Pracify. Use our campaign builder to launch your next Gig within minutes.",
+  },
+  {
+    head: "Hire Gig Workers",
+    para:
+      "Hire gig workers via the dashboard which matches the Gig requirements without any physical interview.",
+  },
+  {
+    head: "Review Performance",
+    para:
+      "Review performance of gig workers by reviewing the proof of work submitted by them. You pay only for the work you approve",
+  },
 ];
 
 const howInternshipWork = [
-  "Post an Internship",
-  "Review applications",
-  "Hire interns",
+  {
+    head: "Post an Internship",
+    para:
+      "Publish an internship on Pracify within minutes to hire top college level talent for your organisation.",
+  },
+  {
+    head: "Review Applicants",
+    para:
+      "Review applicants based on their resume and on the basis of answers given to interview questions..",
+  },
+  {
+    head: "Hire Interns",
+    para:
+      "Hire interns which matches your requirements and onboard them directly so that they can start working.",
+  },
 ];
 
 const howCampusMarketingWork = [
-  "Send an enquiry on the dashboard",
-  "Our team will contact you and help you set up the campaign",
+  {
+    head: "Submit Query",
+    para:
+      "Submit your query on the Pracify dashboard if your brand is interested in engaging with students in campus.",
+  },
+  {
+    head: "Hear From Us",
+    para:
+      "Our team will get in touch with you shortly to discuss your go to campus strategy and take your brand to campus.",
+  },
 ];
 
 const howStudentOffersWork = [
-  "Send an enquiry on the dashboard",
-  "Our team will contact you and help you set up the campaign",
+  {
+    head: "Submit Query",
+    para:
+      "Submit your query on the Pracify dashboard if your brand is interested in lunching an exclusive student offer.",
+  },
+  {
+    head: "Hear From Us",
+    para:
+      "Our team will get in touch with you shortly to explain how you can leverage our verified student database to run a successful offer.",
+  },
 ];
 
 export default function HowItWorkPracify() {
@@ -38,11 +81,25 @@ export default function HowItWorkPracify() {
 
   const howPracifyWork = (data, index) => (
     <div className="content-design-block" key={index}>
-      <div className="content-block">
-        <img src={howItWorkIcon} alt="" className="content-block-img" />
-        <span className="content-block-img-span">{data}</span>
-      </div>
-      <div className="doted-line"></div>
+      {index === 0 && (
+        <div className="content-block-img">
+          <img src={numberOneIcon} alt="" className="number-img" />
+        </div>
+      )}
+      {index === 1 && (
+        <div className="content-block-img">
+          <img src={separatorIcon} alt="" className="separator-img" />
+          <img src={numberTwoIcon} alt="" className="number-img" />
+        </div>
+      )}
+      {index === 2 && (
+        <div className="content-block-img">
+          <img src={separatorIcon} alt="" className="separator-img" />
+          <img src={numberThreeIcon} alt="" className="number-img" />
+        </div>
+      )}
+      <h1 className="content-block-h1">{data.head}</h1>
+      <p className="content-block-p">{data.para}</p>
     </div>
   );
 
@@ -57,9 +114,9 @@ export default function HowItWorkPracify() {
         onCancel={handleModalCancel}
         footer={null}
         className="howItWorkModal"
-        width={941}
+        width={980}
       >
-        <Tabs defaultActiveKey="1">
+        <Tabs defaultActiveKey="1" className="howItWorkTab">
           <TabPane tab="Gigs" key="1">
             <div className="main-content-block">
               {howGigWork.map((data, index) => howPracifyWork(data, index))}
