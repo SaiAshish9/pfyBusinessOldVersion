@@ -206,6 +206,8 @@ export default function HowItWork() {
             {/* <h1 className="worker-advantage-main-head">Advantages</h1>
             {advantage(gigWorkerAdvantage, "worker")} */}
             <GigWorkersAdv/>
+            <h1 className="worker-advantage-main-head">Advantages</h1>
+            {advantage(gigWorkerAdvantage, "worker")}
             <div className="hiw-btn-block">
               <Button
                 className="hiw-btn"
@@ -225,6 +227,8 @@ export default function HowItWork() {
             {/* <h1 className="business-advantage-main-head">Advantages</h1> */}
             {/* {advantage(businessOwnerAdvantage, "business")} */}
             <CompanyOwnersAdv/>
+            <h1 className="business-advantage-main-head">Advantages</h1>
+            {advantage(businessOwnerAdvantage, "business")}
             <div className="hiw-btn-block">
               <a
                 href="https://business.pracify.com/"

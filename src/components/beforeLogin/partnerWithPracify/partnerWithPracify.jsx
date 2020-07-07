@@ -6,6 +6,7 @@ import cashSponsorshipIcon from "../../../assets/img/partnerWithPracify/cashSpon
 import promoteEventIcon from "../../../assets/img/partnerWithPracify/promoteEventIcon.svg";
 import rightArrowIconLight from "../../../assets/img/rightArrowIconLight.svg";
 import Footer from "../landingPage/components/desktop/CompanyPage/Footer";
+
 import PartnershipBenefits from './partnershipBenefits'
 
 
@@ -70,6 +71,8 @@ export default function PartnerWithPracify() {
           </Button>
         </div>
         {/* <h1 className="partnership-advantage">Partnership Advantages</h1>
+=======
+        <h1 className="partnership-advantage">Partnership Advantages</h1>
         <div className="partnership-advantage-main-block">
           {pwpData.map((data, index) => (
             <div className="partnership-advantage-block" key={index}>
@@ -89,13 +92,12 @@ export default function PartnerWithPracify() {
           className="partnership-button"
         >
           Let's Partner
+<<<<<<< HEAD
         </Button> 
         </div> */}
 
 
 <PartnershipBenefits/>
-
-
 
         <FillDetail
           contactName={contactTo}
