@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="17.089" height="13.5" viewBox="0 0 17.089 13.5">
+    <defs>
+        <style>
+            .prefix__cls-2{fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px}.series:hover .prefix__cls-2{stroke:#fff}
+        </style>
+    </defs>
+    <g class="series" id="prefix__Icon_feather-mail" data-name="Icon feather-mail" transform="translate(-1.956 -5.25)" style="opacity:.4">
+        <path id="prefix__Path_2887" d="M4.5 6h12A1.5 1.5 0 0 1 18 7.5v9a1.5 1.5 0 0 1-1.5 1.5h-12A1.5 1.5 0 0 1 3 16.5v-9A1.5 1.5 0 0 1 4.5 6z" class="prefix__cls-2" data-name="Path 2887"/>
+        <path id="prefix__Path_2888" d="M18 9l-7.5 5.25L3 9" class="prefix__cls-2" data-name="Path 2888" transform="translate(0 -1.5)"/>
+    </g>
+</svg>

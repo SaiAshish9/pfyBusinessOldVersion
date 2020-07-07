@@ -1,0 +1,53 @@
+
+
+export const MISSION = "0";
+export const INTERNSHIP = "1";
+export const WALLET = "2";
+export const CUSTOM = "3";
+
+export const INTERNSHIP_APPLICATION_APPLIED = 300;
+export const INTERNSHIP_APPLICATION_SHORTLISTED = 301;
+export const INTERNSHIP_APPLICATION_SELECTED = 302;
+export const INTERNSHIP_APPLICATION_REJECTED = 303;
+
+export const TASK_TYPE_TEXT = 101;
+export const TASK_TYPE_IMAGE = 102;
+export const TASK_TYPE_HYPER_LINK = 103;
+export const TASK_TYPE_LEAD = 104;
+
+export const MISSION_APPLIED = 601;
+export const MISSION_WAITLIST = 602;
+export const MISSION_SELECTED = 603;
+export const MISSION_REJECTED = 604;
+export const MISSION_COMPLETED = 605;
+export const MISSION_FAILED = 606;
+
+export const TASK_SUBMITTED = 701;
+export const TASK_APPROVED = 702;
+export const TASK_REJECTED = 703;
+
+export const MISSION_MONEY_NOT_REDEEMED = 901;
+export const MISSION_MONEY_REQUESTED = 902;
+export const MISSION_MONEY_GIVEN = 903;
+
+export const MONEY_REDEMPTION_REQUESTED = 801;
+export const MONEY_REDEMPTION_COMPLETED = 802;
+
+export const INTERNSHIP_UNDER_REVIEW = 1000;
+export const INTERNSHIP_ACCEPTED = 1001;
+export const INTERNSHIP_REJECTED = 1002;
+
+export const MISSION_UNDER_REVIEW = 1100;
+export const MISSION_REQ_ACCEPTED = 1101;
+export const MISSION_REQ_REJECTED = 1102;
+
+export const STUDENT_NOT_VERIFIED = 1200;
+export const STUDENT_VERIFICATION_PENDING = 1201;
+export const STUDENT_VERIFIED = 1202;
+
+export const CAMPAIGN_REQUEST_PENDING = 1300;
+export const CAMPAIGN_REQUEST_ACCEPTED = 1301;
+export const CAMPAIGN_REQUEST_REJECTED = 1302;
+
+export const COMPANY_DATA_NOT_AVAILABLE = 1400;
+export const COMPANY_DATA_AVAILABLE = 1401;

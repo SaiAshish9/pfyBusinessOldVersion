@@ -1,0 +1,260 @@
+@import "./showcaseCarousel";
+
+.login-main-block {
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100%;
+  background-image: url("../../assets/img/loginOrSignUp/loginBackgroundOne.png"),
+    url("../../assets/img/loginOrSignUp/loginBackgroundTwo.png");
+  background-repeat: no-repeat;
+  background-position: top -140px right -140px, bottom -100px left -100px;
+  .pracify-logo {
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    color: #00bfa6;
+    margin: 0 2px 4px 0;
+  }
+
+  %label {
+    margin-bottom: 6px;
+    opacity: 0.5;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #000000;
+  }
+  %input {
+    border-radius: 0px;
+    border-width: 0 0 2px 0;
+    border-style: solid;
+    border-color: #d3d3d3;
+    font-size: 15px;
+    &:focus,
+    &:hover,
+    &:focus-within {
+      border-width: 0 0 2px 0 !important;
+      border-style: solid;
+      border-color: #00bfa6;
+      box-shadow: none !important;
+    }
+    .ant-input-prefix {
+      line-height: 1.2;
+      margin-right: 12px;
+    }
+  }
+  %textarea {
+    border-radius: 0px;
+    border-width: 0 0 2px 0;
+    border-style: solid;
+    // margin-bottom: 25px;
+    border-color: #d3d3d3;
+    font-size: 15px;
+    &:focus,
+    &:hover,
+    &:focus-within {
+      border-width: 0 0 2px 0 !important;
+      border-style: solid;
+      border-color: #00bfa6;
+      box-shadow: none !important;
+    }
+  }
+  %select {
+    width: 100%;
+    font-size: 15px;
+    // margin-bottom: 25px;
+    .ant-select-selector {
+      border-radius: 0px;
+      border-width: 0 0 2px 0;
+      border-color: #d3d3d3;
+      border-style: solid;
+      &:focus,
+      &:hover,
+      &:focus-within {
+        border-width: 0 0 2px 0 !important;
+        border-style: solid;
+        border-color: #00bfa6;
+        box-shadow: none !important;
+      }
+    }
+  }
+  %button {
+    width: 100%;
+    height: 46px;
+    border-radius: 3px;
+    box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.16);
+    background-image: linear-gradient(to right, #00bfa6 1%, #444584 105%);
+    margin-bottom: 38px;
+    letter-spacing: 1.5px;
+
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.43;
+    color: #ffffff;
+  }
+
+  .login-form-block {
+    width: 408px;
+    border-radius: 18px;
+    box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.16);
+    background-color: #ffffff;
+    padding: 34px 60px;
+
+    .login__header {
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      line-height: 1.43;
+      color: #000000;
+      margin: 0 0 30px 0;
+    }
+
+    .OTP__para {
+    }
+    .form-block {
+      .email__input {
+        @extend%input;
+      }
+
+      .password__input {
+        @extend%input;
+      }
+
+      .rememberOrForgotPassword {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 25px;
+        .remember-user {
+          font-size: 14px;
+          line-height: 1.43;
+          color: #000000;
+        }
+        .forgotPassword__span {
+          font-size: 14px;
+          line-height: 1.43;
+          color: #000000;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .login__button {
+      @extend%button;
+    }
+    .newUser__span {
+      text-align: center;
+      width: 100%;
+      font-size: 16px;
+      line-height: 1.38;
+      color: #000000;
+      .register__span {
+        color: #00bfa6;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .showcase-carousel-main-block {
+    width: 45%;
+  }
+
+  @media screen and (max-width: 812px) {
+    height: 200%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .showcase-carousel-main-block {
+      width: 100%;
+    }
+  }
+}
+
+.signUp-form-block {
+  // display: grid;
+  grid-gap: 0px 20px;
+  grid-template-areas:
+    "firstName"
+    "lastName"
+    "mobile"
+    "email"
+    "password";
+    // "otp";
+    // "companyName"
+    // "companyWebsite"
+    // "companyType"
+    // "aboutCompany"
+    // "button";
+    .firstName {
+    grid-area: firstName;
+    .firstName__input {
+      @extend%input;
+    }
+  }
+
+  .lastName {
+    grid-area: lastName;
+    .lastName__input {
+      @extend%input;
+    }
+  }
+  .mobile {
+    grid-area: mobile;
+    .mobile__input {
+      @extend%input;
+    }
+  }
+
+  .email {
+    grid-area: email;
+    .email__input {
+      @extend%input;
+    }
+  }
+
+  .password {
+    grid-area: password;
+    .password__input {
+      @extend%input;
+    }
+  }
+
+  .email-otp {
+    // grid-area: otp;
+    .email-otp__input {
+      @extend%input;
+    }
+  }
+
+  .companyName {
+    // grid-area: companyName;
+    .companyName__input {
+      @extend%input;
+    }
+  }
+  .websiteLink {
+    // grid-area: websiteLink;
+    .websiteLink__input {
+      @extend%input;
+    }
+  }
+  .companyType {
+    // grid-area: companyType;
+    .companyType__input {
+      @extend%select;
+    }
+  }
+  .aboutCompany {
+    // grid-area: aboutCompany;
+    .aboutCompany__input {
+      @extend%textarea;
+    }
+  }
+
+  .register__button {
+    // grid-area: button;
+    @extend%button;
+  }
+}

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="prefix__Group_272" width="74" height="74" data-name="Group 272" viewBox="0 0 74 74">
+    <defs>
+        <style>
+            .prefix__cls-2{fill:#ae4e32}.prefix__cls-5{fill:#ff6838}.prefix__cls-6{fill:#ffdc00}.prefix__cls-7{fill:#ffc000}
+        </style>
+    </defs>
+    <!-- <rect id="prefix__Rectangle_357" width="74" height="74" data-name="Rectangle 357" rx="4" style="fill:#ffe289"/> -->
+    <path id="prefix__Path_322" d="M170.15 299.464l-9.579 3.233-6.739-19.264 9.579-3.233z" class="prefix__cls-2" data-name="Path 322" transform="translate(-132.384 -240.697)"/>
+    <path id="prefix__Path_323" d="M158.379 136.317s-22.533-6.209-37.738-.89l-4.061-11.608c15.2-5.319 28.953-24.22 28.953-24.22z" data-name="Path 323" transform="translate(-100.806 -87.6)" style="fill:#fff"/>
+    <path id="prefix__Path_324" d="M132.753 231.937l1.6 4.568c15.2-5.319 37.738.89 37.738.89l-6.493-18.56z" data-name="Path 324" transform="translate(-114.515 -188.677)" style="fill:#e0e0e0"/>
+    <path id="prefix__Path_325" d="M281.016 99.6s-1.721 2.364-4.615 5.655l10.326 29.518c4.314.768 7.134 1.545 7.134 1.545z" class="prefix__cls-5" data-name="Path 325" transform="translate(-236.288 -87.6)"/>
+    <path id="prefix__Path_326" d="M310.425 221.142l5.145 14.707c4.314.768 7.134 1.545 7.134 1.545l-6.493-18.56z" class="prefix__cls-2" data-name="Path 326" transform="translate(-265.13 -188.676)"/>
+    <path id="prefix__Path_327" d="M69.535 272.825l7.826-2.573-4.061-11.608-7.775 2.72z" class="prefix__cls-5" data-name="Path 327" transform="translate(-57.526 -222.424)"/>
+    <path id="prefix__Path_328" d="M82.468 307.927l1.429 4.086 7.826-2.573-1.6-4.568z" class="prefix__cls-2" data-name="Path 328" transform="translate(-71.888 -261.612)"/>
+    <path id="prefix__Rectangle_438" d="M0 0H3.046V10.917H0z" class="prefix__cls-6" data-name="Rectangle 438" transform="scale(-1) rotate(67 -4.596 -57.197)"/>
+    <path id="prefix__Path_329" d="M383.473 185.17l-.668-1.575-10.081 4.193.7 1.646z" class="prefix__cls-7" data-name="Path 329" transform="translate(-317.942 -158.804)"/>
+    <path id="prefix__Rectangle_439" d="M0 0H3.046V8.819H0z" class="prefix__cls-6" data-name="Rectangle 439" transform="rotate(-156.447 28.876 6.398)"/>
+    <path id="prefix__Rectangle_440" d="M0 0H8.819V3.046H0z" class="prefix__cls-7" data-name="Rectangle 440" transform="rotate(-166.42 34.693 16.275)"/>
+</svg>

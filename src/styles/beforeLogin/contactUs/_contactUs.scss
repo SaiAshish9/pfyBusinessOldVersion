@@ -1,0 +1,104 @@
+@import "./fillDetail";
+
+.contact-us-main-block {
+  margin-top: 120px;
+  .contact-us-tab {
+    text-align: center;
+    .ant-tabs-bar {
+      border: none;
+      .ant-tabs-nav {
+        margin: 20px;
+        padding: 3px;
+        border-radius: 10px;
+        box-shadow: 0 3px 14px 0 rgba(0, 0, 0, 0.08);
+        #tab-1 {
+          margin: 0;
+        }
+        #tab-2 {
+          margin: 0;
+        }
+        .ant-tabs-tab {
+          padding: 18px 36px !important;
+          border: none !important;
+          background-color: #fff !important;
+          font-size: 15px;
+          font-weight: 600;
+          color: #7a81ea !important;
+        }
+        .ant-tabs-tab-active {
+          padding: 18px 36px !important;
+          border-radius: 8px;
+          border: solid 1px #7a81ea !important;
+          background-color: #7a81ea !important;
+          font-size: 15px;
+          font-weight: 600;
+          color: #fff !important;
+        }
+      }
+    }
+    .ant-tabs-content {
+      text-align: initial;
+    }
+  }
+  .contact-us-block {
+    margin: 70px 80px 50px 110px;
+    display: grid;
+    grid-template:
+      "head form"
+      "para form"
+      "img form" 1fr/0.5fr 1fr;
+    .contact-us-head {
+      grid-area: head;
+      margin: 0;
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 1.21;
+      color: #333e49;
+    }
+    .contact-us-para {
+      grid-area: para;
+      margin: 38px 0 80px;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.45;
+      color: #333e49;
+    }
+    .contact-us-img-block {
+      grid-area: img;
+      width: 100%;
+      .contact-us-img {
+        width: 100%;
+      }
+    }
+    .contact-us-form-block {
+      grid-area: form;
+      align-self: flex-start;
+      margin-left: 54px;
+      padding: 40px 56px 20px;
+      border-radius: 24px;
+      box-shadow: 0 11px 37px 0 rgba(0, 0, 0, 0.16);
+      background-color: #ffffff;
+    }
+  }
+  .ant-tabs-tabpane:nth-child(1) {
+    .contact-us-block {
+      .contact-us-para {
+        margin-right: 80px;
+      }
+    }
+  }
+  .ant-tabs-tabpane:nth-child(2) {
+    .contact-us-block {
+      .contact-us-para {
+        margin-right: 41px;
+      }
+    }
+  }
+  .ant-tabs-tabpane:nth-child(3) {
+    .contact-us-block {
+      .contact-us-para {
+        margin-right: 16px;
+      }
+    }
+  }
+}

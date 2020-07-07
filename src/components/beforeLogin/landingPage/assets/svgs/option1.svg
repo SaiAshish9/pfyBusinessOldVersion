@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="308" height="285" viewBox="0 0 308 285">
+    <defs>
+        <filter id="prefix__Rectangle_1441" width="308" height="285" x="0" y="0" filterUnits="userSpaceOnUse">
+            <feOffset dy="3"/>
+            <feGaussianBlur result="blur" stdDeviation="10"/>
+            <feFlood flood-opacity=".161"/>
+            <feComposite in2="blur" operator="in"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <filter id="prefix__Rectangle_1470" width="97" height="47" x="177" y="67" filterUnits="userSpaceOnUse">
+            <feOffset/>
+            <feGaussianBlur result="blur-2" stdDeviation="3"/>
+            <feFlood flood-opacity=".161"/>
+            <feComposite in2="blur-2" operator="in"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <filter id="prefix__Rectangle_1470-2" width="91" height="41" x="180" y="107" filterUnits="userSpaceOnUse">
+            <feOffset/>
+            <feGaussianBlur result="blur-3" stdDeviation="2"/>
+            <feFlood flood-opacity=".161"/>
+            <feComposite in2="blur-3" operator="in"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <filter id="prefix__Rectangle_1470-3" width="85" height="36" x="183" y="146" filterUnits="userSpaceOnUse">
+            <feOffset/>
+            <feGaussianBlur result="blur-4" stdDeviation="1"/>
+            <feFlood flood-opacity=".161"/>
+            <feComposite in2="blur-4" operator="in"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <filter id="prefix__Rectangle_1471" width="140" height="184" x="42" y="57" filterUnits="userSpaceOnUse">
+            <feOffset/>
+            <feGaussianBlur result="blur-5" stdDeviation="1"/>
+            <feFlood flood-opacity=".161"/>
+            <feComposite in2="blur-5" operator="in"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <filter id="prefix__Icon_ionic-ios-arrow-dropleft-circle" width="23.341" height="23.341" x="39.774" y="119.818" filterUnits="userSpaceOnUse">
+            <feOffset dy="3"/>
+            <feGaussianBlur result="blur-6" stdDeviation="3"/>
+            <feFlood flood-opacity=".161"/>
+            <feComposite in2="blur-6" operator="in"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <filter id="prefix__Icon_ionic-ios-arrow-dropleft-circle-2" width="23.341" height="23.341" x="159.951" y="119.818" filterUnits="userSpaceOnUse">
+            <feOffset dy="3"/>
+            <feGaussianBlur result="blur-7" stdDeviation="3"/>
+            <feFlood flood-opacity=".161"/>
+            <feComposite in2="blur-7" operator="in"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <filter id="prefix__Rectangle_1506" width="254" height="26" x="27" y="25" filterUnits="userSpaceOnUse">
+            <feOffset dy="1"/>
+            <feGaussianBlur result="blur-8" stdDeviation="1"/>
+            <feFlood flood-opacity=".161"/>
+            <feComposite in2="blur-8" operator="in"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <style>
+            .prefix__cls-17,.prefix__cls-2{fill:#fff}.prefix__cls-4{fill:#dfdfdf}.prefix__cls-5{fill:#efefef}.prefix__cls-12{fill:#f5f5f5}.prefix__cls-14{fill:#7a81ea}.prefix__cls-17{opacity:.26}.prefix__cls-18{fill:#c4c4c4}.prefix__cls-22{fill:#f9f9f9}
+        </style>
+    </defs>
+    <g id="prefix__Group_538" data-name="Group 538" opacity="0.5" transform="translate(-79.159 -1031.726)">
+        <g filter="url(#prefix__Rectangle_1441)" transform="translate(79.16 1031.73)">
+            <rect id="prefix__Rectangle_1441-2" width="248" height="225" class="prefix__cls-2" data-name="Rectangle 1441" rx="8" transform="translate(30 27)"/>
+        </g>
+        <g filter="url(#prefix__Rectangle_1470)" transform="translate(79.16 1031.73)">
+            <rect id="prefix__Rectangle_1470-4" width="79" height="29" class="prefix__cls-2" data-name="Rectangle 1470" rx="6" transform="translate(186 76)"/>
+        </g>
+        <g filter="url(#prefix__Rectangle_1470-2)" transform="translate(79.16 1031.73)">
+            <rect id="prefix__Rectangle_1470-5" width="79" height="29" class="prefix__cls-2" data-name="Rectangle 1470" rx="6" transform="translate(186 113)"/>
+        </g>
+        <g filter="url(#prefix__Rectangle_1470-3)" transform="translate(79.16 1031.73)">
+            <rect id="prefix__Rectangle_1470-6" width="79" height="30" class="prefix__cls-2" data-name="Rectangle 1470" rx="6" transform="translate(186 149)"/>
+        </g>
+        <rect id="prefix__Rectangle_1470-7" width="79" height="30" class="prefix__cls-2" data-name="Rectangle 1470" rx="6" transform="translate(265.158 1217.726)"/>
+        <g filter="url(#prefix__Rectangle_1471)" transform="translate(79.16 1031.73)">
+            <rect id="prefix__Rectangle_1471-2" width="134" height="178" class="prefix__cls-2" data-name="Rectangle 1471" rx="5" transform="translate(45 60)"/>
+        </g>
+        <g id="prefix__Group_530" data-name="Group 530" transform="translate(270.322 1113.457)">
+            <rect id="prefix__Rectangle_1472" width="19" height="18" fill="rgba(56,189,186,0.41)" data-name="Rectangle 1472" rx="3" transform="translate(-.163 .269)"/>
+            <rect id="prefix__Rectangle_1473" width="39" height="3" class="prefix__cls-4" data-name="Rectangle 1473" rx="1.5" transform="translate(26.837 1.269)"/>
+            <rect id="prefix__Rectangle_1474" width="17" height="3" class="prefix__cls-5" data-name="Rectangle 1474" rx="1.5" transform="translate(26.837 6.269)"/>
+            <rect id="prefix__Rectangle_1475" width="17" height="3" class="prefix__cls-5" data-name="Rectangle 1475" rx="1.5" transform="translate(26.837 14.269)"/>
+            <rect id="prefix__Rectangle_1476" width="17" height="3" class="prefix__cls-5" data-name="Rectangle 1476" rx="1.5" transform="translate(48.837 14.269)"/>
+        </g>
+        <rect id="prefix__Rectangle_1477" width="19" height="18" fill="rgba(64,105,241,0.34)" data-name="Rectangle 1477" rx="3" transform="translate(270.158 1150.726)"/>
+        <rect id="prefix__Rectangle_1478" width="39" height="3" class="prefix__cls-4" data-name="Rectangle 1478" rx="1.5" transform="translate(297.158 1151.726)"/>
+        <rect id="prefix__Rectangle_1479" width="17" height="3" class="prefix__cls-5" data-name="Rectangle 1479" rx="1.5" transform="translate(297.158 1156.726)"/>
+        <rect id="prefix__Rectangle_1480" width="17" height="2" class="prefix__cls-5" data-name="Rectangle 1480" rx="1" transform="translate(297.158 1164.726)"/>
+        <rect id="prefix__Rectangle_1481" width="17" height="2" class="prefix__cls-5" data-name="Rectangle 1481" rx="1" transform="translate(319.158 1164.726)"/>
+        <rect id="prefix__Rectangle_1482" width="19" height="19" fill="rgba(211,141,28,0.31)" data-name="Rectangle 1482" rx="3" transform="translate(270.158 1186.726)"/>
+        <rect id="prefix__Rectangle_1483" width="39" height="3" class="prefix__cls-4" data-name="Rectangle 1483" rx="1.5" transform="translate(297.158 1188.726)"/>
+        <rect id="prefix__Rectangle_1484" width="17" height="3" class="prefix__cls-5" data-name="Rectangle 1484" rx="1.5" transform="translate(297.158 1193.726)"/>
+        <rect id="prefix__Rectangle_1485" width="17" height="3" class="prefix__cls-5" data-name="Rectangle 1485" rx="1.5" transform="translate(297.158 1200.726)"/>
+        <rect id="prefix__Rectangle_1486" width="17" height="3" class="prefix__cls-5" data-name="Rectangle 1486" rx="1.5" transform="translate(319.158 1200.726)"/>
+        <rect id="prefix__Rectangle_1487" width="19" height="18" fill="rgba(241,64,64,0.24)" data-name="Rectangle 1487" rx="3" transform="translate(270.158 1224.726)"/>
+        <rect id="prefix__Rectangle_1488" width="39" height="3" class="prefix__cls-4" data-name="Rectangle 1488" rx="1.5" transform="translate(297.158 1225.726)"/>
+        <rect id="prefix__Rectangle_1489" width="17" height="3" class="prefix__cls-5" data-name="Rectangle 1489" rx="1.5" transform="translate(297.158 1230.726)"/>
+        <rect id="prefix__Rectangle_1490" width="17" height="3" class="prefix__cls-5" data-name="Rectangle 1490" rx="1.5" transform="translate(297.158 1236.726)"/>
+        <rect id="prefix__Rectangle_1491" width="17" height="3" class="prefix__cls-5" data-name="Rectangle 1491" rx="1.5" transform="translate(319.158 1236.726)"/>
+        <text id="prefix__Similar_Gigs" fill="#333e49" data-name="Similar Gigs" font-family="CircularStd-Medium, Circular Std Medium" font-size="6px" font-weight="500" transform="translate(282.158 1096.726)">
+            <tspan x="-16.524" y="0">Similar Gigs</tspan>
+        </text>
+        <rect id="prefix__Rectangle_1492" width="24" height="24" fill="rgba(68,69,132,0.3)" data-name="Rectangle 1492" rx="3" transform="translate(133.159 1112.726)"/>
+        <rect id="prefix__Rectangle_1493" width="65" height="5" class="prefix__cls-4" data-name="Rectangle 1493" rx="2.5" transform="translate(164.159 1114.726)"/>
+        <rect id="prefix__Rectangle_1494" width="34" height="4" class="prefix__cls-5" data-name="Rectangle 1494" rx="2" transform="translate(164.159 1122.726)"/>
+        <rect id="prefix__Rectangle_1495" width="52" height="3" class="prefix__cls-5" data-name="Rectangle 1495" rx="1.5" transform="translate(164.159 1132.726)"/>
+        <text id="prefix__Responsibilities" fill="#333e49" font-family="CircularStd-Book, Circular Std Book" font-size="6px" transform="translate(152.158 1190.726)">
+            <tspan x="-20.94" y="0">Responsibilities</tspan>
+        </text>
+        <rect id="prefix__Rectangle_1497" width="96" height="3" class="prefix__cls-12" data-name="Rectangle 1497" rx="1.5" transform="translate(131.159 1197.726)"/>
+        <rect id="prefix__Rectangle_1498" width="85" height="3" class="prefix__cls-12" data-name="Rectangle 1498" rx="1.5" transform="translate(131.159 1205.726)"/>
+        <text id="prefix__Skills_Required" fill="#333e49" data-name="Skills Required" font-family="CircularStd-Book, Circular Std Book" font-size="7px" transform="translate(154.158 1222.726)">
+            <tspan x="-23.132" y="0">Skills Required</tspan>
+        </text>
+        <rect id="prefix__Rectangle_1500" width="96" height="3" class="prefix__cls-12" data-name="Rectangle 1500" rx="1.5" transform="translate(131.159 1228.726)"/>
+        <rect id="prefix__Rectangle_1501" width="85" height="4" class="prefix__cls-12" data-name="Rectangle 1501" rx="2" transform="translate(131.159 1235.726)"/>
+        <rect id="prefix__Rectangle_1503" width="51" height="26" class="prefix__cls-14" data-name="Rectangle 1503" rx="3" transform="translate(137.159 1147.726)"/>
+        <rect id="prefix__Rectangle_1503-2" width="53" height="26" class="prefix__cls-14" data-name="Rectangle 1503" rx="3" transform="translate(192.159 1147.726)"/>
+        <text id="prefix__Task_1" fill="#fff" data-name="Task 1" font-family="CircularStd-Book, Circular Std Book" font-size="4px" transform="translate(147.158 1156.726)">
+            <tspan x="-5.22" y="0">Task 1</tspan>
+        </text>
+        <text id="prefix__Task_2" fill="#fff" data-name="Task 2" font-family="CircularStd-Book, Circular Std Book" font-size="1px" transform="translate(201.158 1154.726)">
+            <tspan x="-1.393" y="0">Task 2</tspan>
+        </text>
+        <rect id="prefix__Rectangle_1504" width="40" height="2" class="prefix__cls-17" data-name="Rectangle 1504" rx="1" transform="translate(142.159 1164.726)"/>
+        <rect id="prefix__Rectangle_1505" width="40" height="2" class="prefix__cls-17" data-name="Rectangle 1505" rx="1" transform="translate(200.159 1164.726)"/>
+        <g filter="url(#prefix__Icon_ionic-ios-arrow-dropleft-circle)" transform="translate(79.16 1031.73)">
+            <path id="prefix__Icon_ionic-ios-arrow-dropleft-circle-3" d="M6.046 3.375a2.671 2.671 0 1 0 2.67 2.671 2.67 2.67 0 0 0-2.67-2.671zM6.6 7.087a.249.249 0 0 1 0 .351.245.245 0 0 1-.175.072.249.249 0 0 1-.176-.073L5.045 6.225a.248.248 0 0 1 .008-.342l1.225-1.228a.248.248 0 0 1 .351.351l-1.052 1.04z" class="prefix__cls-18" data-name="Icon ionic-ios-arrow-dropleft-circle" transform="translate(45.4 122.44)"/>
+        </g>
+        <g filter="url(#prefix__Icon_ionic-ios-arrow-dropleft-circle-2)" transform="translate(79.16 1031.73)">
+            <path id="prefix__Icon_ionic-ios-arrow-dropleft-circle-4" d="M6.046 3.375a2.671 2.671 0 1 1-2.671 2.671 2.67 2.67 0 0 1 2.671-2.671zm-.558 3.712a.249.249 0 0 0 0 .351.245.245 0 0 0 .175.072.249.249 0 0 0 .176-.073l1.207-1.212a.248.248 0 0 0-.008-.342L5.813 4.655a.248.248 0 0 0-.351.351l1.052 1.04z" class="prefix__cls-18" data-name="Icon ionic-ios-arrow-dropleft-circle" transform="translate(165.58 122.44)"/>
+        </g>
+        <g filter="url(#prefix__Rectangle_1506)" transform="translate(79.16 1031.73)">
+            <path id="prefix__Rectangle_1506-2" d="M9 0h230a9 9 0 0 1 9 9v11H0V9a9 9 0 0 1 9-9z" class="prefix__cls-2" data-name="Rectangle 1506" transform="translate(30 27)"/>
+        </g>
+        <text id="prefix__Gig_Description" fill="#333e49" data-name="Gig Description" font-family="CircularStd-Book, Circular Std Book" font-size="5px" transform="translate(151.158 1100.726)">
+            <tspan x="-17.587" y="0">Gig Description</tspan>
+        </text>
+        <text id="prefix__About_Company" fill="#333e49" data-name="About Company" font-family="CircularStd-Book, Circular Std Book" font-size="4px" opacity="0.2" transform="translate(200.158 1099.726)">
+            <tspan x="-14.776" y="0">About Company</tspan>
+        </text>
+        <path id="prefix__Line_87" fill="none" stroke="#333e49" stroke-width="0.7px" d="M0 0L20.231 0" data-name="Line 87" transform="translate(143.242 1105.082)"/>
+        <rect id="prefix__Rectangle_1507" width="39" height="7" class="prefix__cls-22" data-name="Rectangle 1507" rx="3.5" transform="translate(162.159 1065.726)"/>
+        <rect id="prefix__Rectangle_1508" width="39" height="7" class="prefix__cls-22" data-name="Rectangle 1508" rx="3.5" transform="translate(206.159 1065.726)"/>
+        <circle id="prefix__Ellipse_648" cx="3.5" cy="3.5" r="3.5" class="prefix__cls-12" data-name="Ellipse 648" transform="translate(339.158 1065.726)"/>
+        <text id="prefix__pracify" fill="#333e49" font-family="ProximaNovaA-Bold, Proxima Nova Alt" font-size="6px" font-weight="700" transform="translate(134.158 1069.726)">
+            <tspan x="-9.561" y="0">pracify</tspan>
+        </text>
+        <rect id="prefix__Rectangle_1509" width="44" height="15" class="prefix__cls-14" data-name="Rectangle 1509" rx="7.5" transform="translate(169.159 1246.726)"/>
+        <text id="prefix__Apply" fill="#fff" font-family="CircularStd-Bold, Circular Std Bold" font-size="6px" font-weight="700" transform="translate(191.158 1256.726)">
+            <tspan x="-8.337" y="0">Apply</tspan>
+        </text>
+    </g>
+</svg>

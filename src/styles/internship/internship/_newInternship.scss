@@ -1,0 +1,89 @@
+.newInternship-main-block {
+  // ----------------------- similar style in this block ---------------------- */
+  //#region
+  %block {
+    display: grid;
+    border-radius: 9px;
+    border: solid 1px #c6c6c6;
+    padding: 25px;
+    margin-bottom: 30px;
+  }
+  %image {
+    grid-area: img;
+    width: 131px;
+    height: 131px;
+    border-radius: 9px;
+    background-color: #f5f5f5;
+  }
+  %header {
+    grid-area: heading;
+    font-size: 26px;
+    line-height: 1.38;
+    color: #062f4f;
+  }
+  %para {
+    grid-area: para;
+    opacity: 0.5;
+    font-size: 18px;
+    line-height: 1.44;
+    color: #062f4f;
+  }
+  %button {
+    grid-area: button;
+    align-self: end;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    width: 294px;
+    height: 51px;
+    border-radius: 3px;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.16);
+    background-color: #062f4f;
+  }
+  //#endregion
+  /* --------------------------------- ****** --------------------------------- */
+
+  .newInternship-block-one {
+    @extend%block;
+    grid-template:
+      "img heading heading"
+      "img para button";
+
+    .img-block-one {
+      @extend%image;
+      margin-right: 48px;
+    }
+    .block-one__header {
+      @extend%header;
+    }
+    .block-one__para {
+      @extend%para;
+    }
+    .block-one__button {
+      @extend%button;
+    }
+  }
+
+  .newInternship-block-two {
+    grid-template:
+      "heading heading img"
+      "button para img";
+
+    @extend%block;
+    .block-two__button {
+      @extend%button;
+    }
+    .block-two__header {
+      @extend%header;
+      text-align: end;
+    }
+    .block-two__para {
+      @extend%para;
+      text-align: end;
+    }
+    .img-block-two {
+      @extend %image;
+      margin-left: 48px;
+    }
+  }
+}

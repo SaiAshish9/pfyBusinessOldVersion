@@ -1,0 +1,262 @@
+.wwd-block {
+  margin: 70px;
+  text-align: center;
+  .wwd-header-block {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .wwd-header {
+      position: relative;
+      padding-bottom: 12px;
+      font-size: 36px;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: 1.8px;
+      color: #333e49;
+      &:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        height: 3px;
+        width: 100%;
+        background: #333e49;
+        border-bottom: 3px solid #333e49;
+        border-radius: 70px;
+      }
+    }
+  }
+
+  .ant-tabs-tabpane {
+    min-height: 600px;
+    .wwd-img {
+      width: 80%;
+      margin-left: 150px;
+    }
+  }
+
+  .ant-tabs-nav-scroll {
+    background-color: #ffffff;
+    .ant-tabs-nav.ant-tabs-nav-animated {
+      padding: 0px 20px;
+      margin: 8px 0px;
+      border-radius: 4px;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 10px 0px;
+      .ant-tabs-tab {
+        margin: 16px 60px;
+        padding: 0;
+        font-size: 16px;
+        &:hover {
+          color: #333e49;
+        }
+      }
+      .ant-tabs-tab-active.ant-tabs-tab {
+        color: #333e49;
+      }
+      .ant-tabs-ink-bar.ant-tabs-ink-bar-animated {
+        background-color: #333e49;
+      }
+    }
+  }
+  .outSourcing-block {
+    display: grid;
+    text-align: initial;
+    padding: 62px 98px 40px 98px;
+    margin-top: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.11);
+    background-color: #444584;
+    grid-template: "header header" "para button";
+    .outSourcing__header {
+      grid-area: header;
+      margin-bottom: 32px;
+      opacity: 0.9;
+      font-size: 28px;
+      font-weight: bold;
+      line-height: 1.43;
+      letter-spacing: 1.4px;
+      color: #ffffff;
+    }
+    .outSourcing__para {
+      grid-area: para;
+      width: 90%;
+
+      opacity: 0.8;
+      font-size: 20px;
+      line-height: 1.5;
+      color: #ffffff;
+    }
+    .outSourcing__button {
+      grid-area: button;
+      align-self: center;
+
+      height: 74px;
+      width: 243px;
+      border-radius: 37px;
+      box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+      background-color: #38bdba;
+      border: 1px solid #38bdba;
+
+      font-size: 20px;
+      font-weight: 900;
+      line-height: 1.5;
+      letter-spacing: 1px;
+      color: #ffffff;
+    }
+  }
+
+  @media (min-width: $bigTabletScreen) and (max-width: $smallLaptopScreen) {
+    .ant-tabs-nav-scroll {
+      .ant-tabs-nav.ant-tabs-nav-animated {
+        .ant-tabs-tab {
+          margin: 14px 40px;
+        }
+      }
+    }
+    .outSourcing-block {
+      padding: 54px 80px 40px 80px;
+
+      .outSourcing__header {
+        font-size: 26px;
+      }
+      .outSourcing__button {
+        height: 56px;
+      }
+    }
+  }
+  @media (min-width: $smallTableScreen) and (max-width: $bigTabletScreen) {
+    // background: lightpink;
+    .wwd-header-block {
+      .wwd-header {
+        font-size: 22px;
+      }
+    }
+
+    .ant-tabs-tabpane {
+      min-height: 400px;
+      .wwd-img {
+        width: 90%;
+        margin-left: 84px;
+      }
+    }
+    .ant-tabs-nav-scroll {
+      .ant-tabs-nav.ant-tabs-nav-animated {
+        .ant-tabs-tab {
+          margin: 14px 40px;
+          font-size: 14px;
+        }
+      }
+    }
+    .outSourcing-block {
+      padding: 40px 70px 40px 70px;
+      .outSourcing__header {
+        font-size: 22px;
+      }
+      .outSourcing__para {
+        font-size: 16px;
+      }
+      .outSourcing__button {
+        height: 38px;
+        width: 160px;
+        font-size: 16px;
+      }
+    }
+  }
+  @media (min-width: $mobileScreen) and (max-width: $smallTableScreen) {
+    // background: lightyellow;
+    margin: 40px;
+    // padding: 40px;
+    .wwd-header-block {
+      .wwd-header {
+        font-size: 22px;
+      }
+    }
+    .ant-tabs-tabpane {
+      min-height: 300px;
+      .wwd-img {
+        width: 100%;
+        margin-left: 40px;
+      }
+    }
+    .ant-tabs-nav-scroll {
+      .ant-tabs-nav.ant-tabs-nav-animated {
+        padding: 0px;
+        .ant-tabs-tab {
+          font-size: 13px;
+          margin: auto;
+          padding: 12px;
+        }
+        .ant-tabs-tab-active.ant-tabs-tab {
+          color: #333e49;
+        }
+        .ant-tabs-ink-bar.ant-tabs-ink-bar-animated {
+          background-color: #333e49;
+        }
+      }
+    }
+    .outSourcing-block {
+      padding: 40px 70px 40px 70px;
+      grid-template: "header" "para" "button";
+      .outSourcing__header {
+        font-size: 20px;
+      }
+      .outSourcing__para {
+        font-size: 16px;
+      }
+      .outSourcing__button {
+        height: 38px;
+        width: 160px;
+        font-size: 16px;
+      }
+    }
+  }
+  @media (max-width: $mobileScreen) {
+    // background: lightgreen;
+    margin: 0px;
+    .wwd-header-block {
+      .wwd-header {
+        font-size: 18px;
+        letter-spacing: initial;
+      }
+    }
+    .ant-tabs-tabpane {
+      min-height: 240px;
+      .wwd-img {
+        width: 100%;
+        margin-left: 28px;
+      }
+    }
+    .ant-tabs-nav-scroll {
+      padding: 0;
+      .ant-tabs-nav.ant-tabs-nav-animated {
+        padding: 0px;
+        .ant-tabs-tab {
+          margin: auto;
+          font-size: 13px;
+          padding: 12px;
+        }
+        .ant-tabs-tab-active.ant-tabs-tab {
+          color: #333e49;
+        }
+        .ant-tabs-ink-bar.ant-tabs-ink-bar-animated {
+          background-color: #333e49;
+        }
+      }
+    }
+    .outSourcing-block {
+      padding: 40px 20px 40px 20px;
+      margin: 0 20px;
+      grid-template: "header" "para" "button";
+      .outSourcing__header {
+        font-size: 18px;
+      }
+      .outSourcing__para {
+        font-size: 14px;
+      }
+      .outSourcing__button {
+        height: 38px;
+        width: 160px;
+        font-size: 16px;
+      }
+    }
+  }
+}

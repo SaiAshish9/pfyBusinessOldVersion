@@ -1,0 +1,14 @@
+// @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+@font-face {
+  font-family: Lato;
+  src: url("../../assets/font/lato/Lato-Regular.ttf") format("truetype");
+}
+
+$myFont: Lato, sans-serif;
+
+$smallLaptopScreen: 1326px;
+$bigTabletScreen: 1024px;
+$smallTableScreen: 768px;
+$mobileScreen: 480px;
+

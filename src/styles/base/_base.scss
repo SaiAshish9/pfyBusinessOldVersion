@@ -1,0 +1,39 @@
+html,
+body {
+  // font-size: 62.5%;
+  height: 100%;
+}
+*{
+  // font-family: 'Lato';
+  font-family: 'Inter', sans-serif;
+}
+#root {
+  height: 100%;
+}
+
+
+*,ant-table-body{
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+.ant-input-number-handler-wrap{
+  display: none;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #444584;
+  border-radius: 1rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #444584;
+}
+}

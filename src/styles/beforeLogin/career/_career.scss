@@ -1,0 +1,137 @@
+.career-main-block {
+  font-family: $myFont;
+  padding-top: 136px;
+  .workWithUs-block {
+    padding: 0px 40px;
+    margin: auto;
+    text-align: center;
+    .workWithUs-head {
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.22;
+      color: #333e49;
+    }
+
+    .workWithUs-para {
+      margin: 28px;
+      font-size: 18px;
+      line-height: 1.5;
+      color: #333e49;
+    }
+
+    .openings-button {
+      width: 203px;
+      height: 65px;
+      border-radius: 5px;
+      border: 1px solid #ea907a;
+      background-color: #ea907a;
+      box-shadow: 0 16px 29px 0 rgba(0, 0, 0, 0.08);
+
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.22;
+      color: #ffffff;
+
+      .openings-span{
+        margin-left: 20px;
+      }
+    }
+  }
+
+  .career-hero-block {
+    margin-top: 60px;
+    padding: 40px 0;
+    display: flex;
+    align-items: center;
+    background-image: linear-gradient(to bottom, #fffbfa, #fffcfb 50%, #ffffff);
+    .career-hero-para-block {
+      margin: 0 118px;
+      .career-hero-para {
+        margin-bottom: 28px;
+        font-size: 17px;
+        line-height: 1.94;
+        color: #333e49;
+      }
+    }
+    .career-hero-img-block {
+      .career-hero-img {
+      }
+    }
+  }
+  @media (min-width: $bigTabletScreen) and (max-width: $smallLaptopScreen) {
+  }
+
+  @media (min-width: $smallTableScreen) and (max-width: $bigTabletScreen) {
+    .career-hero-block {
+      flex-direction: column-reverse;
+      .career-hero-para-block {
+        text-align: center;
+        margin: 0 20px;
+      }
+      .career-hero-img-block {
+        margin: 40px;
+        .career-hero-img {
+          width: 100%;
+        }
+      }
+    }
+  }
+  @media (min-width: $mobileScreen) and (max-width: $smallTableScreen) {
+    padding-top: 80px;
+    .workWithUs-block {
+      .workWithUs-head {
+        font-size: 32px;
+      }
+      .workWithUs-para {
+        font-size: 16px;
+      }
+      .openings-button {
+      }
+    }
+    .career-hero-block {
+      flex-direction: column-reverse;
+      .career-hero-para-block {
+        text-align: center;
+        margin: 0 20px;
+        .career-hero-para {
+          font-size: 16px;
+        }
+      }
+      .career-hero-img-block {
+        margin: 40px 20px;
+        .career-hero-img {
+          width: 100%;
+        }
+      }
+    }
+  }
+  @media (max-width: $mobileScreen) {
+    padding-top: 80px;
+    .workWithUs-block {
+      .workWithUs-head {
+        font-size: 28px;
+      }
+      .workWithUs-para {
+        font-size: 16px;
+      }
+      .openings-button {
+      }
+    }
+    .career-hero-block {
+      padding: 0 20px 40px;
+      flex-direction: column-reverse;
+      .career-hero-para-block {
+        text-align: center;
+        .career-hero-para {
+          font-size: 14px;
+        }
+      }
+      .career-hero-img-block {
+        margin: 40px auto;
+        .career-hero-img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

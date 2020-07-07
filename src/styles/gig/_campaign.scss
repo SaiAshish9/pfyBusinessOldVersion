@@ -1,0 +1,107 @@
+%gig-tab-custom-style {
+  .ant-tabs-bar.ant-tabs-top-bar.ant-tabs-card-bar {
+    margin: 0;
+    .ant-tabs-nav.ant-tabs-nav-animated {
+      width: 100%;
+      white-space: initial;
+
+      .ant-tabs-tab {
+        flex: 1;
+        margin: 0;
+        border: none;
+        text-align: center;
+        background-color: #fff;
+        opacity: 0.8;
+        font-size: 14px;
+        font-weight: bold;
+        letter-spacing: normal;
+        color: #000000;
+        padding: 24px 16px;
+        &:hover {
+          // color: #38bdba;
+          // border-bottom: 1px solid #38bdba;
+          // background: #f1f1f1;
+        }
+      }
+      .ant-tabs-tab-active.ant-tabs-tab {
+        border-bottom: 1px solid #d3d3d3;
+
+        // color: #38bdba;
+        background: #fff;
+        transition: none;
+        &:before {
+          content: "";
+          border-style: solid;
+          width: 30px;
+          border-width: 20px 15px 10px 15px;
+          border-color: #fdfdfd #dd439000 #30149f00 #52c41800;
+          position: absolute;
+          top: 87%;
+          left: 42%;
+          transition: none;
+        }
+        .title-block {
+          box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.16);
+        }
+      }
+    }
+    .ant-tabs-nav-animated > div {
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+}
+.createGigTab {
+  background-color: #fff;
+  border-radius: 20px;
+  @extend%gig-tab-custom-style;
+  .title-block {
+    width: 152px;
+    height: 145px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.16);
+    background-color: #ffffff;
+    border-radius: 13px;
+    border-left: 13px solid #444584;
+    .title-img {
+      margin: 12px 12px 12px 0;
+    }
+    .title-para {
+      padding: 0 14px;
+    }
+  }
+}
+
+.create-campaign-main-block {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 8px 6px;
+  padding: 20px;
+  .gig-campaign-content-block {
+    width: 231px;
+    height: 93px;
+    border-radius: 10px;
+    box-shadow: -2px 2px 5px 0 rgba(0, 0, 0, 0.16);
+    background-color: #ffffff;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .campaign-content-header {
+      font-size: 15px;
+      line-height: 1.33;
+      color: #444584;
+      letter-spacing: 0.75px;
+    }
+    .campaign-content-button {
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.54;
+      letter-spacing: 0.65px;
+      color: #38bdba;
+    }
+  }
+}

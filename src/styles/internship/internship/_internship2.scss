@@ -1,0 +1,89 @@
+.internship-block{
+    .internship-cards{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 1rem;
+        margin: 1rem 0 1.8rem 0;
+        @media (max-width:$smallTableScreen) {
+            grid-template-columns: 1fr;
+            
+        }
+        .card{
+            background-color: #fff;
+            height: 11.5rem;        
+            border-radius: 6px;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+            padding: 1.5rem;
+            border-top: 1rem solid #444584;
+            text-align: center;
+            h2{
+                opacity: 0.7;
+                font-size: 1.25rem;
+            }
+            span{
+                // opacity: 0.8;
+                font-size: 2.5rem;
+                font-weight: bold;
+                color: black;
+            }
+        }
+    }
+
+    .boost-and-create-internship{
+       display: grid;
+       grid-template-columns: 2fr 1fr;
+        align-items: center;
+        justify-content: space-between;
+        margin: 2rem 0;
+        grid-gap: 1rem;
+        @media (max-width:$smallTableScreen) {
+       grid-template-columns:1fr;
+            
+        }
+        .boost{
+            background-color: #fff;
+            width: fit-content;
+            height: 100%;
+            border-radius: 6px;
+            border: solid 2px #444584;
+            padding: 1.25rem 2rem;
+            font-size: 1rem;
+            align-items: center;
+          
+            font-weight: 500;
+            color: black;
+            word-break: break-word;
+        }
+        .new-internship-btn{
+            width: 15.5rem;
+            height: 3.2rem;
+            border-radius: 26px;
+            box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.16);
+            background-color: #38bdba;
+            margin-right: 2rem;
+            color: #fff;
+            font-size: 1.25rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            justify-self: end;
+        }
+    }
+    img.rocket-img{
+        height: 2.5rem;
+        width: 2.5rem;
+        background: #444584;
+        padding: 0.5rem;
+        border-radius: 8px;
+    }
+    .rocket-img-table{
+        height: 1.8rem;
+        width: 1.8rem;
+        background: #444584;
+        padding: 0.5rem;
+        border-radius: 8px;
+        margin-left: auto;
+        cursor: pointer;
+    }
+}

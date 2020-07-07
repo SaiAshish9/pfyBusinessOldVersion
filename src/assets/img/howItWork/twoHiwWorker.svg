@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="426" height="440" viewBox="0 0 426 440">
+    <defs>
+        <filter id="prefix__Rectangle_1441" width="383" height="414" x="43" y="0" filterUnits="userSpaceOnUse">
+            <feOffset dy="10"/>
+            <feGaussianBlur result="blur" stdDeviation="17"/>
+            <feFlood flood-opacity=".078"/>
+            <feComposite in2="blur" operator="in"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <filter id="prefix__Rectangle_1526" width="299" height="103" x="85" y="35" filterUnits="userSpaceOnUse">
+            <feOffset dy="3"/>
+            <feGaussianBlur result="blur-2" stdDeviation="3"/>
+            <feFlood flood-opacity=".161"/>
+            <feComposite in2="blur-2" operator="in"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <filter id="prefix__Rectangle_1908" width="202" height="166" x="0" y="274" filterUnits="userSpaceOnUse">
+            <feOffset dy="12"/>
+            <feGaussianBlur result="blur-3" stdDeviation="14"/>
+            <feFlood flood-opacity=".078"/>
+            <feComposite in2="blur-3" operator="in"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <style>
+            .prefix__cls-2{fill:#fff}.prefix__cls-5{fill:#444584}.prefix__cls-6{fill:#e3e3e3}.prefix__cls-21,.prefix__cls-27,.prefix__cls-9{fill:none}.prefix__cls-9{stroke:#c1c1c1}.prefix__cls-10{fill:#e6e6e6}.prefix__cls-14{fill:#333e49}.prefix__cls-15{fill:#2f2e41}.prefix__cls-16{fill:#ffb8b8}.prefix__cls-20{fill:#f2f2f2}.prefix__cls-21{stroke:#fff;stroke-linecap:round;stroke-linejoin:round}.prefix__cls-25{fill:#fd977f}.prefix__cls-26{stroke:none}
+        </style>
+    </defs>
+    <g id="prefix__Group_804" data-name="Group 804" transform="translate(-61 -792)">
+        <circle id="prefix__Ellipse_809" cx="150" cy="150" r="150" fill="#ea907a" data-name="Ellipse 809" opacity="0.2" transform="translate(67 865)"/>
+        <g id="prefix__Group_539" data-name="Group 539" transform="translate(-393.635 -225.798)">
+            <g filter="url(#prefix__Rectangle_1441)" transform="translate(454.63 1017.8)">
+                <rect id="prefix__Rectangle_1441-2" width="281" height="312" class="prefix__cls-2" data-name="Rectangle 1441" rx="11" transform="translate(94 41)"/>
+            </g>
+            <text id="prefix__Submit_Proof" data-name="Submit Proof" font-family="CircularStd-Medium, Circular Std Medium" font-size="8px" font-weight="500" opacity="0.7" transform="translate(601.634 1165.798)">
+                <tspan x="-23.948" y="0">Submit Proof</tspan>
+            </text>
+            <rect id="prefix__Rectangle_319" width="138" height="21" fill="#137efc" data-name="Rectangle 319" rx="4" transform="translate(580.635 1228.798)"/>
+            <rect id="prefix__Rectangle_332" width="84" height="27" class="prefix__cls-5" data-name="Rectangle 332" rx="13" transform="translate(647.635 1325.798)"/>
+            <rect id="prefix__Rectangle_1522" width="193" height="8" class="prefix__cls-6" data-name="Rectangle 1522" rx="4" transform="translate(577.635 1176.798)"/>
+            <rect id="prefix__Rectangle_1523" width="87" height="9" class="prefix__cls-6" data-name="Rectangle 1523" rx="4.5" transform="translate(577.635 1191.798)"/>
+            <text id="prefix__Upload_Screenshot" fill="#fff" data-name="Upload Screenshot" font-family="CircularStd-Medium, Circular Std Medium" font-size="7px" font-weight="500" transform="translate(651.634 1241.798)">
+                <tspan x="-30.31" y="0">Upload Screenshot</tspan>
+            </text>
+            <text id="prefix__Submit" fill="#fff" font-family="CircularStd-Bold, Circular Std Bold" font-size="10px" font-weight="700" transform="translate(689.634 1342.798)">
+                <tspan x="-16.615" y="0">Submit</tspan>
+            </text>
+            <g id="prefix__Rectangle_329" class="prefix__cls-9" data-name="Rectangle 329" transform="translate(580.635 1282.798)">
+                <rect width="10" height="12" class="prefix__cls-26" rx="3"/>
+                <rect width="9" height="11" x=".5" y=".5" class="prefix__cls-27" rx="2.5"/>
+            </g>
+            <g id="prefix__Rectangle_330" class="prefix__cls-9" data-name="Rectangle 330" transform="translate(580.635 1298.798)">
+                <rect width="10" height="11" class="prefix__cls-26" rx="3"/>
+                <rect width="9" height="10" x=".5" y=".5" class="prefix__cls-27" rx="2.5"/>
+            </g>
+            <rect id="prefix__Rectangle_1524" width="172" height="8" class="prefix__cls-10" data-name="Rectangle 1524" rx="4" transform="translate(600.635 1285.798)"/>
+            <rect id="prefix__Rectangle_1525" width="194" height="10" class="prefix__cls-10" data-name="Rectangle 1525" rx="4" transform="translate(600.635 1299.798)"/>
+            <g filter="url(#prefix__Rectangle_1526)" transform="translate(454.63 1017.8)">
+                <path id="prefix__Rectangle_1526-2" fill="rgba(255,255,255,0.65)" d="M11 0h259a11 11 0 0 1 11 11v74H0V11A11 11 0 0 1 11 0z" data-name="Rectangle 1526" transform="translate(94 41)"/>
+            </g>
+            <text id="prefix__Task_Checklist" fill="#333e49" data-name="Task Checklist" font-family="CircularStd-Medium, Circular Std Medium" font-size="8px" font-weight="500" transform="translate(606.634 1269.798)">
+                <tspan x="-26.444" y="0">Task Checklist</tspan>
+            </text>
+            <g id="prefix__Group_537" data-name="Group 537" transform="translate(706.619 1069.263)">
+                <path id="prefix__Path_3252" fill="#e5e5e5" d="M462 76.995L439.792 95.9l-4.858 4.136-13.595-.083-11.6-.071-.964-.006-2.355-2.765-9.363-10.991-4.7-5.519-1.413-1.659-1.022-1.2-2.278-2.675-3.688-4.331 3.735-3.18 3.567-3.038 2.564-2.183 32.283-27.489z" data-name="Path 3252" transform="translate(-353.091 -31.111)"/>
+                <path id="prefix__Rectangle_1527" d="M0 0H42.555V30.764H0z" class="prefix__cls-14" data-name="Rectangle 1527" transform="translate(.107 10.925)"/>
+                <path id="prefix__Rectangle_1530" d="M0 0H10.15V12.611H0z" class="prefix__cls-15" data-name="Rectangle 1530" transform="translate(67.395 4.225)"/>
+                <path id="prefix__Path_3257" d="M635.011 588.213l-1.384 5.075 2.307 1.692.615-.461 1.076-5.229z" class="prefix__cls-16" data-name="Path 3257" transform="translate(-575.998 -525.162)"/>
+                <path id="prefix__Path_3258" d="M804.826 583.909l-.461 6.152h2.922v-5.69z" class="prefix__cls-16" data-name="Path 3258" transform="translate(-728.435 -521.319)"/>
+                <path id="prefix__Path_3259" d="M722.583 220.912v3.688l5.69.923 4.921-2-.923-2.307z" class="prefix__cls-16" data-name="Path 3259" transform="translate(-655.419 -197.232)"/>
+                <path id="prefix__Path_3260" d="M682.992 306.257l-4.921-.923-1.23 10-3.076 12.457s-4.614 10.612-4 13.073l.308.769-.308 1.384 3.076 1.23 1.23-2s.923 1.384 2.461-1.538 8-21.07 8-21.07l1.077 3.076a6.339 6.339 0 0 0-.154 2.922c.307 1.538.615 6.306.615 6.306s-1.692 8.3.615 8.92l.461 1.846 3.23.308.615-1.846s3.076-1.077 2.307-6.459-1.077-23.069-1.077-23.069l-3.03-7.47z" class="prefix__cls-15" data-name="Path 3260" transform="translate(-611.214 -279.502)"/>
+                <path id="prefix__Path_3261" d="M616.651 702.681s-.769-.615-1.076-.461-3.537 4.306-3.537 4.306-3.383 2.614-.923 2.922 9.228-3.076 9.228-3.845-1.422-2.695-1.422-2.695a1.729 1.729 0 0 1-2.27-.227z" class="prefix__cls-15" data-name="Path 3261" transform="translate(-558.1 -634.862)"/>
+                <path id="prefix__Path_3262" d="M825.084 702.17s2.768-.172 3.23.3.308 2.777.308 2.777.307 4.152-2.153 4.152-1.846-2.768-1.846-2.768z" class="prefix__cls-15" data-name="Path 3262" transform="translate(-749.461 -634.812)"/>
+                <circle id="prefix__Ellipse_650" cx="3.845" cy="3.845" r="3.845" class="prefix__cls-16" data-name="Ellipse 650" transform="translate(69.01 2.456)"/>
+                <path id="prefix__Path_3263" d="M750.828 155.06s2.153 2.614-2.153 4.614 3.076 10.3 3.076 10.3 8.612-3.23 7.844-9.535c0 0-5.229-.923-4-5.229z" class="prefix__cls-16" data-name="Path 3263" transform="translate(-680.511 -146.375)"/>
+                <path id="prefix__Path_3264" d="M719.532 196.447s-3.537-.461-3.691 2.461 0 10 0 10a35.138 35.138 0 0 0-.769 11.535s-.923 6.306 1.538 6 .615-6.459.615-6.459l1.077-10-.461-7.382 2-4.46z" class="prefix__cls-16" data-name="Path 3264" transform="translate(-651.522 -183.302)"/>
+                <path id="prefix__Path_3265" d="M844.233 203.006s3.354-.064 3.508 2.4-1.077 10-1.077 10l-1.845.923-1.692-5.229z" class="prefix__cls-16" data-name="Path 3265" transform="translate(-766.042 -189.181)"/>
+                <path id="prefix__Path_3266" d="M839.286 317.384l-.308.769.923 2.307s-3.691 2.922-3.384 3.537 2-.769 2-.769l2.461 1.23s2-2.153 1.076-4.152a23.213 23.213 0 0 1-1.279-3.327s-1.335-.056-1.489.405z" class="prefix__cls-16" data-name="Path 3266" transform="translate(-760.126 -290.936)"/>
+                <path id="prefix__Path_3267" fill="#38bdba" d="M740.913 191.647l-.461 5.075s-2.153 2.153.307 5.075l-.307 2.307s5.69-.308 6.767 0 4.4-.248 4.4-.248l.059-1.752a7.9 7.9 0 0 0 1.076-5.383c-.461-3.23 0-4.306 0-4.306l-1.076-.154a6.2 6.2 0 0 1-5.46 5.152s-5.921.538-4.229-5.767z" data-name="Path 3267" transform="translate(-673.595 -179.04)"/>
+                <path id="prefix__Path_3268" d="M715.913 74.11s-4-.248-4.921 2.239a9.4 9.4 0 0 1-2.537 3.792 4.082 4.082 0 0 0-1.272 4.925s-3.957 2.659-1.343 5.021a5.8 5.8 0 0 0 1.384 3.978s1.231.622.769.995 3.076.124 2.768-3.232a8.21 8.21 0 0 1 1.769-5.721s-2-4.352-1.076-5.844a9.059 9.059 0 0 1 1.266-1.972 5.828 5.828 0 0 0 .718-.7 1.657 1.657 0 0 1 1.784-.556 2.35 2.35 0 0 1 1.692 1.492 10 10 0 0 0 2.692 3.916c1.692 1.243-1.307 3.419-1.307 3.419a10.206 10.206 0 0 0 1.875 4.078c1.354 1.517-.39 2.839-.491 3.008-.231.388-1.152 2.838 2.654 2.849a11.2 11.2 0 0 1 2.114-2.973c1.23-1.119.307-4.351.307-4.351s1.846-1.119-.154-3.854a4.575 4.575 0 0 0-1.077-4.1s-2.385-7.279-7.614-6.409z" class="prefix__cls-15" data-name="Path 3268" transform="translate(-642.674 -74.038)"/>
+                <ellipse id="prefix__Ellipse_651" cx=".384" cy=".615" class="prefix__cls-16" data-name="Ellipse 651" rx=".384" ry=".615" transform="translate(68.318 5.609)"/>
+                <path id="prefix__Path_3273" d="M174.273 131.837H124V91.962h50.273zm-50.058-.214h49.844V92.176h-49.845z" class="prefix__cls-14" data-name="Path 3273" transform="translate(-124 -90.041)"/>
+                <circle id="prefix__Ellipse_652" cx="1.822" cy="1.822" r="1.822" class="prefix__cls-5" data-name="Ellipse 652" transform="translate(2.573 16.499)"/>
+                <circle id="prefix__Ellipse_653" cx="1.822" cy="1.822" r="1.822" fill="#d0cde1" data-name="Ellipse 653" transform="translate(7.718 16.499)"/>
+                <circle id="prefix__Ellipse_654" cx="1.822" cy="1.822" r="1.822" fill="#444584" data-name="Ellipse 654" opacity="0.5" transform="translate(12.863 16.499)"/>
+                <circle id="prefix__Ellipse_655" cx="1.822" cy="1.822" r="1.822" class="prefix__cls-20" data-name="Ellipse 655" transform="translate(18.008 16.499)"/>
+                <path id="prefix__Rectangle_1532" d="M0 0H15.007V1.715H0z" class="prefix__cls-20" data-name="Rectangle 1532" transform="translate(25.083 17.464)"/>
+                <circle id="prefix__Ellipse_656" cx="4.931" cy="4.931" r="4.931" class="prefix__cls-20" data-name="Ellipse 656" transform="translate(15.65 25.503)"/>
+                <path id="prefix__Path_3274" d="M294.592 304.985l-2.467-2.468a.429.429 0 1 1 .606-.606l1.82 1.82 5.808-6.623a.429.429 0 0 1 .645.565z" class="prefix__cls-5" data-name="Path 3274" transform="translate(-273.991 -273.066)"/>
+            </g>
+            <rect id="prefix__Rectangle_1533" width="117" height="9" class="prefix__cls-2" data-name="Rectangle 1533" rx="4.5" transform="translate(565.635 1074.798)"/>
+            <rect id="prefix__Rectangle_1534" width="85" height="8" class="prefix__cls-2" data-name="Rectangle 1534" rx="4" transform="translate(565.635 1090.798)"/>
+            <rect id="prefix__Rectangle_1535" width="117" height="9" class="prefix__cls-2" data-name="Rectangle 1535" rx="4.5" transform="translate(565.635 1105.798)"/>
+            <rect id="prefix__Rectangle_1536" width="85" height="8" class="prefix__cls-2" data-name="Rectangle 1536" rx="4" transform="translate(565.635 1121.798)"/>
+            <rect id="prefix__Rectangle_1537" width="136" height="8" class="prefix__cls-6" data-name="Rectangle 1537" rx="4" transform="translate(577.635 1207.798)"/>
+            <g id="prefix__Icon_feather-upload-cloud" data-name="Icon feather-upload-cloud" transform="translate(601.538 1235.057)">
+                <path id="prefix__Path_3275" d="M15.7 19.852L13.852 18 12 19.852" class="prefix__cls-21" data-name="Path 3275" transform="translate(-8.756 -13.833)"/>
+                <path id="prefix__Path_3276" d="M18 18v4.168" class="prefix__cls-21" data-name="Path 3276" transform="translate(-12.903 -13.833)"/>
+                <path id="prefix__Path_3277" d="M10.474 11.629a2.315 2.315 0 0 0-1.107-4.348h-.584a3.7 3.7 0 1 0-6.363 3.381" class="prefix__cls-21" data-name="Path 3277" transform="translate(-1.492 -4.503)"/>
+                <path id="prefix__Path_3278" d="M15.7 19.852L13.852 18 12 19.852" class="prefix__cls-21" data-name="Path 3278" transform="translate(-8.756 -13.833)"/>
+            </g>
+        </g>
+        <g id="prefix__Group_797" data-name="Group 797">
+            <g filter="url(#prefix__Rectangle_1908)" transform="translate(61 792)">
+                <rect id="prefix__Rectangle_1908-2" width="118" height="82" class="prefix__cls-2" data-name="Rectangle 1908" rx="6" transform="translate(42 304)"/>
+            </g>
+            <rect id="prefix__Rectangle_1909" width="110" height="74" fill="#4069f1" data-name="Rectangle 1909" opacity="0.2" rx="6" transform="translate(107 1100)"/>
+        </g>
+        <g id="prefix__Group_703" data-name="Group 703">
+            <g id="prefix__checklist" transform="translate(119.943 1095.877)">
+                <circle id="prefix__Ellipse_804" cx="23.811" cy="23.811" r="23.811" fill="#3b5fd8" data-name="Ellipse 804" transform="translate(18.123 18.123)"/>
+                <circle id="prefix__Ellipse_805" cx="19.616" cy="19.616" r="19.616" fill="#4069f1" data-name="Ellipse 805" transform="translate(22.318 22.318)"/>
+                <path id="prefix__Path_4434" d="M50.374 64.665a2.322 2.322 0 0 1-1.667-.706l-7.55-7.779a2.323 2.323 0 1 1 3.334-3.236l5.825 6L60.852 47.32a2.324 2.324 0 1 1 3.448 3.12L52.1 63.9a2.326 2.326 0 0 1-1.685.761z" class="prefix__cls-2" data-name="Path 4434" transform="translate(-10.763 -13.675)"/>
+            </g>
+            <path id="prefix__Polygon_4" d="M2.5 0L5 5H0z" class="prefix__cls-2" data-name="Polygon 4" transform="rotate(-42 1520.43 377.447)"/>
+            <path id="prefix__Polygon_5" d="M2.5 0L5 5H0z" class="prefix__cls-2" data-name="Polygon 5" transform="rotate(102 -364.63 652.29)"/>
+            <circle id="prefix__Ellipse_806" cx="1.5" cy="1.5" r="1.5" class="prefix__cls-25" data-name="Ellipse 806" transform="translate(192 1123)"/>
+            <circle id="prefix__Ellipse_807" cx="1.5" cy="1.5" r="1.5" class="prefix__cls-25" data-name="Ellipse 807" transform="translate(132 1129)"/>
+            <circle id="prefix__Ellipse_808" cx="1.5" cy="1.5" r="1.5" class="prefix__cls-25" data-name="Ellipse 808" transform="translate(145 1163)"/>
+            <path id="prefix__Polygon_6" d="M2.5 0L5 5H0z" class="prefix__cls-2" data-name="Polygon 6" transform="rotate(-166 150.46 575.107)"/>
+        </g>
+    </g>
+</svg>

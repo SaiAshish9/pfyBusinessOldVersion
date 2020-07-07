@@ -1,0 +1,299 @@
+.aboutUs-main-block {
+  font-family: $myFont;
+  padding-top: 136px;
+  .aboutUs-block {
+    .aboutUs-subBlock {
+      padding: 0px 100px;
+      margin-bottom: 80px;
+      grid-column-gap: 70px;
+      display: grid;
+      grid-template:
+        "head img"
+        "paraOne img"
+        "paraTwo img"
+        "button img";
+
+      .aboutUs-head {
+        grid-area: head;
+        align-self: flex-end;
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 1.22;
+        color: #333e49;
+      }
+
+      .aboutUs-paraOne,
+      .aboutUs-paraTwo {
+        grid-area: paraOne;
+        font-size: 17px;
+        line-height: 1.78;
+        color: #333e49;
+        margin-bottom: 0;
+      }
+      .aboutUs-paraTwo {
+        grid-area: paraTwo;
+        align-self: flex-start;
+      }
+
+      .aboutUsButton {
+        grid-area: button;
+        width: 275px;
+        height: 62px;
+        border-radius: 6px;
+        border: 1px solid #7a81ea;
+        box-shadow: 0 9px 23px 0 rgba(0, 0, 0, 0.08);
+        background-color: #7a81ea;
+
+        font-size: 18px;
+        font-weight: 600;
+        color: #ffffff;
+        .aboutUsButton-span {
+          margin-left: 20px;
+        }
+      }
+
+      .aboutUs-img-block {
+        grid-area: img;
+        .aboutUs-img {
+          width: 100%;
+        }
+      }
+    }
+    .aboutUs-subBlock:nth-child(1) {
+      grid-template:
+        "head img"
+        "paraOne img" 0.4fr
+        "paraTwo img";
+      .aboutUs-img-block {
+        .aboutUs-img {
+          position: relative;
+          bottom: 60px;
+        }
+      }
+    }
+    .aboutUs-subBlock:nth-child(2) {
+      background-image: linear-gradient(to bottom, #f7f8ff, #ffffff);
+      grid-template:
+        "img head"
+        "img paraOne"
+        "img paraTwo"
+        "img button";
+      h1 {
+        width: initial;
+      }
+      p {
+        width: 92%;
+      }
+    }
+  }
+  .aboutUs-contact {
+    position: relative;
+    margin: 0 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    border-radius: 11px;
+    box-shadow: 0 6px 25px 0 rgba(0, 0, 0, 0.16);
+    background-image: linear-gradient(91deg, #6e74c6 0%, #373a63 97%);
+    &::before {
+      content: "";
+      position: absolute;
+      width: 80px;
+      height: 105px;
+      border-radius: 11px 0 100% 0px;
+      top: 0;
+      left: 0;
+      background-color: #666bb7;
+    }
+    .aboutUs-contact-head {
+      margin: 0;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.22;
+      text-align: left;
+      color: #ffffff;
+    }
+
+    .aboutUs-contact-button {
+      margin-left: 120px;
+      width: 199px;
+      height: 55px;
+      border-radius: 6px;
+      border: 1px solid #ffffff;
+      box-shadow: 0 8px 18px 0 rgba(0, 0, 0, 0.16);
+      background-color: #ffffff;
+      font-size: 18px;
+      font-weight: 600;
+      color: #373a63;
+    }
+  }
+  @media (min-width: $bigTabletScreen) and (max-width: $smallLaptopScreen) {
+    .aboutUs-block {
+      padding: 40px 70px 80px 70px;
+      .aboutUs-subBlock {
+        grid-column-gap: 20px;
+      }
+    }
+    .aboutUs-contact {
+      .aboutUs-contact-head {
+        font-size: 32px;
+      }
+      .aboutUs-contact-button {
+        margin-left: 40px;
+      }
+    }
+  }
+  @media (min-width: $smallTableScreen) and (max-width: $bigTabletScreen) {
+    padding-top: 50px;
+    .aboutUs-block {
+      padding: 40px 50px 60px 50px;
+      .aboutUs-subBlock {
+        grid-column-gap: 20px;
+        .aboutUs-head {
+          font-size: 28px;
+        }
+        .aboutUs-paraOne {
+          font-size: 16px;
+        }
+        .aboutUs-paraTwo {
+          font-size: 16px;
+        }
+      }
+    }
+    .aboutUs-contact {
+      .aboutUs-contact-head {
+        font-size: 28px;
+      }
+      .aboutUs-contact-button {
+        margin-left: 20px;
+      }
+    }
+  }
+  @media (min-width: $mobileScreen) and (max-width: $smallTableScreen) {
+    padding-top: 50px;
+    .aboutUs-block {
+      padding: 40px 50px 60px 50px;
+      .aboutUs-subBlock {
+        text-align: center;
+        justify-items: center;
+        margin-bottom: 60px;
+        grid-column-gap: 20px;
+        display: grid;
+        grid-template:
+          "head"
+          "img"
+          "paraOne"
+          "paraTwo"
+          "button";
+        .aboutUs-head {
+          justify-self: flex-start;
+          text-align: start;
+          width: initial;
+        }
+        .aboutUs-paraOne {
+          width: initial;
+        }
+        .aboutUs-paraTwo {
+          width: initial;
+        }
+        .aboutUs-img-block {
+          margin: 20px 0;
+          .aboutUs-img {
+            width: 80%;
+          }
+        }
+      }
+      .aboutUs-subBlock:nth-child(1) {
+        grid-template:
+          "head"
+          "img"
+          "paraOne"
+          "paraTwo";
+      }
+      .aboutUs-subBlock:nth-child(2) {
+        grid-template:
+          "head"
+          "img"
+          "paraOne"
+          "paraTwo"
+          "button";
+      }
+    }
+    .aboutUs-contact {
+      flex-direction: column;
+      align-items: center;
+      .aboutUs-contact-head {
+        text-align: center;
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+      .aboutUs-contact-button {
+        margin-left: initial;
+      }
+    }
+  }
+  @media (max-width: $mobileScreen) {
+    padding-top: 50px;
+    .aboutUs-block {
+      padding: 40px 20px;
+      .aboutUs-subBlock {
+        text-align: center;
+        justify-items: center;
+        margin-bottom: 60px;
+        grid-column-gap: 20px;
+        display: grid;
+        grid-template:
+          "head"
+          "img"
+          "paraOne"
+          "paraTwo"
+          "button";
+        .aboutUs-head {
+          justify-self: flex-start;
+          text-align: start;
+          width: initial;
+          font-size: 28px;
+        }
+        .aboutUs-paraOne {
+          width: initial;
+          font-size: 14px;
+        }
+        .aboutUs-paraTwo {
+          width: initial;
+          font-size: 14px;
+        }
+        .aboutUs-img-block {
+          margin: 20px 0;
+        }
+      }
+      .aboutUs-subBlock:nth-child(1) {
+        grid-template:
+          "head"
+          "img"
+          "paraOne"
+          "paraTwo";
+      }
+      .aboutUs-subBlock:nth-child(2) {
+        grid-template:
+          "head"
+          "img"
+          "paraOne"
+          "paraTwo"
+          "button";
+      }
+    }
+    .aboutUs-contact {
+      flex-direction: column;
+      align-items: center;
+      .aboutUs-contact-head {
+        text-align: center;
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+      .aboutUs-contact-button {
+        margin-left: initial;
+      }
+    }
+  }
+}

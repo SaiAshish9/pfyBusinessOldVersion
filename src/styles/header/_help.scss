@@ -1,0 +1,45 @@
+.help{
+    width: fit-content !important;
+    .ant-modal-header{
+        background-color: #f7f7f7;
+    }
+    .ant-modal-content{
+        background-color: #f7f7f7;
+    }
+    .ant-modal-body{
+        padding: 2rem;
+    }
+    &__header{
+        font-weight: 500;
+        font-size: 1.6rem;
+        display: block;
+        padding-top: 1rem !important;
+
+    }
+    &__footer{
+        text-align: center;
+        padding-bottom: 1rem;
+        button{
+            padding: 0.6rem 3.5rem;
+            height: 100%;
+            border: none;
+            background-color: #00bfa6 !important;
+            text-transform: uppercase;
+            border-radius: 200rem;
+            box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.16);
+        }
+       
+    }
+    &__textarea{
+        height:10rem !important;
+        min-width: 40rem;
+        padding: 1rem;
+        outline: none !important;
+        border: #707070 !important;
+        background-color: #fff;
+        &:focus{
+            outline: none !important;
+            border: none !important;
+        }
+    }
+}

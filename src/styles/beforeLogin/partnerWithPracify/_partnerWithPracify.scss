@@ -1,0 +1,247 @@
+.pwp-main-block {
+  padding-top: 136px;
+  font-family: $myFont;
+
+  .pwp-hero-block {
+    margin: 0px 80px 40px;
+    text-align: center;
+    // display: grid;
+    // grid-template:
+    //   "head img" 1fr
+    //   "para img"
+    //   "button img" 1fr;
+
+    .pwp-hero-head {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #333e49;
+    }
+
+    .pwp-hero-para {
+      font-size: 17px;
+      line-height: 1.78;
+      color: #333e49;
+    }
+    // .pwp-hero-img-block {
+    //   grid-area: img;
+    //   .pwp-hero-img {
+    //     width: 100%;
+    //   }
+    // }
+
+    .pwp-hero-button {
+      width: 285px;
+      height: 65px;
+      border-radius: 6px;
+      box-shadow: 0 16px 29px 0 rgba(0, 0, 0, 0.08);
+      background-color: #7a81ea;
+      border: 1px solid #7a81ea;
+
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #ffffff;
+      .pwp-hero-span {
+        margin-left: 20px;
+      }
+    }
+  }
+
+  .partnership-advantage {
+    margin: 0px 80px 40px;
+    opacity: 0.1;
+    font-size: 86px;
+    font-weight: 900;
+    line-height: 1.2;
+    color: #333e49;
+  }
+
+  .partnership-advantage-main-block {
+    margin: 0px 60px 40px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .partnership-advantage-block {
+      flex: 1;
+      margin: 0 20px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 40px;
+      border-radius: 18px;
+      box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1);
+      background-color: #ffffff;
+      text-align: center;
+      .partnership-advantage-img {
+        margin-bottom: 20px;
+      }
+
+      .partnership-advantage-head {
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 1.2;
+        color: #333e49;
+      }
+
+      .partnership-advantage-para {
+        font-size: 18px;
+        line-height: 1.36;
+        color: #333e49;
+      }
+    }
+  }
+  .partnership-button-block {
+    margin: 0 80px 80px;
+    text-align: center;
+    .partnership-button {
+      width: 321px;
+      height: 86px;
+      border-radius: 6px;
+      box-shadow: 0 16px 29px 0 rgba(0, 0, 0, 0.08);
+      background-color: #7a81ea;
+      border: 1px solid #7a81ea;
+
+      font-size: 19px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #ffffff;
+    }
+  }
+  @media (min-width: $bigTabletScreen) and (max-width: $smallLaptopScreen) {
+    .partnership-advantage {
+      font-size: 70px;
+    }
+  }
+  @media (min-width: $smallTableScreen) and (max-width: $bigTabletScreen) {
+    .pwp-hero-block {
+      margin: 0px 80px 40px;
+
+      .pwp-hero-head {
+        font-size: 28px;
+      }
+
+      .pwp-hero-para {
+        font-size: 16px;
+        margin-right: 60px;
+      }
+      .pwp-hero-img-block {
+        .pwp-hero-img {
+        }
+      }
+
+      .pwp-hero-button {
+        height: 50px;
+      }
+    }
+    .partnership-advantage {
+      font-size: 50px;
+    }
+  }
+  @media (min-width: $mobileScreen) and (max-width: $smallTableScreen) {
+    margin-top: 80px;
+
+    .pwp-hero-block {
+      margin: 0px 60px 40px;
+      justify-items: center;
+
+      text-align: center;
+      grid-template:
+        "head"
+        "img"
+        "para"
+        "button";
+
+      .pwp-hero-head {
+        font-size: 36px;
+        justify-self: flex-start;
+      }
+
+      .pwp-hero-para {
+        font-size: 16px;
+        margin-right: initial;
+      }
+      .pwp-hero-img-block {
+        margin: 40px;
+        .pwp-hero-img {
+        }
+      }
+
+      .pwp-hero-button {
+        height: 50px;
+      }
+    }
+    .partnership-advantage {
+      margin: 80px 40px 40px 40px;
+      font-size: 36px;
+    }
+    .partnership-advantage-main-block {
+      margin: 0px 40px 20px;
+      .partnership-advantage-block {
+        padding: 20px 20px;
+        .partnership-advantage-head {
+          font-size: 24px;
+        }
+        .partnership-advantage-para {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  @media (max-width: $mobileScreen) {
+    margin-top: 80px;
+    .pwp-hero-block {
+      margin: 0px 20px 30px;
+      justify-items: center;
+      text-align: center;
+      grid-template:
+        "head"
+        "img"
+        "para"
+        "button";
+
+      .pwp-hero-head {
+        justify-self: flex-start;
+        font-size: 28px;
+      }
+
+      .pwp-hero-para {
+        font-size: 16px;
+        margin-right: initial;
+      }
+      .pwp-hero-img-block {
+        // margin: 40px;
+        .pwp-hero-img {
+        }
+      }
+
+      .pwp-hero-button {
+        height: 50px;
+      }
+    }
+    .partnership-advantage {
+      margin: 80px 20px 40px;
+      font-size: 36px;
+    }
+    .partnership-advantage-main-block {
+      margin: 0px 20px 20px;
+      .partnership-advantage-block {
+        padding: 20px 20px;
+        .partnership-advantage-head {
+          font-size: 24px;
+        }
+        .partnership-advantage-para {
+          font-size: 16px;
+        }
+      }
+    }
+    .partnership-button-block {
+      margin: 0 20px 40px;
+      .partnership-button {
+        width: 242px;
+        height: 50px;
+        font-size: 20px;
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="78.457" height="103" viewBox="0 0 78.457 103">
+    <defs>
+        <style>
+            .prefix__cls-4{fill:#474f54}.prefix__cls-5{fill:#97de3d}
+        </style>
+    </defs>
+    <g id="prefix__checklist" transform="translate(-61)">
+        <path id="prefix__Path_3960" d="M61 60h78.457v90.93H61z" data-name="Path 3960" transform="translate(0 -47.93)" style="fill:#f0f7ff"/>
+        <path id="prefix__Path_3961" d="M256 60h39.229v90.93H256z" data-name="Path 3961" transform="translate(-155.771 -47.93)" style="fill:#dfe7f4"/>
+        <path id="prefix__Path_3962" d="M180.659 6.035a9.054 9.054 0 0 0-17.071 0H151v18.106h42.246V6.035z" data-name="Path 3962" transform="translate(-71.895)" style="fill:#575f64"/>
+        <path id="prefix__Path_3963" d="M277.123 6.035v18.106H256V0a9.068 9.068 0 0 1 8.536 6.035z" class="prefix__cls-4" data-name="Path 3963" transform="translate(-155.771)"/>
+        <path id="prefix__Path_3964" d="M118.563 203.865l-8.169-8.169 4.267-4.268 3.9 3.9 9.937-9.937 4.267 4.268z" class="prefix__cls-5" data-name="Path 3964" transform="translate(-39.457 -148.097)"/>
+        <path id="prefix__Path_3965" d="M118.563 293.865l-8.169-8.169 4.267-4.268 3.9 3.9 9.937-9.937 4.267 4.268z" class="prefix__cls-5" data-name="Path 3965" transform="translate(-39.457 -219.992)"/>
+        <path id="prefix__Path_3966" d="M118.563 383.865l-8.169-8.169 4.267-4.268 3.9 3.9 9.937-9.937 4.267 4.268z" class="prefix__cls-5" data-name="Path 3966" transform="translate(-39.457 -291.886)"/>
+        <g id="prefix__Group_641" data-name="Group 641" transform="translate(100.229 42.447)">
+            <path id="prefix__Path_3967" d="M256 211h27.158v6.035H256z" class="prefix__cls-4" data-name="Path 3967" transform="translate(-256 -211)"/>
+            <path id="prefix__Path_3968" d="M256 301h27.158v6.035H256z" class="prefix__cls-4" data-name="Path 3968" transform="translate(-256 -282.895)"/>
+            <path id="prefix__Path_3969" d="M256 391h27.158v6.035H256z" class="prefix__cls-4" data-name="Path 3969" transform="translate(-256 -354.789)"/>
+        </g>
+    </g>
+</svg>

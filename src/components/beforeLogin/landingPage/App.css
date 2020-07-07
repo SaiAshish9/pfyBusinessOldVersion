@@ -1,0 +1,31 @@
+body {
+  font-family: "Inter",sans-serif;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar-x {
+  display: none;
+}
+
+.prefix__cls-1 {
+  fill: #fff;
+}
+
+.prefix__cls-4 {
+  fill: #dd9f68;
+}
+.prefix__cls-2 {
+  fill: #405968;
+}
+.prefix__cls-3 {
+  fill: #273c47;
+}
+.prefix__cls-5 {
+  fill: #e2856e;
+}
+
+.Path-3210 {
+  width: 7.9px;
+  height: 7.9px;
+  background-color: #e2856e;
+}

@@ -1,0 +1,56 @@
+.navbar-icon {
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 8px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 40px;
+  width: 50px;
+  // border: 1px solid;
+
+  .myCheckbox {
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    height: 40px;
+    width: 50px;
+    z-index: 2;
+  }
+
+  input[type="checkbox"] ~ .bar-icon1 {
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    height: 3px;
+    border-radius: 50%;
+    width: 30px;
+    background-color: #000;
+  }
+  input[type="checkbox"]:checked ~ .bar-icon1 {
+    transform: rotate(45deg) translate(6px, 4px);
+  }
+
+  input[type="checkbox"] ~ .bar-icon2 {
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    height: 3px;
+    border-radius: 50%;
+    width: 30px;
+    background-color: #000;
+  }
+  input[type="checkbox"]:checked ~ .bar-icon2 {
+    opacity: 0;
+  }
+
+  input[type="checkbox"] ~ .bar-icon3 {
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    height: 3px;
+    border-radius: 50%;
+    width: 30px;
+    background-color: #000;
+  }
+
+  input[type="checkbox"]:checked ~ .bar-icon3 {
+    transform: rotate(-45deg) translate(5px, -3px);
+  }
+}
+

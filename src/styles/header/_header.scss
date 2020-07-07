@@ -1,0 +1,148 @@
+.main-nav {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  div.headerNav {
+    display: flex;
+    top: 0px;
+    justify-content: space-between;
+    height: 80px;
+    align-items: center;
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
+    padding: 12px 55px;
+    transition: all 0.6 ease-in;
+    font-family: avenir, sans-serif;
+
+    div.logo-container {
+      cursor: pointer;
+      .logoIcon {
+        width: 178px;
+      }
+    }
+    div.link-container {
+      display: flex;
+      align-items: center;
+
+      .redirect-to-user-panel-button {
+        width: 200px;
+        height: 49px;
+        border-radius: 6px;
+        border: solid 1px #444584;
+        margin-left: 30px;
+
+        font-size: 18px;
+        color: #444584;
+      }
+
+      .register-button {
+        width: 200px;
+        height: 49px;
+        border-radius: 6px;
+        background-color: #444584;
+        border: 1px solid #444584;
+        margin-left: 30px;
+
+        font-size: 18px;
+        color: #fff;
+      }
+
+      .login-button {
+        width: 200px;
+        height: 49px;
+        border-radius: 6px;
+        background-color: #38bdba;
+        margin-left: 30px;
+        border: 1px solid #38bdba;
+
+        font-size: 18px;
+        color: #fff;
+      }
+    }
+
+    // .desktop-nav-menu {
+    //   display: block;
+    // }
+    .mobile-nav-menu {
+      display: none;
+    }
+    // @media screen and (max-width: 840px) {
+    // }
+  }
+  @media screen and (max-width: 840px) {
+    div.headerNav {
+      padding: 0px 12px;
+      height: 50px;
+
+      div.link-container {
+        display: none;
+      }
+
+      div.logo-container {
+        .logoIcon {
+          width: 120px;
+        }
+      }
+
+      .mobile-nav-menu {
+        display: block;
+        .menu-icon {
+          cursor: pointer;
+        }
+      }
+    }
+    .mobile-nav {
+      display: block;
+    }
+  }
+}
+
+.mobile-nav {
+  display: none;
+  height: 100vh;
+  width: 320px;
+  // border: 1px solid;
+  position: fixed;
+  z-index: 50;
+  align-self: flex-end;
+  background-color: rgba($color: #fff, $alpha: 0.9);
+  .mobile-nav-link {
+    position: relative;
+    .nav-close-icon {
+      position: absolute;
+      top: -32px;
+      left: 20px;
+      svg {
+        width: 32px;
+        height: 32px;
+      }
+    }
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .redirect-to-user-panel-button {
+      margin-bottom: 12px;
+    }
+    .register-button {
+      margin-bottom: 12px;
+    }
+    .login-button {
+      margin-bottom: 12px;
+    }
+  }
+}
+
+.wrapper {
+  display: none;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index: 25;
+  background-color: rgba(211, 211, 211, 0.6);
+  @media screen and (max-width: 840px) {
+    display: block;
+  }
+}

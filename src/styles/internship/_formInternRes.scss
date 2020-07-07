@@ -1,0 +1,43 @@
+div.responsibility-container {
+  div.intern-skill-container {
+    margin-bottom: 30px;
+    .intern-skill__h3 {
+    }
+
+    .intern-skill__select {
+    }
+  }
+  div.intern-res-container {
+    margin-bottom: 30px;
+    .intern-res__h3 {
+    }
+    .intern-res-input-container {
+      .intern-res__input {
+      }
+      .interview-ques__icon {
+      }
+    }
+
+    span.add-responsibility {
+      color: #ec3f78;
+      font-size: 12px;
+      font-weight: 500;
+    }
+  }
+  div.intern-requirement-container {
+    margin-bottom: 30px;
+    .intern-requirement__h3 {
+    }
+
+    .intern-requirement-input-container {
+      .intern-requirement__input {
+      }
+    }
+
+    span.intern-requirement__span {
+      color: #ec3f78;
+      font-size: 12px;
+      font-weight: 500;
+    }
+  }
+}

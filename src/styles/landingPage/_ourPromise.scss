@@ -1,0 +1,48 @@
+div.our-promise-block {
+  display: grid;
+  grid-template: "header img" "para img" "button img";
+  grid-gap: 0px 80px;
+  background-color: #444584;
+  margin: 0 45px 45px;
+  padding: 108px 85px 85px 64px;
+  border-radius: 30px;
+
+  .our-promise__header {
+    grid-area: header;
+
+    font-size: 44px;
+    font-weight: 900;
+    line-height: 1.36;
+    letter-spacing: 2.2px;
+    color: #ffffff;
+  }
+
+  .our-promise__para {
+    grid-area: para;
+
+    font-size: 20px;
+    line-height: 2;
+    color: #ffffff;
+  }
+
+  .our-promise__button {
+    grid-area: button;
+
+    width: 361px;
+    height: 70px;
+    border: 1px solid #444584;
+    border-radius: 35px;
+    box-shadow: 0 8px 30px 0 rgba(0, 0, 0, 0.16);
+    background-color: #ffffff;
+
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1.36;
+    letter-spacing: 1.1px;
+    color: #444584;
+  }
+
+  img.our-promise__img {
+    grid-area: img;
+  }
+}

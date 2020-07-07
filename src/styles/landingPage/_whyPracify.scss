@@ -1,0 +1,144 @@
+.why-pracify-block {
+  padding: 40px 0px 20px;
+  text-align: center;
+  .why-pracify-header-block {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    .why-pracify-header {
+      margin-bottom: 60px;
+      width: 53%;
+      // word-spacing: -12px;
+      position: relative;
+      padding-bottom: 12px;
+      font-size: 36px;
+      line-height: 1.36;
+      font-weight: 500;
+      color: #333e49;
+    }
+    .chipOne {
+      z-index: -1;
+      position: absolute;
+      top: -30px;
+      right: 12%;
+    }
+    .chipTwo {
+      z-index: -1;
+      position: absolute;
+      left: 40px;
+      top: 30px;
+    }
+    .chipThree {
+      z-index: -1;
+      position: absolute;
+      bottom: 20px;
+      left: 20%;
+    }
+    .chipFour {
+      z-index: -1;
+      position: absolute;
+      bottom: 36px;
+      right: 42%;
+    }
+  }
+
+  .why-pracify-disc-main-block {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 58px 0 58px;
+    .whyPracify-desc-block {
+      flex: 1;
+      border-radius: 10px;
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.12);
+      background-color: #ffffff;
+      text-align: center;
+      margin: 0 12px 20px 12px;
+      padding: 24px 32px 24px 32px;
+
+      div.whyPracify-desc-img-block {
+        margin-bottom: 20px;
+        height: 108px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        background-position-x: 76px;
+
+        img.whyPracify-desc__img {
+          margin-bottom: 14px;
+        }
+      }
+
+      h2.whyPracify-desc__headerOne {
+        opacity: 0.9;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 1.5;
+        letter-spacing: 1px;
+        color: #333e49;
+        margin: 0;
+      }
+
+      h2.whyPracify-desc__headerTwo {
+        opacity: 0.9;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 1.5;
+        letter-spacing: 1px;
+        color: #333e49;
+        margin: 0;
+      }
+
+      p.whyPracify-desc__para {
+        font-size: 16px;
+        line-height: 1.88;
+        color: #333e49;
+        margin-top: 24px;
+      }
+    }
+  }
+  @media (min-width: $bigTabletScreen) and (max-width: $smallLaptopScreen) {
+    .why-pracify-header-block {
+      .why-pracify-header {
+        width: 60%;
+      }
+    }
+  }
+
+  @media (min-width: $smallTableScreen) and (max-width: $bigTabletScreen) {
+    // background: lightpink;
+    .why-pracify-header-block {
+      .why-pracify-header {
+        font-size: 22px;
+        // word-spacing: -4px;
+      }
+    }
+  }
+  @media (min-width: $mobileScreen) and (max-width: $smallTableScreen) {
+    // background: lightyellow;
+    .why-pracify-header-block {
+      .why-pracify-header {
+        font-size: 22px;
+        // word-spacing: -4px;
+      }
+    }
+  }
+  @media (max-width: $mobileScreen) {
+    // background: lightgreen;
+    .why-pracify-header-block {
+      .why-pracify-header {
+        font-size: 18px;
+        // word-spacing: -4px;
+        width: 100%;
+        margin: 0 20px 40px;
+      }
+    }
+    .why-pracify-disc-main-block {
+      padding: 0 8px 0 8px;
+      .whyPracify-desc-block {
+        margin: 0 12px 20px 12px;
+      }
+    }
+  }
+}

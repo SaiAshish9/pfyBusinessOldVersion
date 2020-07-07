@@ -1,0 +1,191 @@
+%block-one{
+    .title{
+        color: black;
+        font-size: 1.2rem;
+    }
+    padding-top: 1rem;
+    p{
+        // margin: 0 0 0.2rem 0;
+        margin: 0;
+        font-size: 1.1rem;
+    }
+}
+
+%block-two{
+    .card-details{
+        text-align: center;
+        padding: 1rem 2rem;
+        .single-detail{
+            width: 100%;
+            text-align: initial;
+            // margin: 0 2rem;
+            .title{
+                font-size: 1.1rem;
+                // padding-right: 5rem;
+            }
+            .details{
+                font-size: 1.2rem;
+                color: black;
+            }
+        }
+    }
+}
+
+%worker-info{
+    .image{
+        img{
+            height: 3rem;
+            border-radius: 50%;
+        }
+    }
+    .worker-name{
+        .name{
+            font-size: 1.1rem;
+            color: black;
+        }
+        .last-update{
+            font-size: 0.9rem;
+            opacity: 0.3;
+            
+        }
+    }
+}
+
+%title{
+    font-size: 1.5rem;
+    color: black;
+    border-bottom: #f3f0f0 1px solid;
+    padding-bottom: 0.5rem;
+}
+
+.specific-gig{
+    padding: 1rem;
+    .specific-gig__title{
+        @extend %title;
+
+    }
+    .campaigns-block{
+        margin: 1rem 0;
+        display: flex;
+        // width: 33%;
+        height: 13rem;
+        // flex-wrap: wrap;
+        .single-block{
+            width: 32%;
+            margin-right: 0.5rem;
+            border-radius: 9px;
+            border: solid 1px #e4e4e4;
+            .card-top{
+                padding: 0.5rem 2rem;
+                font-size: 1.5rem;
+                background-color: #e8f0fd;
+                color: #1864d3;
+                // text-align: center;
+            }
+        }
+
+        .campaigns-details{
+            .card-details{
+                padding: 0 2rem;
+                .task{
+                    @extend %block-one;
+                }
+                .category{
+                    @extend %block-one;
+                }
+            }
+        }
+
+        .campaigns-summery{
+            @extend %block-two;
+        }
+        .hire-o-meter{
+            @extend %block-two;
+        }
+
+    }
+    .applied-workers-block{
+        width: 55%;
+        border-radius: 9px;
+        border: solid 1px #e4e4e4;
+        .applied-workers-block__title{
+            @extend %title;
+            padding: 1rem 1rem 0.5rem 1rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .applied-workers-panel{
+            cursor: pointer;
+            width: 100%;
+            height: 5.5rem;
+            // background-color: lightcoral;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            @extend %worker-info;
+            .progress-bar{
+                align-self: center;
+                width: 50%;
+                    .ant-progress-bg{
+                        height: 19px!important;
+                        background-color: #1864d3;
+                    }
+                
+            }
+            .percentage{
+                font-size: 1rem;
+                font-weight: 500;
+                align-self: center;
+            }
+            
+        }
+        .applied-workers-panel:nth-child(2n-1){
+            background-color: #f9f9f98a;
+        }
+
+    }
+
+    .task-info{
+        width: 44%;
+        border-radius: 9px;
+        border: solid 1px #e4e4e4;
+        padding: 1rem 1.5rem;
+        .workers-panel{
+            height: 5rem;
+            align-items: center;
+            @extend %worker-info;
+            .name-and-image{
+                display: flex;
+                align-items: center;
+                img{
+                    margin-right: 1rem;
+                }
+            }
+            display: flex;
+            justify-content: space-between;
+
+            .submitted{
+                .dot{
+                    height: 0.75rem;
+                    width: 0.75rem;
+                    display: inline-flex;
+                    border-radius: 1rem;
+                    margin-right: 0.5rem;
+                }
+            }
+        }
+        .workers-panel:nth-child(2n-1){
+            background-color: #f9f9f9;
+        }
+
+    }
+
+    .worker-task-block{
+        display: flex;
+        // margin-right: 1rem;
+        justify-content: space-between;
+       
+    }
+    
+}

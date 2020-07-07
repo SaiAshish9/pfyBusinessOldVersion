@@ -1,0 +1,176 @@
+@import "./howItWork";
+
+.ant-layout.ant-layout-has-sider {
+  .ant-layout-sider {
+    background-color: #444584;
+    height: 100vh;
+    .ant-layout-sider-children {
+      position: fixed;
+      overflow: auto;
+      width: inherit;
+      background-color: #444584;
+      .logo {
+        background-color: #444584;
+        height: 64px;
+        text-align: center;
+        img {
+          width: 154px;
+        }
+      }
+
+      .company-avatar-block {
+        text-align: center;
+        margin: 20px 0;
+        .company-avatar {
+          width: 100px;
+          height: 100px;
+          background-color: #fff;
+          margin: 20px auto;
+          border-radius: 50px;
+          overflow: hidden;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          img{
+            display: block;
+            flex:1;
+            max-height: 100%;
+
+          }
+        }
+
+        .company-name {
+          color: #fff;
+          font-size: 16px;
+          font-weight: 900;
+          line-height: 1.38;
+        }
+
+        .company-mail-address {
+          color: #ffffff;
+          font-size: 14px;
+          font-weight: bold;
+          line-height: 1.38;
+        }
+      }
+
+      .ant-menu {
+        background-color: #444584;
+        .ant-menu-item {
+          .anticon {
+            img {
+            }
+          }
+
+          span {
+            font-size: 16px;
+            line-height: 1.38;
+            text-align: left;
+            color: #ffffff;
+          }
+          &:hover {
+            // color: wheat;
+            background-color: rgba(255, 255, 255, 0.1);
+          }
+          // &:focus {
+          // }
+        }
+      }
+      .ant-menu-item.ant-menu-item-selected {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+
+  .site-layout.ant-layout {
+    background-color: #f7f7f7;
+    .site-layout-background.ant-layout-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #fff;
+      padding: 0px 40px 0px 0;
+      z-index: 2;
+      position: fixed;
+      .trigger {
+        margin-left: 20px;
+        flex: 1;
+        text-align: initial;
+        svg {
+          width: 24px;
+          height: 24px;
+        }
+      }
+      .header-links {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex: 1;
+
+        .howItWorkButton {
+          height: 40px;
+          border-radius: 4px;
+          background-color: #ec3f78;
+          border: 1px solid #ec3f78;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 1.38;
+          color: #ffffff;
+          margin: 0 1rem;
+        }
+        .header-avatar-block {
+          display: flex;
+          align-items: center;
+          @media (max-width:$smallTableScreen) {
+            display: none;
+          }
+          .avatar-on-header {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            background-color: #d8d8d8;
+            font-size: 18px;
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: 0.9px;
+            color: #ffffff;
+          }
+          .avatar-name {
+            font-size: 18px;
+            line-height: 1.44;
+            color: #000000;
+            margin-left: 12px;
+            text-transform: capitalize;
+          }
+        }
+
+        .needHelp-button {
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 1.38;
+          color: #000000;
+          cursor: pointer;
+        }
+      }
+    }
+    .ant-layout-content{
+      position: relative;
+      .ant-layout-header{
+        position: absolute ;
+      }
+    }
+   .site-content {
+      background-color: #f7f7f7;
+      padding: 5rem 3rem 3rem;
+      min-height: 280px;
+
+      @media (max-width:$smallTableScreen) {
+        padding: 5rem 1rem;
+        
+      }
+    }
+  }
+}

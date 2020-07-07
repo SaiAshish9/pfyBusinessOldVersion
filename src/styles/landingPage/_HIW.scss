@@ -1,0 +1,103 @@
+div.hiw-main-block {
+  background-color: #f7f8fa;
+  margin-top: 40px;
+  padding: 80px 80px 40px 80px;
+  display: grid;
+  grid-auto-columns: 1fr 0.6fr;
+  grid-template:
+    "header header"
+    "para para"
+    "image blockOne"
+    "image blockTwo"
+    "image blockThree";
+  .hiw-header-block {
+    grid-area: header;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    h1.hiw__header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding-bottom: 12px;
+
+      position: relative;
+      font-size: 36px;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: 1.8px;
+      color: #444584;
+
+      img.header-img-one {
+        position: absolute;
+        left: -36px;
+        top: -22px;
+      }
+
+      img.header-img-two {
+        position: absolute;
+        left: -20px;
+        top: -16px;
+      }
+      &:before {
+        content: "";
+        position: absolute;
+        left: 25%;
+        bottom: 0;
+        height: 3px;
+        width: 50%;
+        background: #444584;
+        border-bottom: 3px solid #444584;
+        border-radius: 70px;
+      }
+    }
+  }
+
+  p.hiw__para {
+    grid-area: para;
+    text-align: center;
+    opacity: 0.82;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.43;
+    color: #000000;
+    margin-bottom: 50px;
+  }
+
+  img.hiw__img {
+    grid-area: image;
+    justify-self: center;
+  }
+
+  div.can-do-block-one {
+    grid-area: blockOne;
+    margin: 0 60px 20px 0;
+    // width: 64%;
+  }
+
+  div.can-do-block-two {
+    grid-area: blockTwo;
+    margin: 0 20px 60px 0;
+    // width: 64%;
+  }
+
+  div.can-do-block-three {
+    grid-area: blockThree;
+    margin: 0 20px 60px 0;
+    // width: 64%;
+  }
+
+  h2.can-do__header {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: 1.2px;
+    color: #444584;
+  }
+
+  p.can-do__para {
+    font-size: 18px;
+    line-height: 1.67;
+    color: #000000;
+  }
+}
