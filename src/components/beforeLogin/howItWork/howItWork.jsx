@@ -201,7 +201,7 @@ export default function HowItWork() {
             <div className="worker-hiw-with-props">
               <img src={propIconOne} alt="" className="worker-prop-one" />
               <img src={propIconTwo} alt="" className="worker-prop-two" />
-              {/* {hiw(gigWorker, "worker")} */}
+              {hiw(gigWorker, "worker")}
             </div>
             {/* <h1 className="worker-advantage-main-head">Advantages</h1>
             {advantage(gigWorkerAdvantage, "worker")} */}
