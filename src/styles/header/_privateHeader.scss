@@ -121,8 +121,29 @@
         .header-avatar-block {
           display: flex;
           align-items: center;
+          position: relative;
           @media (max-width:$smallTableScreen) {
             display: none;
+          }
+          .header-menu{
+            position: absolute;
+            top:100%;
+            background: #fff;
+            box-shadow: 0.1rem 0.5rem 1rem rgba(#000,0.2);
+            display: none;
+            width: 100%;
+            text-align: center;
+            &__option{
+              cursor: pointer;
+              //padding: 1rem;
+              line-height: 3rem;
+              &:hover{
+                background-color: #f7f7f7;
+              }
+            }
+          }
+          &:hover .header-menu{
+            display: block;
           }
           .avatar-on-header {
             width: 40px;

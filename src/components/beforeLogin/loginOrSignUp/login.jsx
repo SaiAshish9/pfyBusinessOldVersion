@@ -73,9 +73,12 @@ export default function Login() {
       .catch((e) => {
         console.log(e.response);
         if(e.response.status === 403){
+          
           cookie.set('companytoken',e.response.data.token);
           history.push("/register")
         }
+        setLoginLoader(false);
+
         setLoginFailMsg(e.response.data.message);
       });
   };
@@ -251,7 +254,7 @@ export default function Login() {
                   placeholder="Confirm New Password"
                 />
               </Form.Item>
-              <Button loading={setResetLoader} className="login__button" htmlType="submit">
+              <Button loading={resetLoader} className="login__button" htmlType="submit">
                 CONFIRM
               </Button>
             </div>
