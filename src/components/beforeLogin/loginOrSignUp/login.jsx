@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import cookie from "js-cookie";
-import { Input, Button, Checkbox, Form } from "antd";
+import { Input, Button, Checkbox, Form, notification } from "antd";
 import { useHistory } from "react-router-dom";
 /* ---------------------------------- ***** --------------------------------- */
 import ShowCaseCarousel from "./showCaseCarousel";
@@ -15,18 +15,28 @@ export default function Login() {
   const [forgetPass, setForgetPass] = useState(false);
   const [resetPassword, setResetPassword] = useState(false);
   const [loginFailMsg, setLoginFailMsg] = useState("");
-
+  const [currentEmail,setEmail] = useState("")
   const handleForgetPass = () => {
     setForgetPass(true);
   };
 
-  const handleEmailForPassChange = () => {
-    setResetPassword(true);
-  };
+  
+  const handleConfirmPass = (values) => {
+    if(values.password !== values['confirm-password']){
+      notification.error({message:"Confirm password not matched"});
+      return
+    }
+    values.email = currentEmail;
 
-  const handleConfirmPass = () => {
-    setForgetPass(false);
-    setResetPassword(false);
+    axios.post("company/reset_password",values).then(() => {
+      setForgetPass(false);
+      setResetPassword(false);
+      notification.success({message:"Password reset successfully"})
+    }).catch(() => {
+      notification.error({message:"Invalid OTP"})
+    })
+
+   
   };
 
   const onFinish = (value) => {
@@ -65,7 +75,15 @@ export default function Login() {
   };
 
   const handleVerifyEmail = (value) => {
-    console.log(value);
+    axios.post(`company/send_reset_otp`,value)
+    .then(() => {
+      notification.info({message:"Email Send Successfully"})
+      setEmail(value.email);
+      setResetPassword(true);
+    })
+    .catch(err => {
+      notification.error({message:"Email Not Exist"})
+    })
   };
   return (
     <div className="login-main-block">
@@ -165,7 +183,7 @@ export default function Login() {
               </Form.Item>
               <Button
                 className="login__button"
-                onClick={handleEmailForPassChange}
+                htmlType="submit"
               >
                 SUBMIT
               </Button>
@@ -195,11 +213,19 @@ export default function Login() {
           </p>
           <Form
             name="setPassForm"
-            onFinish={handleSetPass}
+            onFinish={handleConfirmPass}
             // onFinishFailed={onFinishFailed}
           >
             <div className="form-block">
-              <Form.Item name="password">
+            <Form.Item name="otp" >
+                <Input
+                  className="password__input"
+                  htmlType="number"
+                  prefix={<img src={passwordIcon} alt="" className="" />}
+                  placeholder="Enter OTP"
+                />
+              </Form.Item>
+              <Form.Item name="password" >
                 <Input.Password
                   className="password__input"
                   prefix={<img src={passwordIcon} alt="" className="" />}
@@ -213,7 +239,7 @@ export default function Login() {
                   placeholder="Confirm New Password"
                 />
               </Form.Item>
-              <Button className="login__button" onClick={handleConfirmPass}>
+              <Button className="login__button" htmlType="submit">
                 CONFIRM
               </Button>
             </div>
