@@ -16,6 +16,10 @@ export default function Login() {
   const [resetPassword, setResetPassword] = useState(false);
   const [loginFailMsg, setLoginFailMsg] = useState("");
   const [currentEmail,setEmail] = useState("")
+  const [loginLoader,setLoginLoader] = useState(false);
+  const [sendOtpLoader,setSendOtpLoader] = useState(false);
+  const [resetLoader,setResetLoader] = useState(false);
+
   const handleForgetPass = () => {
     setForgetPass(true);
   };
@@ -27,12 +31,15 @@ export default function Login() {
       return
     }
     values.email = currentEmail;
-
+    setResetLoader(true);
     axios.post("company/reset_password",values).then(() => {
       setForgetPass(false);
       setResetPassword(false);
+    setResetLoader(false);
+
       notification.success({message:"Password reset successfully"})
     }).catch(() => {
+    setResetLoader(false);
       notification.error({message:"Invalid OTP"})
     })
 
@@ -40,11 +47,13 @@ export default function Login() {
   };
 
   const onFinish = (value) => {
-    console.log(value);
+  
+    setLoginLoader(true);
     axios
       .post("company/login", value)
       .then((res) => {
         console.log(res);
+        setLoginLoader(false)
         const isCompanyDetailsExist = res.data.isCompanyDataExist;
         console.log("isCompanyDetailsExist", isCompanyDetailsExist);
         if (isCompanyDetailsExist === 1400) {
@@ -56,6 +65,7 @@ export default function Login() {
           });
           console.log("isCompanyDetailsExist", isCompanyDetailsExist);
         } else {
+          setLoginLoader(false)
           cookie.set("companytoken", res.data.token);
           history.push("/dashboard");
         }
@@ -70,18 +80,18 @@ export default function Login() {
       });
   };
   const onFinishFailed = () => {};
-  const handleSetPass = (value) => {
-    console.log(value);
-  };
 
   const handleVerifyEmail = (value) => {
     axios.post(`company/send_reset_otp`,value)
+    setSendOtpLoader(true)
     .then(() => {
       notification.info({message:"Email Send Successfully"})
       setEmail(value.email);
+      setSendOtpLoader(false)
       setResetPassword(true);
     })
     .catch(err => {
+      setSendOtpLoader(false);
       notification.error({message:"Email Not Exist"})
     })
   };
@@ -146,7 +156,7 @@ export default function Login() {
                 </span>
               </div>
               <Form.Item>
-                <Button className="login__button" htmlType="submit">
+                <Button loading={loginLoader} className="login__button" htmlType="submit">
                   LOGIN
                 </Button>
               </Form.Item>
@@ -184,6 +194,7 @@ export default function Login() {
               <Button
                 className="login__button"
                 htmlType="submit"
+                loading={sendOtpLoader}
               >
                 SUBMIT
               </Button>
@@ -239,7 +250,7 @@ export default function Login() {
                   placeholder="Confirm New Password"
                 />
               </Form.Item>
-              <Button className="login__button" htmlType="submit">
+              <Button loading={setResetLoader} className="login__button" htmlType="submit">
                 CONFIRM
               </Button>
             </div>
