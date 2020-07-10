@@ -82,8 +82,9 @@ export default function Login() {
   const onFinishFailed = () => {};
 
   const handleVerifyEmail = (value) => {
-    axios.post(`company/send_reset_otp`,value)
     setSendOtpLoader(true)
+
+    axios.post(`company/send_reset_otp`,value)
     .then(() => {
       notification.info({message:"Email Send Successfully"})
       setEmail(value.email);
