@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Row, Col, Button, Typography } from "antd";
-import "./index.css";
+import "./index.scss";
 import { IoIosArrowForward } from "react-icons/io";
 
 const GetStarted = () => {

@@ -71,7 +71,7 @@ const InactiveActiveImages = [
 const ActiveImages = [
   <img
     src={Img1}
-    className="animate__animated animate__fadeIn"
+    className="animate__animated animate__zoomIn"
     alt="img"
     style={{
       position: "absolute",
@@ -82,7 +82,7 @@ const ActiveImages = [
   />,
   <img
     src={Img3}
-    className="animate__animated animate__fadeIn"
+    className="animate__animated animate__zoomIn"
     alt="img"
     style={{
       position: "absolute",
@@ -93,7 +93,7 @@ const ActiveImages = [
   />,
   <img
     src={Img2}
-    className="animate__animated animate__fadeIn"
+    className="animate__animated animate__zoomIn"
     alt="img"
     style={{
       position: "absolute",
@@ -168,7 +168,7 @@ const PartnershipBenefits = () => {
               {selected === k && (
                 <p
                   // data-aos="fade"
-                  className="animate__animated animate__fadeIn"
+                  // className="animate__animated animate__fadeIn"
                   style={{
                     marginLeft: "3.1rem",
                     color: "rgb(51,62,73,0.6)",
