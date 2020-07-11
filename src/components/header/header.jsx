@@ -4,7 +4,6 @@ import { Scroll } from "react-fns";
 import { useHistory } from "react-router-dom";
 import menuIcon from "../../assets/img/header/menuIcon.svg";
 import pracifyLogo from "../../assets/img/logoDark.png";
-// import DesktopNav from "./desktopNav";
 import HeaderNavLink from "./headerNavLink";
 
 
