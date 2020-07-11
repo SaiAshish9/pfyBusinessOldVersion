@@ -102,13 +102,6 @@ const ActiveImages = [
   />,
 ];
 
-
-
-
-
-
-
-
 const PartnershipBenefits = () => {
   const [selected, setSelected] = useState(0);
 

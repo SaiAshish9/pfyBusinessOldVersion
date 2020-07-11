@@ -7,7 +7,7 @@ import "animate.css/animate.min.css";
 import Aos from "aos";
 import { useMediaQuery } from "react-responsive";
 const Desktop = lazy(() => import("./containers/desktop"));
-const Mobile = lazy(() => import("./containers/mobile"));
+const Mobile = lazy(() => import("./containers/mobile/Company_page"));
 
 function LandingPage() {
   useEffect(() => {
