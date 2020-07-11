@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import cookie from "js-cookie";
-import { Input, Button, Checkbox, Form } from "antd";
+import { Input, Button, Checkbox, Form, notification } from "antd";
 import { useHistory } from "react-router-dom";
 /* ---------------------------------- ***** --------------------------------- */
 import ShowCaseCarousel from "./showCaseCarousel";
@@ -15,26 +15,45 @@ export default function Login() {
   const [forgetPass, setForgetPass] = useState(false);
   const [resetPassword, setResetPassword] = useState(false);
   const [loginFailMsg, setLoginFailMsg] = useState("");
+  const [currentEmail,setEmail] = useState("")
+  const [loginLoader,setLoginLoader] = useState(false);
+  const [sendOtpLoader,setSendOtpLoader] = useState(false);
+  const [resetLoader,setResetLoader] = useState(false);
 
   const handleForgetPass = () => {
     setForgetPass(true);
   };
 
-  const handleEmailForPassChange = () => {
-    setResetPassword(true);
-  };
+  
+  const handleConfirmPass = (values) => {
+    if(values.password !== values['confirm-password']){
+      notification.error({message:"Confirm password not matched"});
+      return
+    }
+    values.email = currentEmail;
+    setResetLoader(true);
+    axios.post("company/reset_password",values).then(() => {
+      setForgetPass(false);
+      setResetPassword(false);
+    setResetLoader(false);
 
-  const handleConfirmPass = () => {
-    setForgetPass(false);
-    setResetPassword(false);
+      notification.success({message:"Password reset successfully"})
+    }).catch(() => {
+    setResetLoader(false);
+      notification.error({message:"Invalid OTP"})
+    })
+
+   
   };
 
   const onFinish = (value) => {
-    console.log(value);
+  
+    setLoginLoader(true);
     axios
       .post("company/login", value)
       .then((res) => {
         console.log(res);
+        setLoginLoader(false)
         const isCompanyDetailsExist = res.data.isCompanyDataExist;
         console.log("isCompanyDetailsExist", isCompanyDetailsExist);
         if (isCompanyDetailsExist === 1400) {
@@ -46,6 +65,7 @@ export default function Login() {
           });
           console.log("isCompanyDetailsExist", isCompanyDetailsExist);
         } else {
+          setLoginLoader(false)
           cookie.set("companytoken", res.data.token);
           history.push("/dashboard");
         }
@@ -53,19 +73,31 @@ export default function Login() {
       .catch((e) => {
         console.log(e.response);
         if(e.response.status === 403){
+          
           cookie.set('companytoken',e.response.data.token);
           history.push("/register")
         }
+        setLoginLoader(false);
+
         setLoginFailMsg(e.response.data.message);
       });
   };
   const onFinishFailed = () => {};
-  const handleSetPass = (value) => {
-    console.log(value);
-  };
 
   const handleVerifyEmail = (value) => {
-    console.log(value);
+    setSendOtpLoader(true)
+
+    axios.post(`company/send_reset_otp`,value)
+    .then(() => {
+      notification.info({message:"Email Send Successfully"})
+      setEmail(value.email);
+      setSendOtpLoader(false)
+      setResetPassword(true);
+    })
+    .catch(err => {
+      setSendOtpLoader(false);
+      notification.error({message:"Email Not Exist"})
+    })
   };
   return (
     <div className="login-main-block">
@@ -128,7 +160,7 @@ export default function Login() {
                 </span>
               </div>
               <Form.Item>
-                <Button className="login__button" htmlType="submit">
+                <Button loading={loginLoader} className="login__button" htmlType="submit">
                   LOGIN
                 </Button>
               </Form.Item>
@@ -165,7 +197,8 @@ export default function Login() {
               </Form.Item>
               <Button
                 className="login__button"
-                onClick={handleEmailForPassChange}
+                htmlType="submit"
+                loading={sendOtpLoader}
               >
                 SUBMIT
               </Button>
@@ -195,11 +228,19 @@ export default function Login() {
           </p>
           <Form
             name="setPassForm"
-            onFinish={handleSetPass}
+            onFinish={handleConfirmPass}
             // onFinishFailed={onFinishFailed}
           >
             <div className="form-block">
-              <Form.Item name="password">
+            <Form.Item name="otp" >
+                <Input
+                  className="password__input"
+                  htmlType="number"
+                  prefix={<img src={passwordIcon} alt="" className="" />}
+                  placeholder="Enter OTP"
+                />
+              </Form.Item>
+              <Form.Item name="password" >
                 <Input.Password
                   className="password__input"
                   prefix={<img src={passwordIcon} alt="" className="" />}
@@ -213,7 +254,7 @@ export default function Login() {
                   placeholder="Confirm New Password"
                 />
               </Form.Item>
-              <Button className="login__button" onClick={handleConfirmPass}>
+              <Button loading={resetLoader} className="login__button" htmlType="submit">
                 CONFIRM
               </Button>
             </div>
