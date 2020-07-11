@@ -97,7 +97,7 @@ const ActiveImages = [
       position: "absolute",
       right: "21rem",
       zIndex: 2,
-      marginTop: "11rem",
+      marginTop: "11rem"
     }}
   />,
 ];
