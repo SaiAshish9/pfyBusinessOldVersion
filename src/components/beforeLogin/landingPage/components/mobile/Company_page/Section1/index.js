@@ -56,11 +56,12 @@ const Section1 = () => {
               justifyContent: "center",
               paddingTop: "3rem",
             }}
-            data-aos="zoom-up"
+            data-aos="fade-up"
             // className="animate__animated animate__fadeIn"
           >
             {selected === 0 ? (
               <img
+                // data-aos="fade-up"
                 className="animate__animated animate__fadeIn"
                 src={images[selected]}
                 alt="section3"
@@ -73,6 +74,7 @@ const Section1 = () => {
               />
             ) : selected === 1 ? (
               <img
+                // data-aos="fade-up"
                 className="animate__animated animate__fadeIn"
                 src={images[selected]}
                 alt="section3"
@@ -88,6 +90,7 @@ const Section1 = () => {
             ) : (
               <img
                 src={images[selected]}
+                // data-aos="fade-up"
                 className="animate__animated animate__fadeIn"
                 alt="section3"
                 style={{
@@ -106,7 +109,7 @@ const Section1 = () => {
             style={{
               display: "flex",
               alignItems: "center",
-            //   width: "50vw",
+              //   width: "50vw",
               padding: "2rem",
               marginTop: "5vh",
               justifyContent: "center",
@@ -121,7 +124,11 @@ const Section1 = () => {
                 marginRight: "3rem",
               }}
             >
-              <img src={Line} alt="line"  style={{height:"17rem",marginTop:"2rem"}}  />
+              <img
+                src={Line}
+                alt="line"
+                style={{ height: "17rem", marginTop: "2rem" }}
+              />
               <div
                 onClick={() => {
                   setSelected(0);
@@ -211,9 +218,9 @@ const Section1 = () => {
             </div>
 
             {selected === 0 ? (
-              <div >
+              <div>
                 <p
-                  data-aos="fade"
+                  // data-aos="fade"
                   className="animate__animated animate__fadeIn"
                   style={{
                     fontFamily: "Inter-SemiBold",
@@ -238,9 +245,9 @@ const Section1 = () => {
                 </p>
               </div>
             ) : selected === 1 ? (
-              <div >
+              <div>
                 <p
-                  data-aos="fade"
+                  // data-aos="fade"
                   className="animate__animated animate__fadeIn"
                   style={{
                     fontFamily: "Inter-SemiBold",
@@ -253,7 +260,8 @@ const Section1 = () => {
                   {options[selected]["title"]}
                 </p>
                 <p
-                  data-aos="fade"
+                  // data-aos="fade"
+                  className="animate__animated animate__fadeIn"
                   style={{
                     fontSize: 20,
                     lineHeight: "30px",
@@ -265,9 +273,9 @@ const Section1 = () => {
                 </p>
               </div>
             ) : (
-              <div >
+              <div>
                 <p
-                  data-aos="fade"
+                  // data-aos="fade"
                   className="animate__animated animate__fadeIn"
                   style={{
                     fontFamily: "Inter-SemiBold",
@@ -280,7 +288,8 @@ const Section1 = () => {
                   {options[selected]["title"]}
                 </p>
                 <p
-                  data-aos="fade"
+                  // data-aos="fade"
+                  className="animate__animated animate__fadeIn"
                   style={{
                     fontSize: 20,
                     lineHeight: "30px",
