@@ -56,13 +56,13 @@ const Section1 = () => {
               justifyContent: "center",
               paddingTop: "3rem",
             }}
-            data-aos="fade-up"
+            // data-aos="fade-up"
             // className="animate__animated animate__fadeIn"
           >
             {selected === 0 ? (
               <img
                 // data-aos="fade-up"
-                className="animate__animated animate__fadeIn"
+                // className="animate__animated animate__fadeIn"
                 src={images[selected]}
                 alt="section3"
                 style={{
@@ -75,7 +75,7 @@ const Section1 = () => {
             ) : selected === 1 ? (
               <img
                 // data-aos="fade-up"
-                className="animate__animated animate__fadeIn"
+                // className="animate__animated animate__fadeIn"
                 src={images[selected]}
                 alt="section3"
                 style={{
@@ -91,7 +91,7 @@ const Section1 = () => {
               <img
                 src={images[selected]}
                 // data-aos="fade-up"
-                className="animate__animated animate__fadeIn"
+                // className="animate__animated animate__fadeIn"
                 alt="section3"
                 style={{
                   position: "relative",
@@ -221,7 +221,7 @@ const Section1 = () => {
               <div>
                 <p
                   // data-aos="fade"
-                  className="animate__animated animate__fadeIn"
+                  // className="animate__animated animate__fadeIn"
                   style={{
                     fontFamily: "Inter-SemiBold",
                     fontSize: 34,
