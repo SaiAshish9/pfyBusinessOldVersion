@@ -24,6 +24,8 @@ import NewCreateInternship from "../components/internship/internshipForm/newCrea
 // import ContactUs from "../components/landingPageContactUs/contactUs";
 import Login from "../components/beforeLogin/loginOrSignUp/login";
 import SignUp from "../components/beforeLogin/loginOrSignUp/signUp";
+import Terms from "../components/beforeLogin/termsAndConditions"
+import PrivacyPolicy from "../components/beforeLogin/privacyPolicy"
 import PrivateRoute from "./privateRoute";
 import PublicRoute from "./publicRoute";
 
@@ -44,6 +46,8 @@ export default function AppRouter() {
         <PublicRoute path="/about_us" component={AboutUs} exact={true} />
         <PublicRoute path="/career" component={Career} exact={true} />
         <PublicRoute path="/contact_us" component={ContactUs} exact={true} />
+        <PublicRoute exact path="/terms" component={Terms}/>
+        <PublicRoute exact path="/privacy_policy" component={PrivacyPolicy}/>
         <PublicRoute
           path="/how_pracify_work"
           component={HowItWork}
