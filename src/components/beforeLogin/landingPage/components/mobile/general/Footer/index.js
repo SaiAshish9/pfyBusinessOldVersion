@@ -6,6 +6,7 @@ import Facebook from "../../../../assets/svgs/facebook";
 import Twitter from "../../../../assets/svgs/twitter";
 import LinkedIn from "../../../../assets/svgs/linkedin";
 import Heart from "../../../../assets/svgs/heart";
+import { useHistory } from "react-router-dom";
 
   const footerOptions = [
     {
@@ -23,6 +24,8 @@ import Heart from "../../../../assets/svgs/heart";
   ];
 
 const Footer = () => {
+    const history = useHistory();
+
     return (
       <div
         style={{
@@ -33,15 +36,22 @@ const Footer = () => {
           style={{
             width: "100%",
             display: "flex",
-            alignItems: "center",
+            alignItems: "flex-start",
             justifyContent: "space-between",
-            padding: "2rem",
+            padding: "2rem 1.5rem",
             flexWrap: "wrap",
             flexDirection: "row-reverse",
           }}
         >
           {footerOptions.map((i, k) => (
-            <div key={k} style={{ margin: "15px 7px" }}>
+            <div
+              key={k}
+              style={{
+                width: "7.2rem",
+                textAlign: "start",
+                margin: "15px 0px",
+              }}
+            >
               <Typography
                 style={{
                   marginBottom: 20,
@@ -55,9 +65,16 @@ const Footer = () => {
                 {i.title}
               </Typography>
 
-              {footerOptions[1].options.map((a, b) => (
+              {footerOptions[k].options.map((a, b) => (
                 <Typography
                   key={b}
+                  onClick={() => {
+                    if (k === 2 && b === 0) {
+                      history.push("/terms");
+                    } else if (k === 2 && b === 1) {
+                      history.push("/privacy_policy");
+                    }
+                  }}
                   style={{
                     color: "#959595",
                     fontWeight: 500,
@@ -85,7 +102,7 @@ const Footer = () => {
             style={{
               width: "30%",
               marginRight: "10px",
-              marginTop:5
+              marginTop: 5,
             }}
           />
           <div
@@ -107,7 +124,7 @@ const Footer = () => {
             color: "#333e49",
             fontSize: 12,
             margin: "1rem 0",
-            marginLeft:"1.5rem",
+            marginLeft: "1.5rem",
             fontWeight: 600,
             fontFamily: "Inter-SemiBold",
             lineHeight: "18px",
@@ -138,7 +155,7 @@ const Footer = () => {
             fontSize: 16,
             lineHeight: "18px",
             fontFamily: "Inter-SemiBold",
-            textAlign: "center"
+            textAlign: "center",
           }}
         >
           Made with <Heart /> in India

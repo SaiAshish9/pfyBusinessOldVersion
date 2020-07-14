@@ -7,14 +7,9 @@ import pracifyLogo from "../../assets/img/logoDark.png";
 import HeaderNavLink from "./headerNavLink";
 
 
-
-
-
-
 const Header = () => {
   const history = useHistory();
   const [isNavOpen, setIsNavOpen] = useState(false);
-
 
   const handleLogo = () => {
     history.push("/");

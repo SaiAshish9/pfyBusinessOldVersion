@@ -64,18 +64,26 @@ const GetStarted = () => {
               borderRadius: 10,
               margin: "auto",
               border: "solid 2px #7a81ea",
-              color: "#7a81ea",
+              color: slideLeft ? "#7a81ea" : "#fff",
               fontSize: 22,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
-            <span className={slide ? "animate__animated animate__fadeIn" : ""}>
+            <span
+              style={{
+                color: !slideLeft ? "#7a81ea" : "#fff !important",
+              }}
+              // className={slide ? "animate__animated animate__fadeIn" : ""}
+            >
               Get Started
             </span>
             {slide && (
-              <IoIosArrowForward className="animate__animated animate__fadeIn" />
+              <IoIosArrowForward 
+              data-aos="fade-left"
+              // className="animate__animated animate__fadeIn"
+               />
             )}
           </Button>
         </div>

@@ -156,7 +156,7 @@ const Section2 = () => {
                 </div>
                 <div>
                   <p
-                    data-aos="fade"
+                    // data-aos="fade"
                     style={{
                       margin: "auto",
                       marginLeft: "1rem",
@@ -173,7 +173,7 @@ const Section2 = () => {
               </div>
               {selected === k && (
                 <p
-                  className="animate__animated animate__fadeIn"
+                  // className="animate__animated animate__fadeIn"
                   style={{
                     marginLeft: "3.4rem",
                     // width: "81%",
