@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import axios from "axios";
-import { Modal, Button, Input, Form, InputNumber } from "antd";
+import { Modal, Button, Input, Form, InputNumber, notification } from "antd";
 import modalSvg from "../../assets/img/modalSvg.svg";
+import { getHeaders } from "../../helpers/getHeaders";
+
 import TextArea from "antd/lib/input/TextArea";
 const commonQuestions = [
   "Explain your requirement",
@@ -151,6 +153,7 @@ export default function DefaultCampaign({
       .validateFields()
       .then((values) => {
         onCreate(values);
+        console.log(values);
         form.resetFields();
       })
       .catch((info) => {
@@ -160,15 +163,26 @@ export default function DefaultCampaign({
 
   const onCreate = (values) => {
     console.log("Received values of form: ", values);
-    const data = { ...values, formName: campaignTitle };
+    const data = Object.keys(values).reduce((arr,question) => {
+      const newQuestion = {
+        question,
+        answer:values[question]
+      }
+      arr.push(newQuestion);
+      return arr;
+    },[]);
+    //const data = { ...values, formName: campaignTitle };
     console.log(data);
     axios
-      .post("company_contact_us/create", data)
+      .post("campaign_request/create", {campaignTitle,qna:data},getHeaders())
       .then((res) => {
         console.log(res);
+        notification.success({message:"Request Added Successfully",placement:"bottomLeft"});
       })
       .catch((e) => {
         console.log(e.response);
+        notification.error({message:"Something went wrong",placement:"bottomLeft"});
+
       });
     handleCancel();
   };
@@ -205,7 +219,7 @@ export default function DefaultCampaign({
             <>
               <p className="requirement__p">{question}</p>
               <Form.Item
-                name={index}
+                name={question}
                 rules={[
                   {
                     required: true,
