@@ -32,7 +32,7 @@ function ChangePassword(props) {
         type="primary"
         onClick={() => setShowChangePassword((val) => !val)}
       >
-        Open Modal
+        Change Password
       </div>
       <Modal
         title="Change Password"
