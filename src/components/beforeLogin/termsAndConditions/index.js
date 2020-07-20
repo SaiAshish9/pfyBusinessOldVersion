@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import { useMediaQuery } from "react-responsive";
 
+
 const Navbar = lazy(() =>
   import("../landingPage/components/mobile/general/Navbar")
 );

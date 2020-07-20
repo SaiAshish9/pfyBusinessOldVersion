@@ -49,7 +49,7 @@ export default function WWD() {
         </p>
         <Button
           className="outSourcing__button"
-          onClick={() => history.push("/contact_us")}
+          onClick={() => history.push("/contact-us")}
         >
           CONTACT US
         </Button>

@@ -5,10 +5,12 @@ import brandPartnershipIcon from "../../../assets/img/partnerWithPracify/brandPa
 import cashSponsorshipIcon from "../../../assets/img/partnerWithPracify/cashSponsorshipIcon.svg";
 import promoteEventIcon from "../../../assets/img/partnerWithPracify/promoteEventIcon.svg";
 import rightArrowIconLight from "../../../assets/img/rightArrowIconLight.svg";
+import MFooter from "../landingPage/components/mobile/general/Footer";
+import MNavbar from "../landingPage/components/mobile/general/Navbar";
 import Footer from "../landingPage/components/desktop/CompanyPage/Footer";
-
-import PartnershipBenefits from './partnershipBenefits'
-
+import { useMediaQuery } from "react-responsive";
+import PartnershipBenefits from "./partnershipBenefits";
+import MPartnershipBenefits from "./mpartnershipBenefits";
 
 const pwpData = [
   {
@@ -44,10 +46,18 @@ export default function PartnerWithPracify() {
   useEffect(() => {
     window.scrollTo("0", "0");
   }, []);
-
+  const media = useMediaQuery({
+    query: "(min-width:600px)",
+  });
   return (
     <>
-      <div className="pwp-main-block">
+      <div
+        style={{
+          paddingTop: !media && "1rem",
+        }}
+        className="pwp-main-block"
+      >
+        <MNavbar/>
         <div className="pwp-hero-block">
           <h1 className="pwp-hero-head">Partner with Pracify!</h1>
           <p className="pwp-hero-para">
@@ -96,8 +106,7 @@ export default function PartnerWithPracify() {
         </Button> 
         </div> */}
 
-
-<PartnershipBenefits/>
+        {media ? <PartnershipBenefits /> : <MPartnershipBenefits />}
 
         <FillDetail
           contactName={contactTo}
@@ -105,7 +114,8 @@ export default function PartnerWithPracify() {
           handleCancelModal={handleCancelModal}
         ></FillDetail>
       </div>
-      <Footer />
+      {/* <Footer /> */}
+      {media ? <Footer /> : <MFooter />}
     </>
   );
 }

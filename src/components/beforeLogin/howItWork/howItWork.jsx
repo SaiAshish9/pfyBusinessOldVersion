@@ -1,5 +1,5 @@
 import { Button, Tabs } from "antd";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 /* ---------------------------------- ***** --------------------------------- */
 import businessAdvtOne from "../../../assets/img/howItWork/businessAdvtOne.svg";
@@ -22,12 +22,18 @@ import twoHiwWorker from "../../../assets/img/howItWork/twoHiwWorker.svg";
 import propIconOne from "../../../assets/img/howItWork/propIconOne.svg";
 import propIconTwo from "../../../assets/img/howItWork/propIconTwo.svg";
 import Footer from "../landingPage/components/desktop/CompanyPage/Footer";
+import MFooter from "../landingPage/components/mobile/general/Footer";
+import MNavbar from "../landingPage/components/mobile/general/Navbar";
 
 
-import GigWorkersAdv from './forGigWorkers'
-import CompanyOwnersAdv from './forCompanyOwners'
+import MGigWorkersAdv from "./mforGigWorkers";
+import GigWorkersAdv from "./forGigWorkers";
+import CompanyOwnersAdv from "./forCompanyOwners";
+import MCompanyOwnersAdv from "./mforCompanyOwners";
 
-
+import { useMediaQuery } from "react-responsive";
+import MGigWorkersSection from "./Section1";
+import MCompanyOwnersSection from "./Section2"
 
 const { TabPane } = Tabs;
 
@@ -142,6 +148,11 @@ const businessOwnerAdvantage = [
 
 export default function HowItWork() {
   const history = useHistory();
+  const [selected, setSelected] = useState(0);
+
+  const media = useMediaQuery({
+    query: "(min-width:600px)",
+  });
 
   const heroHead = (head) => (
     <div className="hero-head-block">
@@ -153,7 +164,8 @@ export default function HowItWork() {
     <div className={`${cls}-hiw-main-block`}>
       {allData.map((data, index) => (
         <div key={index} className={`${cls}-hiw-block`}>
-          <div className={`${cls}-hiw-img-block`}>
+          <div
+          className={`${cls}-hiw-img-block`}>
             <img src={data.imgOne} alt="" className={`${cls}-hiw-img`} />
           </div>
           <div className={`${cls}-hiw-head-block`}>
@@ -164,7 +176,9 @@ export default function HowItWork() {
             <p className={`${cls}-hiw-para-one`}>{data.paraOne}</p>
             <p className={`${cls}-hiw-para-two`}>{data.paraTwo}</p>
           </div>
-          <div className={`${cls}-hiw-animation-block`}>
+          <div
+           className={`${cls}-hiw-animation-block`}
+           >
             <img
               src={data.animation}
               alt=""
@@ -195,53 +209,141 @@ export default function HowItWork() {
   return (
     <>
       <div className="howItWork-main-block">
-        <Tabs defaultActiveKey="1" type="card" className="hiw-tab">
-          <TabPane tab="For Gig Workers" key="1">
-            {heroHead(gigWorkerHead)}
-            <div className="worker-hiw-with-props">
-              <img src={propIconOne} alt="" className="worker-prop-one" />
-              <img src={propIconTwo} alt="" className="worker-prop-two" />
-              {hiw(gigWorker, "worker")}
-            </div>
-            {/* <h1 className="worker-advantage-main-head">Advantages</h1>
+        <MNavbar/>
+        {!media && (
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection: "column",
+              width: "100vw",
+            }}
+          >
+            <Button
+              onClick={() => {
+                setSelected(0);
+              }}
+              style={{
+                border: selected !== 0 ? "2px solid #38bdba" : "none",
+                backgroundColor: selected === 0 ? "#38bdba" : "#fff",
+                fontSize: "16px",
+                fontWeight: 700,
+                color: selected === 0 ? "#fff" : "#38bdba",
+                height: "4rem",
+                width: "15rem",
+                margin: "0 auto",
+              }}
+            >
+              For Gig Workers
+            </Button>
+            <Button
+              onClick={() => {
+                setSelected(1);
+              }}
+              style={{
+                backgroundColor: selected === 1 ? "#38bdba" : "#fff",
+                border: selected !== 1 ? "2px solid #38bdba" : "none",
+                fontSize: "16px",
+                marginTop: "1rem",
+                fontWeight: 700,
+                color: selected === 1 ? "#fff" : "#38bdba",
+                height: "4rem",
+                width: "15rem",
+              }}
+            >
+              For Business Owners
+            </Button>
+          </div>
+        )}
+
+        {media && (
+          <Tabs defaultActiveKey="1" type="card" className="hiw-tab">
+            <TabPane tab={"For Gig Workers"} key="1">
+              <div>
+                {heroHead(gigWorkerHead)}
+                <div className="worker-hiw-with-props">
+                  <img src={propIconOne} alt="" className="worker-prop-one" />
+                  <img src={propIconTwo} alt="" className="worker-prop-two" />
+                  {hiw(gigWorker, "worker")}
+                </div>
+              </div>
+
+              {/* <h1 className="worker-advantage-main-head">Advantages</h1>
             {advantage(gigWorkerAdvantage, "worker")} */}
-            <GigWorkersAdv/>
-            {/* <h1 className="worker-advantage-main-head">Advantages</h1> */}
-            {/* {advantage(gigWorkerAdvantage, "worker")} */}
-            <div className="hiw-btn-block">
-              <Button
-                className="hiw-btn"
-                onClick={() => history.push("/login")}
-              >
-                Start Working
-              </Button>
-            </div>
-          </TabPane>
-          <TabPane tab="For business Owner" key="2">
-            {heroHead(businessOwnerHead)}
-            <div className="business-hiw-with-props">
-              <img src={propIconOne} alt="" className="business-prop-one" />
-              <img src={propIconTwo} alt="" className="business-prop-two" />
-              {hiw(businessOwner, "business")}
-            </div>
-            {/* <h1 className="business-advantage-main-head">Advantages</h1> */}
-            {/* {advantage(businessOwnerAdvantage, "business")} */}
-            <CompanyOwnersAdv/>
-            {/* <h1 className="business-advantage-main-head">Advantages</h1> */}
-            {/* {advantage(businessOwnerAdvantage, "business")} */}
-            <div className="hiw-btn-block">
-              <a
-                href="https://business.pracify.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button className="hiw-btn">Publish a Gig</Button>
-              </a>
-            </div>
-          </TabPane>
-        </Tabs>
+
+              <GigWorkersAdv />
+
+              {/* <h1 className="worker-advantage-main-head">Advantages</h1> */}
+              {/* {advantage(gigWorkerAdvantage, "worker")} */}
+              <div className="hiw-btn-block">
+                <Button
+                  className="hiw-btn"
+                  onClick={() => history.push("/login")}
+                >
+                  Start Working
+                </Button>
+              </div>
+            </TabPane>
+            <TabPane tab="For business Owner" key="2">
+              {heroHead(businessOwnerHead)}
+              <div className="business-hiw-with-props">
+                <img src={propIconOne} alt="" className="business-prop-one" />
+                <img src={propIconTwo} alt="" className="business-prop-two" />
+                {hiw(businessOwner, "business")}
+              </div>
+              {/* <h1 className="business-advantage-main-head">Advantages</h1> */}
+              {/* {advantage(businessOwnerAdvantage, "business")} */}
+              <CompanyOwnersAdv />
+              {/* <h1 className="business-advantage-main-head">Advantages</h1> */}
+              {/* {advantage(businessOwnerAdvantage, "business")} */}
+              <div className="hiw-btn-block">
+                <a
+                  href="https://business.pracify.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button className="hiw-btn">Publish a Gig</Button>
+                </a>
+              </div>
+            </TabPane>
+          </Tabs>
+        )}
       </div>
-      <Footer />
+
+      {!media&&selected === 0 && (
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            width: "100vw",
+            alignItems: "center",
+          }}
+        >
+          <MGigWorkersSection 
+          data={gigWorker}
+          />
+          <MGigWorkersAdv />
+        </div>
+      )}
+
+      {!media&&selected === 1 && (
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            width: "100vw",
+            alignItems: "center",
+          }}
+        >
+          <MCompanyOwnersSection
+          data={businessOwner}
+          />
+          <MCompanyOwnersAdv />{" "}
+        </div>
+      )}
+
+      {media ? <Footer /> : <MFooter />}
     </>
   );
 }

@@ -43,18 +43,18 @@ export default function AppRouter() {
         ></PublicRoute>
         <PublicRoute path="/login" component={Login} exact={true} />
         <PublicRoute path="/register" component={SignUp} exact={true} />
-        <PublicRoute path="/about_us" component={AboutUs} exact={true} />
+        <PublicRoute path="/about-us" component={AboutUs} exact={true} />
         <PublicRoute path="/career" component={Career} exact={true} />
-        <PublicRoute path="/contact_us" component={ContactUs} exact={true} />
+        <PublicRoute path="/contact-us" component={ContactUs} exact={true} />
         <PublicRoute exact path="/terms" component={Terms}/>
-        <PublicRoute exact path="/privacy_policy" component={PrivacyPolicy}/>
+        <PublicRoute exact path="/privacy-policy" component={PrivacyPolicy}/>
         <PublicRoute
-          path="/how_pracify_work"
+          path="/how-pracify-work"
           component={HowItWork}
           exact={true}
         />
         <PublicRoute
-          path="/partner_with_us"
+          path="/partner-with-us"
           component={PartnerWithPracify}
           exact={true}
         />

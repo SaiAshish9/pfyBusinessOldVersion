@@ -3,6 +3,7 @@ import { Modal, Form, Button } from "antd";
 import InputType from "../../inputType";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import modalCloseIcon from "../../../assets/img/modalCloseIcon.svg";
+import {useMediaQuery} from "react-responsive";
 
 const userDetail = [
   {
@@ -185,6 +186,9 @@ export default function FillDetail({
 export const GetUserDetailForm = ({ contactName }) => {
   const location = useLocation();
   console.log("location", location);
+  const media=useMediaQuery({
+    query: "(min-width:600px)"
+  })
 
   const [form] = Form.useForm();
 
@@ -204,7 +208,7 @@ export const GetUserDetailForm = ({ contactName }) => {
   };
   return (
     <>
-      {location.pathname !== "/partner_with_us" && (
+      {location.pathname !== "/partner-with-us" && (
         <h1 className="get-in-touch-head">Get in Touch</h1>
       )}
       {contactName === "user" && (
@@ -212,10 +216,20 @@ export const GetUserDetailForm = ({ contactName }) => {
           name="userContact"
           onFinish={(value) => onFormSubmit(value, "user")}
           form={form}
+          style={{
+            display: !media && "flex",
+            flexDirection: "column",
+          }}
           className="userContact-form-main-block"
         >
           {userDetail.map((user, index) => (
-            <div className="user-form" key={index}>
+            <div
+              style={{
+                width: media ? "100%" : "90vw",
+              }}
+              className="user-form"
+              key={index}
+            >
               <p>{user.label}</p>
               <InputType
                 type={user.inputType}
@@ -227,9 +241,24 @@ export const GetUserDetailForm = ({ contactName }) => {
             </div>
           ))}
           <Form.Item>
-            <Button htmlType="submit" type="primary">
-              Submit
-            </Button>
+            {!media ? (
+              <div
+                style={{
+                  width: "100%",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  display: "flex",
+                }}
+              >
+                <Button htmlType="submit" type="primary">
+                  Submit
+                </Button>
+              </div>
+            ) : (
+              <Button htmlType="submit" type="primary">
+                Submit
+              </Button>
+            )}
           </Form.Item>
         </Form>
       )}
@@ -238,10 +267,20 @@ export const GetUserDetailForm = ({ contactName }) => {
           name="companyContact"
           onFinish={(value) => onFormSubmit(value, "business")}
           form={form}
+          style={{
+            display: !media && "flex",
+            flexDirection: "column",
+          }}
           className="companyContact-form-main-block"
         >
           {companyDetail.map((company, index) => (
-            <div className="company-form" key={index}>
+            <div
+              style={{
+                width: media ? "100%" : "90vw",
+              }}
+              className="company-form"
+              key={index}
+            >
               <p>{company.label}</p>
               <InputType
                 type={company.inputType}
@@ -252,9 +291,24 @@ export const GetUserDetailForm = ({ contactName }) => {
             </div>
           ))}
           <Form.Item>
-            <Button htmlType="submit" type="primary">
-              Submit
-            </Button>
+            {!media ? (
+              <div
+                style={{
+                  width: "100%",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  display: "flex",
+                }}
+              >
+                <Button htmlType="submit" type="primary">
+                  Submit
+                </Button>
+              </div>
+            ) : (
+              <Button htmlType="submit" type="primary">
+                Submit
+              </Button>
+            )}
           </Form.Item>
         </Form>
       )}
@@ -263,11 +317,29 @@ export const GetUserDetailForm = ({ contactName }) => {
           name="partnerContact"
           onFinish={(value) => onFormSubmit(value, "partner")}
           form={form}
+          style={{
+            display: !media && "flex",
+            flexDirection: "column",
+          }}
           className="partnerContact-form-main-block"
         >
           {partnerDetail.map((partner, index) => (
-            <div className="partner-form" key={index}>
-              <p>{partner.label}</p>
+            <div
+              style={{
+                width: media ? "100%" : "90vw",
+                display: "flex",
+                flexDirection: media ? "row" : "column",
+              }}
+              className="partner-form"
+              key={index}
+            >
+              <p
+                style={{
+                  marginBottom: !media ? "1rem" : 0,
+                }}
+              >
+                {partner.label}
+              </p>
               <InputType
                 type={partner.inputType}
                 name={partner.name}
@@ -280,9 +352,24 @@ export const GetUserDetailForm = ({ contactName }) => {
             </div>
           ))}
           <Form.Item>
-            <Button htmlType="submit" type="primary">
-              Submit
-            </Button>
+            {!media ? (
+              <div
+                style={{
+                  width: "100%",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  display: "flex",
+                }}
+              >
+                <Button htmlType="submit" type="primary">
+                  Submit
+                </Button>
+              </div>
+            ) : (
+              <Button htmlType="submit" type="primary">
+                Submit
+              </Button>
+            )}
           </Form.Item>
         </Form>
       )}

@@ -1,11 +1,11 @@
-import { Button } from "antd";
 import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import businessImg from "../../../assets/img/aboutUs/businessImg.svg";
 import gigWorkerImg from "../../../assets/img/aboutUs/gigWorkerImg.svg";
 import youngWorker from "../../../assets/img/aboutUs/youngWorker.svg";
-import rightArrowIconLight from "../../../assets/img/rightArrowIconLight.svg";
-import Footer from "../landingPage/components/desktop/CompanyPage/Footer";
+import {useMediaQuery} from 'react-responsive';
+import DesktopView from "./desktopView"
+import MobileView from "./mobileView"
 
 const about = [
   {
@@ -37,46 +37,23 @@ const about = [
   },
 ];
 export default function AboutUs() {
+
+  
+  const media=useMediaQuery({
+    query:'(min-width:600px)'
+  })
+
   const history = useHistory();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <>
-      <div className="aboutUs-main-block">
-        <div className="aboutUs-block">
-          {about.map((data, index) => (
-            <div className="aboutUs-subBlock" key={index}>
-              <h1 className="aboutUs-head">{data.head}</h1>
-              <p className="aboutUs-paraOne">{data.paraOne}</p>
-              <p className="aboutUs-paraTwo">{data.paraTwo} </p>
-              {data.button && (
-                <Button className="aboutUsButton">
-                  {data.button}
-                  <span className="aboutUsButton-span">
-                    <img src={rightArrowIconLight} alt="" className="" />
-                  </span>
-                </Button>
-              )}
-              <div className="aboutUs-img-block">
-                <img src={data.img} alt="" className="aboutUs-img" />
-              </div>
-            </div>
-          ))}
-          <div className="aboutUs-contact">
-            <h1 className="aboutUs-contact-head">
-              Feel free to get in touch with us!
-            </h1>
-            <Button
-              className="aboutUs-contact-button"
-              onClick={() => history.push("/contact_us")}
-            >
-              Contact Us
-            </Button>
-          </div>
-        </div>
-      </div>
-      <Footer />
-    </>
+    <React.Fragment>
+      {media ? (
+        <DesktopView about={about} history={history} />
+      ) : (
+        <MobileView about={about} history={history} />
+      )}
+    </React.Fragment>
   );
 }

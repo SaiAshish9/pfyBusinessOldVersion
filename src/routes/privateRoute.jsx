@@ -6,14 +6,19 @@ import cookie from "js-cookie";
 
 export default function PrivateRoute({ component, ...rest }) {
   const token = cookie.get("companytoken");
-
   return (
     <>
       {!!token ? (
-        <PrivateHeader component={component} {...rest} />
+        <PrivateHeader
+         component={component} 
+         {...rest}
+          />
       ) : (
-        <Redirect to="/" />
-      )}
+        <Redirect
+         to="/"
+          />
+      )
+      }
     </>
   );
 }

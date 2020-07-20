@@ -2,28 +2,37 @@ import React from "react";
 import { Row, Col, Typography } from "antd";
 import Logo from "../../../../assets/images/logo.png";
 import AppStore from "../../../../assets/svgs/appStore";
-import Heart from '../../../../assets/svgs/heart'
-import Instagram from "../../../../assets/svgs/instagram"
-import Facebook from "../../../../assets/svgs/facebook"
-import Twitter from "../../../../assets/svgs/twitter"
-import LinkedIn from "../../../../assets/svgs/linkedin"
-import {useHistory} from 'react-router-dom'
+import Heart from "../../../../assets/svgs/heart";
+import Instagram from "../../../../assets/svgs/instagram";
+import Facebook from "../../../../assets/svgs/facebook";
+import Twitter from "../../../../assets/svgs/twitter";
+import LinkedIn from "../../../../assets/svgs/linkedin";
+import { useHistory } from "react-router-dom";
 
 const Footer = () => {
-
-  const history = useHistory()
+  const history = useHistory();
   const footerOptions = [
     {
       title: "Company",
-      options: ["About Us", "How It Works", "Careers"],
+      options: [
+        { title: "About Us", path: "/about-us" },
+        { title: "How It Works", path: "/how-pracify-work" },
+        { title: "Careers", path: "/career" },
+      ],
     },
     {
       title: "Get In Touch",
-      options: ["Contact Us", "College Festivals"],
+      options: [
+        { title: "Contact Us", path: "/contact-us" },
+        { title: "College Festivals", path: "/partner-with-us" },
+      ],
     },
     {
       title: "Legal",
-      options: ["Terms & Conditions", "Privacy Policy"],
+      options: [
+        { title: "Terms & Conditions", path: "/terms" },
+        { title: "Privacy Policy", path: "/privacy-policy" },
+      ],
     },
   ];
 
@@ -114,15 +123,9 @@ const Footer = () => {
                 {i.options.map((a, b) => (
                   <Typography
                     key={b}
-                    onClick={
-                      ()=>{
-                      if(k===2&&b===0){
-                        history.push('/terms')
-                      }else if(k===2 && b===1){
-                        history.push('/privacy_policy')
-                      }
-                      }
-                    }
+                    onClick={() => {
+                      history.push(a.path);
+                    }}
                     style={{
                       color: "#959595",
                       fontWeight: 500,
@@ -132,7 +135,7 @@ const Footer = () => {
                       fontFamily: "Inter-Medium",
                     }}
                   >
-                    {a}
+                    {a.title}
                   </Typography>
                 ))}
               </Col>
@@ -163,7 +166,7 @@ const Footer = () => {
             fontSize: 16,
             fontWeight: 600,
             fontFamily: "Inter-SemiBold",
-            lineHeight: "18px"
+            lineHeight: "18px",
           }}
         >
           Copyright © 2020 Tyche Ventures Private Limited
@@ -185,6 +188,5 @@ const Footer = () => {
     </React.Fragment>
   );
 };
-
 
 export default Footer;

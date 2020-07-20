@@ -2,14 +2,22 @@ import React, { useEffect } from "react";
 import { Button } from "antd";
 import careerHeroImg from "../../../assets/img/career/careerHeroImg.svg";
 import rightArrowIconLight from "../../../assets/img/rightArrowIconLight.svg";
+import {useMediaQuery} from "react-responsive";
+import MFooter from "../landingPage/components/mobile/general/Footer";
 import Footer from "../landingPage/components/desktop/CompanyPage/Footer";
+import MNavbar from "../landingPage/components/mobile/general/Navbar";
+
 
 export default function Career() {
+  const media = useMediaQuery({
+    query: "(min-width:600px)"
+  })
   useEffect(() => {
     window.scrollTo("0", "0");
   }, []);
   return (
-    <>
+    <React.Fragment>
+      {!media && <MNavbar/>}
       <div className="career-main-block">
         <div className="workWithUs-block">
           <h1 className="workWithUs-head">Work With Us</h1>
@@ -24,7 +32,7 @@ export default function Career() {
           </Button>
         </div>
         <div className="career-hero-block">
-          <div className="career-hero-para-block">
+          <div className={media && "career-hero-para-block"}>
             <p className="career-hero-para">
               We're building the simplest outsourcing solution for companies so
               that they can focus on scaling operations, instead of sourcing,
@@ -44,7 +52,7 @@ export default function Career() {
           </div>
         </div>
       </div>
-      <Footer />
-    </>
+      {media ? <Footer /> : <MFooter />}
+    </React.Fragment>
   );
 }
