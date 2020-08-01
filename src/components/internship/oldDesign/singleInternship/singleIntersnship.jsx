@@ -124,7 +124,7 @@ export default function SingleIntersnship(props) {
                             <p className="text">{internship.stipendType}</p>
                         </div>
                         {internship.benefits.length > 0 ? <div>
-                            <p className="heading">Additional Benifits</p>
+                            <p className="heading">Additional Benefits</p>
                             <div className="text">{internship.benefits.map((benifit, index) =>
                                 <p key={index}>{benifit}</p>
                             )}</div>

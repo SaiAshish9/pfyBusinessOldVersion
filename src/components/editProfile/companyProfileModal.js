@@ -102,7 +102,9 @@ export default function CompanyProfileModal({
             alt="company-logo"
             className="company-logo__img"
           />
-          <Upload {...props} className="company-logo">
+          <Upload 
+          accept=".png,.jpg"
+          {...props} className="company-logo">
             {loading ? <LoadingOutlined /> : "Change Logo"}
           </Upload>
 

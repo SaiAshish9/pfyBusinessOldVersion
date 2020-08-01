@@ -93,7 +93,9 @@ return(
           },
         ]}
       >
-        <Input className="input-style" />
+        <Input 
+        disabled={true}
+        className="input-style" />
       </Form.Item>
       {/* <Form.Item
         label="Password"

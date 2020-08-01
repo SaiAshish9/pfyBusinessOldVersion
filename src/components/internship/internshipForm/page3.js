@@ -153,7 +153,7 @@ export default function Page3(props) {
                                             </Fragment>
                                         ))}
                                         <Form.Item>
-                                            <div className="add-btn add-btn-additional-benefits" onClick={() => {add()}}>+Add Benifit</div>
+                                            <div className="add-btn add-btn-additional-benefits" onClick={() => {add()}}>+Add Benefit</div>
                                         </Form.Item>
                                         </section>
                                     );

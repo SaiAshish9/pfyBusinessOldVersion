@@ -20,7 +20,10 @@ import useWindowDimensions from "../../../Hooks/WindowDimensions";
 import Loader from "../../Loader/Loader";
 import Help from "../../newComp/help/help";
 import ChangePassword from "./ChangePassword";
+import Logo1 from "./pracifyLogo.png";
+
 const { Header, Sider, Content } = Layout;
+
 export default function PrivateHeader({ component: Component, ...rest }) {
   const history = useHistory();
   const location = useLocation();
@@ -102,9 +105,31 @@ export default function PrivateHeader({ component: Component, ...rest }) {
         collapsedWidth={width < 768 ? 0 : 80}
         width={240}
       >
-        <div className="logo">
-          <img src={logo} alt="" className="" />
-        </div>
+        {!collapsed ? (
+          <div className="logo">
+            <img src={logo} alt="" className="" />
+          </div>
+        ) : (
+          <div
+            style={{
+              width: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <img
+              style={{
+                width: "4rem",
+                height: "4rem",
+              }}
+              src={Logo1}
+              alt=""
+              className=""
+            />
+          </div>
+        )}
+
         {!collapsed && (
           <div className="company-avatar-block">
             <div className="company-avatar">
@@ -211,7 +236,6 @@ export default function PrivateHeader({ component: Component, ...rest }) {
                       showChangePassword={showChangePassword}
                     />
                     <div className="header-menu__option" onClick={handleLogout}>
-                      
                       <span>Logout</span>
                     </div>
                   </div>

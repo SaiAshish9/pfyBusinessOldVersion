@@ -364,8 +364,8 @@ export default function SignUp() {
           <>
             {/* <img src={arrowLeft} alt="" className="back-to-register"></img> */}
             <p className="OTP__para">
-              "We've sent you One Time Password (OTP) to verify your email
-              address. Please enter it to continue."
+              We've sent you One Time Password (OTP) to verify your email
+              address. Please enter it to continue.
             </p>
             <div style={{ textAlign: "right" }}>
               <Button loading={resendLoader} onClick={resendOTP}>
@@ -452,7 +452,9 @@ export default function SignUp() {
               onFinishFailed={onCompanyDetailFinishFailed}
               className="signUp-form-block"
             >
-              <Upload {...imgProps}>
+              <Upload 
+              accept=".png,.jpg"
+              {...imgProps}>
                 {imageUrl ? (
                   <img
                     src={s3URL + imageUrl}
