@@ -84,6 +84,7 @@ export default function Help() {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           className="help__textarea"
+          // bordered={false}
           rows={4}
           placeholder="Description"
         />

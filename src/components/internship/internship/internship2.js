@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { Button, Tabs, Table, Skeleton } from "antd";
 import NewCreateInternship from "../internshipForm/newCreateInternship";
-import { MoreOutlined } from "@ant-design/icons";
+import { MoreOutlined,EyeOutlined,EditOutlined,DeleteOutlined } from "@ant-design/icons";
 // import rocket from '../../../assets/img/boostInternship/rocket.svg'
 import rocket from "../../../assets/img/internship/rocket.svg";
 import plus from "../../../assets/img/internship/plus.svg";
@@ -95,7 +95,27 @@ export default function Internship2() {
       title: "Action",
       dataIndex: "action",
       key: "action",
-      render: (text, record) => <MoreOutlined />,
+      render: (text, record) => (
+        <div style={{ display: "flex", align: "center" }}>
+          <EyeOutlined
+            style={{
+              cursor: "pointer",
+              marginRight: 10,
+            }}
+          />
+          <EditOutlined
+            style={{
+              cursor: "pointer",
+              marginRight: 10,
+            }}
+          />
+          <DeleteOutlined
+            style={{
+              cursor: "pointer",
+            }}
+          />
+        </div>
+      ),
     },
   ];
   const setInternshipData = async () => {

@@ -215,7 +215,7 @@ export default function DefaultCampaign({
         name="defaultGigCampaign"
       >
         {questions[campaignTitle] &&
-          questions[campaignTitle].map((question,index) => (
+          questions[campaignTitle].map((question, index) => (
             <>
               <p className="requirement__p">{question}</p>
               <Form.Item
@@ -227,12 +227,18 @@ export default function DefaultCampaign({
                   },
                 ]}
               >
-                 <TextArea className="requirement__input" autoSize />
+                <TextArea
+                  className="requirement__input"
+                  bordered={false}
+                  // autoSize
+                  style={{
+                    minHeight:130
+                  }}
+                 
+                />
               </Form.Item>
             </>
           ))}
-        
-  
       </Form>
     </Modal>
   );

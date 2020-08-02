@@ -19,7 +19,7 @@ export default function Campaign({ campaignTitle,title }) {
 
   const handleCreateCampaign = () => {
     builders.includes(campaignTitle) 
-      ? history.push(`/create-campaign/${title}/${campaignTitle}`)
+      ? history.push(`/gigs/create-campaign/${title}/${campaignTitle}`)
       : setModalVisible(true);
   };
 
