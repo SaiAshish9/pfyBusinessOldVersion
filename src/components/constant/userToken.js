@@ -6,7 +6,7 @@
 // };
 
 // export const companyId = "5e6f27d78ee3c76dd9d74565";
-
-export const apiURL = "https://pracify.com/testing/";
+// /testing
+export const apiURL = "https://pracify.com/api/";
 //export const apiURL = "http://localhost:5000/";
 export const s3URL = "https://duexpress-projectx.s3.ap-south-1.amazonaws.com/";

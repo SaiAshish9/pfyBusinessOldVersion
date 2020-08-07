@@ -38,6 +38,7 @@ export default function PrivateHeader({ component: Component, ...rest }) {
       .then((res) => {
         setHeaderData(res.data);
         setHeaderLoader(false);
+
       })
       .catch((err) => {
         //  console.log()
