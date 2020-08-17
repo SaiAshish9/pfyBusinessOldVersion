@@ -39,7 +39,7 @@ const Badges = () => (
         fontSize: 32,
         textAlign: "center",
         lineHeight: '32px',
-        fontFamily: "Inter-Medium",
+        fontWeight:500,
         marginBottom:68
       }}
     >
@@ -52,7 +52,7 @@ const Badges = () => (
         display: "flex",
         fontSize: 20,
         flexDirection: "row",
-        fontFamily: "Inter-Medium",
+        fontWeight:500,
         justifyContent: "space-around",
         alignItems: "center",
       }}

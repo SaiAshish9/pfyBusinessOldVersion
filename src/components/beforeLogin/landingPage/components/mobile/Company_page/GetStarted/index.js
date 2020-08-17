@@ -19,7 +19,7 @@ const GetStarted = () => {
             style={{
               color: "#333e49",
               fontSize: "1.8rem",
-              fontFamily: "Inter-SemiBold",
+              // fontFamily: "Inter-SemiBold",
               fontWeight: 600,
               textAlign: "center",
               fontStretch: "normal",
@@ -36,8 +36,9 @@ const GetStarted = () => {
             style={{
               color: "#333e49",
               fontSize: "1.2rem",
-              fontFamily: "Inter-Medium",
-              // fontWeight: 500,
+              // fontFamily: "Inter-Medium",
+
+              fontWeight: 500,
               lineHeight: "39px",
               textAlign: "center",
               fontStretch: "normal",

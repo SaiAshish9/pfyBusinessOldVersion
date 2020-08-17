@@ -149,7 +149,7 @@ const Section3 = () => {
               data-aos="fade"
               // className="animate__animated animate__fadeIn"
               style={{
-                fontFamily: "Inter-SemiBold",
+                // fontFamily: "Inter",
                 fontSize: 34,
                 lineHeight: "36px",
                 fontWeight: 600,
@@ -176,7 +176,7 @@ const Section3 = () => {
               data-aos="fade"
               // className="animate__animated animate__fadeIn"
               style={{
-                fontFamily: "Inter-SemiBold",
+                // fontFamily: "Inter-SemiBold",
                 fontSize: 34,
                 lineHeight: "36px",
                 fontWeight: 600,
@@ -203,7 +203,7 @@ const Section3 = () => {
               data-aos="fade"
               // className="animate__animated animate__fadeIn"
               style={{
-                fontFamily: "Inter-SemiBold",
+                // fontFamily: "Inter-SemiBold",
                 fontSize: 34,
                 lineHeight: "36px",
                 fontWeight: 600,

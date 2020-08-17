@@ -160,7 +160,8 @@ const Section2 = () => {
                     style={{
                       margin: "auto",
                       marginLeft: "1rem",
-                      fontFamily: "Inter-SemiBold",
+                      // fontFamily: "Inter-SemiBold",
+                      fontWeight: 600,
                       fontSize: "1.3rem",
                       lineHeight: "34px",
                       color: "#333e49",
@@ -178,7 +179,8 @@ const Section2 = () => {
                     marginLeft: "3.4rem",
                     // width: "81%",
                     color: "#333e49",
-                    fontFamily: "Inter-Medium",
+                    // fontFamily: "Inter-Medium",
+                    fontWeight:500,
                     fontSize: "1rem",
                     lineHeight: "30px",
                   }}

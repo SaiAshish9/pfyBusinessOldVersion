@@ -90,7 +90,6 @@ const PartnershipBenefits = () => {
         <p
           style={{
             fontSize: "40px",
-            fontFamily: "Inter-SemiBold",
             lineHeight: "47px",
             color: "#333e49",
             fontWeight: 600,
@@ -126,7 +125,6 @@ const PartnershipBenefits = () => {
                 <img src={i.icon} alt={k} style={{ width: "2.1rem" }} />
                 <p
                   style={{
-                    fontFamily: "Inter-SemiBold",
                     fontWeight: 600,
                     fontSize: 22,
                     margin: "auto 0px",
@@ -147,7 +145,6 @@ const PartnershipBenefits = () => {
                     color: "rgb(51,62,73,0.6)",
                     // opacity: 0.3+ '!important' ,
                     fontSize: 18,
-                    fontFamily: "Inter-Medium",
                     //   lineHeight: "26px",
                     fontWeight: 500,
                   }}

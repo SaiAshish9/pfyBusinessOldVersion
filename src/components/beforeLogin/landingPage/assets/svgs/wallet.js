@@ -93,7 +93,7 @@ const Wallet = () => (
         transform="translate(1084.439 287.713)"
         fill="#fff"
         font-size="11"
-        font-family="Inter-Regular, Inter"
+        font-family="Inter"
       >
         <tspan x="0" y="0">
           Validity
@@ -105,7 +105,7 @@ const Wallet = () => (
         transform="translate(869.906 312.474)"
         fill="#fff"
         font-size="16"
-        font-family="Inter-SemiBold, Inter"
+        font-family="Inter"
         font-weight="600"
       >
         <tspan x="0" y="0">
@@ -117,7 +117,7 @@ const Wallet = () => (
         transform="translate(1084.439 312.474)"
         fill="#fff"
         font-size="16"
-        font-family="Inter-SemiBold, Inter"
+        font-family="Inter"
         font-weight="600"
       >
         <tspan x="0" y="0">
@@ -177,7 +177,7 @@ const Wallet = () => (
         transform="translate(869.906 287.713)"
         fill="#fff"
         font-size="11"
-        font-family="Inter-Regular, Inter"
+        font-family=-Regular, Inter"
       >
         <tspan x="0" y="0">
           Card Holder

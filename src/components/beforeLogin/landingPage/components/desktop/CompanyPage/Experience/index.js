@@ -22,7 +22,8 @@ const Experience = () => (
           display: "flex",
           flexDirection: "column",
           // alignItems: "center",
-          fontFamily: "Inter-Medium",
+          // fontFamily: "Inter-Medium",
+          fontWeight:500,
           justifyContent: "center",
         }}
       >
@@ -38,7 +39,8 @@ const Experience = () => (
           <Typography
             style={{
               fontSize: 42,
-              fontFamily: "Inter-Bold",
+              // fontFamily: "Inter-Bold",
+              fontWeight:700,
               color: "#fff",
               lineHeight: "60px",
               marginBottom: 10,
@@ -81,7 +83,8 @@ const Experience = () => (
           <Typography
             style={{
               fontSize: 42,
-              fontFamily: "Inter-Bold",
+              // fontFamily: "Inter-Bold",
+              fontWeight:700,
               color: "#fff",
               lineHeight: "60px",
               marginBottom: 10,

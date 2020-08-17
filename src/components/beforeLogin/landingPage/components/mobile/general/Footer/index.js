@@ -66,7 +66,8 @@ const Footer = () => {
               style={{
                 marginBottom: 20,
                 color: "#333e49",
-                fontFamily: "Inter-SemiBold",
+                // fontFamily: "Inter-SemiBold",
+                fontWeight: 600,
                 lineHeight: "10px",
                 fontWeight: 600,
                 fontSize: 15,
@@ -86,7 +87,7 @@ const Footer = () => {
                   fontWeight: 500,
                   lineHeight: "30px",
                   fontSize: 14,
-                  fontFamily: "Inter-Medium",
+                  // fontFamily: "Inter-Medium",
                 }}
               >
                 {a.title}
@@ -132,7 +133,7 @@ const Footer = () => {
           margin: "1rem 0",
           marginLeft: "1.5rem",
           fontWeight: 600,
-          fontFamily: "Inter-SemiBold",
+          // fontFamily: "Inter-SemiBold",
           lineHeight: "18px",
         }}
       >
@@ -143,7 +144,7 @@ const Footer = () => {
         style={{
           fontSize: 14,
           lineHeight: "24px",
-          fontFamily: "Inter-SemiBold",
+          // fontFamily: "Inter-SemiBold",
           color: "#333e49",
           fontWeight: 600,
           marginLeft: "2rem",
@@ -160,11 +161,11 @@ const Footer = () => {
           color: "#333e49",
           fontSize: 16,
           lineHeight: "18px",
-          fontFamily: "Inter-SemiBold",
+          // fontFamily: "Inter-SemiBold",
           // display:"flex",
           // alignItems:"center",
           // justifyContent:"center",
-          marginRight:5,
+          marginRight: 5,
           textAlign: "center",
         }}
       >

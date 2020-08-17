@@ -67,7 +67,8 @@ const Partnerships = () => {
         <p
           style={{
             color: "#fff",
-            fontFamily: "Inter-SemiBold",
+            fontWeight:500,
+            // fontFamily: "Inter-SemiBold",
             fontSize: "24px",
             lineHeight: "30px",
             position:"relative",
@@ -95,7 +96,8 @@ const Partnerships = () => {
         >
           <p
             style={{
-              fontFamily: "Inter-Bold",
+              // fontFamily: "Inter-Bold",
+              fontWeight:700,
               fontSize: 18,
               lineHeight: "30px",
               margin: "auto",
@@ -111,7 +113,7 @@ const Partnerships = () => {
 
       <p
         style={{
-          fontFamily: "Inter-SemiBold",
+          // fontFamily: "Inter-SemiBold",
           marginBottom: 78,
           fontSize: 36,
           lineHeight: "30px",
@@ -159,7 +161,8 @@ const Partnerships = () => {
               />
               <p
                 style={{
-                  fontFamily: "Inter-SemiBold",
+                  // fontFamily: "Inter-SemiBold",
+                  fontWeight: 600,
                   fontSize: 20,
                   lineHeight: "30px",
                   letterSpacing: "1px",
@@ -171,7 +174,8 @@ const Partnerships = () => {
               </p>
               <p
                 style={{
-                  fontFamily: "Inter-Medium",
+                  // fontFamily: "Inter-Medium",
+                  fontWeight:500,
                   fontSize: 16,
                   lineHeight: "24px",
                   color: "#333e49",
@@ -196,7 +200,8 @@ const Partnerships = () => {
             >
               <p
                 style={{
-                  fontFamily: "Inter-SemiBold",
+                  // fontFamily: "Inter-SemiBold",
+                  fontWeight:600,
                   fontSize: 16,
                   lineHeight: "30px",
                   letterSpacing: "0.8px",

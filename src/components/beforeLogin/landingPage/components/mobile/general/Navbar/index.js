@@ -60,7 +60,8 @@ const Navbar = ({history}) => {
             margin: "10vh 5vw ",
             fontSize: 18,
             lineHeight: 1.22,
-            fontFamily: "Inter-SemiBold",
+            fontWeight: 500
+            // fontFamily: "Inter-SemiBold",
           }}
         >
           <AiOutlineClose

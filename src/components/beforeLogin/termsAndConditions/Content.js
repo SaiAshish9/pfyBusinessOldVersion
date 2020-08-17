@@ -23,7 +23,8 @@ const Content = () => {
         <p
           style={{
             fontWeight: 600,
-            fontFamily: "Inter-SemiBold",
+       // fontFamily: "Inter-SemiBold",
+
             fontSize: !mediaSIze?32:48,
             lineHeight: "52px",
             color: "#111111",
@@ -145,7 +146,8 @@ const Content = () => {
           <br />
           <span
             style={{
-              fontFamily: "Inter-SemiBold",
+         // fontFamily: "Inter-SemiBold",
+
               fontWeight: 600,
               fontSize: 24,
               lineHeight: "28px",
@@ -167,7 +169,8 @@ const Content = () => {
           <br />
           <span
             style={{
-              fontFamily: "Inter-SemiBold",
+         // fontFamily: "Inter-SemiBold",
+
               fontWeight: 600,
               fontSize: 24,
               lineHeight: "28px",

@@ -24,7 +24,8 @@ const Section4 = () => (
         style={{
           display: "flex",
           flexDirection: "column",
-          fontFamily: "Inter-Medium",
+          // fontFamily: "Inter-Medium",
+          fontWeight:500,
           justifyContent: "center",
         }}
       >
@@ -42,7 +43,7 @@ const Section4 = () => (
             style={{
               fontSize: "1.8rem",
               fontWeight: 500,
-              fontFamily: "Inter-Medium",
+              // fontFamily: "Inter-Medium",
               color: "#fff",
               lineHeight: "60px",
               marginBottom: 10,
@@ -87,7 +88,7 @@ const Section4 = () => (
             style={{
               fontSize: "2rem",
               fontWeight: 500,
-              fontFamily: "Inter-Medium",
+              // fontFamily: "Inter-Medium",
               color: "#fff",
               lineHeight: "60px",
               marginBottom: 10,

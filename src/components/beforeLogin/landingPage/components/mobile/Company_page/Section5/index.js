@@ -43,8 +43,8 @@ const Section5 = () => {
         style={{
           // background:`url(${Contact})`,
           backgroundImage: "linear-gradient(91deg, #6e74c6 0%, #373a63 97%)",
-        //   height: 183,
-        width:"90vw",
+          //   height: 183,
+          width: "90vw",
           borderRadius: 11,
           boxShadow: "0 6px 25px 0 rgba(0, 0, 0, 0.16)",
           marginBottom: 90,
@@ -69,16 +69,16 @@ const Section5 = () => {
         <p
           style={{
             color: "#fff",
-            fontFamily: "Inter-SemiBold",
+            // fontFamily: "Inter-SemiBold",
+            fontWeight: 600,
             fontSize: "1.2rem",
             lineHeight: "30px",
             position: "relative",
             zIndex: 2,
           }}
         >
-          Built from the ground up to save your company money. Save time
-          with Pracify, a tech platform making outsourcing easier and
-          faster.
+          Built from the ground up to save your company money. Save time with
+          Pracify, a tech platform making outsourcing easier and faster.
         </p>
 
         <Button
@@ -97,7 +97,8 @@ const Section5 = () => {
         >
           <p
             style={{
-              fontFamily: "Inter-Bold",
+              // fontFamily: "Inter-Bold",
+              fontWeight: 700,
               fontSize: 18,
               lineHeight: "30px",
               margin: "auto",
@@ -113,7 +114,7 @@ const Section5 = () => {
 
       <p
         style={{
-          fontFamily: "Inter-SemiBold",
+          // fontFamily: "Inter-SemiBold",
           marginBottom: 78,
           fontSize: "1.5rem",
           lineHeight: "30px",
@@ -157,7 +158,8 @@ const Section5 = () => {
             />
             <p
               style={{
-                fontFamily: "Inter-SemiBold",
+                // fontFamily: "Inter-SemiBold",
+                fontWeight: 600,
                 fontSize: 20,
                 lineHeight: "30px",
                 letterSpacing: "1px",
@@ -169,7 +171,8 @@ const Section5 = () => {
             </p>
             <p
               style={{
-                fontFamily: "Inter-Medium",
+                // fontFamily: "Inter-Medium",
+                fontWeight: 500,
                 fontSize: 16,
                 lineHeight: "24px",
                 color: "#333e49",
@@ -194,7 +197,8 @@ const Section5 = () => {
           >
             <p
               style={{
-                fontFamily: "Inter-SemiBold",
+                // fontFamily: "Inter-SemiBold",
+                fontWeight: 600,
                 fontSize: 16,
                 lineHeight: "30px",
                 letterSpacing: "0.8px",

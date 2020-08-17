@@ -66,7 +66,7 @@ const Footer = () => {
             style={{
               fontSize: 14,
               lineHeight: "24px",
-              fontFamily: "Inter-SemiBold",
+              // fontFamily: "Inter-SemiBold",
               color: "#333e49",
               fontWeight: 600,
               marginLeft: "2rem",
@@ -111,7 +111,7 @@ const Footer = () => {
                   style={{
                     marginBottom: 20,
                     color: "#333e49",
-                    fontFamily: "Inter-SemiBold",
+                    // fontFamily: "Inter-SemiBold",
                     lineHeight: "30px",
                     fontWeight: 600,
                     fontSize: 15,
@@ -132,7 +132,7 @@ const Footer = () => {
                       lineHeight: "30px",
                       fontSize: 14,
                       cursor: "pointer",
-                      fontFamily: "Inter-Medium",
+                      // fontFamily: "Inter-Medium",
                     }}
                   >
                     {a.title}
@@ -155,7 +155,7 @@ const Footer = () => {
             color: "#333e49",
             fontSize: 16,
             lineHeight: "18px",
-            fontFamily: "Inter-SemiBold",
+            // fontFamily: "Inter-SemiBold",
           }}
         >
           Made with <Heart /> in India
@@ -165,7 +165,7 @@ const Footer = () => {
             color: "#333e49",
             fontSize: 16,
             fontWeight: 600,
-            fontFamily: "Inter-SemiBold",
+            // fontFamily: "Inter-SemiBold",
             lineHeight: "18px",
           }}
         >

@@ -100,7 +100,8 @@ const Section3 = () => {
             <p
              data-aos="fade"
               style={{
-                fontFamily: "Inter-Medium",
+                // fontFamily: "Inter-Medium",
+                fontWeight:500,
                 fontSize: 26,
                 position: "relative",
                 top: 10,
