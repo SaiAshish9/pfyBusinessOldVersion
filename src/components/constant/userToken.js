@@ -9,4 +9,7 @@
 // /testing
 export const apiURL = "https://pracify.com/api/";
 //export const apiURL = "http://localhost:5000/";
-export const s3URL = "https://duexpress-projectx.s3.ap-south-1.amazonaws.com/";
+// export const s3URL = "https://duexpress-projectx.s3.ap-south-1.amazonaws.com/";
+
+export const s3URL = "https://pracify.s3.ap-south-1.amazonaws.com/";
+

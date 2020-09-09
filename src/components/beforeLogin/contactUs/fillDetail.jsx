@@ -3,7 +3,7 @@ import { Modal, Form, Button } from "antd";
 import InputType from "../../inputType";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import modalCloseIcon from "../../../assets/img/modalCloseIcon.svg";
-import {useMediaQuery} from "react-responsive";
+import { useMediaQuery } from "react-responsive";
 
 const userDetail = [
   {
@@ -186,9 +186,9 @@ export default function FillDetail({
 export const GetUserDetailForm = ({ contactName }) => {
   const location = useLocation();
   console.log("location", location);
-  const media=useMediaQuery({
-    query: "(min-width:600px)"
-  })
+  const media = useMediaQuery({
+    query: "(min-width:600px)",
+  });
 
   const [form] = Form.useForm();
 
@@ -328,7 +328,10 @@ export const GetUserDetailForm = ({ contactName }) => {
               style={{
                 width: media ? "100%" : "90vw",
                 display: "flex",
-                flexDirection: media ? "row" : "column",
+                flexDirection:
+                  media && index === partnerDetail.length - 1
+                    ? "row"
+                    : "column",
               }}
               className="partner-form"
               key={index}
